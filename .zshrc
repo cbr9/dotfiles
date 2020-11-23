@@ -103,7 +103,8 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias vim="nvim"
+#alias vim="nvim"
+alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl'
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias remove_orphans="sudo pacman -Rns $(pacman -Qtdq)"
@@ -111,6 +112,7 @@ alias open="xdg-open"
 alias gs="git status"
 alias cat="bat"
 alias ls="exa"
+alias lsd="exa -D"
 alias ps="procs"
 
 
