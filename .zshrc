@@ -1,10 +1,4 @@
 export LC_ALL="en_US.UTF-8"
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block, everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -16,7 +10,7 @@ export ZSH="/home/cabero/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME=powerlevel10k/powerlevel10k
+ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -76,13 +70,13 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf vi-mode rust docker docker-compose sudo man zsh-syntax-highlighting zsh-autosuggestions colorize k golang)
+plugins=(git cargo ripgrep fd fzf vi-mode rustup rust docker docker-compose sudo man zsh-syntax-highlighting zsh-autosuggestions colorize golang)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -104,16 +98,12 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 #alias vim="nvim"
-alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl'
+alias ssh="TERM=xterm-256color ssh"
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias remove_orphans="sudo pacman -Rns $(pacman -Qtdq)"
 alias open="xdg-open"
 alias gs="git status"
-alias cat="bat"
-alias ls="exa"
-alias lsd="exa -D"
-alias ps="procs"
 
 
 HISTSIZE=10000
@@ -136,34 +126,12 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export GOPATH="$HOME/Code/Go/"
 export GOBIN=$GOPATH/bin
 export PATH=$GOBIN:$GOPATH:$PATH
-export PATH="$HOME/Code/KDE/src/kdesrc-build:/$HOME/Code/Bash/:/$HOME/Code/Bash/JetBrains/:$PATH"
-export PATH="/home/cabero/.local/bin/:$PATH"
-# echo "APROPOS!"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/cabero/.anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/cabero/.anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/cabero/.anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/cabero/.anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-function sp() {
-  cd $(projector list | sk)
-}
-
+export PATH="$HOME/.local/bin/:$HOME/.cargo/bin:/opt/texlive/2020/bin/x86_64-linux:$HOME/Code/dotfiles:$PATH"
 
 function monitor_brightness() {
   CURRENT_BRIGHTNESS=$(xrandr --verbose | grep -m 1 -i brightness | cut -f2 -d ' ')
@@ -187,19 +155,10 @@ source /usr/share/fzf/completion.zsh
 export FZF_DEFAULT_OPS="--extended --height 80%"
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude '.git/*'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export EDITOR=$(which nvim)
+export EDITOR=$(which vim)
 
-# kdesrc-build ##################################################
-
-## Add kdesrc-build to PATH
-export PATH="$HOME/kde/src/kdesrc-build:$HOME/mycroft-core/bin/:$PATH"
-
-## Run projects built with kdesrc-build
-function kdesrc-run
-{
-  source "$HOME/kde/build/$1/prefix.sh" && "$HOME/kde/usr/bin/$@"
-}
 eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
 
 rga-fzf() {
 	RG_PREFIX="rga --files-with-matches"
