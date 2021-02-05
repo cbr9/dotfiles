@@ -1,0 +1,9 @@
+recursive = 1
+watch = true
+ignore = []
+hidden_files = false
+match = "first"
+
+[apply]
+actions = "all"
+filters = "all"
