@@ -26,7 +26,6 @@
     ./lf
     ./lazygit
     ./man
-    ./nap
     ./nextcloud-client
     ./neovim
     ./nix
