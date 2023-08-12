@@ -7,7 +7,6 @@
   home = config.home.homeDirectory;
   modifier = config.xsession.windowManager.i3.config.modifier;
   terminal = config.xsession.windowManager.i3.config.terminal;
-  maim = "${pkgs.maim}/bin/maim";
 in {
   xsession.windowManager.i3.config.keybindings = lib.mkOptionDefault {
     "XF86AudioMute" = "exec ${pkgs.pamixer}/bin/pamixer -t";
@@ -29,6 +28,6 @@ in {
     "${modifier}+Shift+u" = "exec setxkbmap -layout us";
     "${modifier}+Shift+e" = "exec setxkbmap -layout es";
     "${modifier}+Shift+q" = "exec i3-nagbar -t warning -m 'Do you want to exit i3?' -b 'Yes' 'i3-msg exit'";
-    "Print" = "exec --no-startup-id ${maim} \"${home}/Pictures/$(date).jpg\"";
+    "Print" = "exec --no-startup-id ${pkgs.maim}/bin/maim \"${home}/Nextcloud/Pictures/Screenshots/$(date).jpg\"";
   };
 }
