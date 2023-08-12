@@ -47,8 +47,8 @@
 
   home.activation = lib.mkIf (nixosConfig != {}) {
     background = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      ${pkgs.feh}/bin/feh --bg-fill ${nixosConfig.stylix.image}
-      ${pkgs.betterlockscreen}/bin/betterlockscreen -u ${nixosConfig.stylix.image}
+      ${pkgs.feh}/bin/feh --bg-fill ${nixosConfig.stylix.image} &
+      ${pkgs.betterlockscreen}/bin/betterlockscreen -u ${nixosConfig.stylix.image} &
     '';
   };
 }
