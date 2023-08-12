@@ -19,6 +19,12 @@ with builtins; {
 
     home-manager.users.cabero = mkMerge (mkHome {
       configuration = {
+        home.shellAliases = {
+          commute = ''
+            sudo /nix/var/nix/profiles/system/specialisation/sony/bin/switch-to-configuration switch
+            sudo nmcli connection up sony-vpn --ask
+          '';
+        };
         stylix = {
           targets.alacritty.enable = false;
           targets.zellij.enable = false;
