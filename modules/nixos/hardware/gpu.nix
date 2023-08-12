@@ -64,6 +64,7 @@ with builtins; {
         (mkIf nvidia "nvidia")
       ];
 
+      dpi = 125;
       deviceSection = mkIf (intel || amd) ''
         Option "DRI" "2"
         Option "TearFree" "true"

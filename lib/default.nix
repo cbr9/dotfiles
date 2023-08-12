@@ -90,9 +90,6 @@ in {
 
             services = {
               upower.enable = true;
-              xserver = {
-                dpi = 125;
-              };
               # Enable CUPS to print documents.
               printing.enable = true;
             };
