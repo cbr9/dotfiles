@@ -26,11 +26,10 @@
         ];
       };
       window = {
-        padding = {
-          x = 5;
-          # y = 5;
-        };
+        padding.x = 5;
+        dynamic_padding = true;
       };
+      font.size = 12.0;
     };
   };
 }
