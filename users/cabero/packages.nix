@@ -19,14 +19,12 @@
   ];
 
   gui = with pkgs; [
-    anytype
     evince
     speedcrunch
     obsidian
     lame
     mpv
     mplayer
-    nextcloud-client
     google-chrome
     anki-bin
     evince
