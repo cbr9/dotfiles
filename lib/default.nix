@@ -48,8 +48,8 @@ in {
             );
 
             sys.graphics.background = pkgs.fetchurl {
-              url = "https://unsplash.com/photos/x9izwWknJ7s/download?ixid=M3wxMjA3fDB8MXxhbGx8OHx8fHx8fDJ8fDE2OTE4MzA4MDN8&force=true";
-              sha256 = "sha256-TcokszAb7iuK3aO093CQ0XqZOJR+TQWw5QjtqnqHLJ0=";
+              url = "https://unsplash.com/photos/zRqZOyG78wM/download?ixid=M3wxMjA3fDB8MXxhbGx8Mzl8fHx8fHwyfHwxNjkxODMyNjE2fA&force=true";
+              sha256 = "sha256-jwyusMojfJrJNLa3ahoynGsqGSICvwDoQ/CFvE9Co5s=";
             };
 
             stylix = {

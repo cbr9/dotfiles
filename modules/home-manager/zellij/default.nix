@@ -27,6 +27,7 @@ in {
       enableBashIntegration = config.programs.zellij.allowOneInstance;
       enableFishIntegration = config.programs.zellij.allowOneInstance;
       settings = {
+        pane_frames = false;
         default_shell = "fish";
         default_layout = "compact";
         theme = "gruvbox-dark";
