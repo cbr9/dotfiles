@@ -1,0 +1,4 @@
+*.jpg filter=lfs diff=lfs merge=lfs -text
+hosts/deatcs001ws845/** filter=git-crypt diff=git-crypt
+hosts/deatcs002lt120/** filter=git-crypt diff=git-crypt
+modules/nixos/sony/** filter=git-crypt diff=git-crypt

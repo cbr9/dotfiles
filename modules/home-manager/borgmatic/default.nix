@@ -1,0 +1,5 @@
+{...}: {
+  programs.borgmatic = {
+    enable = false;
+  };
+}

@@ -1,0 +1,3 @@
+class <name>:
+ def __init__(self) -> None:
+  ...

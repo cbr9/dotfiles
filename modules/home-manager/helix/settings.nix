@@ -1,0 +1,77 @@
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+with pkgs; let
+  cfg = config.programs.helix;
+in {
+  programs.helix.settings = {
+    theme = lib.mkForce "gruvbox_dark_hard";
+    keys = {
+      normal =
+        {
+          g = {
+            l = ["select_mode" "goto_line_end" "normal_mode"];
+            h = ["select_mode" "goto_line_start" "normal_mode"];
+            g = ["select_mode" "goto_file_start" "normal_mode"];
+            G = ["select_mode" "goto_file_end" "normal_mode"];
+            e = ["select_mode" "goto_last_line" "normal_mode"];
+            q = {q = [":reflow"];};
+          };
+        }
+        // lib.attrsets.optionalAttrs (cfg.package == helix-master) {
+          A-y = ["yank_joined"];
+        };
+    };
+    editor = {
+      auto-completion = true;
+      line-number = "relative";
+      true-color = true;
+      auto-save = true;
+      cursorline = true;
+      gutters = ["diff" "line-numbers" "spacer" "diagnostics"];
+      color-modes = true;
+      bufferline = "always";
+      completion-replace = false;
+
+      file-picker = {hidden = false;};
+
+      indent-guides = {
+        render = true;
+        character = "⸽";
+      };
+
+      soft-wrap = {
+        enable = true;
+        wrap-at-text-width = false;
+      };
+
+      lsp = {
+        display-messages = true;
+        display-inlay-hints = true;
+        auto-signature-help = true;
+      };
+
+      statusline = {
+        left = ["mode" "spinner"];
+        center = ["file-name"];
+        right = [
+          "total-line-numbers"
+          "diagnostics"
+          "selections"
+          "position"
+          "file-encoding"
+          "file-type"
+        ];
+        separator = "|";
+        mode.normal = "NORMAL";
+        mode.insert = "INSERT";
+        mode.select = "SELECT";
+      };
+
+      whitespace = {render = {tab = "all";};};
+    };
+  };
+}
