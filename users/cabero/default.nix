@@ -22,7 +22,11 @@ with builtins; {
         home.shellAliases = {
           commute = "sudo /nix/var/nix/profiles/system/specialisation/sony/bin/switch-to-configuration switch && i3-msg restart >> /dev/null && sudo nmcli connection up sony-vpn --ask";
           chill = "sudo /nix/var/nix/profiles/system/bin/switch-to-configuration switch && i3-msg restart >> /dev/null";
+          emoji = "~/.cargo/bin/emocli -li | ${pkgs.fzf}/bin/fzf | cut -d' ' -f1 | tr -d '\n' | ${pkgs.xclip}/bin/xclip -selection clipboard";
         };
+        home.sessionPath = [
+          "${config.home-manager.users.cabero.home.homeDirectory}/.cargo/bin"
+        ];
         stylix = {
           targets.alacritty.enable = false;
           targets.zellij.enable = false;

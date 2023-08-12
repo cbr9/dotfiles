@@ -2,6 +2,7 @@
   cli = with pkgs; [
     just
     gptcommit
+    poppler_utils
     typst-master
     nodePackages.webtorrent-cli
     termusic
