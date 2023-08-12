@@ -47,14 +47,12 @@ in {
               ++ lib.lists.optional (builtins.pathExists ../hosts/${configuration.networking.hostName}/disks.nix) ../hosts/${configuration.networking.hostName}/disks.nix
             );
 
-            sys.graphics.background = pkgs.fetchurl {
-              url = "https://unsplash.com/photos/zRqZOyG78wM/download?ixid=M3wxMjA3fDB8MXxhbGx8Mzl8fHx8fHwyfHwxNjkxODMyNjE2fA&force=true";
-              sha256 = "sha256-jwyusMojfJrJNLa3ahoynGsqGSICvwDoQ/CFvE9Co5s=";
-            };
-
             stylix = {
               base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-              image = config.sys.graphics.background;
+              image = pkgs.fetchurl {
+                url = "https://unsplash.com/photos/zRqZOyG78wM/download?ixid=M3wxMjA3fDB8MXxhbGx8Mzl8fHx8fHwyfHwxNjkxODMyNjE2fA&force=true";
+                sha256 = "sha256-jwyusMojfJrJNLa3ahoynGsqGSICvwDoQ/CFvE9Co5s=";
+              };
             };
 
             nixpkgs.pkgs = pkgs;

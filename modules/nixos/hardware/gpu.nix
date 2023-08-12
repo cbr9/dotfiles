@@ -16,10 +16,6 @@ with builtins; {
       };
   };
   options.sys.graphics = {
-    background = mkOption {
-      type = types.path;
-      default = null;
-    };
     desktopProtocols = mkOption {
       type = types.nullOr (types.listOf (types.enum ["xorg" "wayland"]));
       default = ["xorg"];
@@ -76,7 +72,7 @@ with builtins; {
       displayManager = {
         lightdm = {
           enable = config.sys.graphics.displayManager == "lightdm";
-          background = lib.mkForce config.sys.graphics.background;
+          background = lib.mkForce config.stylix.image;
           greeters.gtk.enable = true;
         };
         gdm = {

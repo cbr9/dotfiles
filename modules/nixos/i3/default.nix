@@ -102,11 +102,11 @@ in {
           startup = (
             [
               {
-                command = "${pkgs.feh}/bin/feh --bg-fill ${config.sys.graphics.background}";
+                command = "${pkgs.feh}/bin/feh --bg-fill ${config.stylix.image}";
                 always = true;
               }
               {
-                command = "${pkgs.betterlockscreen}/bin/betterlockscreen -u ${config.sys.graphics.background}";
+                command = "${pkgs.betterlockscreen}/bin/betterlockscreen -u ${config.stylix.image}";
                 always = true;
                 notification = false;
               }
