@@ -23,7 +23,7 @@ in {
     "${modifier}+b" = "exec ${pkgs.firefox}/bin/firefox";
     "${modifier}+t" = "exec ${pkgs.todoist-electron}/bin/todoist-electron";
     "${modifier}+Shift+x" = "exec systemctl suspend";
-    "${modifier}+l" = "exec ${pkgs.betterlockscreen}/bin/betterlockscreen -l";
+    "${modifier}+l" = "exec ${pkgs.betterlockscreen}/bin/betterlockscreen -l dim";
     "${modifier}+Shift+d" = "exec setxkbmap -layout de";
     "${modifier}+Shift+u" = "exec setxkbmap -layout us";
     "${modifier}+Shift+e" = "exec setxkbmap -layout es";
