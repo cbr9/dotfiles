@@ -8,6 +8,8 @@
     TERMINAL = "alacritty";
   };
 
+  stylix.targets.alacritty.enable = false;
+
   programs.alacritty = {
     enable = true;
     settings = let
