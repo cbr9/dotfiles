@@ -5,7 +5,7 @@
 }: {
   imports = [./extensions.nix];
   programs.firefox = {
-    enable = true;
+    enable = nixosConfig != {};
     package = pkgs.firefox.override {
       cfg = {
         enableGnomeExtensions = nixosConfig.services.xserver.desktopManager.gnome.enable;
