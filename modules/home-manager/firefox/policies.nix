@@ -1,6 +1,6 @@
 {
   OfferToSaveLogins = false;
-  DisplayBookmarksToolbar = "newtab";
+  DisplayBookmarksToolbar = "never";
   ShowHomeButton = true;
   CaptivePortal = false;
   DisableFirefoxStudies = true;
