@@ -9,7 +9,7 @@
     {
       name = "Dotfiles";
       url = "https://www.github.com/cbr9/dotfiles";
-      keywork = "dotfiles";
+      keyword = "dotfiles";
       tags = ["config" "code" "nix"];
     }
   ];
