@@ -12,6 +12,17 @@
         vimium
         ublock-origin
         duckduckgo-privacy-essentials
+        sponsorblock
+        (
+          buildFirefoxXpiAddon rec {
+            pname = "popup-blocker";
+            version = "0.6.8";
+            url = "https://addons.mozilla.org/firefox/downloads/file/3821195/popup_blocker-${version}.xpi";
+            sha256 = "sha256-qXJlA/9UzXEF3sHJdTfG0N3spYXhZt5MgjOXETdT5sw=";
+            addonId = "{de22fd49-c9ab-4359-b722-b3febdc3a0b0}";
+            meta = {};
+          }
+        )
         (
           buildFirefoxXpiAddon {
             pname = "1password-beta";
