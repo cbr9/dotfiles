@@ -1,5 +1,3 @@
-{...}: {
-  programs.firefox.profiles.default.settings = {
-    "browser.fullscreen.autohide" = false;
-  };
+{
+  "browser.fullscreen.autohide" = false;
 }
