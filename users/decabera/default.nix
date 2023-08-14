@@ -14,10 +14,21 @@ inputs.home-manager.lib.homeManagerConfiguration {
     ++ pkgs.lib.mkHome {
       inherit inputs;
       configuration = {
-        stylix.targets.zellij.enable = false;
-        stylix.targets.alacritty.enable = false;
         imports = [./packages.nix];
         home.username = "decabera";
+
+        stylix = {
+          autoEnable = false;
+          base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+          image = pkgs.fetchurl {
+            url = "https://unsplash.com/photos/zRqZOyG78wM/download?ixid=M3wxMjA3fDB8MXxhbGx8Mzl8fHx8fHwyfHwxNjkxODMyNjE2fA&force=true";
+            sha256 = "sha256-jwyusMojfJrJNLa3ahoynGsqGSICvwDoQ/CFvE9Co5s=";
+          };
+          targets = {
+            fish.enable = true;
+            fzf.enable = true;
+          };
+        };
       };
     };
 }

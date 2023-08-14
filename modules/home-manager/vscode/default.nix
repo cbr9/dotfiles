@@ -5,6 +5,7 @@
   ...
 }:
 with lib; {
+  stylix.targets.vscode.enable = false;
   programs.vscode = mkIf (nixosConfig != {}) {
     enable = true;
     extensions = with pkgs.vscode-extensions; [
