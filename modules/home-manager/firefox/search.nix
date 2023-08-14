@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.firefox.profiles.default.search = {
     default = "DuckDuckGo";
-    # force = true;
+    force = true;
     engines = {
       "Nix Packages" = {
         urls = [
