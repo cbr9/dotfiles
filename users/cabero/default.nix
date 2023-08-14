@@ -27,10 +27,6 @@ with builtins; {
         home.sessionPath = [
           "${config.home-manager.users.cabero.home.homeDirectory}/.cargo/bin"
         ];
-        stylix = {
-          targets.alacritty.enable = false;
-          targets.zellij.enable = false;
-        };
         imports = [
           ./packages.nix
           ./email.nix

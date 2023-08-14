@@ -13,6 +13,7 @@ in {
     allowOneInstance = mkEnableOption "Only allow one Zellij server at a time";
   };
   config = {
+    stylix.targets.zellij.enable = false;
     home.shellAliases = lib.mkIf config.programs.zellij.enable {
       zj = "zellij";
     };

@@ -7,8 +7,9 @@
 with pkgs; let
   cfg = config.programs.helix;
 in {
+  stylix.targets.helix.enable = false;
   programs.helix.settings = {
-    theme = lib.mkForce "gruvbox_dark_hard";
+    theme = "gruvbox_dark_hard";
     keys = {
       normal =
         {
