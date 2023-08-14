@@ -11,6 +11,8 @@
         enableGnomeExtensions = nixosConfig.services.xserver.desktopManager.gnome.enable;
       };
       extraPolicies = {
+        DisplayBookmarksToolbar = "newtab";
+        ShowHomeButton = true;
         CaptivePortal = false;
         DisableFirefoxStudies = true;
         DisablePocket = true;
@@ -18,6 +20,9 @@
         FirefoxHome = {
           Pocket = false;
           Snippets = false;
+          TopSites = false;
+          SponsoredTopSites = false;
+          SponsoredPocket = false;
         };
         UserMessaging = {
           ExtensionRecommendations = false;
