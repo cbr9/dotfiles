@@ -8,10 +8,22 @@
     }
 
     {
-      name = "Home Manager Options";
-      url = "https://rycee.gitlab.io/home-manager/options.html";
-      keyword = "hm";
-      tags = ["config" "nix"];
+      name = "NixOS";
+      toolbar = false;
+      bookmarks = [
+        {
+          name = "Home Manager Options";
+          url = "https://rycee.gitlab.io/home-manager/options.html";
+          keyword = "hm";
+          tags = ["nixos" "hm"];
+        }
+        {
+          name = "NixOS Options";
+          url = "https://search.nixos.org/options";
+          keyword = "options";
+          tags = ["nixos" "options"];
+        }
+      ];
     }
     {
       name = "GitHub Projects";
