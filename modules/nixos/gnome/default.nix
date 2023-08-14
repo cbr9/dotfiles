@@ -1,5 +1,5 @@
-{config, ...}: {
+{...}: {
   config = {
-    services.xserver.desktopManager.gnome = {enable = config.home.username != "decabera";};
+    services.xserver.desktopManager.gnome = {enable = true;};
   };
 }
