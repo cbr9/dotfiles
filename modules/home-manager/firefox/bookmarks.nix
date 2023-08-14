@@ -20,7 +20,7 @@
         {
           name = "NixOS Options";
           url = "https://search.nixos.org/options";
-          keyword = "options";
+          keyword = "nop";
           tags = ["nixos" "options"];
         }
       ];
