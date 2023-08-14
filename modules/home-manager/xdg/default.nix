@@ -11,7 +11,7 @@ with lib; let
     documentViewer = "org.gnome.Evince.desktop";
   };
 in {
-  home.packages = with pkgs; [vlc firefox evince];
+  home.packages = with pkgs; [vlc evince];
   xdg = {
     enable = true;
     userDirs = {

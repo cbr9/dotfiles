@@ -20,7 +20,7 @@ in {
     "${modifier}+Shift+h" = "focus left";
     "${modifier}+q" = "kill";
     "${modifier}+Return" = "exec ${terminal}";
-    "${modifier}+b" = "exec ${pkgs.firefox}/bin/firefox";
+    "${modifier}+b" = "exec ${config.programs.firefox.package}/bin/firefox";
     "${modifier}+t" = "exec ${pkgs.todoist-electron}/bin/todoist-electron";
     "${modifier}+Shift+x" = "exec systemctl suspend";
     "${modifier}+l" = "exec ${pkgs.betterlockscreen}/bin/betterlockscreen -l dim";

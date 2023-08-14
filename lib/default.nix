@@ -30,6 +30,7 @@ in {
           disko.nixosModules.disko
           agenix.nixosModules.default
           stylix.nixosModules.stylix
+          nur.nixosModules.nur
 
           ({
             modulesPath,
@@ -100,6 +101,7 @@ in {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
+            home-manager.extraSpecialArgs = {inherit inputs;};
             # the users are defined in their own modules
           }
           configuration

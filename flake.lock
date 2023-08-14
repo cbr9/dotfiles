@@ -351,6 +351,21 @@
         "type": "indirect"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1692007612,
+        "narHash": "sha256-Zu8r6Q8Pcvvt2rHmFsRz/hlZBeUN9E2/4MjGA6XLfXM=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "df4aa95a54629afe449fdb1c7dbbcba4412feca8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "organize": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -380,6 +395,7 @@
         "helix": "helix",
         "home-manager": "home-manager_2",
         "nixpkgs": "nixpkgs",
+        "nur": "nur",
         "organize": "organize",
         "stylix": "stylix",
         "typst": "typst"
