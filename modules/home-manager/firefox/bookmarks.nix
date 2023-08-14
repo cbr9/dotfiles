@@ -12,5 +12,11 @@
       keyword = "dotfiles";
       tags = ["config" "code" "nix"];
     }
+    {
+      name = "Home Manager Options";
+      url = "https://rycee.gitlab.io/home-manager/options.html";
+      keyword = "hm";
+      tags = ["config" "nix"];
+    }
   ];
 }
