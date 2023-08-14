@@ -6,5 +6,11 @@
       keyword = "udemy";
       tags = ["learning" "education"];
     }
+    {
+      name = "Dotfiles";
+      url = "https://www.github.com/cbr9/dotfiles";
+      keywork = "dotfiles";
+      tags = ["config" "code" "nix"];
+    }
   ];
 }
