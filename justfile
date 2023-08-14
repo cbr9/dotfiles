@@ -1,9 +1,11 @@
 switch:
+	-rm ~/.mozilla/firefox/default/search.json.mozlz4.backup
 	-rm ~/.config/mimeapps.list
 	-rm ~/.local/share/mimeapps.list
 	sudo nixos-rebuild switch --flake .
 
 switch-sony:
+	-rm ~/.mozilla/firefox/default/search.json.mozlz4.backup
 	-rm ~/.config/mimeapps.list
 	-rm ~/.local/share/mimeapps.list
 	sudo nixos-rebuild switch --specialisation sony --flake .

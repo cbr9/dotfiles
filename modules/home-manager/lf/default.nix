@@ -85,6 +85,7 @@ in {
       bg = "setwallpaper";
       DD = "delete";
       x = "cut";
+      gp = "cd -";
     };
   };
 }
