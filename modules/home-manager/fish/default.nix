@@ -13,7 +13,6 @@
     shellInit = let
       HOME = "${config.home.homeDirectory}";
     in ''
-      fish_config theme choose "ayu Dark"
       set -gx fish_escape_delay_ms 1000
 
       if test -f ${HOME}/.nix-profile/etc/profile.d/nix.fish
