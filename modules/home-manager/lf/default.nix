@@ -71,7 +71,7 @@ in {
       '';
 
       play = mkAsyncCmd "${pkgs.sox}/bin/play $f";
-      stop-play = mkAsyncCmd "pkill play";
+      stop_playing = mkAsyncCmd "pkill play";
       mkdir = mkAsyncCmd ''
         printf "Directory Name: "
         read ans
