@@ -1,4 +1,5 @@
 {
+  DisableFirefoxAccounts = true;
   OfferToSaveLogins = false;
   DisplayBookmarksToolbar = "never";
   ShowHomeButton = true;
