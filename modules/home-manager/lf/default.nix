@@ -71,6 +71,7 @@ in {
       '';
 
       play = mkAsyncCmd "${pkgs.sox}/bin/play $f";
+      stop-play = mkAsyncCmd "pkill play";
       mkdir = mkAsyncCmd ''
         printf "Directory Name: "
         read ans
@@ -83,7 +84,7 @@ in {
       gs = "git-restore";
       P = "play";
       bg = "setwallpaper";
-      DD = "delete";
+      DD = "delete $fs";
       x = "cut";
     };
   };
