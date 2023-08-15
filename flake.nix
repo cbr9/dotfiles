@@ -42,8 +42,8 @@
     pkgs = import inputs.nixpkgs {
       inherit system;
       overlays = [
+        inputs.helix.overlays.default
         (final: prev: {
-          helix-master = inputs.helix.packages.${system}.default;
           typst-master = inputs.typst.packages.${system}.default;
           organize = inputs.organize.defaultPackage.${system};
           lib = mkLib inputs.nixpkgs;
