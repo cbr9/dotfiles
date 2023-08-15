@@ -83,5 +83,10 @@
           }
         ];
       }
+      {
+        name = "LinkedIn";
+        keyword = "linkedin";
+        url = "https://www.linkedin.com/";
+      }
     ];
 }
