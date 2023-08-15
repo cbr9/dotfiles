@@ -33,7 +33,7 @@ with lib; {
       "python.analysis.autoImportCompletions" = true;
       "window.zoomLevel" = 1;
       "[python]" = {
-        "editor.defaultFormatter" = "ms-python.back-formatter";
+        "editor.defaultFormatter" = "ms-python.black-formatter";
       };
     };
   };
