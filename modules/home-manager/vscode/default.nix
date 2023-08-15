@@ -6,8 +6,8 @@
 }:
 with lib; {
   stylix.targets.vscode.enable = false;
-  programs.vscode = mkIf (nixosConfig != {}) {
-    enable = true;
+  programs.vscode = {
+    enable = nixosConfig != {};
     extensions = with pkgs.vscode-extensions; [
       vscodevim.vim
       ms-python.python
@@ -32,6 +32,9 @@ with lib; {
       "files.autoSaveDelay" = 1000;
       "python.analysis.autoImportCompletions" = true;
       "window.zoomLevel" = 1;
+      "[python]" = {
+        "editor.defaultFormatter" = "ms-python.black-formatter";
+      };
     };
   };
 
