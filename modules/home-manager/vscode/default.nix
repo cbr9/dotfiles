@@ -32,6 +32,9 @@ with lib; {
       "files.autoSaveDelay" = 1000;
       "python.analysis.autoImportCompletions" = true;
       "window.zoomLevel" = 1;
+      "[python]" = {
+        "editor.defaultFormatter" = "ms-python.back-formatter";
+      };
     };
   };
 
