@@ -26,7 +26,6 @@
   };
 
   programs.helix = {
-    package = pkgs.helix-master;
     enable = true;
   };
 }

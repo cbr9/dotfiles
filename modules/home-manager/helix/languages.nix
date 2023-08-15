@@ -55,7 +55,7 @@ with pkgs; {
           unit = " ";
         };
         formatter = formatter.black;
-        language-servers = ["pyright" "ruff"];
+        language-servers = ["pylsp" "pyright" "ruff"];
       }
       {
         name = "nix";

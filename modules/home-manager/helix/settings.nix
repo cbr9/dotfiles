@@ -11,20 +11,17 @@ in {
   programs.helix.settings = {
     theme = "gruvbox_dark_hard";
     keys = {
-      normal =
-        {
-          g = {
-            l = ["select_mode" "goto_line_end" "normal_mode"];
-            h = ["select_mode" "goto_line_start" "normal_mode"];
-            g = ["select_mode" "goto_file_start" "normal_mode"];
-            G = ["select_mode" "goto_file_end" "normal_mode"];
-            e = ["select_mode" "goto_last_line" "normal_mode"];
-            q = {q = [":reflow"];};
-          };
-        }
-        // lib.attrsets.optionalAttrs (cfg.package == helix-master) {
-          A-y = ["yank_joined"];
+      normal = {
+        g = {
+          l = ["select_mode" "goto_line_end" "normal_mode"];
+          h = ["select_mode" "goto_line_start" "normal_mode"];
+          g = ["select_mode" "goto_file_start" "normal_mode"];
+          G = ["select_mode" "goto_file_end" "normal_mode"];
+          e = ["select_mode" "goto_last_line" "normal_mode"];
+          q = {q = [":reflow"];};
         };
+        A-y = ["yank_joined"];
+      };
     };
     editor = {
       auto-completion = true;
