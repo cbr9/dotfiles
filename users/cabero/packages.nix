@@ -2,6 +2,7 @@
   cli = with pkgs; [
     just
     gptcommit
+    sph2pipe
     poppler_utils
     typst-master
     nodePackages.webtorrent-cli

@@ -2,6 +2,7 @@
   downloads = "${config.home.homeDirectory}/Downloads";
   pictures = "${config.home.homeDirectory}/Pictures";
 in {
+  imports = [./package.nix];
   programs.organize = {
     enable = config.home.username != "decabera";
     config = {

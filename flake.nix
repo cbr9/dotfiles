@@ -31,6 +31,7 @@
         (final: prev: {
           typst-master = inputs.typst.packages.${system}.default;
           organize = inputs.organize.defaultPackage.${system};
+          sph2pipe = import ./pkgs/sph2pipe.nix {pkgs = prev;};
           lib = mkLib inputs.nixpkgs;
         })
       ];
