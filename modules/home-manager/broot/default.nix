@@ -1,7 +1,6 @@
 {...}: {
   programs.broot = {
-    enable = true;
-    enableZshIntegration = true;
+    enable = false;
     settings = {modal = true;};
   };
 }
