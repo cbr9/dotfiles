@@ -5,7 +5,6 @@
   ...
 }: {
   imports = [
-    ./package.nix
     ./bookmarks.nix
     ./search.nix
     ./extensions.nix
