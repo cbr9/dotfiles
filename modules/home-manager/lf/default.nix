@@ -15,26 +15,30 @@ in {
     '';
   };
 
-  xdg.configFile = mkIf config.programs.lf.enable {
-    "fish/functions/lfcd.fish" = mkIf config.programs.fish.enable {
+  xdg.configFile = mkIf {
+    "fish/functions/lfcd.fish" = mkIf {
+      enable = config.programs.fish.enable && config.programs.lf.enable;
       source = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/lfcd.fish";
         sha256 = "sha256-wn9YEPtMqSHq7Ahr3KmG1YogiJQvKBOAO61pdPH6Pf0=";
       };
     };
-    "fish/completions/lf.fish" = mkIf config.programs.fish.enable {
+    "fish/completions/lf.fish" = {
+      enable = config.programs.fish.enable && config.programs.lf.enable;
       source = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/lf.fish";
         sha256 = "sha256-jbcVK/MnthW08MM3bN0D439SZJdBvzRgf1TUGcgYDxE=";
       };
     };
     "lf/icons" = {
+      enable = config.programs.lf.enable;
       source = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
         sha256 = "sha256-QbWr5FxJZ5cJqS4zg+qyNK8JUG6SdLmaFoBuFXi0q0M=";
       };
     };
     "lf/colors" = {
+      enable = config.programs.lf.enable;
       source = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/colors.example";
         sha256 = "sha256-cYJlXuRjuotQ1aynPG5+UGK2nBBNg/6xRiGs2mBpKeY=";
