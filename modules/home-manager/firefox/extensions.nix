@@ -4,14 +4,12 @@
     clearurls
     tridactyl
     decentraleyes
-    cookie-autodelete
     darkreader
     youtube-shorts-block
     youtube-recommended-videos # unhook
     # vimium
     ublock-origin
     duckduckgo-privacy-essentials
-    sponsorblock
     (
       buildFirefoxXpiAddon rec {
         pname = "popup-blocker";
