@@ -14,11 +14,18 @@ in {
   # sorts a list of attribute sets by comparing a field in each of the attrsets, with a user-defined order
   sortAttrsList = path: list: order: builtins.sort (a: b: (lib.indexOf (lib.attrsets.getAttrFromPath path a) order) < (lib.indexOf (lib.attrsets.getAttrFromPath path b) order)) list;
 
+  mkHosts = hosts: inputs: pkgs:
+    lib.genAttrs hosts (host:
+      lib.mkHost {
+        inherit pkgs inputs;
+        hostName = host;
+      });
+
   mkHost = {
     pkgs,
     inputs,
+    hostName,
     system ? "x86_64-linux",
-    configuration ? {},
   }:
     with inputs;
     with builtins;
@@ -37,62 +44,64 @@ in {
             config,
             ...
           }: {
-            imports = (
-              [
-                (modulesPath + "/installer/scan/not-detected.nix")
-                (modulesPath + "/profiles/qemu-guest.nix")
-                ../hosts/${configuration.networking.hostName}/hardware-configuration.nix
-                ../modules/nixos
-                ../users
-              ]
-              ++ lib.lists.optional (builtins.pathExists ../hosts/${configuration.networking.hostName}/disks.nix) ../hosts/${configuration.networking.hostName}/disks.nix
-            );
+            imports = [
+              (modulesPath + "/installer/scan/not-detected.nix")
+              (modulesPath + "/profiles/qemu-guest.nix")
+              ../hosts/${hostName}/hardware-configuration.nix
+              ../hosts/${hostName}/configuration.nix
+              ../hosts/${hostName}/disks.nix
+              ../modules/nixos
+              ../users
+            ];
 
-            stylix = {
-              base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-              image = pkgs.fetchurl {
-                url = "https://unsplash.com/photos/zRqZOyG78wM/download?ixid=M3wxMjA3fDB8MXxhbGx8Mzl8fHx8fHwyfHwxNjkxODMyNjE2fA&force=true";
-                sha256 = "sha256-jwyusMojfJrJNLa3ahoynGsqGSICvwDoQ/CFvE9Co5s=";
+            config = {
+              stylix = {
+                base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+                image = pkgs.fetchurl {
+                  url = "https://unsplash.com/photos/zRqZOyG78wM/download?ixid=M3wxMjA3fDB8MXxhbGx8Mzl8fHx8fHwyfHwxNjkxODMyNjE2fA&force=true";
+                  sha256 = "sha256-jwyusMojfJrJNLa3ahoynGsqGSICvwDoQ/CFvE9Co5s=";
+                };
               };
-            };
 
-            nixpkgs.pkgs = pkgs;
-            boot.kernelPackages = pkgs.linuxPackages_latest;
-            boot.kernelModules = ["i2c-dev"];
-            system.stateVersion = stateVersion;
-            documentation.man.generateCaches = true;
+              nixpkgs.pkgs = pkgs;
+              boot.kernelPackages = pkgs.linuxPackages_latest;
+              boot.kernelModules = ["i2c-dev"];
+              system.stateVersion = stateVersion;
+              documentation.man.generateCaches = true;
 
-            environment = {
-              systemPackages = with pkgs; [
-                killall
-                git
-                wget
-                autorandr
-                openssl
-                pkg-config
-                xclip
-                pavucontrol
-                (agenix.packages.x86_64-linux.default.override {ageBin = "${pkgs.age}/bin/age";})
-              ];
-              pathsToLink = ["/libexec"]; # links /libexec from derivations to /run/current-system/sw
-              shellAliases = {
-                open = "${pkgs.xdg-utils}/bin/xdg-open";
+              environment = {
+                systemPackages = with pkgs; [
+                  killall
+                  git
+                  wget
+                  autorandr
+                  openssl
+                  pkg-config
+                  xclip
+                  pavucontrol
+                  (agenix.packages.x86_64-linux.default.override {ageBin = "${pkgs.age}/bin/age";})
+                ];
+                pathsToLink = ["/libexec"]; # links /libexec from derivations to /run/current-system/sw
+                shellAliases = {
+                  open = "${pkgs.xdg-utils}/bin/xdg-open";
+                };
               };
-            };
-            hardware = {
-              i2c.enable = true;
-            };
+              hardware = {
+                i2c.enable = true;
+              };
 
-            networking = {
-              iproute2.enable = true;
-              enableIPv6 = true;
-              dhcpcd.enable = true;
-            };
+              networking = {
+                inherit hostName;
+                iproute2.enable = true;
+                enableIPv6 = true;
+                dhcpcd.enable = true;
+              };
 
-            services = {
-              upower.enable = true;
-              # Enable CUPS to print documents.
-              printing.enable = true;
+              services = {
+                upower.enable = true;
+                # Enable CUPS to print documents.
+                printing.enable = true;
+              };
             };
           })
 
@@ -102,9 +111,7 @@ in {
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
             home-manager.extraSpecialArgs = {inherit inputs;};
-            # the users are defined in their own modules
           }
-          configuration
         ];
       };
 

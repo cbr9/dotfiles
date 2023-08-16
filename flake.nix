@@ -54,12 +54,9 @@
         permittedInsecurePackages = ["electron-21.4.0"];
       };
     };
+    lib = pkgs.lib;
   in {
-    nixosConfigurations = {
-      tatooine = import ./hosts/tatooine {inherit inputs pkgs;};
-      naboo = import ./hosts/naboo {inherit inputs pkgs;};
-      deatcs001ws845 = import ./hosts/deatcs001ws845 {inherit inputs pkgs;};
-    };
+    nixosConfigurations = lib.mkHosts ["naboo" "tatooine" "deatcs001ws845"] inputs pkgs;
 
     homeConfigurations = {
       decabera = import ./users/decabera {inherit inputs pkgs;};
