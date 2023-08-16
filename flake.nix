@@ -10,26 +10,11 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    helix = {
-      url = "github:helix-editor/helix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    organize = {
-      url = "github:cbr9/organizer";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    typst = {
-      url = "github:typst/typst";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    stylix = {
-      url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    helix.url = "github:helix-editor/helix";
+    organize.url = "github:cbr9/organizer";
+    typst.url = "github:typst/typst";
+    agenix.url = "github:ryantm/agenix";
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = {...} @ inputs: let
