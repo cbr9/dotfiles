@@ -1,4 +1,6 @@
 {nixosConfig, ...}: {
+  imports = [./tridactyl];
+
   programs.firefox.profiles.default.extensions = with nixosConfig.nur.repos.rycee.firefox-addons; [
     ghostery
     clearurls
