@@ -13,9 +13,13 @@ inputs.home-manager.lib.homeManagerConfiguration {
     [inputs.stylix.homeManagerModules.stylix]
     ++ pkgs.lib.mkHome {
       inherit inputs;
-      configuration = {
+      configuration = rec {
         imports = [./packages.nix];
         home.username = "decabera";
+
+        xdg.userDirs.extraConfig = {
+          XDG_RUNTIME_DIR = "/tmp/${home.username}";
+        };
 
         stylix = {
           autoEnable = false;
