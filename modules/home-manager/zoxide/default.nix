@@ -1,9 +1,6 @@
 {...}: {
-  home.shellAliases = {
-    cd = "z";
+  programs.zoxide = {
+    enable = true;
+    options = ["--cmd cd" "--hook pwd"];
   };
-  programs.nushell.shellAliases = {
-    cd = "z";
-  };
-  programs.zoxide = {enable = true;};
 }
