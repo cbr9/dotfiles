@@ -3,7 +3,7 @@
   lib,
   ...
 }: {
-  programs.firefox.profiles.default.bookmarks =
+  programs.firefox.profiles.default.bookmarks = lib.mkIf (nixosConfig != {}) (
     lib.optionals (nixosConfig.sony.enable) [
       {
         name = "Workday";
@@ -88,5 +88,6 @@
         keyword = "linkedin";
         url = "https://www.linkedin.com/";
       }
-    ];
+    ]
+  );
 }

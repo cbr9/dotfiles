@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs ? import <nixpkgs> {}, ...}:
 with pkgs;
   stdenv.mkDerivation rec {
     name = "sph2pipe";
