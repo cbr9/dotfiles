@@ -15,8 +15,8 @@ in {
     '';
   };
 
-  xdg.configFile = mkIf {
-    "fish/functions/lfcd.fish" = mkIf {
+  xdg.configFile = {
+    "fish/functions/lfcd.fish" = {
       enable = config.programs.fish.enable && config.programs.lf.enable;
       source = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/lfcd.fish";
