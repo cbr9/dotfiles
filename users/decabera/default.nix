@@ -17,7 +17,7 @@ inputs.home-manager.lib.homeManagerConfiguration {
         imports = [./packages.nix];
         home.username = "decabera";
 
-        xdg.userDirs.extraConfig = {
+        home.sessionVariables = {
           XDG_RUNTIME_DIR = "/tmp/${home.username}";
         };
 

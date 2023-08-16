@@ -17,6 +17,6 @@ with pkgs;
 
     installPhase = ''
       mkdir -p $out/bin
-      cp ${name} $out/bin
+      cp -a ${name} $out/bin
     '';
   }
