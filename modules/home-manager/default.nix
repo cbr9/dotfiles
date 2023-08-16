@@ -31,6 +31,7 @@
     ./nix
     ./nushell
     ./organize
+    ./pistol
     ./redshift
     ./ssh
     ./screen-locker

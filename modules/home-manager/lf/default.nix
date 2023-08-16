@@ -80,6 +80,11 @@ in {
       setwallpaper = mkLfCmd "${pkgs.feh}/bin/feh --bg-fill \"$f\"";
     };
 
+    previewer = {
+      keybinding = "i";
+      source = "${pkgs.pistol}/bin/pistol";
+    };
+
     keybindings = {
       gs = "git-restore";
       P = "play";
