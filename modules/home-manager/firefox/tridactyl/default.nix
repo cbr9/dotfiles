@@ -10,11 +10,11 @@
 
       unbind <C-f>
       bind / fillcmdline find
-      bind ? fillcmdline find -?
       bind n findnext 1
       bind N findnext -1
 
       set smoothscroll true
+      bind <Escape> composite mode normal ; hidecmdline ; noh
     '';
   };
 }
