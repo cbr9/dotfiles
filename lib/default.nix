@@ -50,8 +50,9 @@ in {
               ../hosts/${hostName}/hardware-configuration.nix
               ../hosts/${hostName}/configuration.nix
               ../hosts/${hostName}/disks.nix
-              ../modules/nixos
+              ../pkgs
               ../users
+              ../modules/nixos
             ];
 
             config = {
