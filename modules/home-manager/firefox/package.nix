@@ -10,7 +10,7 @@
         enableGnomeExtensions = nixosConfig.services.xserver.desktopManager.gnome.enable;
         enableTridactylNative = builtins.elem nixosConfig.nur.repos.rycee.firefox-addons.tridactyl config.programs.firefox.profiles.default.extensions;
       };
-      extraPolicies = import ./policies.nix;
+      extraPolicies = import ./policies.nix {inherit config;};
     };
   };
 }

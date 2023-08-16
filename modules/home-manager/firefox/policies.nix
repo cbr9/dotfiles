@@ -1,4 +1,13 @@
-{
+{config, ...}: {
+  DefaultDownloadDirectory = config.xdg.userDirs.download;
+  DownloadDirectory = config.xdg.userDirs.download;
+  PromptForDownloadLocation = false;
+  NoDefaultBookmarks = true;
+  EnableTrackingProtection = true;
+  DisableSetDesktopBackground = true;
+  DisableMasterPasswordCreation = true;
+  DisableFormHistory = true;
+  DisableAppUpdate = true;
   DisableFirefoxAccounts = true;
   OfferToSaveLogins = false;
   DisplayBookmarksToolbar = "never";
