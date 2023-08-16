@@ -4,6 +4,7 @@
     ./bookmarks.nix
     ./search.nix
     ./extensions.nix
+    ./settings.nix
   ];
 
   programs.firefox = {
