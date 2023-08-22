@@ -9,7 +9,7 @@
     termusic
     rclone
     ripgrep
-    ripgrep-all
+    # ripgrep-all
     xclip
     fd
     sox
@@ -23,11 +23,8 @@
     evince
     speedcrunch
     obsidian
-    lame
-    mpv
-    mplayer
     google-chrome
-    anki-bin
+    anki
     evince
     feh
     zotero
