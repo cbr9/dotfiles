@@ -31,7 +31,7 @@
             type route hook output priority 0; policy accept;
             ip daddr $EXCLUDED_IPS ct mark set 0x00000f41 meta mark set 0x6d6f6c65;
             # Comment the following line if you do not want IPv6 support.
-            # ip6 daddr $EXCLUDED_IPV6 ct mark set 0x00000f41 meta mark set 0x6d6f6c65;
+            ip6 daddr $EXCLUDED_IPV6 ct mark set 0x00000f41 meta mark set 0x6d6f6c65;
           }
 
           chain allow-incoming {

@@ -63,7 +63,7 @@ with lib; {
               "x-systemd.automount"
               "idmap=user"
               "default_permissions"
-              "IdentityAgent=${config.home-manager.users.cabero.home.sessionVariables.SSH_AUTH_SOCK}"
+              "IdentityAgent=/home/cabero/.1password/agent.sock"
             ];
           };
         })
