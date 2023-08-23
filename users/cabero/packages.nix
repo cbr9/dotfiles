@@ -2,6 +2,7 @@
   cli = with pkgs; [
     just
     gptcommit
+    watchexec
     sph2pipe
     poppler_utils
     typst-master
