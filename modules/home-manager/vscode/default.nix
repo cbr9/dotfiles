@@ -36,12 +36,4 @@ with lib; {
       };
     };
   };
-
-  programs.ssh.matchBlocks = {
-    destc0strapp15 = {
-      hostname = "destc0strapp15";
-      user = "decabera";
-      forwardX11 = true;
-    };
-  };
 }

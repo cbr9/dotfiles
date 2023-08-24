@@ -16,5 +16,15 @@ in {
     extraConfig = lib.mkIf enable1PasswordAgent ''
       IdentityAgent ${_1passwordAgent}
     '';
+
+    matchBlocks = {
+      destc0strapp15 = {
+        hostname = "destc0strapp15";
+        user = "decabera";
+        forwardX11 = true;
+        forwardX11Trusted = true;
+        forwardAgent = true;
+      };
+    };
   };
 }
