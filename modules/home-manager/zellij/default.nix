@@ -23,7 +23,7 @@ in {
     };
     programs.zellij = {
       enable = true;
-      allowOneInstance = true;
+      allowOneInstance = false;
       enableZshIntegration = config.programs.zellij.allowOneInstance;
       enableBashIntegration = config.programs.zellij.allowOneInstance;
       enableFishIntegration = config.programs.zellij.allowOneInstance;
