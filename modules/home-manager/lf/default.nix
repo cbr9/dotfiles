@@ -52,6 +52,7 @@ in {
       icons = true;
       hidden = true;
       ignorecase = true;
+      incsearch = true;
     };
     commands = {
       git-restore = mkAsyncCmd ''
