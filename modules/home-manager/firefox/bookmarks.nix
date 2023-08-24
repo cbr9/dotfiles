@@ -23,6 +23,12 @@
     ]
     ++ [
       {
+        name = "Proton";
+        url = "https://mail.proton.me";
+        keyword = "proton";
+        tags = ["email"];
+      }
+      {
         name = "Udemy";
         url = "https://www.udemy.com/";
         keyword = "udemy";
