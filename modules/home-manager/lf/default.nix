@@ -82,7 +82,6 @@ in {
         read ans
         mkdir $ans
       '';
-      setwallpaper = mkLfCmd "${pkgs.feh}/bin/feh --bg-fill \"$f\"";
     };
 
     previewer = {
@@ -93,7 +92,6 @@ in {
     keybindings = {
       gs = "git-restore";
       P = "play";
-      bg = "setwallpaper";
       DD = "delete $fs";
       x = "cut";
     };
