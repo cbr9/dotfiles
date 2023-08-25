@@ -18,7 +18,7 @@ inputs.home-manager.lib.homeManagerConfiguration {
         home.username = "decabera";
 
         home.sessionVariables = {
-          XDG_RUNTIME_DIR = "/tmp/${home.username}";
+          XDG_RUNTIME_DIR = "/home/${home.username}/.tmp";
         };
 
         stylix = {
