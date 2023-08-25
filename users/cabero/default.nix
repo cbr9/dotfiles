@@ -7,7 +7,6 @@
 with lib;
 with builtins; {
   config = mkIf (elem "cabero" config.sys.users) {
-    age.secrets.cabero.file = ../../secrets/cabero.age;
     users.users.cabero = {
       uid = 1000;
       createHome = true;
@@ -17,8 +16,12 @@ with builtins; {
       shell = pkgs.fish;
     };
 
-    age.secrets.cabero-15582531.file = ../../secrets/cabero-15582531.age;
-    age.secrets.cabero-15582547.file = ../../secrets/cabero-15582547.age;
+    age.secrets = {
+      # yubikeys
+      cabero-15582531.file = ../../secrets/cabero-15582531.age;
+      cabero-15582547.file = ../../secrets/cabero-15582547.age;
+      cabero.file = ../../secrets/cabero.age;
+    };
 
     security.pam.yubico = {
       enable = true;
