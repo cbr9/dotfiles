@@ -3,8 +3,7 @@
   config,
   lib,
   ...
-}:
-with lib; let
+}: let
   mkLfCmd = cmd: "%{{" + cmd + "}}";
   mkShellCmd = cmd: "\${{" + cmd + "}}";
   mkAsyncCmd = cmd: "&{{" + cmd + "}}";
@@ -66,21 +65,49 @@ in {
         esac
 
       '';
+
       z = mkLfCmd ''
         result="$(zoxide query --exclude $PWD $@ | sed 's/\\/\\\\/g;s/"/\\"/g')"
         lf -remote "send $id cd \"$result\""
       '';
+
       zi = mkShellCmd ''
         result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
         lf -remote "send $id cd \"$result\""
       '';
 
       play = mkAsyncCmd "${pkgs.sox}/bin/play $f";
-      stop_playing = mkAsyncCmd "pkill play";
+      stop-playing = mkAsyncCmd "pkill play";
       mkdir = mkAsyncCmd ''
         printf "Directory Name: "
         read ans
         mkdir $ans
+      '';
+
+      select-files = mkAsyncCmd ''
+        get_files() {
+            if [ "$lf_hidden" = 'false' ]; then
+                find "$PWD" -mindepth 1 -maxdepth 1 -type f -not -name '.*' -print0
+            else
+                find "$PWD" -mindepth 1 -maxdepth 1 -type f -print0
+            fi |
+            xargs -0 printf ' %q'
+        }
+
+        lf -remote "send $id :unselect; toggle $(get_files)"
+      '';
+
+      select-dirs = mkAsyncCmd ''
+        get_dirs() {
+            if [ "$lf_hidden" = 'false' ]; then
+                find "$PWD" -mindepth 1 -maxdepth 1 -type d -not -name '.*' -print0
+            else
+                find "$PWD" -mindepth 1 -maxdepth 1 -type d -print0
+            fi |
+            xargs -0 printf ' %q'
+        }
+
+        lf -remote "send $id :unselect; toggle $(get_dirs)"
       '';
     };
 
@@ -94,6 +121,8 @@ in {
       P = "play";
       DD = "delete $fs";
       x = "cut";
+      J = ":updir; set dironly true; down; set dironly false; open";
+      K = ":updir; set dironly true; up; set dironly false; open";
     };
   };
 }
