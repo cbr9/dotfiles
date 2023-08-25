@@ -17,9 +17,8 @@ with builtins; {
     };
 
     age.secrets = {
-      # yubikeys
-      cabero-15582531.file = ../../secrets/cabero-15582531.age;
-      cabero-15582547.file = ../../secrets/cabero-15582547.age;
+      cabero-15582531.file = ../../secrets/cabero-15582531.age; # keychain
+      cabero-15582547.file = ../../secrets/cabero-15582547.age; # loose
       cabero.file = ../../secrets/cabero.age;
     };
 
