@@ -2,7 +2,6 @@
   DefaultDownloadDirectory = config.xdg.userDirs.download;
   DownloadDirectory = config.xdg.userDirs.download;
   PromptForDownloadLocation = false;
-  NoDefaultBookmarks = true;
   EnableTrackingProtection = true;
   DisableSetDesktopBackground = true;
   DisableMasterPasswordCreation = true;

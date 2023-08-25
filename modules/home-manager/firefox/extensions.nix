@@ -14,9 +14,16 @@
       darkreader
       youtube-shorts-block
       youtube-recommended-videos # unhook
-      # vimium
-      ublock-origin
-      duckduckgo-privacy-essentials
+      (
+        buildFirefoxXpiAddon rec {
+          pname = "simple-translate";
+          version = "2.8.1";
+          url = "https://addons.mozilla.org/firefox/downloads/file/4072586/simple_translate-${version}.xpi";
+          sha256 = "sha256-I/GVPViNXZlDq0OEVAe4SlG7zBgkuMAQ7VbKoRlxGic=";
+          addonId = "simple-translate@sienori";
+          meta = {};
+        }
+      )
       (
         buildFirefoxXpiAddon rec {
           pname = "popup-blocker";

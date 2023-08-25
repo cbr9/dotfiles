@@ -23,12 +23,6 @@
     ]
     ++ [
       {
-        name = "Proton";
-        url = "https://mail.proton.me";
-        keyword = "proton";
-        tags = ["email"];
-      }
-      {
         name = "Udemy";
         url = "https://www.udemy.com/";
         keyword = "udemy";
@@ -93,6 +87,12 @@
         name = "LinkedIn";
         keyword = "linkedin";
         url = "https://www.linkedin.com/";
+      }
+      {
+        name = "Proton";
+        url = "https://mail.proton.me";
+        keyword = "proton";
+        tags = ["email"];
       }
     ]
   );
