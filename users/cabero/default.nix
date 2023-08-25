@@ -17,6 +17,19 @@ with builtins; {
       shell = pkgs.fish;
     };
 
+    age.secrets.cabero-15582531.file = ../../secrets/cabero-15582531.age;
+    age.secrets.cabero-15582547.file = ../../secrets/cabero-15582547.age;
+
+    security.pam.yubico = {
+      enable = true;
+      debug = false;
+      mode = "challenge-response";
+      id = ["15582547" "15582531"];
+      challengeResponsePath = "/run/agenix";
+    };
+
+    services.pcscd.enable = true;
+
     home-manager.users.cabero = mkMerge (mkHome {
       configuration = {
         home.shellAliases = {
