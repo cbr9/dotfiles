@@ -3,41 +3,47 @@
   config,
   lib,
   ...
-}: let
+}:
+with lib; let
   mkLfCmd = cmd: "%{{" + cmd + "}}";
   mkShellCmd = cmd: "\${{" + cmd + "}}";
   mkAsyncCmd = cmd: "&{{" + cmd + "}}";
+  cfg = config.programs.lf;
 in {
-  programs.fish = lib.mkIf config.programs.lf.enable {
+  programs.fish = mkIf cfg.enable {
     functions.fish_user_key_bindings = ''
       bind \cw 'set old_tty (stty -g); stty sane; lfcd; stty $old_tty; commandline -f repaint'
     '';
   };
 
+  home.shellAliases = mkIf cfg.enable {
+    lf = "lfcd";
+  };
+
   xdg.configFile = {
     "fish/functions/lfcd.fish" = {
-      enable = config.programs.fish.enable && config.programs.lf.enable;
+      enable = config.programs.fish.enable && cfg.enable;
       source = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/lfcd.fish";
         sha256 = "sha256-wn9YEPtMqSHq7Ahr3KmG1YogiJQvKBOAO61pdPH6Pf0=";
       };
     };
     "fish/completions/lf.fish" = {
-      enable = config.programs.fish.enable && config.programs.lf.enable;
+      enable = config.programs.fish.enable && cfg.enable;
       source = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/lf.fish";
         sha256 = "sha256-jbcVK/MnthW08MM3bN0D439SZJdBvzRgf1TUGcgYDxE=";
       };
     };
     "lf/icons" = {
-      enable = config.programs.lf.enable;
+      enable = cfg.enable;
       source = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
         sha256 = "sha256-QbWr5FxJZ5cJqS4zg+qyNK8JUG6SdLmaFoBuFXi0q0M=";
       };
     };
     "lf/colors" = {
-      enable = config.programs.lf.enable;
+      enable = cfg.enable;
       source = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/colors.example";
         sha256 = "sha256-cYJlXuRjuotQ1aynPG5+UGK2nBBNg/6xRiGs2mBpKeY=";
@@ -46,7 +52,7 @@ in {
   };
 
   home.packages = with pkgs;
-    lib.mkIf config.programs.lf.enable [
+    lib.mkIf cfg.enable [
       libreoffice
       ctpv
       atool # for archive files
@@ -63,7 +69,7 @@ in {
       transmission
     ];
 
-  xdg.configFile."ctpv/config".text = lib.mkIf config.programs.lf.enable ''
+  xdg.configFile."ctpv/config".text = lib.mkIf cfg.enable ''
     set forcekitty
     set forcekittyanim
   '';
