@@ -63,7 +63,7 @@ in {
       transmission
     ];
 
-  xdg.configFile."ctpv/config".text = ''
+  xdg.configFile."ctpv/config".text = lib.mkIf config.programs.lf.enable ''
     set forcekitty
     set forcekittyanim
   '';
