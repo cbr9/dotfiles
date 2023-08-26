@@ -11,7 +11,6 @@
       clearurls
       tridactyl
       decentraleyes
-      darkreader
       youtube-shorts-block
       youtube-recommended-videos # unhook
       (
