@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  mkLfCmd = cmd: "%{{" + cmd + "}}";
-  mkShellCmd = cmd: "\${{" + cmd + "}}";
-  mkAsyncCmd = cmd: "&{{" + cmd + "}}";
+  mkLfCmd = cmd: "%{{\n" + cmd + "\n}}";
+  mkShellCmd = cmd: "\${{\n" + cmd + "\n}}";
+  mkAsyncCmd = cmd: "&{{\n" + cmd + "\n}}";
   cfg = config.programs.lf;
 in {
   programs.fish = mkIf cfg.enable {
