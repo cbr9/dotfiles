@@ -32,6 +32,12 @@ with builtins; {
 
     services.pcscd.enable = true;
 
+    programs.i3lock = {
+      enable = true;
+      package = pkgs.i3lock-color;
+      u2fSupport = true;
+    };
+
     home-manager.users.cabero = mkMerge (mkHome {
       configuration = {
         home.shellAliases = {

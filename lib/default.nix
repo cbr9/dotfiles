@@ -58,8 +58,8 @@ in {
               stylix = {
                 base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
                 image = pkgs.fetchurl {
-                  url = "https://unsplash.com/photos/kWmLvbP3sYQ/download?ixid=M3wxMjA3fDB8MXxhbGx8NDd8fHx8fHwyfHwxNjkyOTgxMDM5fA&force=true";
-                  sha256 = "sha256-r7a4Jxpj6yiPZINa9FzT5qcg3UGZ5T1Xvex46BeNg2o=";
+                  url = "https://unsplash.com/photos/4q87Z96NBYg/download?ixid=M3wxMjA3fDF8MXxhbGx8MTIxfHx8fHx8Mnx8MTY5MzA2NzQ0NXw&force=true";
+                  sha256 = "sha256-6IMg6IukCd2A/APBlgn/Abh9DVWEllxA7KGs5fuXITk=";
                 };
               };
 
