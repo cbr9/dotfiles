@@ -23,6 +23,7 @@
   gui = with pkgs; [
     evince
     speedcrunch
+    kitty
     obsidian
     google-chrome
     anki

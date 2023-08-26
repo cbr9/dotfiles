@@ -98,7 +98,7 @@ in {
             inner = 5;
             outer = 5;
           };
-          terminal = "${pkgs.alacritty}/bin/alacritty";
+          terminal = "${pkgs.kitty}/bin/kitty";
           startup = (
             [
               {

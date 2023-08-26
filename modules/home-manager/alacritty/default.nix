@@ -4,10 +4,6 @@
   lib,
   ...
 }: {
-  home.sessionVariables = lib.mkIf config.programs.alacritty.enable {
-    TERMINAL = "alacritty";
-  };
-
   stylix.targets.alacritty.enable = false;
 
   programs.alacritty = {

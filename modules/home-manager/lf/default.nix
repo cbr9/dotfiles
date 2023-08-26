@@ -45,6 +45,29 @@ in {
     };
   };
 
+  home.packages = with pkgs;
+    lib.mkIf config.programs.lf.enable [
+      libreoffice
+      ctpv
+      atool # for archive files
+      bat
+      chafa # for image files on Wayland
+      delta # for diff files
+      ffmpeg
+      ffmpegthumbnailer
+      fontforge
+      glow # for markdown files
+      imagemagick
+      jq # for json files
+      ueberzug # for image files on X11
+      transmission
+    ];
+
+  xdg.configFile."ctpv/config".text = ''
+    set forcekitty
+    set forcekittyanim
+  '';
+
   programs.lf = {
     enable = true;
     settings = {
@@ -54,12 +77,10 @@ in {
       incsearch = true;
     };
     commands = {
-      git-restore = mkAsyncCmd ''
-        git restore $fx
-      '';
       open = mkShellCmd ''
         case $(file --mime-type -Lb "$fx") in
             text/*) $EDITOR "$fx";;
+            application/json) $EDITOR "$fx";;
             image/*) ${pkgs.feh}/bin/feh "$fx";;
             *) xdg-open "$fx" > /dev/null 2> /dev/null &;;
         esac
@@ -111,10 +132,13 @@ in {
       '';
     };
 
-    previewer = {
-      keybinding = "i";
-      source = "${pkgs.pistol}/bin/pistol";
-    };
+    previewer.source = "${pkgs.ctpv}/bin/ctpv";
+
+    extraConfig = ''
+      set cleaner ctpvclear
+      &ctpv -s $id
+      &ctpvquit $id
+    '';
 
     keybindings = {
       gs = "git-restore";

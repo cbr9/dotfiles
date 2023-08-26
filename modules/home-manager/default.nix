@@ -22,6 +22,7 @@
     ./gh
     ./git
     ./gitui
+    ./kitty
     ./helix
     ./lf
     ./lazygit
