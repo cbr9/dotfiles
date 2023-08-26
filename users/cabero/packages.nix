@@ -27,7 +27,6 @@
     obsidian
     google-chrome
     anki
-    evince
     feh
     zotero
     todoist-electron
