@@ -5,6 +5,7 @@
 }: {
   programs.fish = {
     enable = true;
+
     shellInit = let
       HOME = "${config.home.homeDirectory}";
     in ''

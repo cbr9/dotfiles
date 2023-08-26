@@ -1,9 +1,11 @@
 {
   pkgs,
   lib,
+  config,
   nixosConfig ? {},
   ...
-}: let
+}:
+with lib; let
   sony = nixosConfig != {} && nixosConfig.sony.enable;
   userName = (
     if sony
@@ -16,12 +18,14 @@
     else "cabero96@protonmail.com"
   );
 in {
-  home.shellAliases = {
-    gp = "git push";
+  home.packages = [pkgs.git-crypt];
+  programs.fish.shellAbbrs = mkIf config.programs.git.enable {
+    gr = "git restore";
+    gs = "git status";
     gc = "git commit";
     ga = "git add";
+    gp = "git push";
   };
-  home.packages = [pkgs.git-crypt];
   programs.git = {
     inherit userName userEmail;
     enable = true;
