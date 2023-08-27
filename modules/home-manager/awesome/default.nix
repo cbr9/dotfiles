@@ -13,7 +13,7 @@ with lib; {
     ];
   };
 
-  home.packages = with pkgs; [pamixer brightnessctl];
+  home.packages = with pkgs; [pamixer brightnessctl dmenu];
 
   xdg.configFile = {
     "awesome/helpers.lua".source = ./helpers.lua;
