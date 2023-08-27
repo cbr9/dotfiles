@@ -114,6 +114,7 @@ with lib; {
       -- Create a textclock widget
       mytextclock = wibox.widget.textclock()
 
+      beautiful.notification_icon_size = 50
       beautiful.wallpaper = "${config.stylix.image}"
       beautiful.useless_gap = 5
       beautiful.gap_single_client = true
