@@ -166,6 +166,14 @@
         end
       end
 
+      local function brightness_up()
+        awful.spawn("${pkgs.brightnessctl}/bin/brightnessctl set +5%")
+      end
+
+      local function brightness_down()
+        awful.spawn("${pkgs.brightnessctl}/bin/brightnessctl set 5%-")
+      end
+
       local function volume_mute()
         awful.spawn("${pkgs.pamixer}/bin/pamixer -t")
       end
@@ -262,6 +270,13 @@
           {description = "lower volume", group = "media"}),
         awful.key({}, "XF86AudioRaiseVolume", volume_up,
           {description = "raise volume", group = "media"}),
+        awful.key({}, "XF86MonBrightnessDown", brightness_down,
+          {description = "decrease brightness", group = "client"}),
+        awful.key({}, "XF86MonBrightnessUp", brightness_up, {
+          description = "increase brightness", group = "client"
+        }),
+
+
 
         awful.key({ modkey, }, "j",
           function()
