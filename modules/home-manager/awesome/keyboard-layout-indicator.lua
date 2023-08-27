@@ -1,4 +1,3 @@
-#!/usr/bin/env nix-shell -p xorg.setxkbmap
 -- Keyboard Layout Switcher
 -- Keyboard map indicator and changer
 
