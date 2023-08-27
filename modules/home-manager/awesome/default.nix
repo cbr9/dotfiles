@@ -12,6 +12,9 @@ with lib; {
       luadbi-mysql # Database abstraction layer
     ];
   };
+
+  home.packages = with pkgs; [pamixer brightnessctl];
+
   xdg.configFile = {
     "awesome/helpers.lua".source = ./helpers.lua;
     "awesome/keyboard-layout-indicator.lua".source = ./keyboard-layout-indicator.lua;

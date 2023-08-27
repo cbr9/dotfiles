@@ -157,27 +157,31 @@ local function set_wallpaper(s)
       wallpaper = wallpaper(s)
     end
     gears.wallpaper.maximized(wallpaper, s, true)
-    awful.spawn({ "betterlockscreen", "-u", beautiful.wallpaper })
+    awful.spawn({ "betterlockscreen", "-u", wallpaper })
   end
 end
 
-local function brightness_up()
+local brightness = {}
+
+function brightness.up()
   awful.spawn("brightnessctl set +5%")
 end
 
-local function brightness_down()
+function brightness.down()
   awful.spawn("brightnessctl set 5%-")
 end
 
-local function volume_mute()
+local volume = {}
+
+function volume.mute()
   awful.spawn("pamixer -t")
 end
 
-local function volume_up()
+function volume.raise()
   awful.spawn("pamixer --increase 5 --set-limit 100")
 end
 
-local function volume_down()
+function volume.lower()
   awful.spawn("pamixer -d 5")
 end
 
@@ -259,15 +263,15 @@ local global_keys = gears.table.join(
   awful.key({ modkey, }, "Escape", awful.tag.history.restore,
     { description = "go back", group = "tag" }),
 
-  awful.key({}, "XF86AudioMute", volume_mute,
+  awful.key({}, "XF86AudioMute", volume.mute,
     { description = "mute volume", group = "media" }),
-  awful.key({}, "XF86AudioLowerVolume", volume_down,
+  awful.key({}, "XF86AudioLowerVolume", volume.lower,
     { description = "lower volume", group = "media" }),
-  awful.key({}, "XF86AudioRaiseVolume", volume_up,
+  awful.key({}, "XF86AudioRaiseVolume", volume.raise,
     { description = "raise volume", group = "media" }),
-  awful.key({}, "XF86MonBrightnessDown", brightness_down,
+  awful.key({}, "XF86MonBrightnessDown", brightness.down,
     { description = "decrease brightness", group = "client" }),
-  awful.key({}, "XF86MonBrightnessUp", brightness_up, {
+  awful.key({}, "XF86MonBrightnessUp", brightness.up, {
     description = "increase brightness", group = "client"
   }),
 
