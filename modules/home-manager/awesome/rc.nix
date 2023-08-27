@@ -107,6 +107,8 @@
       mytextclock = wibox.widget.textclock()
 
       beautiful.notification_icon_size = 50
+      beautiful.notification_width = 100
+      beautiful.notification_height = 75
       beautiful.border_focus = "#fabd2f";
       beautiful.border_width = 3;
       beautiful.wallpaper = "${config.stylix.image}"
