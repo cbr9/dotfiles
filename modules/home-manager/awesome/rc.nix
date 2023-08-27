@@ -166,6 +166,20 @@
         end
       end
 
+      local function volume_mute()
+        awful.spawn("${pkgs.pamixer}/bin/pamixer -t")
+      end
+
+      local function volume_up()
+        awful.spawn("${pkgs.pamixer}/bin/pamixer --increase 5 --set-limit 100")
+      end
+
+      local function volume_down()
+        awful.spawn("${pkgs.pamixer}/bin/pamixer -d 5")
+      end
+
+
+
       -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
       screen.connect_signal("property::geometry", set_wallpaper)
 
@@ -241,6 +255,13 @@
           { description = "view next", group = "tag" }),
         awful.key({ modkey, }, "Escape", awful.tag.history.restore,
           { description = "go back", group = "tag" }),
+
+        awful.key({}, "XF86AudioMute", volume_mute,
+          {description = "mute volume", group = "media"}),
+        awful.key({}, "XF86AudioLowerVolume", volume_down,
+          {description = "lower volume", group = "media"}),
+        awful.key({}, "XF86AudioRaiseVolume", volume_up,
+          {description = "raise volume", group = "media"}),
 
         awful.key({ modkey, }, "j",
           function()
