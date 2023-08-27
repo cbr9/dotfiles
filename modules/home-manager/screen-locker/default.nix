@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  nixosConfig,
+  ...
+}: {
   services.betterlockscreen = {
     enable = true;
     package = pkgs.betterlockscreen.override {withDunst = false;};
@@ -50,7 +54,7 @@
     # expert options (change at own risk!)
     #
 
-    i3lockcolor_bin="/run/wrappers/bin/i3lock"      # Manually set command for i3lock-color
+    i3lockcolor_bin="${nixosConfig.programs.i3lock.package}/bin/i3lock"      # Manually set command for i3lock-color
     # suspend_command="systemctl suspend" # Manually change action e.g. hibernate/suspend-command
 
     # i3lock-color - custom arguments

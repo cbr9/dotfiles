@@ -13,7 +13,6 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
-local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -54,8 +53,6 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 local terminal = "kitty"
-local editor = os.getenv("EDITOR")
-local editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -86,12 +83,9 @@ awful.layout.layouts = {
 -- }}}
 
 
--- Menubar configuration
-menubar.utils.terminal = terminal         -- Set the terminal for applications that require it
--- }}}
 
 -- Keyboard map indicator and switcher
-keyboard_layout = keyboard_layout_indicator({
+local keyboard_layout = keyboard_layout_indicator({
   layouts = {
     { name = "🇺🇸", layout = "us", variant = nil },
     { name = "🇩🇪", layout = "de", variant = nil },
@@ -102,14 +96,15 @@ keyboard_layout = keyboard_layout_indicator({
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+local text_clock = wibox.widget.textclock()
 
+beautiful.wallpaper = "@wallpaper@"
+beautiful.font = "DejaVu Sans Mono"
 beautiful.notification_icon_size = 50
 beautiful.notification_width = 100
 beautiful.notification_height = 75
 beautiful.border_focus = "#fabd2f";
 beautiful.border_width = 3;
-beautiful.wallpaper = "@wallpaper@"
 beautiful.useless_gap = 5
 beautiful.gap_single_client = true
 
@@ -196,7 +191,8 @@ awful.screen.connect_for_each_screen(function(s)
   set_wallpaper(s)
 
   --   -- Each screen has its own tag table.
-  awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+  local names = { "💻", "🌐", "3", "4", "5", "6", "7", "8", "9" }
+  awful.tag(names, s, awful.layout.layouts[1])
 
   --   -- Create a promptbox for each screen
   s.mypromptbox = awful.widget.prompt()
@@ -209,14 +205,14 @@ awful.screen.connect_for_each_screen(function(s)
     awful.button({}, 4, function() awful.layout.inc(1) end),
     awful.button({}, 5, function() awful.layout.inc(-1) end)))
   -- Create a taglist widget
-  s.mytaglist = awful.widget.taglist {
+  s.tag_list = awful.widget.taglist {
     screen  = s,
     filter  = awful.widget.taglist.filter.all,
     buttons = taglist_buttons
   }
 
   --   -- Create a tasklist widget
-  s.mytasklist = awful.widget.tasklist {
+  s.task_list = awful.widget.tasklist {
     screen  = s,
     filter  = awful.widget.tasklist.filter.currenttags,
     buttons = tasklist_buttons
@@ -230,16 +226,15 @@ awful.screen.connect_for_each_screen(function(s)
     layout = wibox.layout.align.horizontal,
     {         -- Left widgets
       layout = wibox.layout.fixed.horizontal,
-      mylauncher,
-      s.mytaglist,
+      s.tag_list,
       s.mypromptbox,
     },
-    s.mytasklist,         -- Middle widget
+    s.task_list,         -- Middle widget
     {                     -- Right widgets
       layout = wibox.layout.fixed.horizontal,
       keyboard_layout,
       wibox.widget.systray(),
-      mytextclock,
+      text_clock,
       s.mylayoutbox,
     },
   }
@@ -254,7 +249,7 @@ root.buttons(gears.table.join(
 -- }}}
 
 -- {{{ Key bindings
-globalkeys = gears.table.join(
+local global_keys = gears.table.join(
   awful.key({ modkey, }, "s", hotkeys_popup.show_help,
     { description = "show help", group = "awesome" }),
   awful.key({ modkey, }, "Left", awful.tag.viewprev,
@@ -352,7 +347,7 @@ globalkeys = gears.table.join(
   awful.key({ modkey, altkey }, "space", function() keyboard_layout:next() end)
 )
 
-clientkeys = gears.table.join(
+local client_keys = gears.table.join(
   awful.key({ modkey, }, "f",
     function(c)
       c.fullscreen = not c.fullscreen
@@ -400,7 +395,7 @@ clientkeys = gears.table.join(
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
 for i = 1, 9 do
-  globalkeys = gears.table.join(globalkeys,
+  global_keys = gears.table.join(global_keys,
     -- View tag only.
     awful.key({ modkey }, "#" .. i + 9,
       function()
@@ -446,7 +441,7 @@ for i = 1, 9 do
   )
 end
 
-clientbuttons = gears.table.join(
+local client_buttons = gears.table.join(
   awful.button({}, 1, function(c)
     c:emit_signal("request::activate", "mouse_click", { raise = true })
   end),
@@ -461,7 +456,7 @@ clientbuttons = gears.table.join(
 )
 
 -- Set keys
-root.keys(globalkeys)
+root.keys(global_keys)
 -- }}}
 
 -- {{{ Rules
@@ -475,8 +470,8 @@ awful.rules.rules = {
       border_color = beautiful.border_normal,
       focus = awful.client.focus.filter,
       raise = true,
-      keys = clientkeys,
-      buttons = clientbuttons,
+      keys = client_keys,
+      buttons = client_buttons,
       screen = awful.screen.preferred,
       placement = awful.placement.no_overlap + awful.placement.no_offscreen
     }

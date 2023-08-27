@@ -13,7 +13,13 @@ with lib; {
     ];
   };
   xdg.configFile = {
+    "awesome/helpers.lua".source = ./helpers.lua;
     "awesome/keyboard-layout-indicator.lua".source = ./keyboard-layout-indicator.lua;
+    "awesome/theme.lua".source = pkgs.substituteAll {
+      name = "theme.lua";
+      src = ./theme.lua;
+      wallpaper = config.stylix.image;
+    };
     "awesome/rc.lua".source = pkgs.substituteAll {
       name = "rc.lua";
       src = ./rc.lua;
