@@ -136,6 +136,23 @@ in {
 
         lf -remote "send $id :unselect; toggle $(get_dirs)"
       '';
+
+      copy-filestem = mkAsyncCmd ''
+        filename="$(basename -- "$f")"
+        filestem="${"$" + "{filename%.*}"}"
+        printf "$filestem" | xclip -selection clipboard
+      '';
+
+      copy-ext = mkAsyncCmd ''
+        filename="$(basename -- "$f")"
+        extension="${"$" + "{filename##*.}"}"
+        printf "$extension" | xclip -selection clipboard
+      '';
+
+      copy-filename = mkAsyncCmd ''
+        filename="$(basename -- "$f")"
+        printf "$filename" | xclip -selection clipboard
+      '';
     };
 
     previewer.source = "${pkgs.ctpv}/bin/ctpv";
@@ -153,6 +170,12 @@ in {
       x = "cut";
       J = ":updir; set dironly true; down; set dironly false; open";
       K = ":updir; set dironly true; up; set dironly false; open";
+
+      y = "";
+      yy = "copy";
+      yn = "copy-filename";
+      ys = "copy-filestem";
+      ye = "copy-ext";
     };
   };
 }
