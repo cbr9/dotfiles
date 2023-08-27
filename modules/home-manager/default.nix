@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  nixosConfig,
-  ...
-}: {
+{...}: {
   imports = [
     ./alacritty
     ./awesome
@@ -17,6 +12,7 @@
     ./direnv
     ./exa
     ./espanso
+    ./eww
     ./fzf
     ./fish
     ./firefox
