@@ -21,6 +21,7 @@ in {
   home.packages = [pkgs.git-crypt];
   programs.fish.shellAbbrs = mkIf config.programs.git.enable {
     gr = "git restore";
+    gd = "git diff";
     gs = "git status";
     gc = "git commit";
     ga = "git add";
