@@ -321,6 +321,15 @@
         awful.key({ modkey }, "b", function() awful.spawn("${pkgs.firefox}/bin/firefox"); end,
           { description = "open browser", group = "launcher" }),
 
+        awful.key({ modkey, "Shift"}, "d", function() awful.spawn("${pkgs.xorg.setxkbmap}/bin/setxkbmap -layout de"); end,
+          { description = "switch to german layout", group = "keyboard" }),
+
+        awful.key({ modkey, "Shift"}, "e", function() awful.spawn("${pkgs.xorg.setxkbmap}/bin/setxkbmap -layout es"); end,
+          { description = "switch to spanish layout", group = "keyboard" }),
+
+        awful.key({ modkey, "Shift"}, "u", function() awful.spawn("${pkgs.xorg.setxkbmap}/bin/setxkbmap -layout us"); end,
+          { description = "switch to english layout", group = "keyboard" }),
+
         awful.key({ modkey }, "x",
           function()
             awful.prompt.run {
@@ -525,6 +534,8 @@
           awful.placement.no_offscreen(c)
         end
       end)
+
+
 
       -- Enable sloppy focus, so that focus follows mouse.
       client.connect_signal("mouse::enter", function(c)
