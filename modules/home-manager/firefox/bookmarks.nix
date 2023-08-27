@@ -28,7 +28,12 @@
         keyword = "udemy";
         tags = ["learning" "education"];
       }
-
+      {
+        name = "Cambridge German-English Dictionary";
+        url = "https://dictionary.cambridge.org/dictionary/german-english/";
+        keyword = "german";
+        tags = ["learning" "education"];
+      }
       {
         name = "NixOS";
         toolbar = false;
