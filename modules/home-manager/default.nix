@@ -12,7 +12,6 @@
     ./direnv
     ./exa
     ./espanso
-    ./eww
     ./fzf
     ./fish
     ./firefox
