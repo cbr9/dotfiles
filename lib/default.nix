@@ -14,6 +14,11 @@ in {
   # sorts a list of attribute sets by comparing a field in each of the attrsets, with a user-defined order
   sortAttrsList = path: list: order: builtins.sort (a: b: (lib.indexOf (lib.attrsets.getAttrFromPath path a) order) < (lib.indexOf (lib.attrsets.getAttrFromPath path b) order)) list;
 
+  boolToString = bool:
+    if bool == true
+    then "true"
+    else "false";
+
   mkHosts = hosts: inputs: pkgs:
     lib.genAttrs hosts (host:
       lib.mkHost {

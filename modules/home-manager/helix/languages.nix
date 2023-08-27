@@ -4,6 +4,7 @@ with pkgs; {
   home.packages = with pkgs; [
     nodePackages.pyright
     nil
+    lua-language-server
     typst-lsp
     clippy
     python310Packages.ruff-lsp

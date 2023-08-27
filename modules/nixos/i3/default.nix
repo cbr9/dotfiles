@@ -21,7 +21,7 @@ in {
 
   config = mkIf cfg.i3.enable {
     services.xserver.windowManager.i3 = {
-      enable = true;
+      enable = false;
     };
 
     # Fix issue with java applications and tiling window managers.
@@ -47,12 +47,12 @@ in {
         i3lock-color
       ];
 
-      services.dunst = {
+      services.dunst = lib.mkIf config.home-manager.users.cabero.xsession.windowManager.i3.enable {
         enable = true;
       };
 
       xsession.windowManager.i3 = {
-        enable = true;
+        enable = false;
         config = {
           modifier = "Mod4";
           window = {titlebar = false;};

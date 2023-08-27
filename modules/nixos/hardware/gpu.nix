@@ -27,8 +27,8 @@ with builtins; {
     };
 
     windowManager = mkOption {
-      type = types.enum ["i3"];
-      default = "i3";
+      type = types.enum ["i3" "awesome"];
+      default = "awesome";
     };
 
     v4l2loopback = mkEnableOption "Enable v4l2loop back on this system";
@@ -71,14 +71,11 @@ with builtins; {
       '';
 
       displayManager = {
+        defaultSession = "none+awesome";
         lightdm = {
           enable = config.sys.graphics.displayManager == "lightdm";
           background = lib.mkForce config.stylix.image;
           greeters.gtk.enable = true;
-        };
-        gdm = {
-          enable = config.sys.graphics.displayManager == "gdm";
-          wayland = config.sys.graphics.displayManager == "gdm";
         };
       };
 

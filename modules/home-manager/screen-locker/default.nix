@@ -1,8 +1,10 @@
-{...}: {
+{pkgs, ...}: {
   services.betterlockscreen = {
     enable = true;
+    package = pkgs.betterlockscreen.override {withDunst = false;};
     inactiveInterval = 5;
   };
+
   xdg.configFile."betterlockscreenrc".text = ''
     # ~/.config/betterlockscreenrc
 
