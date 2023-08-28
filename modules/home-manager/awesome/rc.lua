@@ -185,8 +185,6 @@ function volume.lower()
   awful.spawn("pamixer -d 5")
 end
 
-
-
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
@@ -222,25 +220,37 @@ awful.screen.connect_for_each_screen(function(s)
     buttons = tasklist_buttons
   }
 
+  local right_widgets = {}
+  if s == screen.primary then
+    right_widgets = {
+      layout = wibox.layout.fixed.horizontal,
+      keyboard_layout,
+      wibox.widget.systray(),
+      text_clock,
+      s.mylayoutbox
+    }
+  else
+    right_widgets = {
+      layout = wibox.layout.fixed.horizontal,
+      keyboard_layout,
+      text_clock,
+      s.mylayoutbox,
+    }
+  end
+
   -- Create the wibox
   s.mywibox = awful.wibar({ position = "top", screen = s })
 
   -- Add widgets to the wibox
   s.mywibox:setup {
     layout = wibox.layout.align.horizontal,
-    {         -- Left widgets
+    { -- Left widgets
       layout = wibox.layout.fixed.horizontal,
       s.tag_list,
       s.mypromptbox,
     },
-    s.task_list,         -- Middle widget
-    {                     -- Right widgets
-      layout = wibox.layout.fixed.horizontal,
-      keyboard_layout,
-      wibox.widget.systray(),
-      text_clock,
-      s.mylayoutbox,
-    },
+    s.task_list, -- Middle widget
+    right_widgets
   }
 end)
 -- }}}
@@ -277,18 +287,28 @@ local global_keys = gears.table.join(
 
 
 
-  awful.key({ modkey, }, "j",
-    function()
-      awful.client.focus.byidx(1)
-    end,
-    { description = "focus next by index", group = "client" }
-  ),
-  awful.key({ modkey, }, "k",
-    function()
-      awful.client.focus.byidx(-1)
-    end,
-    { description = "focus previous by index", group = "client" }
-  ),
+    -- Directionional client focus
+    awful.key({ modkey }, "j",
+        function()
+            awful.client.focus.bydirection("down")
+            if client.focus then client.focus:raise() end
+        end),
+    awful.key({ modkey }, "k",
+        function()
+            awful.client.focus.bydirection("up")
+            if client.focus then client.focus:raise() end
+        end),
+    awful.key({ modkey }, "h",
+        function()
+            awful.client.focus.bydirection("left")
+            if client.focus then client.focus:raise() end
+        end),
+    awful.key({ modkey }, "l",
+        function()
+            awful.client.focus.bydirection("right")
+            if client.focus then client.focus:raise() end
+        end),
+
 
   -- Layout manipulation
   awful.key({ modkey, "Shift" }, "j", function() awful.client.swap.byidx(1) end,
@@ -317,10 +337,6 @@ local global_keys = gears.table.join(
     { description = "reload awesome", group = "awesome" }),
   awful.key({ modkey, "Shift" }, "q", awesome.quit,
     { description = "quit awesome", group = "awesome" }),
-  awful.key({ modkey, }, "l", function() awful.tag.incmwfact(0.05) end,
-    { description = "increase master width factor", group = "layout" }),
-  awful.key({ modkey, }, "h", function() awful.tag.incmwfact(-0.05) end,
-    { description = "decrease master width factor", group = "layout" }),
   awful.key({ modkey, "Shift" }, "h", function() awful.tag.incnmaster(1, nil, true) end,
     { description = "increase the number of master clients", group = "layout" }),
   awful.key({ modkey, "Shift" }, "l", function() awful.tag.incnmaster(-1, nil, true) end,
@@ -485,8 +501,8 @@ awful.rules.rules = {
   {
     rule_any = {
       instance = {
-        "DTA",           -- Firefox addon DownThemAll.
-        "copyq",         -- Includes session name in class.
+        "DTA",   -- Firefox addon DownThemAll.
+        "copyq", -- Includes session name in class.
         "pinentry",
       },
       class = {
@@ -494,9 +510,9 @@ awful.rules.rules = {
         "Blueman-manager",
         "Gpick",
         "Kruler",
-        "MessageWin",          -- kalarm.
+        "MessageWin",  -- kalarm.
         "Sxiv",
-        "Tor Browser",         -- Needs a fixed window size to avoid fingerprinting by screen size.
+        "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
         "Wpa_gui",
         "veromix",
         "xtightvncviewer" },
@@ -504,12 +520,12 @@ awful.rules.rules = {
       -- Note that the name property shown in xprop might be set slightly after creation of the client
       -- and the name shown there might not match defined rules here.
       name = {
-        "Event Tester",         -- xev.
+        "Event Tester", -- xev.
       },
       role = {
-        "AlarmWindow",           -- Thunderbird's calendar.
-        "ConfigManager",         -- Thunderbird's about:config.
-        "pop-up",                -- e.g. Google Chrome's (detached) Developer Tools.
+        "AlarmWindow",   -- Thunderbird's calendar.
+        "ConfigManager", -- Thunderbird's about:config.
+        "pop-up",        -- e.g. Google Chrome's (detached) Developer Tools.
       }
     },
     properties = { floating = true }
