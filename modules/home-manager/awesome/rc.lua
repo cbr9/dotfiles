@@ -262,6 +262,7 @@ root.buttons(gears.table.join(
 ))
 -- }}}
 
+
 -- {{{ Key bindings
 local global_keys = gears.table.join(
   awful.key({ modkey, }, "s", hotkeys_popup.show_help,
@@ -287,27 +288,27 @@ local global_keys = gears.table.join(
 
 
 
-    -- Directionional client focus
-    awful.key({ modkey }, "j",
-        function()
-            awful.client.focus.bydirection("down")
-            if client.focus then client.focus:raise() end
-        end),
-    awful.key({ modkey }, "k",
-        function()
-            awful.client.focus.bydirection("up")
-            if client.focus then client.focus:raise() end
-        end),
-    awful.key({ modkey }, "h",
-        function()
-            awful.client.focus.bydirection("left")
-            if client.focus then client.focus:raise() end
-        end),
-    awful.key({ modkey }, "l",
-        function()
-            awful.client.focus.bydirection("right")
-            if client.focus then client.focus:raise() end
-        end),
+  -- Directionional client focus
+  awful.key({ modkey }, "j",
+    function()
+      awful.client.focus.global_bydirection("down")
+      if client.focus then client.focus:raise() end
+    end),
+  awful.key({ modkey }, "k",
+    function()
+      awful.client.focus.global_bydirection("up")
+      if client.focus then client.focus:raise() end
+    end),
+  awful.key({ modkey }, "h",
+    function()
+      awful.client.focus.global_bydirection("left")
+      if client.focus then client.focus:raise() end
+    end),
+  awful.key({ modkey }, "l",
+    function()
+      awful.client.focus.global_bydirection("right")
+      if client.focus then client.focus:raise() end
+    end),
 
 
   -- Layout manipulation
