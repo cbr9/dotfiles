@@ -296,7 +296,10 @@ local global_keys = gears.table.join(
   awful.key({}, "XF86AudioRaiseVolume", volume.raise),
   awful.key({}, "XF86MonBrightnessDown", brightness.down),
   awful.key({}, "XF86MonBrightnessUp", brightness.up),
-  awful.key({}, "Print", function() awful.spawn.with_shell('maim "/home/cabero/Nextcloud/Pictures/Screenshots/$(date "+DATE: %D%nTIME: %T").jpg"') end),
+  awful.key({}, "Print", function()
+    local date = awful.spawn('date "+%x %T:%N"')
+    awful.spawn.with_shell(string.format('maim "/home/cabero/Nextcloud/Pictures/Screenshots/%s.jpg"', date))
+  end),
 
 
 
