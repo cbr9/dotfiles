@@ -2,20 +2,21 @@
   lib,
   pkgs,
   config,
+  nixosConfig,
   ...
 }:
 with lib; {
   xsession.windowManager.awesome = {
-    enable = true;
+    enable = nixosConfig != {};
     luaModules = with pkgs.luaPackages; [
       luarocks # is the package manager for Lua modules
       luadbi-mysql # Database abstraction layer
     ];
   };
 
-  home.packages = with pkgs; [pamixer brightnessctl dmenu];
+  home.packages = with pkgs; mkIf config.xsession.windowManager.awesome.enable [pamixer brightnessctl dmenu];
 
-  xdg.configFile = {
+  xdg.configFile = mkIf config.xsession.windowManager.awesome.enable {
     "awesome/helpers.lua".source = ./helpers.lua;
     "awesome/keyboard-layout-indicator.lua".source = ./keyboard-layout-indicator.lua;
     "awesome/theme.lua".source = pkgs.substituteAll {
