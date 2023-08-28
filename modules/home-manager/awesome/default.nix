@@ -5,7 +5,9 @@
   nixosConfig,
   ...
 }:
-with lib; {
+with lib; let
+  cfg = config.xsession.windowManager.awesome;
+in {
   xsession.windowManager.awesome = {
     enable = nixosConfig != {};
     luaModules = with pkgs.luaPackages; [
@@ -14,9 +16,30 @@ with lib; {
     ];
   };
 
-  home.packages = with pkgs; mkIf config.xsession.windowManager.awesome.enable [pamixer brightnessctl dmenu];
+  home = mkIf cfg.enable {
+    packages = with pkgs; [pamixer brightnessctl dmenu maim todoist-electron];
+    # Fix issue with java applications and tiling window managers.
+    sessionVariables = {
+      "_JAVA_AWT_WM_NONREPARENTING" = "1";
+    };
+  };
 
-  xdg.configFile = mkIf config.xsession.windowManager.awesome.enable {
+  services = {
+    betterlockscreen = {
+      enable = cfg.enable;
+      package = pkgs.betterlockscreen.override {withDunst = !cfg.enable;};
+      inactiveInterval = 5;
+    };
+
+    caffeine.enable = cfg.enable;
+  };
+
+  xdg.configFile = mkIf cfg.enable {
+    "betterlockscreenrc" = mkIf config.services.betterlockscreen.enable {
+      text = ''
+        i3lockcolor_bin="/run/wrappers/bin/i3lock"
+      '';
+    };
     "awesome/helpers.lua".source = ./helpers.lua;
     "awesome/keyboard-layout-indicator.lua".source = ./keyboard-layout-indicator.lua;
     "awesome/theme.lua".source = pkgs.substituteAll {
@@ -30,6 +53,7 @@ with lib; {
       wallpaper = config.stylix.image;
     };
   };
+
   # if ${boolToString nixosConfig.programs._1password-gui.enable} then
   #   awful.spawn("${nixosConfig.programs._1password-gui.package}/bin/1password --silent")
   # end

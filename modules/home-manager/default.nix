@@ -31,7 +31,6 @@
     ./pistol
     ./redshift
     ./ssh
-    ./screen-locker
     ./skim
     ./starship
     ./texlive

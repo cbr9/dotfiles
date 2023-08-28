@@ -291,17 +291,13 @@ local global_keys = gears.table.join(
   awful.key({ modkey, }, "Escape", awful.tag.history.restore,
     { description = "go back", group = "tag" }),
 
-  awful.key({}, "XF86AudioMute", volume.mute,
-    { description = "mute volume", group = "media" }),
-  awful.key({}, "XF86AudioLowerVolume", volume.lower,
-    { description = "lower volume", group = "media" }),
-  awful.key({}, "XF86AudioRaiseVolume", volume.raise,
-    { description = "raise volume", group = "media" }),
-  awful.key({}, "XF86MonBrightnessDown", brightness.down,
-    { description = "decrease brightness", group = "client" }),
-  awful.key({}, "XF86MonBrightnessUp", brightness.up, {
-    description = "increase brightness", group = "client"
-  }),
+  awful.key({}, "XF86AudioMute", volume.mute),
+  awful.key({}, "XF86AudioLowerVolume", volume.lower),
+  awful.key({}, "XF86AudioRaiseVolume", volume.raise),
+  awful.key({}, "XF86MonBrightnessDown", brightness.down),
+  awful.key({}, "XF86MonBrightnessUp", brightness.up),
+  awful.key({}, "Print", function() awful.spawn.with_shell('maim "/home/cabero/Nextcloud/Pictures/Screenshots/$(date "+DATE: %D%nTIME: %T").jpg"') end),
+
 
 
 
@@ -366,6 +362,7 @@ local global_keys = gears.table.join(
   awful.key({ modkey }, "d", function() awful.spawn("dmenu_run"); end),
   awful.key({ modkey, "Mod1" }, "l", function() awful.spawn("betterlockscreen -l dim &"); end),
   awful.key({ modkey }, "b", function() awful.spawn("firefox"); end),
+  awful.key({ modkey }, "t", function() awful.spawn("todoist-electron"); end),
   awful.key({ modkey, altkey }, "space", function() keyboard_layout:next() end)
 )
 
