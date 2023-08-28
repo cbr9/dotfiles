@@ -262,6 +262,23 @@ root.buttons(gears.table.join(
 ))
 -- }}}
 
+local focus_bydirection = function(direction)
+  awful.client.focus.global_bydirection(direction)
+  if client.focus then
+    -- focus on the client
+    client.focus:raise()
+  end
+
+  -- BUG: focus across screens is wonky when there are no clients on the destination screen
+  -- https://github.com/awesomeWM/awesome/issues/3638
+  -- Workaround: manually unfocus client after moving focus to an empty screen
+  local is_empty_destination = #awful.screen.focused().clients < 1
+
+  if is_empty_destination then
+    -- manually unfocus the current focused client
+    client.focus = nil
+  end
+end
 
 -- {{{ Key bindings
 local global_keys = gears.table.join(
@@ -289,26 +306,10 @@ local global_keys = gears.table.join(
 
 
   -- Directionional client focus
-  awful.key({ modkey }, "j",
-    function()
-      awful.client.focus.global_bydirection("down")
-      if client.focus then client.focus:raise() end
-    end),
-  awful.key({ modkey }, "k",
-    function()
-      awful.client.focus.global_bydirection("up")
-      if client.focus then client.focus:raise() end
-    end),
-  awful.key({ modkey }, "h",
-    function()
-      awful.client.focus.global_bydirection("left")
-      if client.focus then client.focus:raise() end
-    end),
-  awful.key({ modkey }, "l",
-    function()
-      awful.client.focus.global_bydirection("right")
-      if client.focus then client.focus:raise() end
-    end),
+  awful.key({ modkey }, "j", function() focus_bydirection("down") end),
+  awful.key({ modkey }, "k", function() focus_bydirection("up") end),
+  awful.key({ modkey }, "h", function() focus_bydirection("left") end),
+  awful.key({ modkey }, "l", function() focus_bydirection("right") end),
 
 
   -- Layout manipulation
