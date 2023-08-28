@@ -26,6 +26,7 @@ in {
     gc = "git commit";
     ga = "git add";
     gp = "git push";
+    gl = "git pull";
   };
   programs.git = {
     inherit userName userEmail;

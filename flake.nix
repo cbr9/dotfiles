@@ -27,7 +27,7 @@
     pkgs = import inputs.nixpkgs {
       inherit system;
       overlays = [
-        inputs.helix.overlays.default
+        # inputs.helix.overlays.default
         (final: prev: {
           typst-master = inputs.typst.packages.${system}.default;
           organize = inputs.organize.defaultPackage.${system};
