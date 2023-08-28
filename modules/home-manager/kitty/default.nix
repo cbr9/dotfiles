@@ -1,7 +1,11 @@
-{lib, ...}:
+{
+  lib,
+  nixosConfig,
+  ...
+}:
 with lib; {
   programs.kitty = {
-    enable = true;
+    enable = nixosConfig != {};
     font.size = mkForce 15;
     shellIntegration.mode = "no-cursor";
     settings = {
