@@ -8,6 +8,7 @@ with lib; {
   stylix.targets.vscode.enable = false;
   programs.vscode = {
     enable = nixosConfig != {};
+    mutableExtensionsDir = false;
     extensions = with pkgs.vscode-extensions; [
       vscodevim.vim
       ms-python.python
@@ -19,6 +20,7 @@ with lib; {
       brettm12345.nixfmt-vscode
       rust-lang.rust-analyzer
       tomoki1207.pdf
+      james-yu.latex-workshop
     ];
 
     userSettings = {
