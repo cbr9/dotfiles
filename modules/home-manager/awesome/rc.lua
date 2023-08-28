@@ -98,15 +98,15 @@ local keyboard_layout = keyboard_layout_indicator({
 -- Create a textclock widget
 local text_clock = wibox.widget.textclock()
 
-beautiful.wallpaper = "@wallpaper@"
 beautiful.font = "DejaVu Sans Mono"
 beautiful.notification_icon_size = 50
 beautiful.notification_width = 100
 beautiful.notification_height = 75
-beautiful.border_focus = "#fabd2f";
-beautiful.border_width = 3;
+beautiful.border_focus = "#fabd2f"
+beautiful.border_width = 3
 beautiful.useless_gap = 5
 beautiful.gap_single_client = true
+beautiful.wallpaper = "@wallpaper@"
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
