@@ -1,12 +1,13 @@
 {
   pkgs,
   lib,
+  nixosConfig,
   ...
 }:
 with lib; {
   stylix.targets.vscode.enable = false;
   programs.vscode = {
-    enable = false;
+    enable = nixosConfig != {};
     extensions = with pkgs.vscode-extensions; [
       vscodevim.vim
       ms-python.python
