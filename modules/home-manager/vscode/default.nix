@@ -24,6 +24,7 @@ with lib; {
     ];
 
     userSettings = {
+      "remote.SSH.showLoginTerminal" = true;
       "remote.SSH.remotePlatform" = {
         "phoenix.ims.uni-stuttgart.de" = "linux";
         "strauss.ims.uni-stuttgart.de" = "linux";

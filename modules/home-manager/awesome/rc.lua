@@ -186,6 +186,7 @@ function volume.lower()
 end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
+local tag_names = { "💻", "🌐", "3", "4", "5", "6", "7", "8", "9" }
 screen.connect_signal("property::geometry", set_wallpaper)
 
 awful.screen.connect_for_each_screen(function(s)
@@ -193,8 +194,7 @@ awful.screen.connect_for_each_screen(function(s)
   set_wallpaper(s)
 
   --   -- Each screen has its own tag table.
-  local names = { "💻", "🌐", "3", "4", "5", "6", "7", "8", "9" }
-  awful.tag(names, s, awful.layout.layouts[1])
+  awful.tag(tag_names, s, awful.layout.layouts[1])
 
   --   -- Create a promptbox for each screen
   s.mypromptbox = awful.widget.prompt()
@@ -540,9 +540,8 @@ awful.rules.rules = {
     properties = { titlebars_enabled = false }
   },
 
-  -- Set Firefox to always map on the tag named "2" on screen 1.
-  -- { rule = { class = "Firefox" },
-  --   properties = { screen = 1, tag = "2" } },
+  { rule = { class = "Firefox" },
+    properties = { screen = 1, tag = tag_names[2] } },
 }
 -- }}}
 
