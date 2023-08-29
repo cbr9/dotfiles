@@ -52,6 +52,7 @@ with builtins; {
           ./packages.nix
           ./email.nix
         ];
+
         home.sessionVariables = rec {
           CACHIX_AUTH_TOKEN = "op://Personal/Cachix/authtoken";
           OPENAI_API_KEY = "op://Personal/OpenAI/api-key";
