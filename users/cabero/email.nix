@@ -13,7 +13,7 @@ in {
 
     thunderbird = {
       enable = true;
-      profiles = {default = {isDefault = true;};};
+      profiles.default.isDefault = true;
     };
   };
 
@@ -23,16 +23,23 @@ in {
       accounts = {
         uniStuttgart = rec {
           address = "st176559@stud.uni-stuttgart.de";
-          userName = address;
+          userName = builtins.elemAt (builtins.split "@" address) 0;
           realName = name;
           passwordCommand = "op item get 'Universität Stuttgart' --fields password";
-          imap.host = "imap.uni-stuttgart.de";
-          imap.port = 993;
-          imap.tls.enable = true;
-          smtp.host = "smtp.uni-stuttgart.de";
-          smtp.port = 587;
-          smtp.tls.useStartTls = true;
-          thunderbird = {enable = true;};
+
+          imap = {
+            host = "imap.uni-stuttgart.de";
+            port = 993;
+            tls.enable = true;
+          };
+
+          smtp = {
+            host = "smtp.uni-stuttgart.de";
+            port = 587;
+            tls.useStartTls = true;
+          };
+
+          thunderbird.enable = true;
 
           himalaya = {
             enable = true;
@@ -46,12 +53,13 @@ in {
           userName = "cabero96@gmail.com";
           realName = name;
           passwordCommand = "op item get Google --vault Personal --fields app-password";
+
           imap.host = "imap.gmail.com";
           imap.port = 993;
           smtp.host = "smtp.gmail.com";
           smtp.port = 465;
 
-          thunderbird = {enable = true;};
+          thunderbird.enable = true;
 
           himalaya = {
             enable = true;
