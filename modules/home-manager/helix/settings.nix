@@ -1,15 +1,7 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}:
-with pkgs; let
-  cfg = config.programs.helix;
-in {
+{...}: {
   stylix.targets.helix.enable = false;
   programs.helix.settings = {
-    theme = "gruvbox_dark_hard";
+    theme = "gruvbox";
     keys = {
       normal = {
         g = {
@@ -20,7 +12,6 @@ in {
           e = ["select_mode" "goto_last_line" "normal_mode"];
           q = {q = [":reflow"];};
         };
-        A-y = ["yank_joined"];
       };
     };
     editor = {
