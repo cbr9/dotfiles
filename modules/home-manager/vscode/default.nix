@@ -7,7 +7,7 @@
 with lib; {
   stylix.targets.vscode.enable = false;
   programs.vscode = {
-    enable = nixosConfig != {};
+    enable = nixosConfig != {} && nixosConfig.networking.hostName == "deatcs001ws845";
     mutableExtensionsDir = false;
     extensions = with pkgs.vscode-extensions; [
       vscodevim.vim
