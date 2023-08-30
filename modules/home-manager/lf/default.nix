@@ -155,10 +155,11 @@ in {
         copied=""
         for f in $fx; do
           path=$(realpath "$f")
-          copied+="$(echo -n "$path" | sd -s " " "\ ") "
+          copied+="$(echo -n "$path" | sd -s " " "\ ")" # escape whitespace
+          copied+=" " # add a separator
         done
 
-        copied=$(echo -n $copied | xargs) # trim whitespace
+        copied=$(echo -n $copied | xargs) # trim last separator whitespace
 
         echo -n "$copied" | ${pkgs.xclip}/bin/xclip -selection clipboard
         lf -remote "send $id echo Copied \"$copied\" to clipboard"
