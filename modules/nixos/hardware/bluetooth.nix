@@ -1,17 +1,20 @@
-{pkgs, lib, config, ...}:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 with pkgs;
 with lib;
-with builtins;
-let
-    cfg = config.sys;
+with builtins; let
+  cfg = config.sys;
 in {
-    options.sys.hardware = {
-      bluetooth = mkEnableOption "System has a bluetooth adapter";
-    };
+  options.sys.hardware = {
+    bluetooth = mkEnableOption "System has a bluetooth adapter";
+  };
 
-    config = {
-      hardware.bluetooth.enable = cfg.hardware.bluetooth;
-      services.blueman.enable = cfg.hardware.bluetooth;
-
-    };
+  config = {
+    hardware.bluetooth.enable = cfg.hardware.bluetooth;
+    services.blueman.enable = cfg.hardware.bluetooth;
+  };
 }
