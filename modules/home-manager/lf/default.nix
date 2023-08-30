@@ -105,10 +105,24 @@ in {
 
       play = mkAsyncCmd "${pkgs.sox}/bin/play $f";
       stop-playing = mkAsyncCmd "pkill play";
-      mkdir = mkAsyncCmd ''
-        printf "Directory Name: "
-        read ans
-        mkdir $ans
+      mkdir = mkLfCmd ''
+        if [ $# -eq 0  ]; then
+          printf "Directory Name: "
+          read ans
+          mkdir $ans
+        else
+          mkdir "$@"
+        fi
+      '';
+
+      new = mkLfCmd ''
+        if [ $# -eq 0  ]; then
+          printf "Filename: "
+          read ans
+          touch $ans
+        else
+          touch "$@"
+        fi
       '';
 
       select-files = mkAsyncCmd ''
