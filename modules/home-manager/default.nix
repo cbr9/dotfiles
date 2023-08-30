@@ -20,6 +20,7 @@
     ./gitui
     ./kitty
     ./helix
+    ./lsd
     ./lf
     ./lazygit
     ./man
