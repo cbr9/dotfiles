@@ -154,7 +154,7 @@ in {
       yank-path = mkAsyncCmd ''
         copied=""
         for f in $fx; do
-          path=$(realpath "$f")
+          path=$(realpath --no-symlinks "$f")
           copied+="$(echo -n "$path" | sd -s " " "\ ")" # escape whitespace
           copied+=" " # add a separator
         done
