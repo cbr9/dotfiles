@@ -151,21 +151,10 @@ in {
         lf -remote "send $id :unselect; toggle $(get_dirs)"
       '';
 
-      copy-filestem = mkAsyncCmd ''
-        filename="$(basename -- "$f")"
-        filestem="${"$" + "{filename%.*}"}"
-        printf "$filestem" | xclip -selection clipboard
-      '';
-
-      copy-ext = mkAsyncCmd ''
-        filename="$(basename -- "$f")"
-        extension="${"$" + "{filename##*.}"}"
-        printf "$extension" | xclip -selection clipboard
-      '';
-
-      copy-filename = mkAsyncCmd ''
-        filename="$(basename -- "$f")"
-        printf "$filename" | xclip -selection clipboard
+      yank-path = mkAsyncCmd ''
+        path=$(realpath "$f")
+        printf $path | xclip -selection clipboard
+        lf -remote "send $id echo Copied \"$path\" to clipboard"
       '';
     };
 
@@ -187,9 +176,7 @@ in {
 
       y = "";
       yy = "copy";
-      yn = "copy-filename";
-      ys = "copy-filestem";
-      ye = "copy-ext";
+      yp = "yank-path";
     };
   };
 }
