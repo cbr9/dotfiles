@@ -153,7 +153,7 @@ in {
 
       yank-path = mkAsyncCmd ''
         path=$(realpath "$f")
-        echo -n "$path" | sd -s " " "\ " | xclip -selection clipboard
+        echo -n "$path" | sd -s " " "\ " | ${pkgs.xclip}/bin/xclip -selection clipboard
         lf -remote "send $id echo Copied \"$path\" to clipboard"
       '';
     };
