@@ -5,7 +5,6 @@
     ./atuin
     ./bat
     ./bash
-    ./borgmatic
     ./broot
     ./boxxy
     ./bottom
