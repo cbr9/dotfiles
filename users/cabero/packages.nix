@@ -3,6 +3,7 @@
     just
     gptcommit
     watchexec
+    dysk
     sph2pipe
     poppler_utils
     typst-master

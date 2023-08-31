@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     # CLI
     just
+    dysk
     home-manager
     typst
     ripgrep
