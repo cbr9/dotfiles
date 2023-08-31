@@ -8,7 +8,7 @@
   };
 
   config = {
-    hardware.bluetooth.enable = config.hardware.bluetooth;
-    services.blueman.enable = config.hardware.bluetooth;
+    hardware.bluetooth.enable = config.sys.hardware.bluetooth;
+    services.blueman.enable = config.sys.hardware.bluetooth;
   };
 }
