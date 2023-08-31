@@ -3,6 +3,7 @@
     # CLI
     just
     home-manager
+    dysk
     typst
     ripgrep
     xclip
