@@ -4,6 +4,7 @@
     just
     dysk
     home-manager
+    dysk
     typst
     ripgrep
     xclip
