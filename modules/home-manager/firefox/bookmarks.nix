@@ -29,6 +29,12 @@
         tags = ["learning" "education"];
       }
       {
+        name = "Calendar";
+        url = "https://calendar.google.com/";
+        keyword = "calendar";
+        tags = ["productivity"];
+      }
+      {
         name = "Cambridge German-English Dictionary";
         url = "https://dictionary.cambridge.org/dictionary/german-english/";
         keyword = "german";
