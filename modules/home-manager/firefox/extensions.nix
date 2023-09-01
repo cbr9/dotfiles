@@ -26,6 +26,16 @@
       )
       (
         buildFirefoxXpiAddon rec {
+          pname = "toucan";
+          version = "2.15.3";
+          url = "https://addons.mozilla.org/firefox/downloads/file/3964416/toucan_language_learning-${version}.xpi";
+          sha256 = "sha256-fiL9jsCpQhlqTh/ouxsjm+wjljTm+ygTdnNTxYgDtns=";
+          addonId = "{fe50e88d-a084-4ff2-9d58-eeac466f937e}";
+          meta = {};
+        }
+      )
+      (
+        buildFirefoxXpiAddon rec {
           pname = "popup-blocker";
           version = "0.6.8";
           url = "https://addons.mozilla.org/firefox/downloads/file/3821195/popup_blocker-${version}.xpi";
