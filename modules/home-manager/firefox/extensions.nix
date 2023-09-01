@@ -13,6 +13,7 @@
       decentraleyes
       youtube-shorts-block
       youtube-recommended-videos # unhook
+      i-dont-care-about-cookies
       (
         buildFirefoxXpiAddon rec {
           pname = "simple-translate";
