@@ -69,16 +69,22 @@
             tags = ["config" "code" "nix"];
           }
           {
+            name = "Nushell";
+            url = "https://github.com/nushell/nushell";
+            keyword = "nushell";
+            tags = ["shell" "code" "rust" "cli"];
+          }
+          {
             name = "Helix";
             url = "https://github.com/helix-editor/helix";
             keyword = "helix";
-            tags = ["editor" "terminal" "cli"];
+            tags = ["editor" "terminal" "cli" "rust"];
           }
           {
             name = "Typst";
             url = "https://github.com/typst/typst";
             keyword = "typst";
-            tags = ["typeset" "latex"];
+            tags = ["typeset" "latex" "rust"];
           }
           {
             name = "Nixpkgs";
@@ -90,7 +96,7 @@
             name = "Zellij";
             url = "https://github.com/zellij-org/zellij";
             keyword = "zellij";
-            tags = ["cli" "terminal"];
+            tags = ["cli" "terminal" "rust" "multiplexer"];
           }
         ];
       }
