@@ -41,16 +41,28 @@
         tags = ["productivity" "ai"];
       }
       {
-        name = "Calendar";
-        url = "https://calendar.google.com/";
-        keyword = "calendar";
-        tags = ["productivity"];
-      }
-      {
         name = "Cambridge German-English Dictionary";
         url = "https://dictionary.cambridge.org/dictionary/german-english/";
         keyword = "german";
         tags = ["learning" "education"];
+      }
+      {
+        name = "Google";
+        toolbar = false;
+        bookmarks = [
+          {
+            name = "Calendar";
+            url = "https://calendar.google.com/";
+            keyword = "calendar";
+            tags = ["productivity"];
+          }
+          {
+            name = "Gmail";
+            url = "https://mail.google.com";
+            keyword = "gmail";
+            tags = ["email" "productivity"];
+          }
+        ];
       }
       {
         name = "NixOS";
