@@ -1,29 +1,35 @@
 {
   config,
   pkgs,
+  lib,
   ...
-}:
-with pkgs;
-with lib;
-with builtins; let
-  cfg = config.sys;
-in {
-  options.sys.hardware.openrgb = mkEnableOption {
-    default = false;
-    description = "Whether to enable OpenRGB";
-  };
+}: let
+  autoStart = flags:
+    pkgs.writeScriptBin "rgb" ''
+      #!/bin/sh
+      ${pkgs.openrgb}/bin/openrgb ${lib.concatStringsSep " " flags}
+    '';
 
-  config = let
-    enable = cfg.hardware.openrgb;
-  in {
-    environment.systemPackages = mkIf enable [openrgb i2c-tools];
-    boot = mkIf enable {
-      kernelParams = ["acpi_enforce_resources=lax"];
-      kernelModules = ["i2c-dev"];
+  cfg = config.services.hardware.openrgb;
+in
+  with lib; {
+    options = {
+      services.hardware.openrgb = {
+        autoStartFlags = lib.mkOption {
+          type = types.listOf types.str;
+          default = [];
+        };
+      };
     };
-    services.udev.extraRules = mkIf enable (readFile (fetchurl {
-      url = "https://gitlab.com/CalcProgrammer1/OpenRGB/-/jobs/artifacts/master/raw/60-openrgb.rules?job=Linux+64+AppImage&inline=false";
-    }));
-    hardware.i2c.enable = enable;
-  };
-}
+
+    config = lib.mkIf config.services.hardware.openrgb.enable {
+      systemd.services.rgb = lib.mkIf (cfg.autoStartFlags != []) {
+        description = "rgb";
+        serviceConfig = {
+          ExecStart = "${(autoStart cfg.autoStartFlags)}/bin/rgb";
+          Type = "oneshot";
+        };
+        wantedBy = ["multi-user.target"];
+      };
+    };
+  }
