@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
@@ -20,6 +21,7 @@
         source ${HOME}/.config/op/plugins.sh
       end
     '';
+
     plugins = with pkgs; [
       {
         #  automatically receive notifications when long processes finish.

@@ -5,7 +5,6 @@
     ./atuin
     ./bat
     ./bash
-    ./borgmatic
     ./broot
     ./boxxy
     ./bottom
@@ -20,6 +19,7 @@
     ./gitui
     ./kitty
     ./helix
+    ./lsd
     ./lf
     ./lazygit
     ./man

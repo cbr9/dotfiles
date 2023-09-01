@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  nixosConfig,
   ...
 }: let
   HOME = config.home.homeDirectory;
@@ -9,7 +10,8 @@ in {
     ZSH_COMPDUMP = "${config.home.homeDirectory}/.cache/oh-my-zsh/.zcompdump-$HOST";
   };
   programs.zsh = {
-    enable = true;
+    # enable based on global config on NixOS or otherwise don't
+    enable = (nixosConfig != {} && nixosConfig.programs.zsh.enable) || false;
     history = {
       size = 10000;
       path = "${config.xdg.dataHome}/zsh/history";

@@ -72,7 +72,7 @@ in {
               boot.kernelPackages = pkgs.linuxPackages_latest;
               boot.kernelModules = ["i2c-dev"];
               system.stateVersion = stateVersion;
-              documentation.man.generateCaches = true;
+              documentation.man.generateCaches = false;
 
               environment = {
                 systemPackages = with pkgs; [

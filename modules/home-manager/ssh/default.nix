@@ -9,9 +9,6 @@
     path = "${config.home.homeDirectory}/.1password/agent.sock";
   };
 in {
-  home.sessionVariables = lib.mkIf _1passwordAgent.enable {
-    SSH_AUTH_SOCK = _1passwordAgent.path;
-  };
   programs.ssh = {
     enable = true;
     forwardAgent = _1passwordAgent.enable;

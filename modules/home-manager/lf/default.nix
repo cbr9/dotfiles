@@ -105,10 +105,24 @@ in {
 
       play = mkAsyncCmd "${pkgs.sox}/bin/play $f";
       stop-playing = mkAsyncCmd "pkill play";
-      mkdir = mkAsyncCmd ''
-        printf "Directory Name: "
-        read ans
-        mkdir $ans
+      mkdir = mkLfCmd ''
+        if [ $# -eq 0  ]; then
+          printf "Directory Name: "
+          read ans
+          mkdir $ans
+        else
+          mkdir "$@"
+        fi
+      '';
+
+      new = mkLfCmd ''
+        if [ $# -eq 0  ]; then
+          printf "Filename: "
+          read ans
+          touch $ans
+        else
+          touch "$@"
+        fi
       '';
 
       select-files = mkAsyncCmd ''
@@ -137,21 +151,18 @@ in {
         lf -remote "send $id :unselect; toggle $(get_dirs)"
       '';
 
-      copy-filestem = mkAsyncCmd ''
-        filename="$(basename -- "$f")"
-        filestem="${"$" + "{filename%.*}"}"
-        printf "$filestem" | xclip -selection clipboard
-      '';
+      yank-path = mkAsyncCmd ''
+        copied=""
+        for f in $fx; do
+          path=$(realpath --no-symlinks "$f")
+          copied+="$(echo -n "$path" | sd -s " " "\ ")" # escape whitespace
+          copied+=" " # add a separator
+        done
 
-      copy-ext = mkAsyncCmd ''
-        filename="$(basename -- "$f")"
-        extension="${"$" + "{filename##*.}"}"
-        printf "$extension" | xclip -selection clipboard
-      '';
+        copied=$(echo -n $copied | xargs) # trim last separator whitespace
 
-      copy-filename = mkAsyncCmd ''
-        filename="$(basename -- "$f")"
-        printf "$filename" | xclip -selection clipboard
+        echo -n "$copied" | ${pkgs.xclip}/bin/xclip -selection clipboard
+        lf -remote "send $id echo Copied \"$copied\" to clipboard"
       '';
     };
 
@@ -173,9 +184,7 @@ in {
 
       y = "";
       yy = "copy";
-      yn = "copy-filename";
-      ys = "copy-filestem";
-      ye = "copy-ext";
+      yp = "yank-path";
     };
   };
 }

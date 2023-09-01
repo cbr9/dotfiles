@@ -2,7 +2,9 @@
   cli = with pkgs; [
     just
     gptcommit
+    dysk
     watchexec
+    dysk
     sph2pipe
     poppler_utils
     typst-master

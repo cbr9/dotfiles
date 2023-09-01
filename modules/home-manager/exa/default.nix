@@ -1,7 +1,7 @@
 {...}: {
   programs.exa = {
-    enable = true;
-    enableAliases = true;
+    enable = false;
+    enableAliases = false;
     git = true;
     icons = true;
   };
