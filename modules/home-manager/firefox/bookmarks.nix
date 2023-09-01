@@ -29,6 +29,12 @@
         tags = ["learning" "education"];
       }
       {
+        name = "ChatGPT";
+        url = "https://chat.openai.com/";
+        keyword = "chat";
+        tags = ["productivity" "ai"];
+      }
+      {
         name = "Calendar";
         url = "https://calendar.google.com/";
         keyword = "calendar";
