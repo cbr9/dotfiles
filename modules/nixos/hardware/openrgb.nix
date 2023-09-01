@@ -4,13 +4,12 @@
   lib,
   ...
 }: let
+  cfg = config.services.hardware.openrgb;
   autoStart = flags:
     pkgs.writeScriptBin "rgb" ''
       #!/bin/sh
-      ${pkgs.openrgb}/bin/openrgb ${lib.concatStringsSep " " flags}
+      ${cfg.package}/bin/openrgb ${lib.concatStringsSep " " flags}
     '';
-
-  cfg = config.services.hardware.openrgb;
 in
   with lib; {
     options = {
