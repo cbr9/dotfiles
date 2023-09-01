@@ -29,6 +29,12 @@
         tags = ["learning" "education"];
       }
       {
+        name = "Regex101";
+        url = "https://regex101.com";
+        keyword = "regex";
+        tags = ["testing" "code"];
+      }
+      {
         name = "ChatGPT";
         url = "https://chat.openai.com/";
         keyword = "chat";
