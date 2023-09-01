@@ -44,11 +44,33 @@
         definedAliases = ["@nop"];
       };
 
+      "Cambridge German-English Dictionary" = {
+        urls = [{template = "https://dictionary.cambridge.org/dictionary/german-english/{searchTerms}";}];
+        updateInterval = 24 * 60 * 60 * 1000; # every day
+        definedAliases = ["@ger"];
+      };
+
       "NixOS Wiki" = {
         urls = [{template = "https://nixos.wiki/index.php?search={searchTerms}";}];
         iconUpdateURL = "https://nixos.wiki/favicon.png";
         updateInterval = 24 * 60 * 60 * 1000; # every day
         definedAliases = ["@nw"];
+      };
+
+      "YouTube" = {
+        urls = [
+          {
+            template = "https://www.youtube.com/results";
+            params = [
+              {
+                name = "search_query";
+                value = "{searchTerms}";
+              }
+            ];
+          }
+        ];
+        updateInterval = 24 * 60 * 60 * 1000; # every day
+        definedAliases = ["@you"];
       };
 
       "DuckDuckGo".metaData.alias = "@d";
