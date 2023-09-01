@@ -41,8 +41,8 @@ with builtins; {
     home-manager.users.cabero = mkMerge (mkHome {
       configuration = {
         home.shellAliases = {
-          commute = "sudo /nix/var/nix/profiles/system/specialisation/sony/bin/switch-to-configuration switch && i3-msg restart >> /dev/null && sudo nmcli connection up sony-vpn --ask";
-          chill = "sudo /nix/var/nix/profiles/system/bin/switch-to-configuration switch && i3-msg restart >> /dev/null";
+          commute = "sudo /nix/var/nix/profiles/system/specialisation/sony/bin/switch-to-configuration switch && sudo nmcli connection up sony-vpn --ask";
+          chill = "sudo /nix/var/nix/profiles/system/bin/switch-to-configuration switch";
           emoji = "~/.cargo/bin/emocli -li | ${pkgs.fzf}/bin/fzf | cut -d' ' -f1 | tr -d '\n' | ${pkgs.xclip}/bin/xclip -selection clipboard";
         };
         home.sessionPath = [
