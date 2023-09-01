@@ -302,7 +302,7 @@ local global_keys = gears.table.join(
   end),
 
   awful.key({modkey}, "e", function ()
-  	awful.spawn("kitty -e lf")
+  	awful.spawn("kitty --hold -e lf")
   end),
 
 
