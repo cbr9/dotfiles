@@ -2,12 +2,15 @@
   config,
   lib,
   ...
-}: {
+}: let
+  cfg = config.services.nextcloud-client;
+in {
+  home.packages = lib.mkIf cfg.enable [cfg.package];
   services.nextcloud-client = {
     enable = config.home.username != "decabera";
     startInBackground = true;
   };
-  home.activation = lib.mkIf config.services.nextcloud-client.enable {
+  home.activation = lib.mkIf cfg.enable {
     linkFolders = lib.hm.dag.entryAfter ["writeBoundary"] ''
       rm -rf ${config.home.homeDirectory}/Documents
       rm -rf ${config.home.homeDirectory}/Pictures
