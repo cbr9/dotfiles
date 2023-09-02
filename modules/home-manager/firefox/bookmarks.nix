@@ -53,7 +53,7 @@
           {
             name = "Calendar";
             url = "https://calendar.google.com/";
-            keyword = "calendar";
+            keyword = "cal";
             tags = ["productivity"];
           }
           {
