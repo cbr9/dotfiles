@@ -20,7 +20,7 @@
     services.hardware.openrgb = {
       enable = true;
       motherboard = "amd";
-      autoStartFlags = [
+      extraArgs = [
         "--mode static"
         "--color ${red}"
       ];
