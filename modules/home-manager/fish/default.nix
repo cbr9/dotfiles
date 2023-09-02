@@ -1,11 +1,16 @@
 {
   pkgs,
-  lib,
   config,
   ...
 }: {
   programs.fish = {
     enable = true;
+
+    functions = {
+      fish_user_key_bindings = ''
+        bind \ce accept-autosuggestion  # ctrl+e
+      '';
+    };
 
     shellInit = let
       HOME = "${config.home.homeDirectory}";
