@@ -5,12 +5,19 @@
   ...
 }:
 with lib; {
+  stylix = {
+    opacity.terminal = 0.9;
+    polarity = "dark";
+    targets.kitty.variant256Colors = true;
+  };
+
   programs.kitty = {
     enable = nixosConfig != {};
-    font.size = mkForce 15;
+    font = {
+      size = mkForce 15;
+    };
     shellIntegration.mode = "no-cursor";
     settings = {
-      background_opacity = mkForce "0.90";
       confirm_os_window_close = 0;
       window_padding_width = 5;
       cursor_blink_interval = 0;

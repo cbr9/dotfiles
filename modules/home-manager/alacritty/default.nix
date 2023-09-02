@@ -2,13 +2,12 @@
   pkgs,
   config,
   lib,
-  nixosConfig,
   ...
 }: {
   stylix.targets.alacritty.enable = false;
 
   programs.alacritty = {
-    enable = nixosConfig != {};
+    enable = false;
     settings = let
       theme = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/cbr9/alacritty-theme/master/themes/gruvbox_dark.yaml";
