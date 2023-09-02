@@ -4,7 +4,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }: {
@@ -16,6 +15,11 @@
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
+
+  fileSystems."/mnt/backup" = {
+    device = "/dev/disk/by-uuid/3832209c-24e2-4c1c-b4e4-e78a938a3393";
+    fsType = "ext4";
+  };
 
   swapDevices = [];
 
