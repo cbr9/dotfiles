@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "nixpkgs/nixos-23.05";
     nur.url = "github:nix-community/NUR";
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -32,6 +33,9 @@
           typst-master = inputs.typst.packages.${system}.default;
           organize = inputs.organize.defaultPackage.${system};
           sph2pipe = import ./pkgs/sph2pipe.nix {pkgs = prev;};
+          stablePkgs = import inputs.nixpkgs-stable {
+            inherit system;
+          };
           lib = mkLib inputs.nixpkgs;
         })
       ];
