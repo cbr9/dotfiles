@@ -20,6 +20,11 @@
         firefox https://mail.proton.me
       ''
     )
+    (
+      pkgs.writeScriptBin "maps" ''
+        firefox https://maps.google.com
+      ''
+    )
   ];
 in {
   home.packages = urlShortcuts;
@@ -76,6 +81,12 @@ in {
             url = "https://calendar.google.com/";
             keyword = "cal";
             tags = ["productivity"];
+          }
+          {
+            name = "Maps";
+            url = "https://maps.google.com/";
+            keyword = "maps";
+            tags = [];
           }
           {
             name = "Gmail";
