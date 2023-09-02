@@ -13,7 +13,7 @@ in {
 
     functions = {
       fish_user_key_bindings = ''
-        bind \el accept-autosuggestion  # alt+l
+        bind L accept-autosuggestion  # shift+l
       '';
     };
 
