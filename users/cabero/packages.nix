@@ -25,6 +25,8 @@
   gui = with pkgs; [
     evince
     speedcrunch
+    wineWowPackages.stable
+    winetricks
     kitty
     obsidian
     google-chrome
