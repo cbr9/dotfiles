@@ -14,7 +14,7 @@ in {
     functions = {
       fish_user_key_bindings = ''
         # To find out what sequence a key combination sends, you can use fish_key_reader
-        bind L accept-autosuggestion  # shift+l
+        bind \el accept-autosuggestion  # alt+l
       '';
     };
 
