@@ -8,7 +8,7 @@
 in
   with lib; {
     stylix = {
-      opacity.terminal = 0.9;
+      opacity.terminal = 0.7;
       polarity = "dark";
       targets.kitty.variant256Colors = true;
     };
