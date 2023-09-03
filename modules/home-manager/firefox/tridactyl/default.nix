@@ -16,6 +16,8 @@
 
       set smoothscroll true
       bind <Escape> composite mode normal ; hidecmdline ; noh
+
+      set searchurls.german https://dictionary.cambridge.org/dictionary/german-english/
     '';
   };
 }
