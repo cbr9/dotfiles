@@ -43,7 +43,8 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = [cfg.package];
-    xdg.configFile."organize/config.toml" = mkIf (cfg.config != {}) {
+    xdg.configFile."organize/config.toml" = {
+      enable = cfg.config != {};
       source = tomlFormat.generate "config.toml" cfg.config;
     };
   };

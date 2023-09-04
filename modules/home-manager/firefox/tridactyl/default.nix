@@ -1,11 +1,10 @@
 {
   config,
   nixosConfig,
-  lib,
   ...
 }: {
-  xdg.configFile."tridactyl/tridactylrc" = lib.mkIf (nixosConfig != {}) {
-    enable = builtins.elem nixosConfig.nur.repos.rycee.firefox-addons.tridactyl config.programs.firefox.profiles.default.extensions;
+  xdg.configFile."tridactyl/tridactylrc" = {
+    enable = config.programs.firefox.enable && (builtins.elem nixosConfig.nur.repos.rycee.firefox-addons.tridactyl config.programs.firefox.profiles.default.extensions);
     text = ''
       sanitize tridactyllocal tridactylsync
 

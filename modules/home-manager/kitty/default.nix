@@ -26,12 +26,15 @@ in
       };
     };
 
-    xdg.configFile = mkIf cfg.enable {
+    xdg.configFile = {
       # Make kitty open file hyperlinks with xdg-open when clicking
       # Since it doesn't seem to be the default behaviour
-      "kitty/open-actions.conf".text = ''
-        protocol file
-        action launch --type=os-window xdg-open $FILE_PATH
-      '';
+      "kitty/open-actions.conf" = {
+        enable = cfg.enable;
+        text = ''
+          protocol file
+          action launch --type=os-window xdg-open $FILE_PATH
+        '';
+      };
     };
   }

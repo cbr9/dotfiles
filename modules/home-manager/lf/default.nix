@@ -81,10 +81,13 @@ in {
       transmission
     ];
 
-  xdg.configFile."ctpv/config".text = lib.mkIf cfg.enable ''
-    set forcekitty
-    set forcekittyanim
-  '';
+  xdg.configFile."ctpv/config" = {
+    enable = cfg.enable && cfg.previewer.source == "${pkgs.ctpv}/bin/ctpv";
+    text = ''
+      set forcekitty
+      set forcekittyanim
+    '';
+  };
 
   programs.lf = {
     enable = true;

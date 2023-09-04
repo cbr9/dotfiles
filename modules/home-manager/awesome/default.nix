@@ -35,7 +35,8 @@ in {
   };
 
   xdg.configFile = mkIf cfg.enable {
-    "betterlockscreenrc" = mkIf config.services.betterlockscreen.enable {
+    "betterlockscreenrc" = {
+      enable = config.services.betterlockscreen.enable;
       text = ''
         i3lockcolor_bin="/run/wrappers/bin/i3lock"
       '';
