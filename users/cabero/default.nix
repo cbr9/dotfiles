@@ -38,6 +38,12 @@ with builtins; {
       u2fSupport = true;
     };
 
+    home-manager.users.root = {
+      stylix.targets = config.home-manager.users.cabero.stylix.targets;
+      home.stateVersion = config.home-manager.users.cabero.home.stateVersion;
+      programs.helix = config.home-manager.users.cabero.programs.helix;
+    };
+
     home-manager.users.cabero = mkMerge (mkHome {
       configuration = {
         home.shellAliases = {
@@ -52,11 +58,8 @@ with builtins; {
           ./email.nix
         ];
 
-        home.sessionVariables = rec {
-          CACHIX_AUTH_TOKEN = "op://Personal/Cachix/authtoken";
+        home.sessionVariables = {
           OPENAI_API_KEY = "op://Personal/OpenAI/api-key";
-          GPTCOMMIT__OPENAI__API_KEY = OPENAI_API_KEY;
-          GPTCOMMIT__OPENAI__MODEL = "gpt-3.5-turbo";
         };
 
         home.username = "cabero";
