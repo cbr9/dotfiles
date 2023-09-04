@@ -17,6 +17,7 @@ in {
         bind \el accept-autosuggestion  # alt+l
         bind \ek up-or-search # alt+k
         bind \ej down-or-search # alt+j
+        bind \ce 'fish_commandline_prepend $EDITOR'
       '';
     };
 
