@@ -9,7 +9,6 @@
     ./fzf
     ./fish
     ./firefox
-    ./gh
     ./git
     ./khal
     ./kitty
@@ -19,7 +18,6 @@
     ./lazygit
     ./man
     ./nextcloud-client
-    ./neovim
     ./nix
     ./nushell
     ./organize
