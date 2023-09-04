@@ -25,6 +25,12 @@
       bufferline = "always";
       completion-replace = false;
 
+      cursor-shape = {
+        insert = "bar";
+        normal = "block";
+        select = "underline";
+      };
+
       file-picker = {hidden = false;};
 
       indent-guides = {
