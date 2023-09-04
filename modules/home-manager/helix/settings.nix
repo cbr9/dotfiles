@@ -10,7 +10,6 @@
           g = ["select_mode" "goto_file_start" "normal_mode"];
           G = ["select_mode" "goto_file_end" "normal_mode"];
           e = ["select_mode" "goto_last_line" "normal_mode"];
-          q = {q = [":reflow"];};
         };
       };
     };
