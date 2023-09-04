@@ -1,6 +1,6 @@
-{config, ...}: {
+{...}: {
   programs.texlive = {
-    enable = config.home.username != "decabera";
+    enable = false;
     extraPackages = tpkgs: {inherit (tpkgs) scheme-full;};
   };
 }
