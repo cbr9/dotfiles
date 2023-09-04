@@ -49,7 +49,7 @@
           pname = "1password-beta";
           version = "latest";
           url = "https://c.1password.com/dist/1P/b5x/firefox/beta/latest.xpi";
-          sha256 = "sha256-PYD7c6J6dlR6K47uMDz/oM1M8msHEBxIQmYdadao0Gk=";
+          sha256 = "sha256-8EAC6gNLqTSMBh40U2nB0z/z01HVsDaydFp0n9H9bcM=";
           addonId = "{25fc87fa-4d31-4fee-b5c1-c32a7844c063}";
           meta = {};
         }
