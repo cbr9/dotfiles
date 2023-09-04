@@ -81,7 +81,7 @@ with builtins; {
 
       libinput = {
         enable = true;
-        touchpad = lib.mkIf (config.sys.hardware.isLaptop) {
+        touchpad = lib.mkIf config.sys.hardware.isLaptop {
           naturalScrolling = true;
           disableWhileTyping = true;
         };
