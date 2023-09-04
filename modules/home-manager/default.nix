@@ -17,6 +17,7 @@
     ./gh
     ./git
     ./gitui
+    ./khal
     ./kitty
     ./helix
     ./lsd
