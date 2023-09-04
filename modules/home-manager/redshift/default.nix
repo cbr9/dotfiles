@@ -7,7 +7,7 @@
     };
     temperature = {
       day = 5500;
-      night = 3000;
+      night = 2500;
     };
     dawnTime = "6:00-7:45";
     duskTime = "20:00-21:00";
