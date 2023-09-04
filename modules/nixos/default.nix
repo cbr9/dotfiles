@@ -1,7 +1,8 @@
-{pkgs, ...}: {
+{...}: {
   imports = [
     ./1password
     ./asus-touchpad
+    ./awesome
     ./base
     ./bash
     ./fish
@@ -21,14 +22,5 @@
     ./sshfs
     ./tailscale
     ./thefuck
-    ./zsh
   ];
-
-  services.xserver.windowManager.awesome = {
-    enable = true;
-    luaModules = with pkgs.luaPackages; [
-      luarocks # is the package manager for Lua modules
-      luadbi-mysql # Database abstraction layer
-    ];
-  };
 }

@@ -4,7 +4,7 @@
 in {
   imports = [./package.nix];
   programs.organize = {
-    enable = config.home.username != "decabera";
+    enable = false;
     config = {
       rules = [
         {

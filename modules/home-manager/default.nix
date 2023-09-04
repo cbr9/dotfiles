@@ -1,22 +1,16 @@
 {...}: {
   imports = [
-    ./alacritty
     ./awesome
     ./atuin
     ./bat
     ./bash
-    ./broot
-    ./boxxy
     ./bottom
     ./direnv
-    ./exa
-    ./espanso
     ./fzf
     ./fish
     ./firefox
     ./gh
     ./git
-    ./gitui
     ./khal
     ./kitty
     ./helix
@@ -29,17 +23,13 @@
     ./nix
     ./nushell
     ./organize
-    ./pistol
     ./redshift
     ./ssh
-    ./skim
     ./starship
     ./texlive
-    ./topgrade
     ./vscode
     ./xdg
     ./zellij
     ./zoxide
-    ./zsh
   ];
 }
