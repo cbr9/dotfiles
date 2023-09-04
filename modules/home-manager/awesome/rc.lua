@@ -155,7 +155,7 @@ local function set_wallpaper(s)
     if type(wallpaper) == "function" then
       wallpaper = wallpaper(s)
     end
-    gears.wallpaper.maximized(wallpaper, s, true)
+    gears.wallpaper.maximized(wallpaper, s, false)
     awful.spawn({ "betterlockscreen", "-u", wallpaper })
   end
 end
@@ -295,9 +295,14 @@ local global_keys = gears.table.join(
   awful.key({}, "XF86AudioRaiseVolume", volume.raise),
   awful.key({}, "XF86MonBrightnessDown", brightness.down),
   awful.key({}, "XF86MonBrightnessUp", brightness.up),
+
   awful.key({}, "Print", function()
     local date = awful.spawn('date "+%x %T:%N"')
     awful.spawn.with_shell(string.format('maim "/home/cabero/Nextcloud/Pictures/Screenshots/%s.jpg"', date))
+  end),
+
+  awful.key({modkey}, "e", function ()
+  	awful.spawn("kitty --hold -e lf")
   end),
 
 

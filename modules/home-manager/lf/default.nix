@@ -5,9 +5,21 @@
   ...
 }:
 with lib; let
-  mkLfCmd = cmd: "%{{\n" + cmd + "\n}}";
-  mkShellCmd = cmd: "\${{\n" + cmd + "\n}}";
-  mkAsyncCmd = cmd: "&{{\n" + cmd + "\n}}";
+  mkLfCmd = cmd: ''
+    %{{
+      ${cmd}
+    }}
+  '';
+  mkShellCmd = cmd: ''
+    ''${{
+      ${cmd}
+    }}
+  '';
+  mkAsyncCmd = cmd: ''
+    &{{
+      ${cmd}
+    }}
+  '';
   cfg = config.programs.lf;
 in {
   programs.fish = mkIf cfg.enable {
@@ -181,7 +193,7 @@ in {
       x = "cut";
       J = ":updir; set dironly true; down; set dironly false; open";
       K = ":updir; set dironly true; up; set dironly false; open";
-
+      o = ":open";
       y = "";
       yy = "copy";
       yp = "yank-path";

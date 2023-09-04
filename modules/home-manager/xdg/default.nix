@@ -10,6 +10,7 @@ with lib; let
     videoPlayer = "vlc.desktop";
     documentViewer = "org.gnome.Evince.desktop";
     textEditor = "Helix.desktop";
+    fileManager = "lf.desktop";
   };
 in {
   home.packages = with pkgs; [vlc evince];
@@ -27,9 +28,10 @@ in {
         ++ lib.lists.forEach ["http" "https" "about" "unknown"]
         (x: "x-scheme-handler/" + x)
       );
-      videoMimeTypes = ["video/x-matroska" "audio/x-matroska" "video/mp4"];
+      videoMimeTypes = ["video/*" "audio/*"];
       documentTypes = ["application/pdf"];
       textTypes = ["application/json" "text/*"];
+      folderTypes = ["inode/directory"];
     in {
       enable = true;
       defaultApplications = mkMerge [
@@ -37,6 +39,7 @@ in {
         (lib.attrsets.genAttrs browserMimeTypes (name: defaultApplications.browser))
         (lib.attrsets.genAttrs documentTypes (name: defaultApplications.documentViewer))
         (lib.attrsets.genAttrs textTypes (name: defaultApplications.textEditor))
+        (lib.attrsets.genAttrs folderTypes (name: defaultApplications.fileManager))
       ];
     };
   };

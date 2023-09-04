@@ -1,8 +1,34 @@
 {
   nixosConfig,
   lib,
+  pkgs,
   ...
-}: {
+}: let
+  urlShortcuts = [
+    (
+      pkgs.writeScriptBin "cal" ''
+        firefox https://calendar.google.com
+      ''
+    )
+    (
+      pkgs.writeScriptBin "gmail" ''
+        firefox https://mail.google.com
+      ''
+    )
+    (
+      pkgs.writeScriptBin "proton" ''
+        firefox https://mail.proton.me
+      ''
+    )
+    (
+      pkgs.writeScriptBin "maps" ''
+        firefox https://maps.google.com
+      ''
+    )
+  ];
+in {
+  home.packages = urlShortcuts;
+
   programs.firefox.profiles.default.bookmarks = lib.mkIf (nixosConfig != {}) (
     lib.optionals (nixosConfig.sony.enable) [
       {
@@ -29,10 +55,46 @@
         tags = ["learning" "education"];
       }
       {
+        name = "Regex101";
+        url = "https://regex101.com";
+        keyword = "regex";
+        tags = ["testing" "code"];
+      }
+      {
+        name = "ChatGPT";
+        url = "https://chat.openai.com/";
+        keyword = "chat";
+        tags = ["productivity" "ai"];
+      }
+      {
         name = "Cambridge German-English Dictionary";
         url = "https://dictionary.cambridge.org/dictionary/german-english/";
         keyword = "german";
         tags = ["learning" "education"];
+      }
+      {
+        name = "Google";
+        toolbar = false;
+        bookmarks = [
+          {
+            name = "Calendar";
+            url = "https://calendar.google.com/";
+            keyword = "cal";
+            tags = ["productivity"];
+          }
+          {
+            name = "Maps";
+            url = "https://maps.google.com/";
+            keyword = "maps";
+            tags = [];
+          }
+          {
+            name = "Gmail";
+            url = "https://mail.google.com";
+            keyword = "gmail";
+            tags = ["email" "productivity"];
+          }
+        ];
       }
       {
         name = "NixOS";
@@ -63,16 +125,22 @@
             tags = ["config" "code" "nix"];
           }
           {
+            name = "Nushell";
+            url = "https://github.com/nushell/nushell";
+            keyword = "nushell";
+            tags = ["shell" "code" "rust" "cli"];
+          }
+          {
             name = "Helix";
             url = "https://github.com/helix-editor/helix";
             keyword = "helix";
-            tags = ["editor" "terminal" "cli"];
+            tags = ["editor" "terminal" "cli" "rust"];
           }
           {
             name = "Typst";
             url = "https://github.com/typst/typst";
             keyword = "typst";
-            tags = ["typeset" "latex"];
+            tags = ["typeset" "latex" "rust"];
           }
           {
             name = "Nixpkgs";
@@ -84,7 +152,7 @@
             name = "Zellij";
             url = "https://github.com/zellij-org/zellij";
             keyword = "zellij";
-            tags = ["cli" "terminal"];
+            tags = ["cli" "terminal" "rust" "multiplexer"];
           }
         ];
       }

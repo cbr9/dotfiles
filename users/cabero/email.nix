@@ -22,8 +22,8 @@ in {
       maildirBasePath = "${config.home.homeDirectory}/.maildir";
       accounts = {
         uniStuttgart = rec {
-          address = "st176559@stud.uni-stuttgart.de";
-          userName = builtins.elemAt (builtins.split "@" address) 0;
+          address = "${userName}@stud.uni-stuttgart.de";
+          userName = "st176559";
           realName = name;
           passwordCommand = "op item get 'Universität Stuttgart' --fields password";
 

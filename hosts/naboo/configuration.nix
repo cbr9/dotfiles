@@ -3,7 +3,9 @@
     ../../modules/nixos/sony/specialisation.nix
   ];
 
-  config = {
+  config = let
+    red = "ff0000";
+  in {
     networking.vpn = ["tailscale" "mullvad"];
 
     sys = {
@@ -13,6 +15,15 @@
         gpu = "nvidia";
         bluetooth = true;
       };
+    };
+
+    services.hardware.openrgb = {
+      enable = true;
+      motherboard = "amd";
+      extraArgs = [
+        "--mode static"
+        "--color ${red}"
+      ];
     };
   };
 }

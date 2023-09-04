@@ -13,6 +13,7 @@
       decentraleyes
       youtube-shorts-block
       youtube-recommended-videos # unhook
+      i-dont-care-about-cookies
       (
         buildFirefoxXpiAddon rec {
           pname = "simple-translate";
@@ -20,6 +21,16 @@
           url = "https://addons.mozilla.org/firefox/downloads/file/4072586/simple_translate-${version}.xpi";
           sha256 = "sha256-I/GVPViNXZlDq0OEVAe4SlG7zBgkuMAQ7VbKoRlxGic=";
           addonId = "simple-translate@sienori";
+          meta = {};
+        }
+      )
+      (
+        buildFirefoxXpiAddon rec {
+          pname = "toucan";
+          version = "2.15.3";
+          url = "https://addons.mozilla.org/firefox/downloads/file/3964416/toucan_language_learning-${version}.xpi";
+          sha256 = "sha256-fiL9jsCpQhlqTh/ouxsjm+wjljTm+ygTdnNTxYgDtns=";
+          addonId = "{fe50e88d-a084-4ff2-9d58-eeac466f937e}";
           meta = {};
         }
       )
