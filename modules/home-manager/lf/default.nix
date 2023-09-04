@@ -193,7 +193,7 @@ in {
       x = "cut";
       J = ":updir; set dironly true; down; set dironly false; open";
       K = ":updir; set dironly true; up; set dironly false; open";
-
+      o = ":open";
       y = "";
       yy = "copy";
       yp = "yank-path";
