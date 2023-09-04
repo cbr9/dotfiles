@@ -30,7 +30,7 @@
         select = "underline";
       };
 
-      file-picker = {hidden = false;};
+      file-picker = {hidden = true;};
 
       indent-guides = {
         render = true;
