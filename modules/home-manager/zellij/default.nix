@@ -28,7 +28,7 @@ in {
           default_shell "fish"
           keybinds {
           	normal {
-          		unbind "Alt l" "Alt h"
+          		unbind "Alt l" "Alt h" "Alt k" "Alt j"
           	}
           }
           pane_frames false
