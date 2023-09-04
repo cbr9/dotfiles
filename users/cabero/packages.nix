@@ -1,22 +1,15 @@
 {pkgs, ...}: let
   cli = with pkgs; [
     just
-    dysk
     watchexec
     dysk
-    sph2pipe
     poppler_utils
-    typst-master
     nodePackages.webtorrent-cli
-    termusic
-    rclone
     ripgrep
-    # ripgrep-all
     xclip
     fd
     sox
     ouch
-    tldr
     du-dust
     sd
   ];
@@ -24,8 +17,6 @@
   gui = with pkgs; [
     evince
     speedcrunch
-    wineWowPackages.stable
-    winetricks
     kitty
     obsidian
     google-chrome
