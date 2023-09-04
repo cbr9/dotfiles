@@ -46,10 +46,6 @@ with builtins; {
 
     home-manager.users.cabero = mkMerge (mkHome {
       configuration = {
-        home.shellAliases = {
-          commute = "sudo /nix/var/nix/profiles/system/specialisation/sony/bin/switch-to-configuration switch && sudo nmcli connection up sony-vpn --ask";
-          chill = "sudo /nix/var/nix/profiles/system/bin/switch-to-configuration switch";
-        };
         home.sessionPath = [
           "${config.home-manager.users.cabero.home.homeDirectory}/.cargo/bin"
         ];
