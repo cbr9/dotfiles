@@ -32,6 +32,17 @@ in {
     lf = "lfcd";
   };
 
+  xdg.desktopEntries.lf = {
+    name = "lf";
+    genericName = "lf";
+    type = "Application";
+    exec = "${config.home.sessionVariables.TERMINAL} -e lf";
+    icon = "utilities-terminal";
+    terminal = false;
+    categories = ["ConsoleOnly" "System" "FileTools" "FileManager"];
+    mimeType = ["inode/directory"];
+  };
+
   xdg.configFile = {
     "fish/functions/lfcd.fish" = {
       enable = config.programs.fish.enable && cfg.enable;
