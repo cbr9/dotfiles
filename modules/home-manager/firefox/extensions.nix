@@ -11,6 +11,7 @@
       clearurls
       tridactyl
       decentraleyes
+      plasma-integration
       youtube-shorts-block
       youtube-recommended-videos # unhook
       i-dont-care-about-cookies
