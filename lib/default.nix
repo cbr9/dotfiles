@@ -96,12 +96,6 @@ in {
                 i2c.enable = true;
               };
 
-              xdg = {
-                portal.enable = true;
-                portal.xdgOpenUsePortal = true;
-                mime = config.home-manager.users.cabero.xdg.mime;
-              };
-
               networking = {
                 inherit hostName;
                 iproute2.enable = true;
