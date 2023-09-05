@@ -14,6 +14,10 @@ in
       targets.kitty.variant256Colors = true;
     };
 
+    home.sessionVariables = mkIf cfg.enable {
+      TERMINAL = "kitty";
+    };
+
     programs.kitty = {
       enable = nixosConfig != {};
       font = {
