@@ -1,34 +1,8 @@
 {
   nixosConfig,
   lib,
-  pkgs,
   ...
-}: let
-  urlShortcuts = [
-    (
-      pkgs.writeScriptBin "cal" ''
-        firefox https://calendar.google.com
-      ''
-    )
-    (
-      pkgs.writeScriptBin "gmail" ''
-        firefox https://mail.google.com
-      ''
-    )
-    (
-      pkgs.writeScriptBin "proton" ''
-        firefox https://mail.proton.me
-      ''
-    )
-    (
-      pkgs.writeScriptBin "maps" ''
-        firefox https://maps.google.com
-      ''
-    )
-  ];
-in {
-  home.packages = urlShortcuts;
-
+}: {
   programs.firefox.profiles.default.bookmarks = lib.mkIf (nixosConfig != {}) (
     lib.optionals (nixosConfig.sony.enable) [
       {
@@ -48,6 +22,12 @@ in {
       }
     ]
     ++ [
+      {
+        name = "Coursera";
+        url = "https://www.coursera.org/";
+        keyword = "coursera";
+        tags = ["learning" "education"];
+      }
       {
         name = "Udemy";
         url = "https://www.udemy.com/";
