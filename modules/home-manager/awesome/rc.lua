@@ -570,3 +570,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 awful.spawn("kdeconnect-cli --refresh")
 awful.spawn("1password --silent")
+awful.spawn("nextcloud --background")
