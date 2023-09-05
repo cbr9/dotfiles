@@ -32,11 +32,11 @@ in {
     lf = "lfcd";
   };
 
-  xdg.desktopEntries.lf = {
+  xdg.desktopEntries.lf = mkIf cfg.enable {
     name = "lf";
     genericName = "lf";
     type = "Application";
-    exec = "${config.home.sessionVariables.TERMINAL} -e lf";
+    exec = "${config.home.sessionVariables.TERMINAL} -e ${cfg.package}/bin/lf";
     icon = "utilities-terminal";
     terminal = false;
     categories = ["ConsoleOnly" "System" "FileTools" "FileManager"];
