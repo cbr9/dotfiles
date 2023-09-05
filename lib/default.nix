@@ -86,6 +86,7 @@ in {
                   pavucontrol
                   (agenix.packages.x86_64-linux.default.override {ageBin = "${pkgs.age}/bin/age";})
                 ];
+
                 pathsToLink = ["/libexec"]; # links /libexec from derivations to /run/current-system/sw
                 shellAliases = {
                   open = "${pkgs.xdg-utils}/bin/xdg-open";
@@ -93,6 +94,12 @@ in {
               };
               hardware = {
                 i2c.enable = true;
+              };
+
+              xdg = {
+                portal.enable = true;
+                portal.xdgOpenUsePortal = true;
+                mime = config.home-manager.users.cabero.xdg.mime;
               };
 
               networking = {
