@@ -4,8 +4,13 @@ with pkgs; {
   home.packages = with pkgs; [
     nodePackages.pyright
     nodePackages.bash-language-server
+    marksman
+    nil
+    taplo
     shellcheck
     lua-language-server
+    nodePackages.yaml-language-server
+    nodePackages.vscode-json-languageserver
     typst-lsp
     clippy
     python310Packages.ruff-lsp
