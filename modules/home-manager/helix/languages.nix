@@ -3,7 +3,6 @@ with pkgs; {
   # keep this for the future
   home.packages = with pkgs; [
     nodePackages.pyright
-    nil
     nodePackages.bash-language-server
     shellcheck
     lua-language-server
