@@ -17,6 +17,7 @@
   gui = with pkgs; [
     evince
     speedcrunch
+    insync
     kitty
     obsidian
     google-chrome
