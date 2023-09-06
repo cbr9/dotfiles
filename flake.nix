@@ -27,18 +27,18 @@
 
     pkgs = import inputs.nixpkgs {
       inherit system;
-      overlays = [
-        inputs.helix.overlays.default
-        (final: prev: {
-          typst-master = inputs.typst.packages.${system}.default;
-          organize = inputs.organize.defaultPackage.${system};
-          sph2pipe = import ./pkgs/sph2pipe.nix {pkgs = prev;};
-          stable = import inputs.nixpkgs-stable {
-            inherit system;
-          };
-          lib = mkLib inputs.nixpkgs;
-        })
-      ];
+      overlays = (
+        [inputs.helix.overlays.default]
+        ++ [
+          (final: prev: {
+            typst-master = inputs.typst.packages.${system}.default;
+            organize = inputs.organize.defaultPackage.${system};
+            sph2pipe = import ./pkgs/sph2pipe.nix {pkgs = prev;};
+            stable = import inputs.nixpkgs-stable {inherit system;};
+            lib = mkLib inputs.nixpkgs;
+          })
+        ]
+      );
       config = {
         allowUnfree = true;
         permittedInsecurePackages = ["electron-21.4.0"];
