@@ -9,7 +9,7 @@ with lib; let
   cfg = config.xsession.windowManager.awesome;
 in {
   xsession.windowManager.awesome = {
-    enable = nixosConfig != {};
+    enable = nixosConfig != {} && nixosConfig.services.xserver.windowManager.awesome.enable;
     luaModules = with pkgs.luaPackages; [
       luarocks # is the package manager for Lua modules
       luadbi-mysql # Database abstraction layer
