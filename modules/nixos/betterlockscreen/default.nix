@@ -8,6 +8,7 @@
     package = pkgs.i3lock-color;
     u2fSupport = true;
   };
+
   home-manager.users.cabero = {
     services = {
       betterlockscreen = {

@@ -14,5 +14,5 @@
     latitude = 48.7758;
     longitude = 9.1829;
   };
-  home.file.".config/systemd/user/default.target.wants/redshift.service".text = "";
+  xdg.configFile."systemd/user/default.target.wants/redshift.service".text = "";
 }
