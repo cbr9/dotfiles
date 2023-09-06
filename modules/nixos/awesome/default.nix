@@ -20,13 +20,15 @@ in {
 
       windowManager.awesome = {
         enable = true;
-        luaModules = with pkgs.luaPackages; [
+        luaModules = with pkgs.lua54Packages; [
           luarocks # is the package manager for Lua modules
-          luadbi-mysql # Database abstraction layer
         ];
       };
     };
 
+    environment.systemPackages = with pkgs.lua54Packages; [
+      luarocks # is the package manager for Lua modules
+    ];
     # Fix issue with java applications and tiling window managers.
     environment.sessionVariables._JAVA_AWT_WM_NONREPARENTING = "1";
 

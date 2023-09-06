@@ -13,7 +13,6 @@
         pcall(require, "luarocks.loader")
         local keyboard_layout_indicator = require("keyboard-layout-indicator")
 
-        local bling = require("bling")
         -- Standard awesome library
         local gears = require("gears")
         local awful = require("awful")
@@ -108,7 +107,7 @@
         beautiful.border_width = 3
         beautiful.useless_gap = 5
         beautiful.gap_single_client = true
-        beautiful.wallpaper = ${config.stylix.image}
+        beautiful.wallpaper = "${config.stylix.image}"
 
         -- Create a wibox for each screen and add it
         local taglist_buttons = gears.table.join(
@@ -273,17 +272,6 @@
 
 
 
-        local lf_scratchpad = bling.module.scratchpad {
-            command = terminal .. " --hold -e ${config.home-manager.users.cabero.programs.lf.package}/bin/lf",           -- How to spawn the scratchpad
-            rule = { instance = "spad" },                     -- The rule that the scratchpad will be searched by
-            sticky = true,                                    -- Whether the scratchpad should be sticky
-            autoclose = true,                                 -- Whether it should hide itself when losing focus
-            floating = true,                                  -- Whether it should be floating (MUST BE TRUE FOR ANIMATIONS)
-            geometry = {x=360, y=90, height=900, width=1200}, -- The geometry in a floating state
-            reapply = true,                                   -- Whether all those properties should be reapplied on every new opening of the scratchpad (MUST BE TRUE FOR ANIMATIONS)
-            dont_focus_before_close  = false,                 -- When set to true, the scratchpad will be closed by the toggle function regardless of whether its focused or not. When set to false, the toggle function will first bring the scratchpad into focus and only close it on a second call
-        }
-
         -- {{{ Key bindings
         local global_keys = gears.table.join(
           awful.key({ modkey, }, "s", hotkeys_popup.show_help,
@@ -305,11 +293,6 @@
             local date = awful.spawn('date "+%x %T:%N"')
             awful.spawn.with_shell(string.format('${pkgs.maim}/bin/maim "/home/cabero/Nextcloud/Pictures/Screenshots/%s.jpg"', date))
           end),
-
-          awful.key({modkey}, "e", lf_scratchpad:toggle),
-
-
-
 
           -- Directionional client focus
           awful.key({ modkey }, "j", function() focus_bydirection("down") end),

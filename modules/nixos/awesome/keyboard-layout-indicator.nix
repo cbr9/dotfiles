@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  home-manager.users.cabero.xdg.configFile."awesome/rc.lua" = {
+  home-manager.users.cabero.xdg.configFile."awesome/keyboard-layout-indicator.lua" = {
     enable = config.services.xserver.windowManager.awesome.enable;
     text = (
       # lua
