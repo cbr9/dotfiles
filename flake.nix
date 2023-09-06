@@ -34,7 +34,7 @@
             typst-master = inputs.typst.packages.${system}.default;
             organize = inputs.organize.defaultPackage.${system};
             sph2pipe = import ./pkgs/sph2pipe.nix {pkgs = prev;};
-            stable = import inputs.nixpkgs-stable {inherit system;};
+            stable = inputs.nixpkgs-stable.legacyPackages.${prev.system};
             lib = mkLib inputs.nixpkgs;
           })
         ]
