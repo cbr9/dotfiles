@@ -9,7 +9,6 @@
     ./fish
     ./firefox
     ./git
-    ./khal
     ./kitty
     ./helix
     ./lsd

@@ -8,7 +8,6 @@
     ./betterlockscreen
     ./fish
     ./fonts
-    ./gnome
     ./gtk
     ./hardware
     ./kdeconnect

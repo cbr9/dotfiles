@@ -17,6 +17,7 @@
   gui = with pkgs; [
     evince
     speedcrunch
+    mailspring
     insync
     kitty
     obsidian

@@ -43,10 +43,7 @@ with builtins; {
         home.sessionPath = [
           "${config.home-manager.users.cabero.home.homeDirectory}/.cargo/bin"
         ];
-        imports = [
-          ./packages.nix
-          ./email.nix
-        ];
+        imports = [./packages.nix];
 
         home.sessionVariables = {
           OPENAI_API_KEY = "op://Personal/OpenAI/api-key";

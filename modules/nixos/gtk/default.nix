@@ -1,12 +1,5 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}: let
-  headless = config.sys.graphics.desktopProtocols == null;
-in {
-  config = lib.mkIf (!headless) {
+{pkgs, ...}: {
+  config = {
     environment.systemPackages = with pkgs; [
       breeze-gtk
     ];
