@@ -10,6 +10,7 @@ in {
   imports = [./rc.nix ./helpers.nix ./keyboard-layout-indicator.nix];
   config = {
     services.xserver = {
+      exportConfiguration = true;
       displayManager = {
         defaultSession = "none+awesome";
         lightdm = {
