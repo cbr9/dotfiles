@@ -189,11 +189,6 @@ awful.screen.connect_for_each_screen(function(s)
 
   --   -- Create a promptbox for each screen
   s.mypromptbox = awful.widget.prompt()
-  s.mylayoutbox:buttons(gears.table.join(
-    awful.button({}, 1, function() awful.layout.inc(1) end),
-    awful.button({}, 3, function() awful.layout.inc(-1) end),
-    awful.button({}, 4, function() awful.layout.inc(1) end),
-    awful.button({}, 5, function() awful.layout.inc(-1) end)))
   -- Create a taglist widget
   s.tag_list = awful.widget.taglist {
     screen  = s,
