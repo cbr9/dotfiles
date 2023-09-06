@@ -32,12 +32,6 @@ with builtins; {
 
     services.pcscd.enable = true;
 
-    programs.i3lock = {
-      enable = true;
-      package = pkgs.i3lock-color;
-      u2fSupport = true;
-    };
-
     home-manager.users.root = {
       stylix.targets = config.home-manager.users.cabero.stylix.targets;
       home.stateVersion = config.home-manager.users.cabero.home.stateVersion;

@@ -21,16 +21,6 @@ with builtins; {
       default = ["xorg"];
     };
 
-    displayManager = mkOption {
-      type = types.enum ["none" "lightdm" "gdm"];
-      default = "lightdm";
-    };
-
-    windowManager = mkOption {
-      type = types.enum ["i3" "awesome"];
-      default = "awesome";
-    };
-
     v4l2loopback = mkEnableOption "Enable v4l2loop back on this system";
   };
 
@@ -69,15 +59,6 @@ with builtins; {
         Option "DRI" "2"
         Option "TearFree" "true"
       '';
-
-      displayManager = {
-        defaultSession = "none+awesome";
-        lightdm = {
-          enable = config.sys.graphics.displayManager == "lightdm";
-          background = lib.mkForce config.stylix.image;
-          greeters.gtk.enable = true;
-        };
-      };
 
       libinput = {
         enable = true;

@@ -1,6 +1,5 @@
 {...}: {
   imports = [
-    ./awesome
     ./atuin
     ./bat
     ./bash

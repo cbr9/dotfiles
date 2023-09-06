@@ -5,13 +5,12 @@
     ./awesome
     ./base
     ./bash
+    ./betterlockscreen
     ./fish
     ./fonts
     ./gnome
     ./gtk
     ./hardware
-    ./i3
-    ./i3status-rust
     ./kdeconnect
     ./nix
     ./nix-index
@@ -21,6 +20,5 @@
     ./sony
     ./sshfs
     ./tailscale
-    ./thefuck
   ];
 }

@@ -1,10 +1,5 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}: {
-  config = lib.mkIf (config.sys.windowManager.i3.enable) {
+{pkgs, ...}: {
+  config = {
     environment.systemPackages = with pkgs; [picom];
 
     services.picom = {
