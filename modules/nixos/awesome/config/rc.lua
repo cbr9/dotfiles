@@ -154,11 +154,22 @@ end
 -- These are example rubato tables. You can use one for just y, just x, or both.
 -- The duration and easing is up to you. Please check out the rubato docs to learn more.
 
-local lf_scratch = bling.module.scratchpad {
-  command                 = "wezterm start --class spad -- lf",
-  rule                    = { instance = "spad" },
+local lf_scratchpad = bling.module.scratchpad {
+  command                 = "wezterm start --class lf -- lf",
+  rule                    = { instance = "lf" },
   sticky                  = true,
-  autoclose               = false,
+  autoclose               = true,
+  floating                = true,
+  geometry                = { x = 360, y = 90, height = 900, width = 1200 },
+  reapply                 = false,
+  dont_focus_before_close = false,
+}
+
+local dotfiles_scratchpad = bling.module.scratchpad {
+  command                 = "wezterm start --class dots -- hx ~/Code/dotfiles",
+  rule                    = { instance = "dots" },
+  sticky                  = true,
+  autoclose               = true,
   floating                = true,
   geometry                = { x = 360, y = 90, height = 900, width = 1200 },
   reapply                 = false,
@@ -247,7 +258,8 @@ end
 
 -- {{{ Key bindings
 local global_keys = gears.table.join(
-  awful.key({ super }, "e", function() lf_scratch:toggle() end),
+  awful.key({ super }, "e", function() lf_scratchpad:toggle() end),
+  awful.key({ super }, "c", function() dotfiles_scratchpad:toggle() end),
   awful.key({ super, }, "s", hotkeys_popup.show_help,
     { description = "show help", group = "awesome" }),
   awful.key({ super, }, "Left", awful.tag.viewprev,
