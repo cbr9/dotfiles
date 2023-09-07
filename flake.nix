@@ -35,6 +35,7 @@
             organize = inputs.organize.defaultPackage.${system};
             sph2pipe = import ./pkgs/sph2pipe.nix {pkgs = prev;};
             stable = import inputs.nixpkgs-stable {
+              inherit (final) system;
               config = final.config;
             };
             lib = mkLib inputs.nixpkgs;
