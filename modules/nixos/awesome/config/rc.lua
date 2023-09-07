@@ -68,7 +68,7 @@ beautiful.border_focus = "#fabd2f"
 beautiful.border_width = 3
 beautiful.useless_gap = 5
 beautiful.gap_single_client = true
-beautiful.wallpaper = "${config.stylix.image}"
+beautiful.wallpaper = os.getenv("WALLPAPER")
 
 beautiful.tasklist_shape_border_width = 0
 beautiful.tasklist_shape = gears.shape.rectangle
