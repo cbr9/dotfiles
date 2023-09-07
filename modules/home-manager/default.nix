@@ -27,5 +27,6 @@
     ./xdg
     ./zellij
     ./zoxide
+    ./wezterm
   ];
 }
