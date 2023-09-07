@@ -1,6 +1,9 @@
 {...}: {
   programs.zoxide = {
     enable = true;
-    options = ["--cmd cd" "--hook pwd"];
+    options = [
+      "--cmd cd"
+      "--hook pwd"
+    ];
   };
 }
