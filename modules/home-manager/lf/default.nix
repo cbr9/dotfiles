@@ -32,7 +32,7 @@ in {
     lf = "lfcd";
   };
 
-  xdg.desktopEntries.lf = mkIf cfg.enable {
+  xdg.desktopEntries.lf = mkIf (cfg.enable && (builtins.hasAttr "TERMINAL" config.home.sessionVariables)) {
     name = "lf";
     genericName = "lf";
     type = "Application";

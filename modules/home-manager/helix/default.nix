@@ -12,7 +12,7 @@ in {
     SUDO_EDITOR = "hx";
   };
 
-  xdg.desktopEntries.Helix = lib.mkIf cfg.enable {
+  xdg.desktopEntries.Helix = lib.mkIf (cfg.enable && (builtins.hasAttr "TERMINAL" config.home.sessionVariables)) {
     name = "Helix";
     genericName = "Helix";
     type = "Application";
