@@ -62,7 +62,7 @@
         beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
         -- This is used later as the default terminal and editor to run.
-        local terminal = "kitty"
+        local terminal = "${config.home-manager.users.cabero.home.sessionVariables.TERMINAL}"
 
         -- Usually, Mod4 is the key with a logo between Control and Alt.
         -- If you do not like this or do not have such a key,
@@ -109,7 +109,7 @@
         beautiful.wallpaper = "${config.stylix.image}"
 
         beautiful.tasklist_shape_border_width = 0
-        beautiful.tasklist_shape = gears.shape.powerline
+        beautiful.tasklist_shape = gears.shape.rectangle
         beautiful.tasklist_bg_focus = beautiful.border_focus
         beautiful.tasklist_fg_focus = "#000000"
         beautiful.tasklist_disable_icon = true
@@ -319,23 +319,14 @@
             { description = "go back", group = "client" }),
 
           -- Standard program
-          awful.key({ super, }, "Return", function() awful.spawn(terminal) end,
-            { description = "open a terminal", group = "launcher" }),
           awful.key({ super, "Shift" }, "r", awesome.restart,
             { description = "reload awesome", group = "awesome" }),
           awful.key({ super, "Shift" }, "q", awesome.quit,
             { description = "quit awesome", group = "awesome" }),
-          awful.key({ super, "Shift" }, "h", function() awful.tag.incnmaster(1, nil, true) end,
-            { description = "increase the number of master clients", group = "layout" }),
-          awful.key({ super, "Shift" }, "l", function() awful.tag.incnmaster(-1, nil, true) end,
-            { description = "decrease the number of master clients", group = "layout" }),
-          awful.key({ super, "Control" }, "h", function() awful.tag.incncol(1, nil, true) end,
-            { description = "increase the number of columns", group = "layout" }),
-          awful.key({ super, "Control" }, "l", function() awful.tag.incncol(-1, nil, true) end,
-            { description = "decrease the number of columns", group = "layout" }),
-          awful.key({ super, }, "space", function() awful.layout.inc(1) end,
+
+          awful.key({ super, }, "Tab", function() awful.layout.inc(1) end,
             { description = "select next", group = "layout" }),
-          awful.key({ super, "Shift" }, "space", function() awful.layout.inc(-1) end,
+          awful.key({ super, "Shift" }, "Tab", function() awful.layout.inc(-1) end,
             { description = "select previous", group = "layout" }),
 
           awful.key({ super, "Shift" }, "n",
@@ -349,6 +340,9 @@
               end
             end,
             { description = "restore minimized", group = "client" }),
+
+
+          awful.key({ super }, "Return", function() awful.spawn(terminal) end),
           awful.key({ super }, "d", function() awful.spawn("${pkgs.dmenu}/bin/dmenu_run"); end),
           awful.key({ super, "Mod1" }, "l", function() awful.spawn("${config.home-manager.users.cabero.services.betterlockscreen.package}/bin/betterlockscreen -l dim &"); end),
           awful.key({ super }, "b", function() awful.spawn("${config.home-manager.users.cabero.programs.firefox.package}/bin/firefox"); end),

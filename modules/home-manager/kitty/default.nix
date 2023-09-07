@@ -15,7 +15,7 @@ in
     };
 
     home.sessionVariables = mkIf cfg.enable {
-      TERMINAL = "kitty";
+      TERMINAL = "${cfg.package}/bin/kitty";
     };
 
     programs.kitty = {
