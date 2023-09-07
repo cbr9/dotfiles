@@ -2,12 +2,12 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }:
 with lib; let
   cfg = config.services.xserver.windowManager.awesome;
 in {
-  imports = [./rc.nix ./helpers.nix ./keyboard-layout-indicator.nix];
   config = {
     services.xserver = {
       exportConfiguration = true;
@@ -21,17 +21,23 @@ in {
 
       windowManager.awesome = {
         enable = true;
-        luaModules = with pkgs.lua54Packages; [
-          luarocks # is the package manager for Lua modules
-        ];
+        luaModules = lib.attrValues {
+          inherit (pkgs.luajitPackages) lgi ldbus luadbi-mysql luaposix;
+        };
       };
     };
 
-    environment.systemPackages = with pkgs.lua54Packages; [
-      luarocks # is the package manager for Lua modules
+    environment.systemPackages = with pkgs; [
+      dmenu
+      todoist-electron
+      maim
     ];
-    # Fix issue with java applications and tiling window managers.
-    environment.sessionVariables._JAVA_AWT_WM_NONREPARENTING = "1";
+
+    environment.sessionVariables = {
+      WALLPAPER = config.stylix.image;
+      # Fix issue with java applications and tiling window managers.
+      _JAVA_AWT_WM_NONREPARENTING = "1";
+    };
 
     home-manager.users.cabero = {
       services.betterlockscreen.package = pkgs.betterlockscreen.override {withDunst = !cfg.enable;};
@@ -47,6 +53,13 @@ in {
           + (lib.optionalString config.home-manager.users.cabero.services.betterlockscreen.enable "betterlockscreen -u ${config.stylix.image} &")
           + (lib.optionalString config.programs.kdeconnect.enable "kdeconnect-cli --refresh &");
 
+        "awesome/rc.lua".source = ./config/rc.lua;
+        "awesome/rubato".source = pkgs.fetchFromGitHub {
+          owner = "andOrlando";
+          repo = "rubato";
+          rev = "a9181708863265eb4a36c722f664978ee50fe8a0";
+          sha256 = "sha256-28NZK3F11heYsdElqC5fGxFTRTEJFbHodGej7NtGkJ4=";
+        };
         "awesome/bling".source = pkgs.fetchFromGitHub {
           owner = "BlingCorp";
           repo = "bling";

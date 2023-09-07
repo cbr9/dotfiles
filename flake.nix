@@ -2,6 +2,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "nixpkgs/nixos-23.05";
+    nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
     nur.url = "github:nix-community/NUR";
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -32,6 +33,7 @@
         ++ [
           (final: prev: {
             typst-master = inputs.typst.packages.${system}.default;
+            awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-luajit-git;
             organize = inputs.organize.defaultPackage.${system};
             sph2pipe = import ./pkgs/sph2pipe.nix {pkgs = prev;};
             stable = import inputs.nixpkgs-stable {
