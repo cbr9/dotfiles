@@ -36,7 +36,7 @@ end)
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-local terminal = "kitty"
+local terminal = "wezterm"
 
 -- Usually, Mod4 is the key with a logo between Control and Alt.
 -- If you do not like this or do not have such a key,
@@ -155,7 +155,7 @@ end
 -- The duration and easing is up to you. Please check out the rubato docs to learn more.
 
 local lf_scratch = bling.module.scratchpad {
-  command                 = "kitty --class spad -e lf",
+  command                 = "wezterm start --class spad -- lf",
   rule                    = { instance = "spad" },
   sticky                  = true,
   autoclose               = false,

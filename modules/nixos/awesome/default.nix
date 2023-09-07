@@ -31,6 +31,8 @@ in {
       dmenu
       todoist-electron
       maim
+      pamixer
+      brightnessctl
     ];
 
     environment.sessionVariables = {
