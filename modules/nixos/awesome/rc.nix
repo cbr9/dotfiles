@@ -108,6 +108,18 @@
         beautiful.gap_single_client = true
         beautiful.wallpaper = "${config.stylix.image}"
 
+        beautiful.tasklist_shape_border_width = 0
+        beautiful.tasklist_shape = gears.shape.powerline
+        beautiful.tasklist_bg_focus = beautiful.border_focus
+        beautiful.tasklist_fg_focus = "#000000"
+        beautiful.tasklist_disable_icon = true
+        beautiful.tasklist_align = "center"
+
+        beautiful.taglist_bg_focus = beautiful.tasklist_bg_focus
+        beautiful.taglist_fg_focus = "#000000"
+        beautiful.taglist_shape = gears.shape.rectangle
+
+
         -- Create a wibox for each screen and add it
         local taglist_buttons = gears.table.join(
           awful.button({}, 1, function(t) t:view_only() end),
@@ -202,25 +214,6 @@
             screen  = s,
             filter  = awful.widget.tasklist.filter.currenttags,
             buttons = tasklist_buttons,
-            style = {
-                shape_border_width = 1,
-                shape_border_color = '#777777',
-                shape  = gears.shape.rounded_bar,
-            },
-            layout = {
-              spacing = 10,
-              spacing_widget = {
-                {
-                    forced_width = 5,
-                    shape = gears.shape.circle,
-                    widget = wibox.widget.separator
-                },
-                valign = 'center',
-                halign = 'center',
-                widget = wibox.container.place,
-              },
-              layout = wibox.layout.flex.horizontal
-            },
           }
 
           local right_widgets = {}
