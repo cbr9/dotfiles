@@ -326,8 +326,7 @@ local global_keys = gears.table.join(
           "request::activate", "key.unminimize", { raise = true }
         )
       end
-    end,
-    { description = "restore minimized", group = "client" }),
+    end),
   awful.key({ super }, "Return", function() awful.spawn(terminal) end),
   awful.key({ super }, "d", function() awful.spawn("dmenu_run"); end),
   awful.key({ super, "Mod1" }, "l",
@@ -339,12 +338,6 @@ local global_keys = gears.table.join(
 )
 
 local client_keys = gears.table.join(
-  awful.key({ super, }, "f",
-    function(c)
-      c.fullscreen = not c.fullscreen
-      c:raise()
-    end,
-    { description = "toggle fullscreen", group = "client" }),
   awful.key({ super, }, "q", function(c) c:kill() end,
     { description = "close", group = "client" }),
   awful.key({ super, "Control" }, "space", awful.client.floating.toggle,
@@ -362,24 +355,12 @@ local client_keys = gears.table.join(
       c.minimized = true
     end,
     { description = "minimize", group = "client" }),
-  awful.key({ super, }, "m",
+  awful.key({ super }, "m",
     function(c)
       c.maximized = not c.maximized
       c:raise()
     end,
-    { description = "(un)maximize", group = "client" }),
-  awful.key({ super, "Control" }, "m",
-    function(c)
-      c.maximized_vertical = not c.maximized_vertical
-      c:raise()
-    end,
-    { description = "(un)maximize vertically", group = "client" }),
-  awful.key({ super, "Shift" }, "m",
-    function(c)
-      c.maximized_horizontal = not c.maximized_horizontal
-      c:raise()
-    end,
-    { description = "(un)maximize horizontally", group = "client" })
+    { description = "(un)maximize", group = "client" })
 )
 
 -- Bind all key numbers to tags.
