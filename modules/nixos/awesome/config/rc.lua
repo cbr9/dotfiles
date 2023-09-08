@@ -13,7 +13,6 @@ local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
-local ruled = require("ruled")
 local naughty = require("naughty")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
@@ -64,7 +63,7 @@ local text_clock = wibox.widget.textclock()
 beautiful.font = "DejaVu Sans Mono"
 beautiful.notification_icon_size = 50
 beautiful.notification_height = 75
-beautiful.border_focus = "#fabd2f"
+beautiful.border_color_active = "#fabd2f"
 beautiful.border_width = 3
 beautiful.useless_gap = 5
 beautiful.gap_single_client = true
