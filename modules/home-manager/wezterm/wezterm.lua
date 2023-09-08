@@ -5,6 +5,9 @@ local config = {
   keys = {
     { key = '=', mods = 'CTRL', action = wezterm.action.IncreaseFontSize },
     { key = '_', mods = 'CTRL', action = wezterm.action.DecreaseFontSize },
+    { key = "x", mods = "CTRL", action = "ActivateCopyMode" },
+    { key = "v", mods = "CTRL|SHIFT", action = wezterm.action { PasteFrom = "Clipboard" } },
+    { key = "c", mods = "CTRL|SHIFT", action = wezterm.action { CopyTo = "ClipboardAndPrimarySelection" } }
   },
   tiling_desktop_environments = {
     "X11 awesome"
@@ -20,4 +23,3 @@ local config = {
 }
 
 return config
-

@@ -6,6 +6,7 @@ in {
     profileExtra = ''
       if [[ -f ${nixSh} ]]; then
         source ${nixSh}
+        fish
       fi
     '';
   };
