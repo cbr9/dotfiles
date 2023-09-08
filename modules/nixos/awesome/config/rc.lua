@@ -71,7 +71,7 @@ beautiful.wallpaper = os.getenv("WALLPAPER")
 
 beautiful.tasklist_shape_border_width = 0
 beautiful.tasklist_shape = gears.shape.rectangle
-beautiful.tasklist_bg_focus = beautiful.border_focus
+beautiful.tasklist_bg_focus = beautiful.border_color_active
 beautiful.tasklist_fg_focus = "#000000"
 beautiful.tasklist_disable_icon = true
 beautiful.tasklist_align = "center"
