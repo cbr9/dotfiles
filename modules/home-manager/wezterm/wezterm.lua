@@ -15,7 +15,7 @@ local config = {
   dpi = 120,
   enable_kitty_keyboard = true,
   font_size = 15,
-  hide_tab_bar_if_only_one_tab = true,
+  hide_tab_bar_if_only_one_tab = false,
   font = wezterm.font('JetBrains Mono', { weight = 'Medium', italic = false }),
 }
 
