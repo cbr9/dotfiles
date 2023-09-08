@@ -17,6 +17,10 @@ in {
       destc0strapp15 = {
         hostname = "destc0strapp15";
         user = "decabera";
+        extraOptions = {
+          RemoteCommand = "/home/decabera/.cargo/bin/nix-user-chroot ~/.nix bash -l";
+          RequestTTY = "yes";
+        };
       };
     };
   };
