@@ -154,8 +154,8 @@ end
 -- The duration and easing is up to you. Please check out the rubato docs to learn more.
 
 local lf_scratchpad = bling.module.scratchpad {
-  command                 = "wezterm start --class lf -- lf",
-  rule                    = { instance = "lf" },
+  command                 = "wezterm start --class files -- lf",
+  rule                    = { instance = "files" },
   sticky                  = true,
   autoclose               = true,
   floating                = true,
@@ -515,6 +515,10 @@ awful.rules.rules = {
   },
 }
 -- }}}
+
+client.connect_signal("mouse::enter", function(c)
+    c:activate { context = "mouse_enter", raise = true }
+end)
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
