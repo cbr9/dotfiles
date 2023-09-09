@@ -346,13 +346,14 @@ in {
 
       "<c-f>" = "fzf-jump";
       gs = "fzf-search";
+
       # unmap the default rename keybinding
       r = "";
-      i = " rename";
-      I = " :rename; cmd-home";
-      A = " :rename; cmd-end";
-      c = " :rename; cmd-delete-home";
-      C = " :rename; cmd-end; cmd-delete-home";
+      ri = ":rename";
+      rI = ":rename; cmd-home";
+      rA = ":rename; cmd-end";
+      rc = ":rename; cmd-delete-home";
+      rC = ":rename; cmd-end; cmd-delete-home";
 
       # paths
       y = "";
