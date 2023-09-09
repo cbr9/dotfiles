@@ -136,6 +136,14 @@ in {
         ''
       );
 
+      follow-link = (
+        mkLfCmd
+        # bash
+        ''
+          lf -remote "send ''${id} select '$(readlink $f)'"
+        ''
+      );
+
       fzf-jump = (
         mkShellCmd
         # bash
@@ -345,6 +353,8 @@ in {
 
       "<c-f>" = "fzf-jump";
       gs = "fzf-search";
+
+      gL = "follow-link";
 
       # unmap the default rename keybinding
       r = "";
