@@ -109,87 +109,130 @@ in {
       incsearch = true;
     };
     commands = {
-      open = mkShellCmd ''
-        case $(file --mime-type -Lb "$fx") in
-            text/*) $EDITOR "$fx";;
-            application/json) $EDITOR "$fx";;
-            image/*) ${pkgs.feh}/bin/feh "$fx";;
-            *) xdg-open "$fx" > /dev/null 2> /dev/null &;;
-        esac
+      open = (
+        mkShellCmd
+        # bash
+        ''
+          case $(file --mime-type -Lb "$fx") in
+              text/*) $EDITOR "$fx";;
+              application/json) $EDITOR "$fx";;
+              image/*) ${pkgs.feh}/bin/feh "$fx";;
+              *) xdg-open "$fx" > /dev/null 2> /dev/null &;;
+          esac
+        ''
+      );
 
-      '';
+      z = (
+        mkLfCmd
+        # bash
+        ''
+          result="$(zoxide query --exclude $PWD $@ | sed 's/\\/\\\\/g;s/"/\\"/g')"
+          lf -remote "send $id cd \"$result\""
+        ''
+      );
 
-      z = mkLfCmd ''
-        result="$(zoxide query --exclude $PWD $@ | sed 's/\\/\\\\/g;s/"/\\"/g')"
-        lf -remote "send $id cd \"$result\""
-      '';
-
-      zi = mkShellCmd ''
-        result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
-        lf -remote "send $id cd \"$result\""
-      '';
+      zi = (
+        mkShellCmd
+        # bash
+        ''
+          result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
+          lf -remote "send $id cd \"$result\""
+        ''
+      );
 
       play = mkAsyncCmd "${pkgs.sox}/bin/play $f";
-      stop-playing = mkAsyncCmd "pkill play";
-      mkdir = mkLfCmd ''
-        if [ $# -eq 0  ]; then
-          printf "Directory Name: "
-          read ans
-          mkdir $ans
-        else
-          mkdir "$@"
-        fi
-      '';
+      stop-playing = (
+        mkAsyncCmd
+        # bash
+        ''
+          pkill play
+        ''
+      );
+      mkdir = (
+        mkLfCmd
+        # bash
+        ''
+          if [ $# -eq 0  ]; then
+            printf "Directory Name: "
+            read ans
+            mkdir $ans
+          else
+            mkdir "$@"
+          fi
+        ''
+      );
+      new = (
+        mkLfCmd
+        # bash
+        ''
+          if [ $# -eq 0  ]; then
+            printf "Filename: "
+            read ans
+            touch $ans
+          else
+            touch "$@"
+          fi
+        ''
+      );
 
-      new = mkLfCmd ''
-        if [ $# -eq 0  ]; then
-          printf "Filename: "
-          read ans
-          touch $ans
-        else
-          touch "$@"
-        fi
-      '';
+      select-files = (
+        mkAsyncCmd
+        # bash
+        ''
+          get_files() {
+              if [ "$lf_hidden" = 'false' ]; then
+                  find "$PWD" -mindepth 1 -maxdepth 1 -type f -not -name '.*' -print0
+              else
+                  find "$PWD" -mindepth 1 -maxdepth 1 -type f -print0
+              fi |
+              xargs -0 printf ' %q'
+          }
 
-      select-files = mkAsyncCmd ''
-        get_files() {
-            if [ "$lf_hidden" = 'false' ]; then
-                find "$PWD" -mindepth 1 -maxdepth 1 -type f -not -name '.*' -print0
-            else
-                find "$PWD" -mindepth 1 -maxdepth 1 -type f -print0
-            fi |
-            xargs -0 printf ' %q'
-        }
+          lf -remote "send $id :unselect; toggle $(get_files)"
+        ''
+      );
+      select-dirs = (
+        mkAsyncCmd
+        # bash
+        ''
+          get_dirs() {
+              if [ "$lf_hidden" = 'false' ]; then
+                  find "$PWD" -mindepth 1 -maxdepth 1 -type d -not -name '.*' -print0
+              else
+                  find "$PWD" -mindepth 1 -maxdepth 1 -type d -print0
+              fi |
+              xargs -0 printf ' %q'
+          }
 
-        lf -remote "send $id :unselect; toggle $(get_files)"
-      '';
+          lf -remote "send $id :unselect; toggle $(get_dirs)"
+        ''
+      );
 
-      select-dirs = mkAsyncCmd ''
-        get_dirs() {
-            if [ "$lf_hidden" = 'false' ]; then
-                find "$PWD" -mindepth 1 -maxdepth 1 -type d -not -name '.*' -print0
-            else
-                find "$PWD" -mindepth 1 -maxdepth 1 -type d -print0
-            fi |
-            xargs -0 printf ' %q'
-        }
+      bulk-rename = (
+        mkShellCmd
+        # bash
+        ''
+          printf '%s\n' "$fx" | ${pkgs.moreutils}/bin/vidir -
+        ''
+      );
 
-        lf -remote "send $id :unselect; toggle $(get_dirs)"
-      '';
+      yank-path = (
+        mkAsyncCmd
+        # bash
+        ''
+          copied=""
+          for f in $fx; do
+            path=$(realpath --no-symlinks "$f")
+            copied+="$(echo -n "$path" | sd -s " " "\ ")" # escape whitespace
+            copied+=" " # add a separator
+          done
 
-      yank-path = mkAsyncCmd ''
-        copied=""
-        for f in $fx; do
-          path=$(realpath --no-symlinks "$f")
-          copied+="$(echo -n "$path" | sd -s " " "\ ")" # escape whitespace
-          copied+=" " # add a separator
-        done
+          copied=$(echo -n $copied | xargs) # trim last separator whitespace
 
-        copied=$(echo -n $copied | xargs) # trim last separator whitespace
-
-        echo -n "$copied" | ${pkgs.xclip}/bin/xclip -selection clipboard
-        lf -remote "send $id echo Copied \"$copied\" to clipboard"
-      '';
+          echo -n "$copied" | ${pkgs.xclip}/bin/xclip -selection clipboard
+          lf -remote "send $id echo Copied \"$copied\" to clipboard"
+        ''
+      );
     };
 
     previewer.source = "${pkgs.ctpv}/bin/ctpv";
@@ -211,6 +254,7 @@ in {
       y = "";
       yy = "copy";
       yp = "yank-path";
+      "<f-2>" = "bulk-rename";
     };
   };
 }

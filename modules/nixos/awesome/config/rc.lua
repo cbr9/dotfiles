@@ -163,6 +163,9 @@ local op_scratchpad = bling.module.scratchpad {
   reapply                 = false,
   dont_focus_before_close = false,
 }
+
+op_scratchpad:turn_off()
+
 local todoist_scratchpad = bling.module.scratchpad {
   command                 = "todoist-electron",
   rule                    = { instance = "todo" },
@@ -173,6 +176,8 @@ local todoist_scratchpad = bling.module.scratchpad {
   reapply                 = false,
   dont_focus_before_close = false,
 }
+
+todoist_scratchpad:turn_off()
 
 local lf_scratchpad = bling.module.scratchpad {
   command                 = "wezterm start --class files -- lf",
@@ -235,7 +240,7 @@ awful.screen.connect_for_each_screen(function(s)
       layout = wibox.layout.fixed.horizontal,
       -- keyboard_layout,
       wibox.widget.systray(),
-      text_clock,
+      text_clock,      -- keyboard_layout,
     }
   else
     right_widgets = {
