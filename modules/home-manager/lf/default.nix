@@ -354,7 +354,7 @@ in {
       "<c-f>" = "fzf-jump";
       gs = "fzf-search";
 
-      gL = "follow-link";
+      gl = "follow-link";
 
       # unmap the default rename keybinding
       r = "";
