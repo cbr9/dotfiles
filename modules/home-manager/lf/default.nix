@@ -95,8 +95,7 @@ in {
   xdg.configFile."ctpv/config" = {
     enable = cfg.enable && cfg.previewer.source == "${pkgs.ctpv}/bin/ctpv";
     text = ''
-      set forcekitty
-      set forcekittyanim
+      set forcechafa
     '';
   };
 
@@ -141,7 +140,7 @@ in {
         mkShellCmd
         # bash
         ''
-          res="$(fd --max-depth 1 | fzf --reverse --header='Jump to location')"
+          res="$(fd --max-depth 1 --hidden | fzf --reverse --header='Jump to location')"
           if [ -n "$res" ]; then
               if [ -d "$res" ]; then
                   cmd="cd"

@@ -19,7 +19,6 @@
     speedcrunch
     mailspring
     insync
-    kitty
     obsidian
     google-chrome
     anki
