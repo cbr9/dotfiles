@@ -110,6 +110,60 @@ in {
       incsearch = true;
     };
     commands = {
+      toggle_preview = (
+        mkLfCmd
+        # bash
+        ''
+          if [ "$lf_preview" = "true" ]; then
+              lf -remote "send $id :set preview false; set ratios 1:5"
+          else
+              lf -remote "send $id :set preview true; set ratios 1:2:3"
+          fi
+        ''
+      );
+
+      fzf-search = (
+        mkShellCmd
+        # bash
+        ''
+          RG_PREFIX="rg --no-column --no-line-number --no-heading --multiline --trim --color=always --smart-case "
+          res="$(
+            FZF_DEFAULT_COMMAND="$RG_PREFIX \'\'" \
+              fzf --bind "change:reload:$RG_PREFIX {q} || true" \
+              --ansi --layout=reverse --header 'Search in files' \
+              | cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
+          )"
+          [ -n "$res" ] && lf -remote "send $id select \"$res\""
+        ''
+      );
+
+      fzf-jump = (
+        mkShellCmd
+        # bash
+        ''
+          res="$(fd --max-depth 1 | fzf --reverse --header='Jump to location')"
+          if [ -n "$res" ]; then
+              if [ -d "$res" ]; then
+                  cmd="cd"
+              else
+                  cmd="select"
+              fi
+              res="$(printf '%s' "$res" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+              lf -remote "send $id $cmd \"$res\""
+          fi
+        ''
+      );
+
+      on-cd = (
+        mkAsyncCmd
+        # bash
+        ''
+          # '&' commands run silently in background (which is what we want here),
+          # but are not connected to stdout.
+          # To make sure our escape sequence still reaches stdout we pipe it to /dev/tty
+          printf "\033]0; $(pwd | sed "s|$HOME|~|") - lf\007" > /dev/tty
+        ''
+      );
       open = (
         mkShellCmd
         # bash
@@ -149,6 +203,7 @@ in {
           pkill play
         ''
       );
+
       mkdir = (
         mkLfCmd
         # bash
@@ -162,6 +217,7 @@ in {
           fi
         ''
       );
+
       new = (
         mkLfCmd
         # bash
@@ -192,6 +248,7 @@ in {
           lf -remote "send $id :unselect; toggle $(get_files)"
         ''
       );
+
       select-dirs = (
         mkAsyncCmd
         # bash
@@ -217,45 +274,93 @@ in {
         ''
       );
 
-      yank-path = (
-        mkAsyncCmd
+      yank-dirname = (
+        mkShellCmd
         # bash
         ''
-          copied=""
-          for f in $fx; do
-            path=$(realpath --no-symlinks "$f")
-            copied+="$(echo -n "$path" | sd -s " " "\ ")" # escape whitespace
-            copied+=" " # add a separator
-          done
+          dirname -- "$fx" | head -c-1 | xclip -i -selection clipboard
+        ''
+      );
 
-          copied=$(echo -n $copied | xargs) # trim last separator whitespace
+      yank-path = (
+        mkShellCmd
+        # bash
+        ''
+          printf '%s' "$fx" | xclip -i -selection clipboard
+        ''
+      );
 
-          echo -n "$copied" | ${pkgs.xclip}/bin/xclip -selection clipboard
-          lf -remote "send $id echo Copied \"$copied\" to clipboard"
+      yank-filename = (
+        mkShellCmd
+        # bash
+        ''
+          basename -a -- $fx | head -c-1 | xclip -i -selection clipboard
+        ''
+      );
+
+      yank-filestem = (
+        mkShellCmd
+        # bash
+        ''
+          echo "$fx" |
+            xargs -r -d '\n' basename -a |
+            awk -e '{
+              for (i=length($0); i > 0; i--) {
+                if (substr($0, i, 1) == ".") {
+                  if (i == 1) print $0
+                  else print substr($0, 0, i-1)
+
+                  break
+                }
+              }
+
+              if (i == 0)
+                print $0
+            }' |
+            if [ -n "$fs" ]; then cat; else tr -d '\n'; fi |
+            xclip -i -selection clipboard
         ''
       );
     };
 
     previewer.source = "${pkgs.ctpv}/bin/ctpv";
 
-    extraConfig = ''
-      set cleaner ctpvclear
-      &ctpv -s $id
-      &ctpvquit $id
-    '';
+    extraConfig = ( # bash
+      ''
+        on-cd
+        set cleaner ctpvclear
+        &ctpv -s $id
+        &ctpvquit $id
+      ''
+    );
 
     keybindings = {
-      gs = "git-restore";
       P = "play";
       DD = "delete $fs";
       x = "cut";
       J = ":updir; set dironly true; down; set dironly false; open";
       K = ":updir; set dironly true; up; set dironly false; open";
       o = ":open";
+      "<f-2>" = "bulk-rename";
+      tp = "toggle_preview";
+
+      "<c-f>" = "fzf-jump";
+      gs = "fzf-search";
+      # unmap the default rename keybinding
+      r = "";
+      i = " rename";
+      I = " :rename; cmd-home";
+      A = " :rename; cmd-end";
+      c = " :rename; cmd-delete-home";
+      C = " :rename; cmd-end; cmd-delete-home";
+
+      # paths
       y = "";
       yy = "copy";
+      yd = "yank-dirname";
       yp = "yank-path";
-      "<f-2>" = "bulk-rename";
+      yf = "yank-filename";
+      ys = "yank-filestem";
     };
   };
 }
