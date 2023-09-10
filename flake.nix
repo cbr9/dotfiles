@@ -33,7 +33,7 @@
         ++ [
           (final: prev: {
             typst-master = inputs.typst.packages.${system}.default;
-            awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-luajit-git;
+            awesome = inputs.nixpkgs-f2k.packages.${system}.awesome-luajit-git;
             organize = inputs.organize.defaultPackage.${system};
             sph2pipe = import ./pkgs/sph2pipe.nix {pkgs = prev;};
             stable = import inputs.nixpkgs-stable {
