@@ -121,7 +121,7 @@ in {
       incsearch = true;
     };
     commands = {
-      toggle_preview = (
+      toggle-preview = (
         mkLfCmd
         # bash
         ''
@@ -359,7 +359,6 @@ in {
       K = ":updir; set dironly true; up; set dironly false; open";
       o = ":open";
       "<f-2>" = "bulk-rename";
-      tp = "toggle_preview";
 
       "<c-f>" = "fzf-jump";
       gs = "fzf-search";
