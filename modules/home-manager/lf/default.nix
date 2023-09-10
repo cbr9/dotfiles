@@ -369,7 +369,7 @@ in {
 
       gl = "follow-link";
 
-      "<c-d>" = "drag-and-drop";
+      "<c-d>" = "drag-all-and-drop";
 
       # unmap the default rename keybinding
       r = "";
