@@ -88,7 +88,6 @@ in {
       glow # for markdown files
       imagemagick
       jq # for json files
-      ueberzug # for image files on X11
       transmission
     ];
 
@@ -96,11 +95,28 @@ in {
     enable = cfg.enable && cfg.previewer.source == "${pkgs.ctpv}/bin/ctpv";
     text = ''
       set forcechafa
+      set chafasixel
     '';
   };
 
   programs.lf = {
     enable = true;
+    package = pkgs.buildGoModule rec {
+      name = "lf";
+      version = "906880183125cb8f0c3cb29a5a23d31139764b6b";
+      src = pkgs.fetchFromGitHub {
+        owner = "gokcehan";
+        repo = "lf";
+        rev = version;
+        sha256 = "sha256-JqhDnPVyARHtBKS+747ZHDcb/OeCOAdJEDvZ/lbfses=";
+      };
+      vendorHash = "sha256-PVvHrXfMN6ZSWqd5GJ08VaeKaHrFsz6FKdDoe0tk2BE=";
+      postInstall = ''
+        installManPage lf.1
+        installShellCompletion etc/lf.{bash,zsh,fish}
+      '';
+    };
+
     settings = {
       sixel = true;
       icons = true;
@@ -335,8 +351,6 @@ in {
     extraConfig = ( # bash
       ''
         on-cd
-        set cleaner ctpvclear
-        &ctpv -s $id
         &ctpvquit $id
       ''
     );
