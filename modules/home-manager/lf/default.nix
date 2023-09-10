@@ -121,6 +121,8 @@ in {
       incsearch = true;
     };
     commands = {
+      drag-and-drop = mkLfCmd "${pkgs.xdragon}/bin/dragon --on-top --all --and-exit $fx";
+
       toggle-preview = (
         mkLfCmd
         # bash
@@ -365,6 +367,8 @@ in {
       gs = "fzf-search";
 
       gl = "follow-link";
+
+      "<c-d>" = "drag-and-drop";
 
       # unmap the default rename keybinding
       r = "";
