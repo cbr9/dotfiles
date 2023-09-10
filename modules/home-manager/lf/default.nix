@@ -94,8 +94,8 @@ in {
   xdg.configFile."ctpv/config" = {
     enable = cfg.enable && cfg.previewer.source == "${pkgs.ctpv}/bin/ctpv";
     text = ''
-      set forcechafa
-      set chafasixel
+      set forcekitty
+      set forcekittyanim
     '';
   };
 
@@ -347,6 +347,8 @@ in {
     extraConfig = ( # bash
       ''
         on-cd
+        set cleaner ctpvclear
+        &ctpv -s $id
         &ctpvquit $id
       ''
     );
@@ -358,7 +360,6 @@ in {
       J = ":updir; set dironly true; down; set dironly false; open";
       K = ":updir; set dironly true; up; set dironly false; open";
       o = ":open";
-      "<f-2>" = "bulk-rename";
 
       "<c-f>" = "fzf-jump";
       gs = "fzf-search";
@@ -367,6 +368,7 @@ in {
 
       # unmap the default rename keybinding
       r = "";
+      rS = ":bulk-rename"; # rS for rename selections
       ri = ":rename";
       rI = ":rename; cmd-home";
       rA = ":rename; cmd-end";

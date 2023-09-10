@@ -10,6 +10,7 @@
     ./firefox
     ./git
     ./helix
+    ./kitty
     ./lsd
     ./lf
     ./lazygit
@@ -26,6 +27,5 @@
     ./xdg
     ./zellij
     ./zoxide
-    ./wezterm
   ];
 }
