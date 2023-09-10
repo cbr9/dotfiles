@@ -3,7 +3,7 @@
 pcall(require, "luarocks.loader")
 -- local keyboard_layout_indicator = require("keyboard-layout-indicator")
 
-local bling = require("bling")
+local scratchpads = require("scratchpads")
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -153,59 +153,6 @@ end
 -- These are example rubato tables. You can use one for just y, just x, or both.
 -- The duration and easing is up to you. Please check out the rubato docs to learn more.
 
-local op_scratchpad = bling.module.scratchpad {
-  command                 = "1password",
-  rule                    = { instance = "1password" },
-  sticky                  = true,
-  autoclose               = true,
-  floating                = true,
-  geometry                = { x = 360, y = 90, height = 900, width = 1200 },
-  reapply                 = false,
-  dont_focus_before_close = false,
-}
-
-op_scratchpad:turn_off()
-
-local todoist_scratchpad = bling.module.scratchpad {
-  command                 = "todoist-electron",
-  rule                    = { instance = "todo" },
-  sticky                  = true,
-  autoclose               = true,
-  floating                = true,
-  geometry                = { x = 360, y = 90, height = 900, width = 1200 },
-  reapply                 = false,
-  dont_focus_before_close = false,
-}
-
-todoist_scratchpad:turn_off()
-
-local lf_scratchpad = bling.module.scratchpad {
-  command                 = "wezterm start --class files -- lf",
-  rule                    = { instance = "files" },
-  sticky                  = true,
-  autoclose               = true,
-  floating                = true,
-  geometry                = { x = 360, y = 90, height = 900, width = 1200 },
-  reapply                 = false,
-  dont_focus_before_close = false,
-}
-
-lf_scratchpad:turn_off()
-
-
-local dotfiles_scratchpad = bling.module.scratchpad {
-  command                 = "wezterm start --class dots -- hx ~/Code/dotfiles",
-  rule                    = { instance = "dots" },
-  sticky                  = true,
-  autoclose               = true,
-  floating                = true,
-  geometry                = { x = 360, y = 90, height = 900, width = 1200 },
-  reapply                 = false,
-  dont_focus_before_close = false,
-}
-
-dotfiles_scratchpad:turn_off()
-
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 local tag_names = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
@@ -289,10 +236,7 @@ end
 
 -- {{{ Key bindings
 local global_keys = gears.table.join(
-    awful.key({ super }, "p", function() op_scratchpad:toggle() end),
-    awful.key({ super }, "t", function() todoist_scratchpad:toggle() end),
-    awful.key({ super }, "e", function() lf_scratchpad:toggle() end),
-    awful.key({ super }, "c", function() dotfiles_scratchpad:toggle() end),
+  scratchpads.global_keys,
   awful.key({ super, }, "s", hotkeys_popup.show_help,
     { description = "show help", group = "awesome" }),
   awful.key({ super, }, "Left", awful.tag.viewprev,
@@ -361,14 +305,12 @@ local global_keys = gears.table.join(
         )
       end
     end),
+
   awful.key({ super }, "Return", function() awful.spawn(terminal) end),
   awful.key({ super }, "d", function() awful.spawn("dmenu_run"); end),
-  awful.key({ super, "Mod1" }, "l",
-    function() awful.spawn("betterlockscreen -l dim &"); end),
-  awful.key({ super }, "b",
-    function() awful.spawn("firefox"); end)
-  -- awful.key({ super }, "t", function() awful.spawn("todoist-electron"); end)
--- awful.key({ super, alt }, "space", function() keyboard_layout:next() end)
+  awful.key({ super, alt }, "l", function() awful.spawn("betterlockscreen -l dim &"); end),
+  awful.key({ super }, "b", function() awful.spawn("firefox"); end),
+  awful.key({ super }, "z", function() awful.spawn("zotero"); end)
 )
 
 local client_keys = gears.table.join(

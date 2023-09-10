@@ -46,16 +46,14 @@ in {
       services.dunst.enable = lib.mkForce (!cfg.enable);
 
       xdg.configFile = {
-        "autostart/autostart.sh".source =
-          pkgs.writeShellScript "autostart.sh" ''
-            "#!/bin/bash"
-          ''
-          + (lib.optionalString config.programs._1password-gui.enable "1password --silent &")
-          + (lib.optionalString config.home-manager.users.cabero.services.nextcloud-client.enable "nextcloud --background &")
-          + (lib.optionalString config.home-manager.users.cabero.services.betterlockscreen.enable "betterlockscreen -u ${config.stylix.image} &")
-          + (lib.optionalString config.programs.kdeconnect.enable "kdeconnect-cli --refresh &");
-
+        "autostart/autostart.sh".source = pkgs.writeShellScript "autostart.sh" ''
+          ${lib.optionalString config.programs._1password-gui.enable "1password --silent &"}
+          ${lib.optionalString config.home-manager.users.cabero.services.nextcloud-client.enable "nextcloud --background &"}
+          ${lib.optionalString config.home-manager.users.cabero.services.betterlockscreen.enable "betterlockscreen -u ${config.stylix.image} &"}
+          ${lib.optionalString config.programs.kdeconnect.enable "kdeconnect-cli --refresh &"}
+        '';
         "awesome/rc.lua".source = ./config/rc.lua;
+        "awesome/scratchpads.lua".source = ./config/scratchpads.lua;
         "awesome/rubato".source = pkgs.fetchFromGitHub {
           owner = "andOrlando";
           repo = "rubato";
