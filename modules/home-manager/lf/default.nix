@@ -111,10 +111,6 @@ in {
         sha256 = "sha256-JqhDnPVyARHtBKS+747ZHDcb/OeCOAdJEDvZ/lbfses=";
       };
       vendorHash = "sha256-PVvHrXfMN6ZSWqd5GJ08VaeKaHrFsz6FKdDoe0tk2BE=";
-      postInstall = ''
-        installManPage lf.1
-        installShellCompletion etc/lf.{bash,zsh,fish}
-      '';
     };
 
     settings = {
