@@ -478,9 +478,9 @@ awful.rules.rules = {
 }
 -- }}}
 
-client.connect_signal("mouse::enter", function(c)
-  c:activate { context = "mouse_enter", raise = true }
-end)
+-- client.connect_signal("mouse::enter", function(c)
+--   c:activate { context = "mouse_enter", raise = true }
+-- end)
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
