@@ -163,7 +163,7 @@ in {
         mkShellCmd
         # bash
         ''
-          res="$(fd --max-depth 1 --hidden | fzf --reverse --header='Jump to location')"
+          res="$(fd --max-depth 3 --hidden | ${pkgs.skim}/bin/sk --reverse --header='Jump to location')"
           if [ -n "$res" ]; then
               if [ -d "$res" ]; then
                   cmd="cd"
