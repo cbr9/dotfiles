@@ -103,7 +103,6 @@ in {
   programs.lf = {
     enable = true;
     settings = {
-      sixel = true;
       icons = true;
       hidden = true;
       ignorecase = true;
