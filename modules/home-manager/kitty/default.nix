@@ -19,7 +19,7 @@ in
     };
 
     programs.kitty = {
-      enable = nixosConfig != {};
+      enable = true;
       shellIntegration.mode = "no-cursor";
       settings = {
         confirm_os_window_close = 0;
