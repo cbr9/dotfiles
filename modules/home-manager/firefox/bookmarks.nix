@@ -99,6 +99,13 @@
         toolbar = false;
         bookmarks = [
           {
+            # not a project, but will do
+            name = "GitHub";
+            url = "https://www.github.com";
+            keyword = "gh";
+            tags = ["code"];
+          }
+          {
             name = "Dotfiles";
             url = "https://www.github.com/cbr9/dotfiles";
             keyword = "dotfiles";
