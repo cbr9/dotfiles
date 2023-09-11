@@ -1,10 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.texlive = {
-    enable = config.home.username == "decabera";
+    enable = true;
     packageSet = pkgs.stable.texlive;
     extraPackages = tpkgs: {inherit (tpkgs) scheme-full;};
   };
