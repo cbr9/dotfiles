@@ -284,50 +284,11 @@ in {
         ''
       );
 
-      yank-dirname = (
-        mkShellCmd
-        # bash
-        ''
-          dirname -- "$fx" | head -c-1 | paste -sd " " | xargs echo -n | ${config.programs.kitty.package}/bin/kitten clipboard
-        ''
-      );
-
       yank-path = (
         mkShellCmd
         # bash
         ''
-          printf '%s' "$fx" | paste -sd " " | xargs echo -n | ${config.programs.kitty.package}/bin/kitten clipboard
-        ''
-      );
-
-      yank-filename = (
-        mkShellCmd
-        # bash
-        ''
-          basename -a -- $fx | head -c-1 | paste -sd " " | xargs echo -n | ${config.programs.kitty.package}/bin/kitten clipboard
-        ''
-      );
-
-      yank-filestem = (
-        mkShellCmd
-        # bash
-        ''
-          echo "$fx" |
-            xargs -r -d '\n' basename -a |
-            awk -e '{
-              for (i=length($0); i > 0; i--) {
-                if (substr($0, i, 1) == ".") {
-                  if (i == 1) print $0
-                  else print substr($0, 0, i-1)
-
-                  break
-                }
-              }
-
-              if (i == 0)
-                print $0
-            }' |
-            if [ -n "$fs" ]; then cat; else tr -d '\n'; fi | paste -sd " " | xargs echo -n | ${config.programs.kitty.package}/bin/kitten clipboard
+          printf '%s' "$fx" | paste -sd " " | xargs echo -n | ${config.programs.kitty.package}/bin/kitty +kitten clipboard
         ''
       );
     };
@@ -370,10 +331,7 @@ in {
       # paths
       y = "";
       yy = "copy";
-      yd = "yank-dirname";
       yp = "yank-path";
-      yf = "yank-filename";
-      ys = "yank-filestem";
     };
   };
 }
