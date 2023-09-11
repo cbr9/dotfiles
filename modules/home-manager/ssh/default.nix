@@ -17,6 +17,7 @@ in {
       destc0strapp15 = {
         hostname = "destc0strapp15";
         user = "decabera";
+        forwardX11 = true;
         extraOptions = {
           RemoteCommand = "/home/decabera/.cargo/bin/nix-user-chroot ~/.nix bash -l";
           RequestTTY = "yes";
