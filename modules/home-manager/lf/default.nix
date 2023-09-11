@@ -288,7 +288,7 @@ in {
         mkShellCmd
         # bash
         ''
-          dirname -- "$fx" | head -c-1 | ${config.programs.kitty.package}/bin/kitten clipboard
+          dirname -- "$fx" | head -c-1 | paste -szd " " | ${config.programs.kitty.package}/bin/kitten clipboard
         ''
       );
 
@@ -296,7 +296,7 @@ in {
         mkShellCmd
         # bash
         ''
-          printf '%s' "$fx" | ${config.programs.kitty.package}/bin/kitten clipboard
+          printf '%s' "$fx" | paste -szd " " | ${config.programs.kitty.package}/bin/kitten clipboard
         ''
       );
 
@@ -304,7 +304,7 @@ in {
         mkShellCmd
         # bash
         ''
-          basename -a -- $fx | head -c-1 | ${config.programs.kitty.package}/bin/kitten clipboard
+          basename -a -- $fx | head -c-1 | paste -szd " " | ${config.programs.kitty.package}/bin/kitten clipboard
         ''
       );
 
@@ -327,8 +327,7 @@ in {
               if (i == 0)
                 print $0
             }' |
-            if [ -n "$fs" ]; then cat; else tr -d '\n'; fi |
-            ${config.programs.kitty.package}/bin/kitten clipboard
+            if [ -n "$fs" ]; then cat; else tr -d '\n'; fi | paste -szd " " | ${config.programs.kitty.package}/bin/kitten clipboard
         ''
       );
     };
