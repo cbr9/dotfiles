@@ -4,7 +4,7 @@
   ...
 }: let
   emojiPicker = pkgs.writeScriptBin "emoji" ''
-    ${config.home.homeDirectory}/.cargo/bin/emocli -li | ${pkgs.fzf}/bin/fzf | cut -d' ' -f1 | tr -d '\n' | ${pkgs.xclip}/bin/xclip -selection clipboard
+    ${config.home.homeDirectory}/.cargo/bin/emocli -li | ${pkgs.fzf}/bin/fzf | cut -d' ' -f1 | tr -d '\n' | ${config.kitty.package}/bin/kitty +kitten clipboard
   '';
 in {
   home.packages = [emojiPicker];

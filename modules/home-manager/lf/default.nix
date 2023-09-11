@@ -288,7 +288,7 @@ in {
         mkShellCmd
         # bash
         ''
-          dirname -- "$fx" | head -c-1 | xclip -i -selection clipboard
+          dirname -- "$fx" | head -c-1 | ${config.kitty.package}/bin/kitty +kitten clipboard
         ''
       );
 
@@ -296,7 +296,7 @@ in {
         mkShellCmd
         # bash
         ''
-          printf '%s' "$fx" | xclip -i -selection clipboard
+          printf '%s' "$fx" | ${config.kitty.package}/bin/kitty +kitten clipboard
         ''
       );
 
@@ -304,7 +304,7 @@ in {
         mkShellCmd
         # bash
         ''
-          basename -a -- $fx | head -c-1 | xclip -i -selection clipboard
+          basename -a -- $fx | head -c-1 | ${config.kitty.package}/bin/kitty +kitten clipboard
         ''
       );
 
@@ -328,7 +328,7 @@ in {
                 print $0
             }' |
             if [ -n "$fs" ]; then cat; else tr -d '\n'; fi |
-            xclip -i -selection clipboard
+            ${config.kitty.package}/bin/kitty +kitten clipboard
         ''
       );
     };
