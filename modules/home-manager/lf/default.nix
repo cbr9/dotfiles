@@ -361,7 +361,7 @@ in {
 
       # unmap the default rename keybinding
       r = "";
-      rS = ":bulk-rename"; # rS for rename selections
+      rB = ":bulk-rename";
       ri = ":rename";
       rI = ":rename; cmd-home";
       rA = ":rename; cmd-end";
