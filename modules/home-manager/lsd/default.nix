@@ -27,7 +27,6 @@
         separator = " ";
       };
       dereference = false;
-      layout = "oneline";
       recursion = {
         enabled = false;
         depth = 5;
