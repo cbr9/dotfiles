@@ -100,22 +100,6 @@ in {
     '';
   };
 
-  nixpkgs.overlays = mkIf (nixosConfig != {}) [
-    (_: _: {
-      lf = pkgs.buildGoModule rec {
-        name = "lf";
-        version = "906880183125cb8f0c3cb29a5a23d31139764b6b";
-        src = pkgs.fetchFromGitHub {
-          owner = "gokcehan";
-          repo = "lf";
-          rev = version;
-          sha256 = "sha256-JqhDnPVyARHtBKS+747ZHDcb/OeCOAdJEDvZ/lbfses=";
-        };
-        vendorHash = "sha256-PVvHrXfMN6ZSWqd5GJ08VaeKaHrFsz6FKdDoe0tk2BE=";
-      };
-    })
-  ];
-
   programs.lf = {
     enable = true;
     settings = {
