@@ -1,10 +1,13 @@
 {
   lib,
   config,
-  nixosConfig,
+  pkgs,
   ...
 }: let
   cfg = config.programs.kitty;
+  emojiPicker = pkgs.writeScriptBin "emoji" ''
+    kitty +kitten unicode_input | xargs echo -n | kitty +kitten clipboard
+  '';
 in
   with lib; {
     stylix = {
@@ -15,11 +18,14 @@ in
     };
 
     home.sessionVariables = mkIf cfg.enable {
-      TERMINAL = "${cfg.package}/bin/kitty";
+      TERMINAL = "kitty";
     };
+
+    home.packages = mkIf cfg.enable [emojiPicker];
 
     programs.kitty = {
       enable = true;
+      shellIntegration.mode = "no-cursor";
       settings = {
         confirm_os_window_close = 0;
         window_padding_width = 5;

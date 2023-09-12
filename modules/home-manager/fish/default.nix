@@ -2,12 +2,7 @@
   pkgs,
   config,
   ...
-}: let
-  emojiPicker = pkgs.writeScriptBin "emoji" ''
-    ${config.home.homeDirectory}/.cargo/bin/emocli -li | ${pkgs.fzf}/bin/fzf | cut -d' ' -f1 | tr -d '\n' | ${config.programs.kitty.package}/bin/kitten clipboard
-  '';
-in {
-  home.packages = [emojiPicker];
+}: {
   programs.fish = {
     enable = true;
 
