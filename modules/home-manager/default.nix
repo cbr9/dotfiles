@@ -19,6 +19,7 @@
     ./nix
     ./nushell
     ./organize
+    ./pueue
     ./redshift
     ./ssh
     ./starship
