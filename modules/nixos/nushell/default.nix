@@ -1,5 +1,5 @@
 {pkgs, ...}: {
   config = {
-    environment.shells = [pkgs.nushell];
+    environment.shells = [pkgs.nushellFull];
   };
 }
