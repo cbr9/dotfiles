@@ -1,19 +1,19 @@
 {...}: {
   imports = [
     ./atuin
-    ./bat
     ./bash
+    ./bat
     ./bottom
     ./direnv
-    ./fzf
-    ./fish
     ./firefox
+    ./fish
+    ./fzf
     ./git
     ./helix
     ./kitty
-    ./lsd
-    ./lf
     ./lazygit
+    ./lf
+    ./lsd
     ./man
     ./nextcloud-client
     ./nix
