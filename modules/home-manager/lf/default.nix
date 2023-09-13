@@ -312,8 +312,9 @@ in {
       K = ":updir; set dironly true; up; set dironly false; open";
       o = ":open";
 
-      "<c-f>" = "fzf-jump";
-      gs = "fzf-search";
+      f = "";
+      fs = "fzf-search";
+      fj = "fzf-jump";
 
       gl = "follow-link";
 
@@ -332,6 +333,9 @@ in {
       y = "";
       yy = "copy";
       yp = "yank-path";
+
+      # toggles
+      zp = "toggle-preview";
     };
   };
 }
