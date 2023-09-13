@@ -266,7 +266,7 @@ end
 -- {{{ Key bindings
 local global_keys = gears.table.join(
   scratchpads.global_keys,
-  awful.key({ super, }, "s", hotkeys_popup.show_help),
+  -- awful.key({ super, }, "s", hotkeys_popup.show_help),
 
   awful.key({}, "XF86AudioMute", volume.mute),
   awful.key({}, "XF86AudioLowerVolume", volume.lower),
