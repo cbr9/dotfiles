@@ -187,7 +187,7 @@ awful.screen.connect_for_each_screen(function(s)
       layout = wibox.layout.fixed.horizontal,
       -- keyboard_layout,
       wibox.widget.systray(),
-      text_clock,      -- keyboard_layout,
+      text_clock, -- keyboard_layout,
     }
   else
     right_widgets = {
@@ -232,31 +232,48 @@ local focus_bydirection = function(direction)
   end
 end
 
+local function minimize(c)
+  -- The client currently has the input focus, so it cannot be
+  -- minimized, since minimized clients can't have the focus.
+  c.minimized = true
+end
 
+local function unminimize()
+  local c = awful.client.restore()
+  -- Focus restored client
+  if c then
+    c:emit_signal(
+      "request::activate", "key.unminimize", { raise = true }
+    )
+  end
+end
+
+local function toggle_fullscreen(c)
+  c.fullscreen = not c.fullscreen
+  c:raise()
+end
+
+local function maximize(c)
+  c.maximized = not c.maximized
+  c:raise()
+end
+
+local function screenshot()
+    local date = awful.spawn('date "+%x %T:%N"')
+    awful.spawn.with_shell(string.format('maim "/home/cabero/Nextcloud/Pictures/Screenshots/%s.jpg"', date))
+end
 
 -- {{{ Key bindings
 local global_keys = gears.table.join(
   scratchpads.global_keys,
-  awful.key({ super, }, "s", hotkeys_popup.show_help,
-    { description = "show help", group = "awesome" }),
-  awful.key({ super, }, "Left", awful.tag.viewprev,
-    { description = "view previous", group = "tag" }),
-  awful.key({ super, }, "Right", awful.tag.viewnext,
-    { description = "view next", group = "tag" }),
-  awful.key({ super, }, "Escape", awful.tag.history.restore,
-    { description = "go back", group = "tag" }),
+  awful.key({ super, }, "s", hotkeys_popup.show_help),
 
   awful.key({}, "XF86AudioMute", volume.mute),
   awful.key({}, "XF86AudioLowerVolume", volume.lower),
   awful.key({}, "XF86AudioRaiseVolume", volume.raise),
   awful.key({}, "XF86MonBrightnessDown", brightness.down),
   awful.key({}, "XF86MonBrightnessUp", brightness.up),
-
-  awful.key({}, "Print", function()
-    local date = awful.spawn('date "+%x %T:%N"')
-    awful.spawn.with_shell(string.format('maim "/home/cabero/Nextcloud/Pictures/Screenshots/%s.jpg"',
-      date))
-  end),
+  awful.key({}, "Print", screenshot),
 
   -- Directionional client focus
   awful.key({ super }, "j", function() focus_bydirection("down") end),
@@ -266,45 +283,18 @@ local global_keys = gears.table.join(
 
 
   -- Layout manipulation
-  awful.key({ super, "Shift" }, "j", function() awful.client.swap.byidx(1) end,
-    { description = "swap with next client by index", group = "client" }),
-  awful.key({ super, "Shift" }, "k", function() awful.client.swap.byidx(-1) end,
-    { description = "swap with previous client by index", group = "client" }),
-  awful.key({ super, "Control" }, "j", function() awful.screen.focus_relative(1) end,
-    { description = "focus the next screen", group = "screen" }),
-  awful.key({ super, "Control" }, "k", function() awful.screen.focus_relative(-1) end,
-    { description = "focus the previous screen", group = "screen" }),
-  awful.key({ super, }, "u", awful.client.urgent.jumpto,
-    { description = "jump to urgent client", group = "client" }),
-  awful.key({ super, }, "Tab",
-    function()
-      awful.client.focus.history.previous()
-      if client.focus then
-        client.focus:raise()
-      end
-    end,
-    { description = "go back", group = "client" }),
+  awful.key({ super, "Shift" }, "j", function() awful.client.swap.byidx(1) end),
+  awful.key({ super, "Shift" }, "k", function() awful.client.swap.byidx(-1) end),
+  awful.key({ super, "Control" }, "j", function() awful.screen.focus_relative(1) end),
+  awful.key({ super, "Control" }, "k", function() awful.screen.focus_relative(-1) end),
+  awful.key({ super, }, "u", awful.client.urgent.jumpto),
 
   -- Standard program
-  awful.key({ super, "Shift" }, "r", awesome.restart,
-    { description = "reload awesome", group = "awesome" }),
-  awful.key({ super, "Shift" }, "q", awesome.quit,
-    { description = "quit awesome", group = "awesome" }),
-  awful.key({ super, }, "Tab", function() awful.layout.inc(1) end,
-    { description = "select next", group = "layout" }),
-  awful.key({ super, "Shift" }, "Tab", function() awful.layout.inc(-1) end,
-    { description = "select previous", group = "layout" }),
-
-  awful.key({ super, "Shift" }, "n",
-    function()
-      local c = awful.client.restore()
-      -- Focus restored client
-      if c then
-        c:emit_signal(
-          "request::activate", "key.unminimize", { raise = true }
-        )
-      end
-    end),
+  awful.key({ super, "Shift" }, "r", awesome.restart),
+  awful.key({ super, "Shift" }, "q", awesome.quit),
+  awful.key({ super, }, "Tab", function() awful.layout.inc(1) end),
+  awful.key({ super, "Shift" }, "Tab", function() awful.layout.inc(-1) end),
+  awful.key({ super, "Shift" }, "n", unminimize),
 
   awful.key({ super }, "Return", function() awful.spawn(terminal) end),
   awful.key({ super }, "d", function() awful.spawn("dmenu_run"); end),
@@ -314,34 +304,13 @@ local global_keys = gears.table.join(
 )
 
 local client_keys = gears.table.join(
-  awful.key({ super, }, "f",
-    function(c)
-      c.fullscreen = not c.fullscreen
-      c:raise()
-    end),
-  awful.key({ super, }, "q", function(c) c:kill() end,
-    { description = "close", group = "client" }),
-  awful.key({ super, "Control" }, "space", awful.client.floating.toggle,
-    { description = "toggle floating", group = "client" }),
-  awful.key({ super, "Control" }, "Return", function(c) c:swap(awful.client.getmaster()) end,
-    { description = "move to master", group = "client" }),
-  awful.key({ super, }, "o", function(c) c:move_to_screen() end,
-    { description = "move to screen", group = "client" }),
-  -- awful.key({ super, }, "t", function(c) c.ontop = not c.ontop end,
-  --   { description = "toggle keep on top", group = "client" }),
-  awful.key({ super, }, "n",
-    function(c)
-      -- The client currently has the input focus, so it cannot be
-      -- minimized, since minimized clients can't have the focus.
-      c.minimized = true
-    end,
-    { description = "minimize", group = "client" }),
-  awful.key({ super }, "m",
-    function(c)
-      c.maximized = not c.maximized
-      c:raise()
-    end,
-    { description = "(un)maximize", group = "client" })
+  awful.key({ super, }, "f", toggle_fullscreen),
+  awful.key({ super, }, "n", minimize),
+  awful.key({ super }, "m", maximize),
+  awful.key({ super, }, "q", function(c) c:kill() end),
+  awful.key({ super, "Control" }, "space", awful.client.floating.toggle),
+  awful.key({ super, }, "o", function(c) c:move_to_screen() end),
+  awful.key({ super, }, "t", function(c) c.ontop = not c.ontop end)
 )
 
 -- Bind all key numbers to tags.
