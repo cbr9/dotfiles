@@ -60,6 +60,7 @@ awful.layout.layouts = {
 -- Create a textclock widget
 local text_clock = wibox.widget.textclock()
 
+
 beautiful.font = "DejaVu Sans Mono"
 beautiful.notification_icon_size = 50
 beautiful.notification_height = 75
@@ -67,7 +68,7 @@ beautiful.border_color_active = "#fabd2f"
 beautiful.border_width = 3
 beautiful.useless_gap = 5
 beautiful.gap_single_client = true
-beautiful.wallpaper = os.getenv("WALLPAPER")
+beautiful.wallpaper = "@wallpaper@"
 
 beautiful.tasklist_shape_border_width = 0
 beautiful.tasklist_shape = gears.shape.rectangle
