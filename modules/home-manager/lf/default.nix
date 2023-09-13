@@ -325,8 +325,8 @@ in {
       ri = ":rename";
       rI = ":rename; cmd-home";
       rA = ":rename; cmd-end";
-      rc = ":rename; cmd-delete-home";
-      rC = ":rename; cmd-end; cmd-delete-home";
+      rs = ":rename; cmd-delete-home"; # rename-stem
+      rf = ":rename; cmd-end; cmd-delete-home"; # rename-full
 
       # paths
       y = "";
