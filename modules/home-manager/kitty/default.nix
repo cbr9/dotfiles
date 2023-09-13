@@ -25,7 +25,6 @@ in
 
     programs.kitty = {
       enable = true;
-      shellIntegration.mode = "no-cursor";
       settings = {
         confirm_os_window_close = 0;
         window_padding_width = 5;
