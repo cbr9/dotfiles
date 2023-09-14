@@ -1,5 +1,6 @@
 {pkgs, ...}: let
   cli = with pkgs; [
+    chatgpt-cli
     just
     watchexec
     dysk

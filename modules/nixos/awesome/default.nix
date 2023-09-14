@@ -34,7 +34,7 @@ in {
       brightnessctl
     ];
 
-    environment.sessionVariables = {
+    environment.variables = {
       WALLPAPER = config.stylix.image;
       # Fix issue with java applications and tiling window managers.
       _JAVA_AWT_WM_NONREPARENTING = "1";
@@ -51,19 +51,36 @@ in {
           ${lib.optionalString config.home-manager.users.cabero.services.betterlockscreen.enable "betterlockscreen -u ${config.stylix.image} &"}
           ${lib.optionalString config.programs.kdeconnect.enable "kdeconnect-cli --refresh &"}
         '';
-        "awesome/rc.lua".source = ./config/rc.lua;
-        "awesome/scratchpads.lua".source = ./config/scratchpads.lua;
-        "awesome/rubato".source = pkgs.fetchFromGitHub {
-          owner = "andOrlando";
-          repo = "rubato";
-          rev = "a9181708863265eb4a36c722f664978ee50fe8a0";
-          sha256 = "sha256-28NZK3F11heYsdElqC5fGxFTRTEJFbHodGej7NtGkJ4=";
+
+        "awesome/rc.lua" = {
+          enable = cfg.enable;
+          source = pkgs.substituteAll {
+            src = ./config/rc.lua;
+            wallpaper = config.stylix.image;
+          };
         };
-        "awesome/bling".source = pkgs.fetchFromGitHub {
-          owner = "BlingCorp";
-          repo = "bling";
-          rev = "1f6bd0d5ef150a1801d20c69437ceff61d65fac5";
-          sha256 = "sha256-0D2ck1qiA1ydLax45utJw1RhZZwhqg4KRoqgDFz4Gsg=";
+
+        "awesome/scratchpads.lua" = {
+          enable = cfg.enable;
+          source = ./config/scratchpads.lua;
+        };
+        "awesome/rubato" = {
+          enable = cfg.enable;
+          source = pkgs.fetchFromGitHub {
+            owner = "andOrlando";
+            repo = "rubato";
+            rev = "a9181708863265eb4a36c722f664978ee50fe8a0";
+            sha256 = "sha256-28NZK3F11heYsdElqC5fGxFTRTEJFbHodGej7NtGkJ4=";
+          };
+        };
+        "awesome/bling" = {
+          enable = cfg.enable;
+          source = pkgs.fetchFromGitHub {
+            owner = "BlingCorp";
+            repo = "bling";
+            rev = "1f6bd0d5ef150a1801d20c69437ceff61d65fac5";
+            sha256 = "sha256-0D2ck1qiA1ydLax45utJw1RhZZwhqg4KRoqgDFz4Gsg=";
+          };
         };
       };
     };
