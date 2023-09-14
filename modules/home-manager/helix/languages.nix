@@ -22,7 +22,7 @@ with pkgs; {
   programs.helix.languages = rec {
     language-server = {
       pyright = {
-        command = "pyright-langserver";
+        command = "${pkgs.nodePackages.pyright}/bin/pyright-langserver";
         args = ["--stdio"];
         config = {}; # <- this is the important line
       };
@@ -40,7 +40,7 @@ with pkgs; {
         checkOnSave.command = "clippy";
       };
       ruff = {
-        command = "ruff-lsp";
+        command = "${pkgs.ruff-lsp}/bin/ruff-lsp";
       };
     };
 
