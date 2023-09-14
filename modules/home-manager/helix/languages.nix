@@ -1,4 +1,9 @@
-{pkgs, ...}:
+{
+  nixosConfig,
+  lib,
+  pkgs,
+  ...
+}:
 with pkgs; {
   # keep this for the future
   home.packages = with pkgs; [
@@ -41,6 +46,49 @@ with pkgs; {
       };
       ruff = {
         command = "${pkgs.ruff-lsp}/bin/ruff-lsp";
+      };
+      lua-language-server = let
+        ifAwesome = list: lib.optionals nixosConfig.services.xserver.windowManager.awesome.enable list;
+      in {
+        command = "lua-language-server";
+        config.Lua = {
+          format = {
+            enable = true;
+            defaultConfig = {
+              indent_style = "tab";
+              indent_size = "4";
+            };
+          };
+
+          hint = {
+            enable = true;
+            arrayIndex = "Enable";
+            setType = true;
+            paramName = "All";
+            paramType = true;
+            await = true;
+          };
+
+          diagnostics.globals = ifAwesome [
+            "awesome"
+            "button"
+            "dbus"
+            "drawable"
+            "drawin"
+            "key"
+            "keygrabber"
+            "mousegrabber"
+            "selection"
+            "tag"
+            "window"
+            "screen"
+            "mouse"
+            "root"
+            "client"
+          ];
+
+          workspace.library = ifAwesome ["${pkgs.awesome}/share/awesome/lib"];
+        };
       };
     };
 

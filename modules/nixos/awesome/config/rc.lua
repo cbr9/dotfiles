@@ -186,14 +186,14 @@ awful.screen.connect_for_each_screen(function(s)
   if s == screen.primary then
     right_widgets = {
       layout = wibox.layout.fixed.horizontal,
-      -- keyboard_layout,
+      awful.widget.keyboardlayout(),
       wibox.widget.systray(),
       text_clock, -- keyboard_layout,
     }
   else
     right_widgets = {
       layout = wibox.layout.fixed.horizontal,
-      -- keyboard_layout,
+      awful.widget.keyboardlayout(),
       text_clock,
     }
   end
