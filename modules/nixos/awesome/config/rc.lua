@@ -260,8 +260,8 @@ local function maximize(c)
 end
 
 local function screenshot()
-    local date = awful.spawn('date "+%x %T:%N"')
-    awful.spawn.with_shell(string.format('maim "/home/cabero/Nextcloud/Pictures/Screenshots/%s.jpg"', date))
+  local date = awful.spawn('date "+%x %T:%N"')
+  awful.spawn.with_shell(string.format('maim "/home/cabero/Nextcloud/Pictures/Screenshots/%s.jpg"', date))
 end
 
 -- {{{ Key bindings
