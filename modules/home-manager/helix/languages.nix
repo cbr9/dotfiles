@@ -48,7 +48,7 @@ with pkgs; {
         command = "${pkgs.ruff-lsp}/bin/ruff-lsp";
       };
       lua-language-server = let
-        ifAwesome = list: lib.optionals nixosConfig.services.xserver.windowManager.awesome.enable list;
+        ifAwesome = list: lib.optionals (nixosConfig != {} && nixosConfig.services.xserver.windowManager.awesome.enable) list;
       in {
         command = "lua-language-server";
         config.Lua = {
