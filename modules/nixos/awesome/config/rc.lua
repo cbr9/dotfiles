@@ -264,10 +264,27 @@ local function screenshot()
   awful.spawn.with_shell(string.format('maim "/home/cabero/Nextcloud/Pictures/Screenshots/%s.jpg"', date))
 end
 
+local function __follow_mouse_wrapped(c)
+  c:activate { context = "mouse_enter", raise = true }
+end
+
+
+local is_following_mouse = false
 -- {{{ Key bindings
 local global_keys = gears.table.join(
   scratchpads.global_keys,
   -- awful.key({ super, }, "s", hotkeys_popup.show_help),
+
+
+  awful.key({ super, "Shift" }, "m", function()
+    if not is_following_mouse then
+      client.connect_signal("mouse::enter", __follow_mouse_wrapped)
+      client.focus = mouse.object_under_pointer()
+    else
+      client.disconnect_signal("mouse::enter", __follow_mouse_wrapped)
+    end
+    is_following_mouse = not is_following_mouse
+  end),
 
   awful.key({}, "XF86AudioMute", volume.mute),
   awful.key({}, "XF86AudioLowerVolume", volume.lower),
@@ -448,9 +465,6 @@ awful.rules.rules = {
 }
 -- }}}
 
--- client.connect_signal("mouse::enter", function(c)
---   c:activate { context = "mouse_enter", raise = true }
--- end)
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
