@@ -328,7 +328,7 @@ local client_keys = gears.table.join(
   awful.key({ super, }, "q", function(c) c:kill() end),
   awful.key({ super, "Control" }, "space", awful.client.floating.toggle),
   awful.key({ super, }, "o", function(c) c:move_to_screen() end),
-  awful.key({ super, }, "t", function(c) c.ontop = not c.ontop end)
+  awful.key({ super, "Shift" }, "t", function(c) c.ontop = not c.ontop end)
 )
 
 -- Bind all key numbers to tags.
