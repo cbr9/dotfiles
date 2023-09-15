@@ -288,7 +288,7 @@ in {
         mkShellCmd
         # bash
         ''
-          printf '%s' "$fx" | paste -sd " " | xargs echo -n | ${config.programs.kitty.package}/bin/kitty +kitten clipboard
+          printf '%s' "$fx" | paste -sd " " | xargs echo -n | ${config.programs.kitty.package}/bin/kitten clipboard
         ''
       );
     };
