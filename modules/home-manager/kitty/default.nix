@@ -38,8 +38,28 @@ in
       "kitty/open-actions.conf" = {
         enable = cfg.enable;
         text = ''
+          # Open text files without fragments in the editor
           protocol file
-          action launch --type=os-window xdg-open $FILE_PATH
+          mime text/*
+          action launch --type=overlay hx ''${FILE_PATH}
+
+          # Open any file with a fragment in helix, fragments are generated
+          # by the hyperlink_grep kitten and nothing else so far.
+          protocol file
+          fragment_matches [0-9]+
+          action launch --type=overlay --cwd=current hx ''${FILE_PATH}:''${FRAGMENT}
+
+          protocol file
+          mime inode/directory
+          action launch --type=overlay lf ''${FILE_PATH}
+
+          protocol file
+          mime image/*
+          action launch --type=overlay kitty +kitten icat --hold ''${FILE_PATH}
+
+          protocol ssh
+          # Open ssh URLs with ssh command
+          action launch --type=os-window kitty +kitten ssh ''${URL}
         '';
       };
     };
