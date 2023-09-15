@@ -2,7 +2,6 @@
   pkgs,
   config,
   lib,
-  nixosConfig,
   ...
 }:
 with lib; let
