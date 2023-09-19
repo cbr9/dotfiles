@@ -23,9 +23,11 @@
   config = {
     programs.light.enable = config.sys.hardware.isLaptop;
     services.logind = {
-      lidSwitch = "suspend";
-      lidSwitchDocked = "ignore";
-      lidSwitchExternalPower = "suspend";
+      lidSwitch = "hibernate";
+      lidSwitchDocked = "hibernate";
+      lidSwitchExternalPower = "hibernate";
+      powerKey = "hibernate";
+      powerKeyLongPress = "hibernate";
     };
   };
 }

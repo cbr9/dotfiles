@@ -269,7 +269,14 @@ local function __follow_mouse_wrapped(c)
 end
 
 
-local is_following_mouse = false
+local is_following_mouse = true
+
+if is_following_mouse then
+  client.connect_signal("mouse::enter", __follow_mouse_wrapped)
+  client.focus = mouse.object_under_pointer()
+end
+
+
 -- {{{ Key bindings
 local global_keys = gears.table.join(
   scratchpads.global_keys,
