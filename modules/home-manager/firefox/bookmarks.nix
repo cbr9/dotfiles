@@ -112,6 +112,12 @@
             tags = ["config" "code" "nix"];
           }
           {
+            name = "Kitty";
+            url = "https://github.com/kovidgoyal/kitty";
+            keyword = "kitty";
+            tags = ["terminal" "code"];
+          }
+          {
             name = "Nushell";
             url = "https://github.com/nushell/nushell";
             keyword = "nushell";
@@ -121,7 +127,7 @@
             name = "Helix";
             url = "https://github.com/helix-editor/helix";
             keyword = "helix";
-            tags = ["editor" "terminal" "cli" "rust"];
+            tags = ["editor" "cli" "rust"];
           }
           {
             name = "Typst";
