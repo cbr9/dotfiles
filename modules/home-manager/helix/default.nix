@@ -22,22 +22,23 @@ in {
     terminal = false;
     categories = ["Utility" "TextEditor"];
     mimeType = [
+      "application/json"
+      "application/x-shellscript"
       "text/english"
+      "text/html"
       "text/plain"
-      "text/x-makefile"
+      "text/x-c"
+      "text/x-c++"
       "text/x-c++hdr"
       "text/x-c++src"
       "text/x-chdr"
       "text/x-csrc"
       "text/x-java"
+      "text/x-makefile"
       "text/x-moc"
       "text/x-pascal"
       "text/x-tcl"
       "text/x-tex"
-      "application/x-shellscript"
-      "application/json"
-      "text/x-c"
-      "text/x-c++"
     ];
   };
 

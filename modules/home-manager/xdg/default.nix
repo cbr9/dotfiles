@@ -41,6 +41,12 @@ in {
         (lib.attrsets.genAttrs textTypes (name: defaultApplications.textEditor))
         (lib.attrsets.genAttrs folderTypes (name: defaultApplications.fileManager))
       ];
+      associations = {
+        removed = {
+          "text/*" = "firefox.desktop";
+          "application/json" = "firefox.desktop";
+        };
+      };
     };
   };
 }

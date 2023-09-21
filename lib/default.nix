@@ -88,9 +88,6 @@ in {
                 ];
 
                 pathsToLink = ["/libexec"]; # links /libexec from derivations to /run/current-system/sw
-                shellAliases = {
-                  open = "${pkgs.xdg-utils}/bin/xdg-open";
-                };
               };
               hardware = {
                 i2c.enable = true;
