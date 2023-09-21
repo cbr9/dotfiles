@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-master.url = "nixpkgs/master";
     nixpkgs-stable.url = "nixpkgs/nixos-23.05";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
     nur.url = "github:nix-community/NUR";
@@ -37,6 +38,10 @@
             organize = inputs.organize.defaultPackage.${system};
             sph2pipe = import ./pkgs/sph2pipe.nix {pkgs = prev;};
             stable = import inputs.nixpkgs-stable {
+              inherit (final) system;
+              config = final.config;
+            };
+            master = import inputs.nixpkgs-master {
               inherit (final) system;
               config = final.config;
             };
