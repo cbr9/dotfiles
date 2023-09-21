@@ -6,7 +6,7 @@
 }: let
   cfg = config.programs.kitty;
   emojiPicker = pkgs.writeScriptBin "emoji" ''
-    kitty +kitten unicode_input | xargs echo -n | kitty +kitten clipboard
+    kitten unicode_input | xargs echo -n | kitten clipboard
   '';
 in
   with lib; {
@@ -67,11 +67,11 @@ in
 
           protocol file
           mime image/*
-          action launch --type=overlay kitty +kitten icat --hold ''${FILE_PATH}
+          action launch --type=overlay kitten icat --hold ''${FILE_PATH}
 
           protocol ssh
           # Open ssh URLs with ssh command
-          action launch --type=os-window kitty +kitten ssh ''${URL}
+          action launch --type=os-window kitten ssh ''${URL}
         '';
       };
     };
