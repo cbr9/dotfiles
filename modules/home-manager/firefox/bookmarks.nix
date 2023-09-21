@@ -29,6 +29,12 @@
         tags = ["learning" "education"];
       }
       {
+        name = "University Email";
+        url = "https://mail.uni-stuttgart.de/";
+        keyword = "unimail";
+        tags = ["email" "studies" "university" "uni"];
+      }
+      {
         name = "Udemy";
         url = "https://www.udemy.com/";
         keyword = "udemy";
