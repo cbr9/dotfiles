@@ -1,3 +1,4 @@
+local wezterm = require("wezterm")
 local config = {}
 
 config.keys = {
@@ -17,7 +18,6 @@ config.set_environment_variables = {
 config.color_scheme = 'Gruvbox dark, hard (base16)'
 config.cursor_thickness = 2
 config.enable_kitty_keyboard = true
-config.term = "wezterm"
 config.font_size = 15
 config.window_padding = {
   left = 10,

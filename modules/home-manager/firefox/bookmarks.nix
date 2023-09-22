@@ -29,6 +29,12 @@
         tags = ["learning" "education"];
       }
       {
+        name = "Ilias";
+        url = "https://ilias3.uni-stuttgart.de";
+        keyword = "ilias";
+        tags = ["studies" "university" "uni"];
+      }
+      {
         name = "University Email";
         url = "https://mail.uni-stuttgart.de/";
         keyword = "unimail";
