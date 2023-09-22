@@ -12,7 +12,7 @@ with builtins; {
       createHome = true;
       isNormalUser = true;
       extraGroups = ["wheel" "fuse" "docker" "networkmanager"];
-      passwordFile = config.age.secrets.cabero.path;
+      hashedPasswordFile = config.age.secrets.cabero.path;
       shell = pkgs.fish;
     };
 
