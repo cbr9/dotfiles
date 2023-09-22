@@ -1,5 +1,18 @@
-{pkgs, ...}: {
-  home.packages = [pkgs.wezterm];
-  # home.sessionVariables.TERMINAL = "${pkgs.wezterm}/bin/wezterm";
-  xdg.configFile."wezterm/wezterm.lua".source = ./wezterm.lua;
-}
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.programs.wezterm;
+in
+  with lib; {
+    stylix.targets.wezterm.enable = false;
+    programs.wezterm = {
+      enable = true;
+      extraConfig = builtins.readFile ./wezterm.lua;
+    };
+    home.sessionVariables = mkIf cfg.enable {
+      TERMINAL = "${pkgs.wezterm}/bin/wezterm";
+    };
+  }
