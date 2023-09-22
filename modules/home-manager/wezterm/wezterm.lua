@@ -29,6 +29,6 @@ config.enable_scroll_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 config.window_background_opacity = 0.9
 config.text_background_opacity = 0.6
-config.font = wezterm.font('JetBrains Mono', { weight = 'Medium', italic = false })
+config.font = wezterm.font('DejaVu Sans Mono', { weight = 'Medium', italic = false })
 
 return config
