@@ -17,9 +17,9 @@ in
       targets.kitty.variant256Colors = true;
     };
 
-    # home.sessionVariables = mkIf cfg.enable {
-    #   TERMINAL = "kitty";
-    # };
+    home.sessionVariables = mkIf cfg.enable {
+      TERMINAL = "kitty";
+    };
 
     home.packages = mkIf cfg.enable [emojiPicker];
 

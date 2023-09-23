@@ -14,6 +14,6 @@ in
       source = ./wezterm.lua;
     };
     home.sessionVariables = mkIf cfg.enable {
-      TERMINAL = "${pkgs.wezterm}/bin/wezterm";
+      # TERMINAL = "${pkgs.wezterm}/bin/wezterm";
     };
   }

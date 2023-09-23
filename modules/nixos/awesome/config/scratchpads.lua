@@ -24,10 +24,10 @@ M.onepassword:turn_off()
 M.todoist = build_scratchpad("todoist-electron", { instance = "todo" })
 M.todoist:turn_off()
 
-M.lf = build_scratchpad("wezterm start --class files -e lf", {instance = "files"});
+M.lf = build_scratchpad("kitty --class files -e lf", {instance = "files"});
 M.lf:turn_off()
 
-M.dotfiles = build_scratchpad("wezterm start --class dots -e hx ~/Code/dotfiles", {instance = "dots"})
+M.dotfiles = build_scratchpad("kitty --class dots -e hx ~/Code/dotfiles", {instance = "dots"})
 M.dotfiles:turn_off()
 
 
