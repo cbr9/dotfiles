@@ -35,7 +35,7 @@ in
         editor = "${config.home.sessionVariables.EDITOR}";
         window_padding_width = 5;
         cursor_blink_interval = 0;
-        tab_bar_edge = "top";
+        tab_bar_edge = "bottom";
         tab_bar_min_tabs = 2;
       };
       extraConfig = ''
