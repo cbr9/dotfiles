@@ -6,10 +6,10 @@
 with lib; let
   cfg = config.programs.helix;
 in {
-  home.sessionVariables = mkIf cfg.enable {
-    EDITOR = "hx";
-    VISUAL = "hx";
-    SUDO_EDITOR = "hx";
+  home.sessionVariables = mkIf cfg.enable rec {
+    EDITOR = "${cfg.package}/bin/hx";
+    VISUAL = EDITOR;
+    SUDO_EDITOR = EDITOR;
   };
 
   xdg.desktopEntries.Helix = lib.mkIf (cfg.enable && (builtins.hasAttr "TERMINAL" config.home.sessionVariables)) {
