@@ -4,7 +4,7 @@
   ];
 
   config = {
-    networking.vpn = ["tailscale" "mullvad"];
+    networking.vpn = ["tailscale"];
 
     sys = {
       users = ["cabero"];
