@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  nixosConfig,
   pkgs,
   ...
 }: let
@@ -25,12 +26,21 @@ in
 
     programs.kitty = {
       enable = true;
+      package =
+        if nixosConfig != {}
+        then pkgs.master.kitty
+        else pkgs.kitty;
       settings = {
         confirm_os_window_close = 0;
         editor = "${config.home.sessionVariables.EDITOR}";
         window_padding_width = 5;
         cursor_blink_interval = 0;
+        tab_bar_edge = "top";
+        tab_bar_min_tabs = 2;
       };
+      extraConfig = ''
+        mouse_map right press ungrabbed mouse_select_command_output
+      '';
     };
 
     xdg.configFile = {

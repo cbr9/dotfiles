@@ -41,11 +41,6 @@
         name = "puffer";
         src = fishPlugins.puffer.src;
       }
-      {
-        # paired symbols
-        name = "pisces";
-        src = fishPlugins.pisces.src;
-      }
     ];
   };
 }
