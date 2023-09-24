@@ -38,6 +38,7 @@ with lib; {
       "[python]" = {
         "editor.defaultFormatter" = "ms-python.black-formatter";
       };
+      "workbench.colorCustomizations" = {};
     };
   };
 }
