@@ -182,6 +182,17 @@ in {
               text/*) $EDITOR "$fx";;
               application/json) $EDITOR "$fx";;
               image/*) ${pkgs.feh}/bin/feh "$fx";;
+              application/gzip|application/x-7z-compressed|application/x-compressed-tar|application/zip)
+                mntdir="$f-archivemount"
+                if [ ! -d "$mntdir" ]; then
+                    mkdir "$mntdir"
+                    ${pkgs.archivemount}/bin/archivemount "$f" "$mntdir"
+                    echo "$mntdir" >> "/tmp/__lf_archivemount_$id"
+                fi
+                mntdir="$(printf '%s' "$mntdir" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+                lf -remote "send $id cd \"$mntdir\""
+                lf -remote "send $id reload"
+                ;;
               *) xdg-open "$fx" > /dev/null 2> /dev/null &;;
           esac
         ''
