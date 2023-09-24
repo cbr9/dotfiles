@@ -5,7 +5,7 @@
 }: {
   config = lib.mkIf (builtins.elem "tailscale" config.networking.vpn) {
     age.secrets = {
-      tailscale.file = ../../secrets/tailscale.age;
+      tailscale.file = ../../../secrets/tailscale.age;
     };
 
     services.tailscale = {
