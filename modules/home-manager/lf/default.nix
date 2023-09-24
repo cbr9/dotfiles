@@ -82,7 +82,7 @@ in {
       bat
       chafa # for image files on Wayland
       delta # for diff files
-      ffmpeg
+      ffmpeg_6-full
       ffmpegthumbnailer
       fontforge
       glow # for markdown files

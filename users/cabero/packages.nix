@@ -28,6 +28,7 @@
     zotero
     todoist-electron
     vlc
+    ytfzf
   ];
 in {
   home.packages = cli ++ gui;
