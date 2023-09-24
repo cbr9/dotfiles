@@ -4,6 +4,10 @@
   ...
 }: {
   config = lib.mkIf (builtins.elem "tailscale" config.networking.vpn) {
+    age.secrets = {
+      tailscale.file = ../../secrets/tailscale.age;
+    };
+
     services.tailscale = {
       enable = true;
       useRoutingFeatures = "both";
@@ -11,6 +15,7 @@
         "--exit-node=de-fra-wg-403.mullvad.ts.net"
         "--exit-node-allow-lan-access=true"
       ];
+      authKeyFile = config.age.secrets.tailscale.path;
     };
 
     networking.firewall = {
