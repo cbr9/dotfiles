@@ -7,6 +7,9 @@
     services.tailscale = {
       enable = true;
       useRoutingFeatures = "both";
+      extraUpFlags = [
+        "--exit-node de-fra-wg-403.mullvad.ts.net"
+      ];
     };
 
     networking.firewall = {
