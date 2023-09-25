@@ -101,7 +101,6 @@ in {
 
   programs.lf = {
     enable = true;
-    package = pkgs.master.lf;
     settings = {
       icons = true;
       hidden = true;
