@@ -2,6 +2,7 @@
   pkgs,
   config,
   nixosConfig,
+  lib,
   ...
 }: {
   imports = [
@@ -11,6 +12,7 @@
     ./settings.nix
   ];
 
+  home.packages = lib.mkIf config.programs.firefox.enable [pkgs.speechd];
   programs.firefox = {
     enable = nixosConfig != {};
     package = pkgs.firefox.override {
