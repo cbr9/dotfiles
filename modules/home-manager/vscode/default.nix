@@ -18,6 +18,7 @@ with lib; {
       ms-vscode-remote.remote-ssh
       bbenoist.nix
       brettm12345.nixfmt-vscode
+      arrterian.nix-env-selector
       rust-lang.rust-analyzer
       tomoki1207.pdf
       james-yu.latex-workshop
