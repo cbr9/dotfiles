@@ -11,6 +11,7 @@
       clearurls
       tridactyl
       decentraleyes
+      privacy-redirect
       plasma-integration
       youtube-shorts-block
       youtube-recommended-videos # unhook
