@@ -10,7 +10,7 @@ in {
     programs.ytfzf = with lib; {
       enable = mkEnableOption "Enable ytfzf";
       invidiousInstance = mkOption {
-        type = types.str;
+        type = types.nullOr types.str;
         default = null;
       };
       subscriptionHashes = mkOption {
@@ -23,7 +23,6 @@ in {
   config = {
     programs.ytfzf = {
       enable = true;
-      invidiousInstance = "https://yt.artemislena.eu";
       subscriptionHashes = [
         "UCoOae5nYA7VqaXzerajD0lg"
         "UCIaH-gZIVC432YRjNVvnyCA"
@@ -39,6 +38,8 @@ in {
         # bash
         ''
           ytdl_pref="bv*[height<=1200]+ba/b[width<2000] / wv*+ba/w"
+        ''
+        + lib.optionalString (cfg.invidiousInstance != null) ''
           invidious_instance=${cfg.invidiousInstance}
           yt_video_link_domain=${cfg.invidiousInstance}
         '';
@@ -46,7 +47,7 @@ in {
     xdg.configFile."ytfzf/subscriptions" = {
       enable = cfg.enable && cfg.subscriptionHashes != [];
       text = let
-        subscriptions = builtins.map (hash: "${cfg.invidiousInstance}/channel/${hash}") cfg.subscriptionHashes;
+        subscriptions = builtins.map (hash: "https://www.youtube.com/channel/${hash}") cfg.subscriptionHashes;
       in
         lib.concatStringsSep "\n" subscriptions;
     };
