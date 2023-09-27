@@ -47,6 +47,11 @@ in {
         "ssh"
       ];
       dpi = 120;
+      ssh-client =
+        if config.programs.kitty.enable
+        then "kitten ssh"
+        else "ssh";
+      show-icons = true;
     };
   };
 }
