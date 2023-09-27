@@ -1,7 +1,7 @@
 {...}: {
   programs.lsd = {
     enable = true;
-    enableAliases = true;
+    enableAliases = false;
     settings = {
       blocks = [
         "permission"
