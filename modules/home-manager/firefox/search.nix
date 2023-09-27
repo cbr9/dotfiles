@@ -21,7 +21,7 @@
         ];
 
         icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-        definedAliases = ["@np"];
+        definedAliases = ["@nixpkgs"];
       };
       "NixOS options" = {
         urls = [
@@ -41,7 +41,7 @@
         ];
 
         icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-        definedAliases = ["@nop"];
+        definedAliases = ["@nixopts"];
       };
 
       "Cambridge German-English Dictionary" = {
