@@ -26,6 +26,7 @@ in {
     dmenu
     rofi
     fzf
+    light
     didyoumean
     yad
     dig
