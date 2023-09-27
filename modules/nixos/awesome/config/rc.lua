@@ -329,6 +329,7 @@ local global_keys = gears.table.join(
   awful.key({ super }, "b", function() awful.spawn("firefox"); end),
   awful.key({ super, "Shift"}, "h", function() awful.spawn("dm-hub -r"); end),
   awful.key({ super, "Shift"}, "p", function() awful.spawn("dm-logout -r"); end),
+  awful.key({ super }, "space", function() awful.spawn("rofi_switch_keyboard_layout"); end),
   awful.key({ super }, "v", function() awful.spawn("clipmenu"); end),
   awful.key({ super }, "z", function() awful.spawn("zotero"); end)
 )
