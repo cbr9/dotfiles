@@ -45,6 +45,7 @@ in {
     iproute2
     slock
     slop
+    sqlite
   ];
   xdg.configFile."dmscripts/config" = {
     text =
@@ -56,7 +57,14 @@ in {
         RMENU="rofi -dmenu -p"
 
         PDF_VIEWER=evince
+        DMBROWSER="firefox"
+        DMTERM="kitty -e"
+        DMEDITOR="kitty hx"
+
         maim_dir=/home/cabero/Pictures/Screenshots
+        maim_file_prefix="maim"
+        bookman_show_source=1
+        logout_locker="betterlockscreen -l"
       '';
   };
 }
