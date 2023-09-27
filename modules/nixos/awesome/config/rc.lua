@@ -323,6 +323,7 @@ local global_keys = gears.table.join(
 
   awful.key({ super }, "Return", function() awful.spawn(terminal) end),
   awful.key({ super }, "d", function() awful.spawn("rofi -show-icons -show drun"); end),
+  awful.key({ super }, "r", function() awful.spawn("rofi -show-icons -show run"); end),
   awful.key({ super }, "c", function() awful.spawn("rofi -show calc"); end),
   awful.key({ super }, "e", function() awful.spawn("rofi -show emoji"); end),
   awful.key({ super, alt }, "l", function() awful.spawn("betterlockscreen -l dim &"); end),
