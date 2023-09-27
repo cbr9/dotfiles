@@ -75,19 +75,19 @@
         toolbar = false;
         bookmarks = [
           {
-            name = "Calendar";
+            name = "Google Calendar";
             url = "https://calendar.google.com/";
             keyword = "cal";
             tags = ["productivity"];
           }
           {
-            name = "Maps";
+            name = "Google Maps";
             url = "https://maps.google.com/";
             keyword = "maps";
             tags = [];
           }
           {
-            name = "Gmail";
+            name = "Google Mail";
             url = "https://mail.google.com";
             keyword = "gmail";
             tags = ["email" "productivity"];
