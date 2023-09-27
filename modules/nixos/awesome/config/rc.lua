@@ -322,11 +322,12 @@ local global_keys = gears.table.join(
   awful.key({ super, "Shift" }, "n", unminimize),
 
   awful.key({ super }, "Return", function() awful.spawn(terminal) end),
-  awful.key({ super }, "d", function() awful.spawn("dmenu_run"); end),
+  awful.key({ super }, "d", function() awful.spawn("rofi -show drun"); end),
+  awful.key({ super }, "c", function() awful.spawn("rofi -show calc"); end),
   awful.key({ super, alt }, "l", function() awful.spawn("betterlockscreen -l dim &"); end),
   awful.key({ super }, "b", function() awful.spawn("firefox"); end),
-  awful.key({ super, "Shift"}, "h", function() awful.spawn("dm-hub -d"); end),
-  awful.key({ super, "Shift"}, "p", function() awful.spawn("dm-logout -d"); end),
+  awful.key({ super, "Shift"}, "h", function() awful.spawn("dm-hub -r"); end),
+  awful.key({ super, "Shift"}, "p", function() awful.spawn("dm-logout -r"); end),
   awful.key({ super }, "v", function() awful.spawn("clipmenu"); end),
   awful.key({ super }, "z", function() awful.spawn("zotero"); end)
 )

@@ -19,7 +19,7 @@ in
     };
 
     home.sessionVariables = mkIf cfg.enable {
-      TERMINAL = "kitty";
+      TERMINAL = "${cfg.package}/bin/kitty";
     };
 
     home.packages = mkIf cfg.enable [emojiPicker];

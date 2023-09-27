@@ -27,15 +27,11 @@ M.todoist:turn_off()
 M.lf = build_scratchpad("kitty --class files -e lf", {instance = "files"});
 M.lf:turn_off()
 
-M.dotfiles = build_scratchpad("kitty --class dots -e hx ~/Code/dotfiles", {instance = "dots"})
-M.dotfiles:turn_off()
-
 
 M.global_keys = gears.table.join(
     awful.key({ super }, "p", function() M.onepassword:toggle() end),
     awful.key({ super }, "t", function() M.todoist:toggle() end),
-    awful.key({ super }, "e", function() M.lf:toggle() end),
-    awful.key({ super }, "c", function() M.dotfiles:toggle() end)
+    awful.key({ super }, "e", function() M.lf:toggle() end)
 )
 
 return M

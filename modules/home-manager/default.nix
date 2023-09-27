@@ -23,6 +23,7 @@
     ./organize
     ./pueue
     ./redshift
+    ./rofi
     ./ssh
     ./starship
     ./texlive

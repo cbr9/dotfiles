@@ -24,7 +24,6 @@ in {
   home.packages = [
     dmscripts
     dmenu
-    rofi
     fzf
     light
     didyoumean
