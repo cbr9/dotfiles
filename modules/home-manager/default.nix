@@ -6,6 +6,7 @@
     ./bottom
     ./clipmenu
     ./direnv
+    ./dmscripts
     ./firefox
     ./fish
     ./fzf
