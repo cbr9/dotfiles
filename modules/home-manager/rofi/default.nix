@@ -12,7 +12,13 @@ with pkgs; {
     cycle = true;
     theme = "gruvbox-dark-hard";
     extraConfig = {
-      modes = "calc,emoji";
+      modes = lib.concatStringsSep "," [
+        "calc"
+        "emoji"
+        "drun"
+        "filebrowser"
+        "ssh"
+      ];
       dpi = 120;
     };
   };

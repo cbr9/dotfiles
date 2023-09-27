@@ -18,20 +18,7 @@ local function build_scratchpad(command, rule)
   }
 end
 
-M.onepassword = build_scratchpad("1password", {instance = "1password"})
-M.onepassword:turn_off()
 
-M.todoist = build_scratchpad("todoist-electron", { instance = "todo" })
-M.todoist:turn_off()
-
-M.lf = build_scratchpad("kitty --class files -e lf", {instance = "files"});
-M.lf:turn_off()
-
-
-M.global_keys = gears.table.join(
-    awful.key({ super }, "p", function() M.onepassword:toggle() end),
-    awful.key({ super }, "t", function() M.todoist:toggle() end),
-    awful.key({ super }, "l", function() M.lf:toggle() end)
-)
+M.global_keys = gears.table.join()
 
 return M
