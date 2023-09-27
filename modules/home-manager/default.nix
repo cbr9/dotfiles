@@ -4,6 +4,7 @@
     ./bash
     ./bat
     ./bottom
+    ./clipmenu
     ./direnv
     ./firefox
     ./fish

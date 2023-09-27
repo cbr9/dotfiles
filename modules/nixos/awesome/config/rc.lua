@@ -325,6 +325,7 @@ local global_keys = gears.table.join(
   awful.key({ super }, "d", function() awful.spawn("dmenu_run"); end),
   awful.key({ super, alt }, "l", function() awful.spawn("betterlockscreen -l dim &"); end),
   awful.key({ super }, "b", function() awful.spawn("firefox"); end),
+  awful.key({ super }, "v", function() awful.spawn("clipmenu"); end),
   awful.key({ super }, "z", function() awful.spawn("zotero"); end)
 )
 

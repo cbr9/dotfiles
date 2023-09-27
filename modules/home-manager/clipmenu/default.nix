@@ -1,0 +1,5 @@
+{...}: {
+  services.clipmenu = {
+    enable = true;
+  };
+}
