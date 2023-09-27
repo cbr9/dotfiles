@@ -71,6 +71,12 @@
         tags = ["learning" "education"];
       }
       {
+        name = "Cambridge English Dictionary";
+        url = "https://dictionary.cambridge.org/dictionary/english/";
+        keyword = "english";
+        tags = ["learning" "education"];
+      }
+      {
         name = "Google";
         toolbar = false;
         bookmarks = [
