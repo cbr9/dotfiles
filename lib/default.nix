@@ -82,6 +82,7 @@ in {
                   wget
                   autorandr
                   openssl
+                  libnotify
                   pkg-config
                   xclip
                   pavucontrol

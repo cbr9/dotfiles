@@ -21,7 +21,6 @@ with pkgs; let
     '';
   };
 in {
-  # home.sessionPath = ["${package}/scripts"];
   home.packages = [dmscripts dmenu rofi fzf didyoumean dig libnotify];
   xdg.configFile."dmscripts/config" = {
     text =
