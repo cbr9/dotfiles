@@ -65,12 +65,32 @@
       };
 
       "HuggingFace Datasets" = {
-        urls = [{template = "https://huggingface.co/datasets?search={searchTerms}";}];
+        urls = [
+          {
+            template = "https://huggingface.co/datasets";
+            params = [
+              {
+                name = "search";
+                value = "{searchTerms}";
+              }
+            ];
+          }
+        ];
         definedAliases = ["@hugd"];
       };
 
       "HuggingFace Models" = {
-        urls = [{template = "https://huggingface.co/models?search={searchTerms}";}];
+        urls = [
+          {
+            template = "https://huggingface.co/models";
+            params = [
+              {
+                name = "search";
+                value = "{searchTerms}";
+              }
+            ];
+          }
+        ];
         definedAliases = ["@hugm"];
       };
 
