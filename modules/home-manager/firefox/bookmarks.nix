@@ -29,6 +29,12 @@
         tags = ["learning" "education"];
       }
       {
+        name = "BrainFM";
+        url = "https://my.brain.fm/focus";
+        keyword = "focus";
+        tags = ["learning" "focus" "work"];
+      }
+      {
         name = "Ilias";
         url = "https://ilias3.uni-stuttgart.de";
         keyword = "ilias";
