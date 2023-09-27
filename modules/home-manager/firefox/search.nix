@@ -64,6 +64,16 @@
         definedAliases = ["@you"];
       };
 
+      "HuggingFace Datasets" = {
+        urls = [{template = "https://huggingface.co/datasets?search={searchTerms}";}];
+        definedAliases = ["@hugd"];
+      };
+
+      "HuggingFace Models" = {
+        urls = [{template = "https://huggingface.co/models?search={searchTerms}";}];
+        definedAliases = ["@hugm"];
+      };
+
       "DuckDuckGo".metaData.alias = "@d";
       "Bing".metaData.hidden = true;
       "Wikipedia (en)".metaData.alias = "@wiki";
