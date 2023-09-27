@@ -49,6 +49,11 @@
         definedAliases = ["@ger"];
       };
 
+      "Cambridge English Dictionary" = {
+        urls = [{template = "https://dictionary.cambridge.org/dictionary/english/{searchTerms}";}];
+        definedAliases = ["@eng"];
+      };
+
       "YouTube" = {
         urls = [
           {
