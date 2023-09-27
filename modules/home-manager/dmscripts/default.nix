@@ -21,7 +21,31 @@ with pkgs; let
     '';
   };
 in {
-  home.packages = [dmscripts dmenu rofi fzf didyoumean dig libnotify];
+  home.packages = [
+    dmscripts
+    dmenu
+    rofi
+    fzf
+    didyoumean
+    yad
+    dig
+    libnotify
+    xdotool
+    xclip
+    xorg.xrandr
+    udisks
+    networkmanager
+    mpd
+    mpc-cli
+    wildmidi
+    timidity
+    translate-shell
+    jq
+    easyeffects
+    iproute2
+    slock
+    slop
+  ];
   xdg.configFile."dmscripts/config" = {
     text =
       # bash
@@ -30,6 +54,9 @@ in {
         DMENU="dmenu -i -l 20 -p"
         FMENU="fzf --bind=enter:replace-query+print-query --border=rounded --margin=5% --color=dark --height 100% --reverse --header=$(basename "$0") --info=hidden --header-first --prompt"
         RMENU="rofi -dmenu -p"
+
+        PDF_VIEWER=evince
+        maim_dir=/home/cabero/Pictures/Screenshots
       '';
   };
 }
