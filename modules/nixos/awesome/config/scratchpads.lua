@@ -31,7 +31,7 @@ M.lf:turn_off()
 M.global_keys = gears.table.join(
     awful.key({ super }, "p", function() M.onepassword:toggle() end),
     awful.key({ super }, "t", function() M.todoist:toggle() end),
-    awful.key({ super }, "e", function() M.lf:toggle() end)
+    awful.key({ super }, "l", function() M.lf:toggle() end)
 )
 
 return M
