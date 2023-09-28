@@ -21,7 +21,7 @@ with pkgs; let
 
     msg="Current Layout: $flag"
 
-    selected=$(echo "''${!layouts[@]}" | $ROFI_CMD -p "Keyboard Layout" -mesg "$msg" | awk '{print $1;}')
+    selected=$(echo "''${!layouts[@]}" | xargs | tr " " "\n" | $ROFI_CMD -p "Keyboard Layout" -mesg "$msg" | awk '{print $1;}')
 
 
     if [ -n "$selected" ]; then
