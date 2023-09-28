@@ -20,9 +20,19 @@ with pkgs; let
         echo "$selected" > "$KEYMAP_CACHE"
     fi
   '';
+  extra-themes = pkgs.fetchFromGitHub {
+    owner = "newmanls";
+    repo = "rofi-themes-collection";
+    rev = "a1bfac5627cc01183fc5e0ff266f1528bd76a8d2";
+    sha256 = "0/0jsoxEU93GdUPbvAbu2Alv47Uwom3zDzjHcm2aPxY=";
+  };
 in {
   stylix.targets.rofi.enable = false;
-  home.packages = lib.mkIf cfg.enable [rofi-pulse-select keyboard_layout_selector];
+  home.packages = lib.mkIf cfg.enable [
+    rofi-pulse-select
+    keyboard_layout_selector
+    rofi-bluetooth
+  ];
   xdg.configFile."keyboard_layouts" = {
     enable = cfg.enable;
     text = ''
@@ -34,10 +44,10 @@ in {
 
   programs.rofi = {
     enable = true;
-    plugins = [rofi-emoji rofi-calc rofi-bluetooth];
+    plugins = [rofi-emoji rofi-calc];
     terminal = config.home.sessionVariables.TERMINAL;
     cycle = true;
-    theme = "gruvbox-dark-hard";
+    theme = "${extra-themes}/themes/rounded-yellow-dark.rasi";
     extraConfig = {
       modes = lib.concatStringsSep "," [
         "calc"
