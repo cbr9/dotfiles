@@ -56,6 +56,8 @@ in {
         "filebrowser"
         "ssh"
       ];
+      matching = "fuzzy";
+      sorting-method = "fzf";
       dpi = 120;
       ssh-client =
         if config.programs.kitty.enable
