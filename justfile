@@ -3,7 +3,6 @@ switch:
 	-rm ~/.config/mimeapps.list
 	-rm ~/.local/share/mimeapps.list
 	sudo nixos-rebuild switch --flake .
-	awesome-client 'require("awesome").restart()'
 
 
 switch-sony:
@@ -11,7 +10,6 @@ switch-sony:
 	-rm ~/.config/mimeapps.list
 	-rm ~/.local/share/mimeapps.list
 	sudo nixos-rebuild switch --specialisation sony --flake .
-	awesome-client 'require("awesome").restart()'
 	
 rekey:
 	op read "op://Personal/ymqirvvpvyvjwq4v6i5j5xmjrq/public key" --out-file ~/.ssh/id_ed25519.pub

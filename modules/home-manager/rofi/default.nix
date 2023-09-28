@@ -11,9 +11,18 @@ with pkgs; let
     KEYMAP_CACHE="${config.xdg.cacheHome}/keyboard-layout"
     LAYOUT_FILE="${config.xdg.configHome}/keyboard_layouts"
 
-    msg="Current Layout: "$(${xorg.setxkbmap}/bin/setxkbmap -query | grep layout | cut -d':' -f2 | sed 's/ //g')
+    declare -Ag layouts
+    layouts[us]=🇺🇸
+    layouts[de]=🇩🇪
+    layouts[es]=🇪🇸
 
-    selected=$(cat $LAYOUT_FILE | $ROFI_CMD -p "Keyboard Layout" -mesg "$msg" | awk '{print $1;}')
+    current=$(${xorg.setxkbmap}/bin/setxkbmap -query | grep layout | cut -d':' -f2 | sed 's/ //g')
+    flag=''${layouts[$current]}
+
+    msg="Current Layout: $flag"
+
+    selected=$(echo "''${!layouts[@]}" | $ROFI_CMD -p "Keyboard Layout" -mesg "$msg" | awk '{print $1;}')
+
 
     if [ -n "$selected" ]; then
         ${xorg.setxkbmap}/bin/setxkbmap "$selected"
@@ -33,14 +42,6 @@ in {
     keyboard_layout_selector
     rofi-bluetooth
   ];
-  xdg.configFile."keyboard_layouts" = {
-    enable = cfg.enable;
-    text = ''
-      us
-      de
-      es
-    '';
-  };
 
   programs.rofi = {
     enable = true;

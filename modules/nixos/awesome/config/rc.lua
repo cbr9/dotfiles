@@ -1,7 +1,6 @@
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
--- local keyboard_layout_indicator = require("keyboard-layout-indicator")
 
 local scratchpads = require("scratchpads")
 -- Standard awesome library
@@ -151,9 +150,15 @@ function volume.lower()
   awful.spawn("pamixer -d 5")
 end
 
+local function switch_keyboard_layout()
+  awful.spawn("rofi_switch_keyboard_layout")
+end
+
 -- These are example rubato tables. You can use one for just y, just x, or both.
 -- The duration and easing is up to you. Please check out the rubato docs to learn more.
 
+local keyboard_layout_indicator = awful.widget.keyboardlayout()
+keyboard_layout_indicator:add_button(awful.button({}, 1, nil, switch_keyboard_layout))
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 local tag_names = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
@@ -186,14 +191,14 @@ awful.screen.connect_for_each_screen(function(s)
   if s == screen.primary then
     right_widgets = {
       layout = wibox.layout.fixed.horizontal,
-      awful.widget.keyboardlayout(),
+      keyboard_layout_indicator,
       wibox.widget.systray(),
       text_clock, -- keyboard_layout,
     }
   else
     right_widgets = {
       layout = wibox.layout.fixed.horizontal,
-      awful.widget.keyboardlayout(),
+      keyboard_layout_indicator,
       text_clock,
     }
   end
@@ -328,9 +333,9 @@ local global_keys = gears.table.join(
   awful.key({ super }, "s", function() awful.spawn("rofi -show ssh"); end),
   awful.key({ super, alt }, "l", function() awful.spawn("betterlockscreen -l dim &"); end),
   awful.key({ super }, "b", function() awful.spawn("firefox"); end),
-  awful.key({ super, "Shift"}, "h", function() awful.spawn("dm-hub -r"); end),
-  awful.key({ super, "Shift"}, "p", function() awful.spawn("dm-logout -r"); end),
-  awful.key({ super }, "space", function() awful.spawn("rofi_switch_keyboard_layout"); end),
+  awful.key({ super, "Shift" }, "h", function() awful.spawn("dm-hub -r"); end),
+  awful.key({ super, "Shift" }, "p", function() awful.spawn("dm-logout -r"); end),
+  awful.key({ super }, "space", switch_keyboard_layout),
   awful.key({ super }, "v", function() awful.spawn("clipmenu"); end),
   awful.key({ super }, "z", function() awful.spawn("zotero"); end)
 )
