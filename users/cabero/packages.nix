@@ -29,6 +29,7 @@
     todoist-electron
     vlc
     ytfzf
+    gnome.file-roller
   ];
 in {
   home.packages = cli ++ gui;

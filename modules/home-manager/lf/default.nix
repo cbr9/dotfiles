@@ -78,6 +78,7 @@ in {
     lib.mkIf cfg.enable [
       libreoffice
       ctpv
+      unzip
       atool # for archive files
       bat
       chafa # for image files on Wayland
