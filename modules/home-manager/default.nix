@@ -28,10 +28,8 @@
     ./starship
     ./texlive
     ./vscode
-    ./ytfzf
     ./xdg
     ./zellij
     ./zoxide
-    ./wezterm
   ];
 }
