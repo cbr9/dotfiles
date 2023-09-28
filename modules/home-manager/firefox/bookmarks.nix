@@ -130,6 +130,12 @@
             tags = ["code"];
           }
           {
+            name = "Papis";
+            url = "https://www.github.com/papis/papis";
+            keyword = "papis";
+            tags = ["research" "reference manager"];
+          }
+          {
             name = "Dotfiles";
             url = "https://www.github.com/cbr9/dotfiles";
             keyword = "dotfiles";
