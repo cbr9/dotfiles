@@ -37,13 +37,14 @@ in {
       authKeyFile = config.age.secrets.tailscale.path;
     };
 
-    systemd.user.services.taildrop-receive = lib.mkIf (cfg.enable && cfg.taildropDir != null) {
+    systemd.services.taildrop = lib.mkIf (cfg.enable && cfg.taildropDir != null) {
+      description = "Run taildrop in a loop";
       after = ["tailscaled.service"];
       wants = ["tailscaled.service"];
       wantedBy = ["multi-user.target"];
-      script = ''
-        ${cfg.package}/bin/tailscale file get --conflict rename --verbose --loop ${cfg.taildropDir}
-      '';
+      serviceConfig = {
+        ExecStart = "${cfg.package}/bin/tailscale file get --conflict rename --verbose --loop ${cfg.taildropDir}";
+      };
     };
 
     networking.firewall = {
