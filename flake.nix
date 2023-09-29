@@ -34,6 +34,23 @@
         ++ [
           (final: prev: {
             typst-master = inputs.typst.packages.${system}.default;
+            papis = prev.papis.overrideAttrs (old: rec {
+              pname = "papis-master";
+              version = "9aaba9e06e621519fed03cd8f15e1022da97c870";
+              src = pkgs.fetchFromGitHub {
+                owner = "papis";
+                repo = "papis";
+                rev = version;
+                hash = "sha256-2odPKn91OrBvLCzFNliy0d5aA2AQHYOmtcZz0K2HB+Y=";
+              };
+              disabledTests =
+                old.disabledTests
+                ++ [
+                  "test_git_cli"
+                  "test_add_run"
+                  "test_rm_files_run"
+                ];
+            });
             awesome = inputs.nixpkgs-f2k.packages.${system}.awesome-luajit-git;
             organize = inputs.organize.defaultPackage.${system};
             sph2pipe = import ./pkgs/sph2pipe.nix {pkgs = prev;};
@@ -67,6 +84,7 @@
         git-crypt
         git-lfs
         git
+        nix-prefetch-github
       ];
     };
   };
