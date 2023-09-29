@@ -6,6 +6,7 @@
   programs.firefox.profiles.default.settings = (
     {
       "browser.fullscreen.autohide" = false;
+      "browser.aboutConfig.showWarning" = false;
       "extensions.formautofill.creditCards.enabled" = false;
       "extensions.formautofill.creditCards.available" = false;
     }
