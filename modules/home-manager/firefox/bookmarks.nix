@@ -26,55 +26,46 @@
         name = "Coursera";
         url = "https://www.coursera.org/";
         keyword = "coursera";
-        tags = ["learning" "education"];
       }
       {
         name = "BrainFM";
         url = "https://my.brain.fm/focus";
         keyword = "focus";
-        tags = ["learning" "focus" "work"];
       }
       {
         name = "Ilias";
         url = "https://ilias3.uni-stuttgart.de";
         keyword = "ilias";
-        tags = ["studies" "university" "uni"];
       }
       {
         name = "University Email";
         url = "https://mail.uni-stuttgart.de/";
         keyword = "unimail";
-        tags = ["email" "studies" "university" "uni"];
       }
       {
         name = "Udemy";
         url = "https://www.udemy.com/";
         keyword = "udemy";
-        tags = ["learning" "education"];
       }
       {
         name = "Regex101";
         url = "https://regex101.com";
         keyword = "regex";
-        tags = ["testing" "code"];
       }
       {
         name = "ChatGPT";
         url = "https://chat.openai.com/";
         keyword = "chat";
-        tags = ["productivity" "ai"];
       }
       {
         name = "Cambridge German-English Dictionary";
         url = "https://dictionary.cambridge.org/dictionary/german-english/";
         keyword = "german";
-        tags = ["learning" "education"];
       }
       {
         name = "Cambridge English Dictionary";
         url = "https://dictionary.cambridge.org/dictionary/english/";
         keyword = "english";
-        tags = ["learning" "education"];
       }
       {
         name = "Google";
@@ -84,19 +75,16 @@
             name = "Google Calendar";
             url = "https://calendar.google.com/";
             keyword = "cal";
-            tags = ["productivity"];
           }
           {
             name = "Google Maps";
             url = "https://maps.google.com/";
             keyword = "maps";
-            tags = [];
           }
           {
             name = "Google Mail";
             url = "https://mail.google.com";
             keyword = "gmail";
-            tags = ["email" "productivity"];
           }
         ];
       }
@@ -108,13 +96,11 @@
             name = "Home Manager Options";
             url = "https://rycee.gitlab.io/home-manager/options.html";
             keyword = "hm";
-            tags = ["nixos" "hm"];
           }
           {
             name = "NixOS Options";
             url = "https://search.nixos.org/options";
             keyword = "nop";
-            tags = ["nixos" "options"];
           }
         ];
       }
@@ -127,55 +113,51 @@
             name = "GitHub";
             url = "https://www.github.com";
             keyword = "gh";
-            tags = ["code"];
           }
           {
             name = "Papis";
             url = "https://www.github.com/papis/papis";
             keyword = "papis";
-            tags = ["research" "reference manager"];
           }
           {
             name = "Dotfiles";
             url = "https://www.github.com/cbr9/dotfiles";
             keyword = "dotfiles";
-            tags = ["config" "code" "nix"];
           }
           {
             name = "Kitty";
             url = "https://github.com/kovidgoyal/kitty";
             keyword = "kitty";
-            tags = ["terminal" "code"];
           }
           {
             name = "Nushell";
             url = "https://github.com/nushell/nushell";
             keyword = "nushell";
-            tags = ["shell" "code" "rust" "cli"];
+          }
+          {
+            name = "Zoxide";
+            url = "https://github.com/ajeetdsouza/zoxide";
+            keyword = "zoxide";
           }
           {
             name = "Helix";
             url = "https://github.com/helix-editor/helix";
             keyword = "helix";
-            tags = ["editor" "cli" "rust"];
           }
           {
             name = "Typst";
             url = "https://github.com/typst/typst";
             keyword = "typst";
-            tags = ["typeset" "latex" "rust"];
           }
           {
             name = "Nixpkgs";
             url = "https://github.com/NixOS/nixpkgs";
             keyword = "nixpkgs";
-            tags = ["nix" "nixos" "pkgs"];
           }
           {
             name = "Zellij";
             url = "https://github.com/zellij-org/zellij";
             keyword = "zellij";
-            tags = ["cli" "terminal" "rust" "multiplexer"];
           }
         ];
       }
@@ -188,7 +170,6 @@
         name = "Proton";
         url = "https://mail.proton.me";
         keyword = "proton";
-        tags = ["email"];
       }
     ]
   );
