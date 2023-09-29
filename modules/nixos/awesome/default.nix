@@ -59,29 +59,6 @@ in {
             wallpaper = config.stylix.image;
           };
         };
-
-        "awesome/scratchpads.lua" = {
-          enable = cfg.enable;
-          source = ./config/scratchpads.lua;
-        };
-        "awesome/rubato" = {
-          enable = cfg.enable;
-          source = pkgs.fetchFromGitHub {
-            owner = "andOrlando";
-            repo = "rubato";
-            rev = "a9181708863265eb4a36c722f664978ee50fe8a0";
-            sha256 = "sha256-28NZK3F11heYsdElqC5fGxFTRTEJFbHodGej7NtGkJ4=";
-          };
-        };
-        "awesome/bling" = {
-          enable = cfg.enable;
-          source = pkgs.fetchFromGitHub {
-            owner = "BlingCorp";
-            repo = "bling";
-            rev = "1f6bd0d5ef150a1801d20c69437ceff61d65fac5";
-            sha256 = "sha256-0D2ck1qiA1ydLax45utJw1RhZZwhqg4KRoqgDFz4Gsg=";
-          };
-        };
       };
     };
   };

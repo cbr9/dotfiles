@@ -2,7 +2,6 @@
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
-local scratchpads = require("scratchpads")
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -284,7 +283,6 @@ end
 
 -- {{{ Key bindings
 local global_keys = gears.table.join(
-  scratchpads.global_keys,
   -- awful.key({ super, }, "s", hotkeys_popup.show_help),
 
 
@@ -327,17 +325,18 @@ local global_keys = gears.table.join(
   awful.key({ super, "Shift" }, "n", unminimize),
 
   awful.key({ super }, "Return", function() awful.spawn(terminal) end),
-  awful.key({ super }, "d", function() awful.spawn("rofi -show drun"); end),
-  awful.key({ super }, "c", function() awful.spawn("rofi -show calc"); end),
-  awful.key({ super }, "e", function() awful.spawn("rofi -show emoji"); end),
-  awful.key({ super }, "s", function() awful.spawn("rofi -show ssh"); end),
-  awful.key({ super, alt }, "l", function() awful.spawn("betterlockscreen -l dim &"); end),
-  awful.key({ super }, "b", function() awful.spawn("firefox"); end),
-  awful.key({ super, "Shift" }, "h", function() awful.spawn("dm-hub -r"); end),
-  awful.key({ super, "Shift" }, "p", function() awful.spawn("dm-logout -r"); end),
+  awful.key({alt }, "Tab", function() awful.spawn("rofi -show window") end),
+  awful.key({ super }, "d", function() awful.spawn("rofi -show drun") end),
+  awful.key({ super }, "c", function() awful.spawn("rofi -show calc") end),
+  awful.key({ super }, "e", function() awful.spawn("rofi -show emoji") end),
+  awful.key({ super }, "s", function() awful.spawn("rofi -show ssh") end),
+  awful.key({ super, alt }, "l", function() awful.spawn("betterlockscreen -l dim &") end),
+  awful.key({ super }, "b", function() awful.spawn("firefox") end),
+  awful.key({ super, "Shift" }, "h", function() awful.spawn("dm-hub -r") end),
+  awful.key({ super, "Shift" }, "p", function() awful.spawn("dm-logout -r") end),
   awful.key({ super }, "space", switch_keyboard_layout),
-  awful.key({ super }, "v", function() awful.spawn("clipmenu"); end),
-  awful.key({ super }, "z", function() awful.spawn("zotero"); end)
+  awful.key({ super }, "v", function() awful.spawn("clipmenu") end),
+  awful.key({ super }, "z", function() awful.spawn("zotero") end)
 )
 
 local client_keys = gears.table.join(
