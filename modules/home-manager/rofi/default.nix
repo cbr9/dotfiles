@@ -60,7 +60,7 @@ in {
         "filebrowser"
         "ssh"
       ];
-      matching = "fuzzy";
+      matching = "prefix";
       sorting-method = "fzf";
       dpi = 120;
       ssh-client =
