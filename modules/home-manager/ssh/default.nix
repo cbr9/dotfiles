@@ -19,10 +19,6 @@ in {
         user = "decabera";
         forwardX11 = true;
       };
-      deatcs001ws845 = {
-        hostname = "deatcs001ws845";
-        user = "cabero";
-      };
     };
   };
 }
