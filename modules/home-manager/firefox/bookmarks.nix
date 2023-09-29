@@ -53,6 +53,11 @@
         keyword = "regex";
       }
       {
+        name = "Hydra";
+        url = "https://hydra.cc";
+        keyword = "hydra";
+      }
+      {
         name = "ChatGPT";
         url = "https://chat.openai.com/";
         keyword = "chat";
