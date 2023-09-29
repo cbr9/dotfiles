@@ -327,6 +327,7 @@ local global_keys = gears.table.join(
   awful.key({ super }, "Return", function() awful.spawn(terminal) end),
   awful.key({alt }, "Tab", function() awful.spawn("rofi -window-match-fields name -show window") end),
   awful.key({ super }, "d", function() awful.spawn("rofi -show drun") end),
+  awful.key({ super }, "r", function() awful.spawn("rofi -show run") end),
   awful.key({ super }, "c", function() awful.spawn("rofi -show calc") end),
   awful.key({ super }, "e", function() awful.spawn("rofi -show emoji") end),
   awful.key({ super }, "s", function() awful.spawn("rofi -show ssh") end),
