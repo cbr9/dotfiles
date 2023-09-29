@@ -10,18 +10,19 @@ with lib; {
     enable = nixosConfig != {} && nixosConfig.networking.hostName == "deatcs001ws845";
     mutableExtensionsDir = nixosConfig == {};
     extensions = with pkgs.vscode-extensions; [
-      vscodevim.vim
+      arrterian.nix-env-selector
+      bbenoist.nix
+      brettm12345.nixfmt-vscode
+      james-yu.latex-workshop
       ms-python.python
       ms-python.vscode-pylance
       ms-toolsai.jupyter
       ms-toolsai.jupyter-renderers
       ms-vscode-remote.remote-ssh
-      bbenoist.nix
-      brettm12345.nixfmt-vscode
-      arrterian.nix-env-selector
       rust-lang.rust-analyzer
+      thenuprojectcontributors.vscode-nushell-lang
       tomoki1207.pdf
-      james-yu.latex-workshop
+      vscodevim.vim
     ];
 
     userSettings = {
