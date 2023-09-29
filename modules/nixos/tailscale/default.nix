@@ -38,8 +38,8 @@ in {
     };
 
     systemd.user.services.taildrop-receive = lib.mkIf (cfg.enable && cfg.taildropDir != null) {
-      after = ["tailscale.service"];
-      wants = ["tailscale.service"];
+      after = ["tailscaled.service"];
+      wants = ["tailscaled.service"];
       wantedBy = ["multi-user.target"];
       script = ''
         ${cfg.package}/bin/tailscale file get --conflict rename --verbose --loop ${cfg.taildropDir}
