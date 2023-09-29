@@ -21,7 +21,6 @@
     ./nix
     ./nushell
     ./organize
-    ./papis
     ./pueue
     ./redshift
     ./rofi
