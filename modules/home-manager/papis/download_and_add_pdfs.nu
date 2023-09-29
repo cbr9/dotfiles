@@ -20,15 +20,14 @@ def main [--path (-p): path] {
         let base_url = $row | get url
         let name = $row | get title | split words | str join "-"
         let name = $'($name).pdf'
-        if ($base_url | str contains "aclanthology") {
-            let url = $'($row | get url).pdf'
+        let url = $'($row | get url).pdf'
+
+        if ($base_url | str contains "arxiv") {
+            let url = $'($base_url | str replace "/abs/" "/pdf/").pdf'
             papis addto --doc-folder $dir --urls $url --file-name $name
-        } else if ($base_url | str contains "arxiv") {
-            let url = $'($base_url | str replace "abs" "pdf").pdf'
-            papis addto --doc-folder $dir --urls $url --file-name $name
-        } else {
-            continue
         }
+
+        papis addto --doc-folder $dir --urls $url --file-name $name
     }
 }
 
