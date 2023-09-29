@@ -37,16 +37,11 @@ in {
       authKeyFile = config.age.secrets.tailscale.path;
     };
 
-    home-manager.users.cabero = {
-      systemd.user.services.taildrop-receive = lib.mkIf (cfg.enable && cfg.operator != null && cfg.taildropDir != null) {
-        Install = {
-          WantedBy = ["default.target"];
-        };
-        Service = {
-          UMask = 0077;
-          ExecStart = "${cfg.package}/bin/tailscale file get --conflict rename --verbose --loop ${cfg.taildropDir}";
-        };
-      };
+    systemd.user.services.taildrop-receive = lib.mkIf (cfg.enable && cfg.taildropDir != null) {
+      wantedBy = ["default.target"];
+      script = ''
+        ${cfg.package}/bin/tailscale file get --conflict rename --verbose --loop ${cfg.taildropDir}
+      '';
     };
 
     networking.firewall = {
