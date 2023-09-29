@@ -73,11 +73,7 @@
     };
     lib = pkgs.lib;
   in {
-    nixosConfigurations = lib.mkHosts ["naboo" "tatooine" "deatcs001ws845"] inputs pkgs;
-
-    homeConfigurations = {
-      decabera = import ./users/decabera {inherit inputs pkgs;};
-    };
+    nixosConfigurations = lib.mkHosts ["naboo" "tatooine"] inputs pkgs;
 
     devShells.${system}.default = pkgs.mkShell {
       nativeBuildInputs = with pkgs; [

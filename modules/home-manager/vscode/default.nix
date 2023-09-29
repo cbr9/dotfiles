@@ -7,7 +7,7 @@
 with lib; {
   stylix.targets.vscode.enable = false;
   programs.vscode = {
-    enable = nixosConfig != {} && nixosConfig.networking.hostName == "deatcs001ws845";
+    enable = true;
     mutableExtensionsDir = nixosConfig == {};
     extensions = with pkgs.vscode-extensions; [
       arrterian.nix-env-selector
