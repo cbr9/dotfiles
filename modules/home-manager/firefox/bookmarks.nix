@@ -140,6 +140,11 @@
             keyword = "kitty";
           }
           {
+            name = "Second Brain";
+            url = "https://github.com/cbr9/second-brain";
+            keyword = "second-brain";
+          }
+          {
             name = "Nushell";
             url = "https://github.com/nushell/nushell";
             keyword = "nushell";
