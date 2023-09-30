@@ -12,6 +12,9 @@
     ./settings.nix
   ];
 
+  home.sessionVariables = {
+    MOZ_USE_XINPUT2 = "1";
+  };
   home.packages = lib.mkIf config.programs.firefox.enable [pkgs.speechd];
   programs.firefox = {
     enable = nixosConfig != {};

@@ -9,6 +9,7 @@
       "browser.aboutConfig.showWarning" = false;
       "extensions.formautofill.creditCards.enabled" = false;
       "extensions.formautofill.creditCards.available" = false;
+      "dom.w3c_touch_events.enabled" = 1;
     }
     // (lib.optionalAttrs config.xdg.configFile."tridactyl/tridactylrc".enable {
       "browser.startup.homepage" = "moz-extension://713d476b-6551-420c-b35f-87c66df5b4c6/static/newtab.html";
