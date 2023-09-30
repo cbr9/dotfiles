@@ -6,7 +6,7 @@
 in {
   imports = [./package.nix];
   programs.organize = {
-    enable = true;
+    enable = false;
     config = {
       rules = [
         {
