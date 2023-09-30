@@ -53,7 +53,7 @@ in {
           ".nfs*"
           "My Saved Places."
           "\\#*#"
-          ".git"
+          ".git*"
           "*.sb-*"
         ];
       };
