@@ -1,71 +1,27 @@
 {config, ...}: let
-  downloads = "${config.home.homeDirectory}/Downloads";
-  pictures = "${config.home.homeDirectory}/Pictures";
+  downloads = config.xdg.userDirs.download;
+  pictures = config.xdg.userDirs.pictures;
+  documents = config.xdg.userDirs.documents;
+  music = config.xdg.userDirs.music;
 in {
   imports = [./package.nix];
   programs.organize = {
-    enable = false;
+    enable = true;
     config = {
       rules = [
         {
+          folders = [downloads];
           actions = [
             {
               type = "move";
-              to = "${pictures}/Screenshots";
-            }
-          ];
-          filters = [
-            {
-              type = "filename";
-              contains = "screenshot";
-              case_sensitive = false;
-            }
-            {
-              type = "mime";
-              types = ["image/*"];
-            }
-          ];
-          folders = [downloads pictures];
-        }
-        {
-          folders = [downloads pictures];
-          actions = [
-            {
-              type = "move";
-              to = "${pictures}/Wallpapers/";
-              if_exists = "overwrite";
-            }
-          ];
-          filters = [
-            {
-              type = "filename";
-              contains = "unsplash";
-              case_sensitive = false;
-            }
-            {
-              type = "mime";
-              types = ["image/*"];
-            }
-          ];
-        }
-        {
-          actions = [
-            {
-              type = "copy";
-              to = "${config.home.homeDirectory}/Music/{parent.filename}/{filename}";
-              if_exists = "overwrite";
-            }
-          ];
-          folders = [
-            {
-              path = downloads;
-              options.recursive = 2;
+              to = documents;
+              if_exists = "rename";
             }
           ];
           filters = [
             {
               type = "extension";
-              extensions = ["flac" "mp3" "m3u"];
+              extensions = ["pdf"];
             }
           ];
         }
