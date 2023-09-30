@@ -28,6 +28,11 @@
         keyword = "coursera";
       }
       {
+        name = "Moonlander";
+        url = "https://www.zsa.io/moonlander/";
+        keyword = "moonlander";
+      }
+      {
         name = "BrainFM";
         url = "https://my.brain.fm/focus";
         keyword = "focus";
