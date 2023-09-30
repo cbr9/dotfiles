@@ -285,6 +285,9 @@ end
 local global_keys = gears.table.join(
   -- awful.key({ super, }, "s", hotkeys_popup.show_help),
 
+  awful.key({super, alt}, "p", function ()
+  	naughty.suspended = not naughty.suspended
+  end),
 
   awful.key({ super, "Shift" }, "m", function()
     if not is_following_mouse then
