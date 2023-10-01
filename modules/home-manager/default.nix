@@ -12,6 +12,7 @@
     ./fish
     ./fzf
     ./git
+    ./gh
     ./helix
     ./kitty
     ./lazygit
