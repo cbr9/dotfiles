@@ -34,6 +34,7 @@
     vlc
     ytfzf
     gnome.file-roller
+    zathura
   ];
 in {
   home.packages = cli ++ gui;
