@@ -125,6 +125,12 @@
             keyword = "gh";
           }
           {
+            # not a project, but will do
+            name = "GitHub Repositories";
+            url = "https://github.com/cbr9?tab=repositories";
+            keyword = "repos";
+          }
+          {
             name = "Papis";
             url = "https://www.github.com/papis/papis";
             keyword = "papis";

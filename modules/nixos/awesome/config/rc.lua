@@ -302,6 +302,9 @@ local global_keys = gears.table.join(
   awful.key({}, "XF86AudioMute", volume.mute),
   awful.key({}, "XF86AudioLowerVolume", volume.lower),
   awful.key({}, "XF86AudioRaiseVolume", volume.raise),
+  awful.key({}, "F12", function ()
+  	awful.spawn("dm-pipewire-out-switcher -r")
+  end),
   awful.key({}, "XF86MonBrightnessDown", brightness.down),
   awful.key({}, "XF86MonBrightnessUp", brightness.up),
   awful.key({}, "Print", screenshot),

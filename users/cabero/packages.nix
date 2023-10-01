@@ -2,6 +2,8 @@
   cli = with pkgs; [
     aichat
     duden
+    go
+    todoist
     just
     watchexec
     dysk
@@ -19,6 +21,7 @@
   gui = with pkgs; [
     evince
     speedcrunch
+    mpv
     mailspring
     insync
     obsidian

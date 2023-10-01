@@ -28,8 +28,10 @@
     ./ssh
     ./starship
     ./texlive
+    ./todoist
     ./vscode
     ./xdg
+    ./yt-dlp
     ./zellij
     ./zoxide
   ];
