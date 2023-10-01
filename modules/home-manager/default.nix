@@ -4,6 +4,7 @@
     ./bash
     ./bat
     ./bottom
+    ./carapace
     ./clipmenu
     ./direnv
     ./dmscripts
