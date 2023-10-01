@@ -16,9 +16,10 @@ let fish = {|spans|
 
 let completer = {|spans|
   match $spans.0 {
-      z | zi => $zoxide
-      nix-shell | nix-build | nix-instantiate | nix-channel | nix => $carapace
-      _ => $fish
+      z | zi => $zoxide,
+      nu => $fish, # carapace has incorrect completions for nu
+      git => $fish, # nicer completions
+      _ => $carapace
   } | do $in $spans
 }
 
