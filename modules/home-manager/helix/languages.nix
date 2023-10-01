@@ -45,6 +45,9 @@ with pkgs; {
       typst = {command = "typst-lsp";};
       rust-analyzer.config = {
         checkOnSave.command = "clippy";
+        cachePriming.enable = false;
+        diagnostics.experimental.enable = true;
+        check.features = "all";
       };
       ruff = {
         command = "${pkgs.ruff-lsp}/bin/ruff-lsp";
