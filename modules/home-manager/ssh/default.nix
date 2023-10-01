@@ -13,12 +13,5 @@ in {
     enable = true;
     forwardAgent = _1passwordAgent.enable;
     extraConfig = lib.optionalString _1passwordAgent.enable "IdentityAgent ${_1passwordAgent.path}";
-    matchBlocks = {
-      destc0strapp15 = {
-        hostname = "destc0strapp15";
-        user = "decabera";
-        forwardX11 = true;
-      };
-    };
   };
 }
