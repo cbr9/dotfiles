@@ -34,14 +34,6 @@
         ++ [
           (final: prev: {
             typst-master = inputs.typst.packages.${system}.default;
-            todoist = prev.todoist.overrideAttrs (old: {
-              src = pkgs.fetchFromGitHub {
-                owner = "cbr9";
-                repo = "todoist";
-                rev = "8dfcc64ab801f34b61247c78547e27fbc086cd56";
-                hash = "sha256-wda/VBxv+KQq53+PHEFywiy23RfH9PRjJxxDOe/9quI=";
-              };
-            });
             awesome = inputs.nixpkgs-f2k.packages.${system}.awesome-luajit-git;
             organize = inputs.organize.defaultPackage.${system};
             sph2pipe = import ./pkgs/sph2pipe.nix {pkgs = prev;};

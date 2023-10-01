@@ -30,7 +30,6 @@
     ./ssh
     ./starship
     ./texlive
-    ./todoist
     ./vscode
     ./xdg
     ./yt-dlp
