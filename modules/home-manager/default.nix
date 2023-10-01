@@ -20,6 +20,7 @@
     ./nextcloud-client
     ./nix
     ./nushell
+    ./nuscripts
     ./organize
     ./pueue
     ./redshift
