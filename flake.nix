@@ -34,22 +34,13 @@
         ++ [
           (final: prev: {
             typst-master = inputs.typst.packages.${system}.default;
-            papis = prev.papis.overrideAttrs (old: rec {
-              pname = "papis-master";
-              version = "9aaba9e06e621519fed03cd8f15e1022da97c870";
+            todoist = prev.todoist.overrideAttrs (old: {
               src = pkgs.fetchFromGitHub {
-                owner = "papis";
-                repo = "papis";
-                rev = version;
-                hash = "sha256-2odPKn91OrBvLCzFNliy0d5aA2AQHYOmtcZz0K2HB+Y=";
+                owner = "cbr9";
+                repo = "todoist";
+                rev = "8dfcc64ab801f34b61247c78547e27fbc086cd56";
+                hash = "sha256-wda/VBxv+KQq53+PHEFywiy23RfH9PRjJxxDOe/9quI=";
               };
-              disabledTests =
-                old.disabledTests
-                ++ [
-                  "test_git_cli"
-                  "test_add_run"
-                  "test_rm_files_run"
-                ];
             });
             awesome = inputs.nixpkgs-f2k.packages.${system}.awesome-luajit-git;
             organize = inputs.organize.defaultPackage.${system};

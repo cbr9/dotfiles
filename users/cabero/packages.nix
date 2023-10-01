@@ -2,6 +2,8 @@
   cli = with pkgs; [
     aichat
     duden
+    go
+    todoist
     just
     watchexec
     dysk

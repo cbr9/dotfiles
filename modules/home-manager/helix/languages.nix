@@ -13,6 +13,8 @@ with pkgs; {
     nil
     taplo
     shellcheck
+    gopls
+    delve
     lua-language-server
     nodePackages.yaml-language-server
     nodePackages.vscode-json-languageserver
