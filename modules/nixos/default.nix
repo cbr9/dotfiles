@@ -16,7 +16,6 @@
     ./nushell
     ./picom
     ./qt
-    ./sony
     ./sshfs
     ./tailscale
   ];

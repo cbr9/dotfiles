@@ -5,19 +5,7 @@
   nixosConfig ? {},
   ...
 }:
-with lib; let
-  sony = nixosConfig != {} && nixosConfig.sony.enable;
-  userName = (
-    if sony
-    then "andres.caberobusto"
-    else "cbr9"
-  );
-  userEmail = (
-    if sony
-    then "andres.caberobusto@sony.com"
-    else "cabero96@protonmail.com"
-  );
-in {
+with lib; {
   home.packages = [pkgs.git-crypt];
   programs.fish.shellAbbrs = mkIf config.programs.git.enable {
     gr = "git restore";
@@ -29,7 +17,8 @@ in {
     gl = "git pull";
   };
   programs.git = {
-    inherit userName userEmail;
+    userName = "cbr9";
+    userEmail = "cabero96@protonmail.com";
     enable = true;
     delta = {
       enable = true;
