@@ -19,6 +19,7 @@
   gui = with pkgs; [
     evince
     speedcrunch
+    mpv
     mailspring
     insync
     obsidian
