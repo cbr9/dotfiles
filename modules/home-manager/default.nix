@@ -29,6 +29,7 @@
     ./texlive
     ./vscode
     ./xdg
+    ./yt-dlp
     ./zellij
     ./zoxide
   ];
