@@ -1,3 +1,17 @@
+def-env lfcd [] {
+  let tmp = (mktemp)
+  lf -last-dir-path $tmp
+  try {
+    let target_dir = (open --raw $tmp)
+    rm -f $tmp
+    try {
+        if ($target_dir != $env.PWD) { cd $target_dir }
+    } catch { |e| print -e $'lfcd: Can not change to ($target_dir): ($e | get debug)' }
+  } catch {
+    |e| print -e $'lfcd: Reading ($tmp) returned an error: ($e | get debug)'
+  }
+}
+
 let carapace = {|spans: list<string>|
     carapace $spans.0 nushell $spans
     | from json
@@ -24,6 +38,16 @@ let completer = {|spans|
 $env.config = {
   show_banner: false,
   keybindings: [
+    {
+      name: lfcd
+      modifier: Control
+      keycode: Char_w
+      mode: [emacs, vi_normal, vi_insert]
+      event: {
+        send: ExecuteHostCommand
+        cmd: "lfcd"
+      }
+    },
     {
       name: edit_command_line
       modifier: Alt
