@@ -19,7 +19,8 @@ let carapace = {|spans: list<string>|
 }
 
 let zoxide = {|spans|
-    $spans | skip 1 | zoxide query -l $in | lines | where {|x| $x != $env.PWD}
+    let query = $spans | skip 1
+    zoxide query --score --list $query  | detect columns --no-headers | rename score path | into float score | sort-by score | reverse | get path | where {|x| $x != $env.PWD}
 }
 
 let fish = {|spans|
