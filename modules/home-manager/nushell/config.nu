@@ -17,7 +17,6 @@ let fish = {|spans|
 let completer = {|spans|
   match $spans.0 {
       z | zi => $zoxide
-      nu => $fish
       _ => $carapace
   } | do $in $spans
 }
@@ -30,6 +29,11 @@ $env.config = {
       enable: true
       completer: $completer
     }
+  },
+  cursor_shape: {
+    vi_insert: line
+    vi_normal: line
+    emacs: line
   }
 }
 
