@@ -104,7 +104,10 @@ $env.config = {
     vi_insert: line
     vi_normal: line
     emacs: line
-  }
+  },
+  table: {
+    mode: reinforced
+  },
 }
 
 
