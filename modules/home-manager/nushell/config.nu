@@ -23,7 +23,17 @@ let completer = {|spans|
 
 $env.config = {
   show_banner: false,
-  keybindings: [],
+  keybindings: [
+    {
+      name: edit_command_line
+      modifier: Alt
+      keycode: Char_e
+      mode: emacs
+      event: {
+        send: OpenEditor
+      }
+    }
+  ],
   completions: {
     external: {
       enable: true
