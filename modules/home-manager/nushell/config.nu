@@ -106,7 +106,7 @@ $env.config = {
     emacs: line
   },
   table: {
-    mode: reinforced
+    mode: rounded
   },
 }
 
