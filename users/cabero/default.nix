@@ -13,7 +13,7 @@ with builtins; {
       isNormalUser = true;
       extraGroups = ["wheel" "fuse" "docker" "networkmanager"];
       hashedPasswordFile = config.age.secrets.cabero.path;
-      shell = pkgs.fish;
+      shell = pkgs.nushellFull;
     };
 
     age.secrets = {

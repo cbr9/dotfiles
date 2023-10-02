@@ -28,11 +28,47 @@ $env.config = {
       name: edit_command_line
       modifier: Alt
       keycode: Char_e
-      mode: emacs
+      mode: [emacs, vi_normal, vi_insert]
       event: {
         send: OpenEditor
       }
-    }
+    },
+    {
+      name: complete
+      modifier: Alt
+      keycode: Char_l
+      mode: [emacs, vi_normal, vi_insert]
+      event: {
+        until: [
+          { send: HistoryHintWordComplete }          
+          { edit: MoveWordRight }
+        ]
+      }
+    },
+    {
+      name: complete
+      modifier: Alt
+      keycode: Char_j
+      mode: [emacs, vi_normal, vi_insert]
+      event: {
+        until: [
+          { send: MenuDown }          
+          { send: Down }
+        ]
+      }
+    },
+    {
+      name: complete
+      modifier: Alt
+      keycode: Char_k
+      mode: [emacs, vi_normal, vi_insert]
+      event: {
+        until: [
+          { send: MenuUp }          
+          { send: Up }
+        ]
+      }
+    },
   ],
   completions: {
     external: {
