@@ -4,5 +4,6 @@
   };
   environment.sessionVariables = {
     CM_LAUNCHER = "rofi";
+    CM_DIR = "clipmenu";
   };
 }
