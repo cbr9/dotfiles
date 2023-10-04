@@ -264,8 +264,7 @@ local function maximize(c)
 end
 
 local function screenshot()
-  local date = awful.spawn('date "+%x %T:%N"')
-  awful.spawn.with_shell(string.format('maim "/home/cabero/Nextcloud/Pictures/Screenshots/%s.jpg"', date))
+  awful.spawn("dm-maim -r")
 end
 
 local function __follow_mouse_wrapped(c)
@@ -283,10 +282,10 @@ end
 
 -- {{{ Key bindings
 local global_keys = gears.table.join(
-  -- awful.key({ super, }, "s", hotkeys_popup.show_help),
+-- awful.key({ super, }, "s", hotkeys_popup.show_help),
 
-  awful.key({super, alt}, "p", function ()
-  	naughty.suspended = not naughty.suspended
+  awful.key({ super, alt }, "p", function()
+    naughty.suspended = not naughty.suspended
   end),
 
   awful.key({ super, "Shift" }, "m", function()
@@ -302,8 +301,9 @@ local global_keys = gears.table.join(
   awful.key({}, "XF86AudioMute", volume.mute),
   awful.key({}, "XF86AudioLowerVolume", volume.lower),
   awful.key({}, "XF86AudioRaiseVolume", volume.raise),
-  awful.key({}, "F12", function ()
-  	awful.spawn("dm-pipewire-out-switcher -r")
+  awful.key({ super }, "F9", function() awful.spawn("pavucontrol") end),
+  awful.key({}, "F12", function()
+    awful.spawn("rofi -show power-menu -modi power-menu:rofi-power-menu")
   end),
   awful.key({}, "XF86MonBrightnessDown", brightness.down),
   awful.key({}, "XF86MonBrightnessUp", brightness.up),
@@ -331,13 +331,14 @@ local global_keys = gears.table.join(
   awful.key({ super, "Shift" }, "n", unminimize),
 
   awful.key({ super }, "Return", function() awful.spawn(terminal) end),
-  awful.key({alt }, "Tab", function() awful.spawn("rofi -window-match-fields name -show window") end),
+  awful.key({ alt }, "Tab", function() awful.spawn("rofi -window-match-fields name -show window") end),
   awful.key({ super }, "d", function() awful.spawn("rofi -show drun") end),
   awful.key({ super }, "r", function() awful.spawn("rofi -show run") end),
   awful.key({ super }, "c", function() awful.spawn("rofi -show calc") end),
   awful.key({ super }, "e", function() awful.spawn("rofi -show emoji") end),
   awful.key({ super }, "s", function() awful.spawn("rofi -show ssh") end),
   awful.key({ super, alt }, "l", function() awful.spawn("betterlockscreen -l dim &") end),
+  awful.key({ super, "Shift" }, "b", function() awful.spawn("rofi-bluetooth") end),
   awful.key({ super }, "b", function() awful.spawn("firefox") end),
   awful.key({ super }, "w", function() awful.spawn("obsidian") end),
   awful.key({ super, "Shift" }, "h", function() awful.spawn("dm-hub -r") end),

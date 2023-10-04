@@ -21,7 +21,7 @@
 
   gui = with pkgs; [
     evince
-    speedcrunch
+    qalculate-gtk
     mpv
     mailspring
     insync

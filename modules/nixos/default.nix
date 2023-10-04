@@ -6,6 +6,7 @@
     ./base
     ./bash
     ./betterlockscreen
+    ./clipmenu
     ./fish
     ./fonts
     ./gtk

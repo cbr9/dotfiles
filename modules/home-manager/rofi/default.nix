@@ -41,14 +41,18 @@ with pkgs; let
 in {
   stylix.targets.rofi.enable = false;
   home.packages = lib.mkIf cfg.enable [
-    rofi-pulse-select
     keyboard_layout_selector
     rofi-bluetooth
+    rofi-power-menu
   ];
 
   programs.rofi = {
     enable = true;
-    plugins = [rofi-emoji rofi-calc];
+    plugins = [
+      rofi-emoji
+      rofi-calc
+      rofi-power-menu
+    ];
     terminal = config.home.sessionVariables.TERMINAL;
     cycle = true;
     theme = "${extra-themes}/themes/rounded-yellow-dark.rasi";
@@ -60,7 +64,7 @@ in {
         "filebrowser"
         "ssh"
       ];
-      matching = "prefix";
+      matching = "fuzzy";
       sorting-method = "fzf";
       dpi = 120;
       ssh-client =

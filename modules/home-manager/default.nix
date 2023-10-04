@@ -5,7 +5,6 @@
     ./bat
     ./bottom
     ./carapace
-    ./clipmenu
     ./direnv
     ./dmscripts
     ./firefox
