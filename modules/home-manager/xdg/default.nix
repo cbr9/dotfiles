@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  config,
   ...
 }:
 with lib; let
@@ -14,9 +13,6 @@ with lib; let
   };
 in {
   home.packages = with pkgs; [vlc evince];
-  home.sessionVariables = {
-    XDG_RUNTIME_DIR = "${config.home.homeDirectory}/.local/runtime";
-  };
   xdg = {
     enable = true;
     userDirs = {
