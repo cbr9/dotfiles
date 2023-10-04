@@ -30,7 +30,7 @@ in {
       );
       videoMimeTypes = ["video/*" "audio/*"];
       documentTypes = ["application/pdf"];
-      textTypes = ["application/json" "text/*"];
+      textTypes = ["application/json" "text/*" "text/markdown"];
       folderTypes = ["inode/directory"];
     in {
       enable = true;
