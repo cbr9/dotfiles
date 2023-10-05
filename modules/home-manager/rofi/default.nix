@@ -64,14 +64,15 @@ in {
         "filebrowser"
         "ssh"
       ];
-      matching = "fuzzy";
-      sorting-method = "fzf";
+      matching = "regex";
+      sorting-method = "normal";
       dpi = 120;
       ssh-client =
         if config.programs.kitty.enable
         then "kitten ssh"
         else "ssh";
       show-icons = true;
+      case-sensitive = false;
     };
   };
 }
