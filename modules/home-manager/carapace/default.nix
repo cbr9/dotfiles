@@ -5,7 +5,7 @@
   ...
 }: {
   programs.carapace = {
-    enable = true;
+    enable = false;
     enableNushellIntegration = false;
   };
   home.packages = with pkgs;
