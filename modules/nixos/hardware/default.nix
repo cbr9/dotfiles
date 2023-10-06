@@ -24,8 +24,8 @@
     programs.light.enable = config.sys.hardware.isLaptop;
     services.logind = {
       lidSwitch = "suspend";
-      lidSwitchDocked = "suspend";
-      lidSwitchExternalPower = "suspend";
+      lidSwitchDocked = "ignore";
+      lidSwitchExternalPower = "ignore";
       powerKey = "suspend";
       powerKeyLongPress = "suspend";
     };
