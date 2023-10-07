@@ -4,7 +4,7 @@
     ./bash
     ./bat
     ./bottom
-    ./carapace
+    ./caffeine
     ./direnv
     ./dmscripts
     ./firefox
