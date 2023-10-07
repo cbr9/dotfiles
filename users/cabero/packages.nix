@@ -34,6 +34,7 @@
     vlc
     ytfzf
     gnome.file-roller
+    discord
     zathura
   ];
 in {
