@@ -10,6 +10,16 @@
       keyword = "coursera";
     }
     {
+      name = "Leetcode";
+      url = "https://leetcode.com/";
+      keyword = "leetcode";
+    }
+    {
+      name = "Hackerrank";
+      url = "https://hackerrank.com/";
+      keyword = "hackerrank";
+    }
+    {
       name = "Moonlander";
       url = "https://www.zsa.io/moonlander/";
       keyword = "moonlander";
