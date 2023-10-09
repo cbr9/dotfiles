@@ -1,4 +1,8 @@
-{...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   config = {
     networking.vpn = ["tailscale"];
     sys = {

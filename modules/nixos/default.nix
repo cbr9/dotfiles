@@ -12,6 +12,7 @@
     ./gtk
     ./hardware
     ./kdeconnect
+    ./mysql
     ./nix
     ./nix-index
     ./nushell
