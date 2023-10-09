@@ -138,15 +138,15 @@ end
 local volume = {}
 
 function volume.mute()
-  awful.spawn("pamixer -t")
+  awful.spawn("pamixer --toggle-mute")
 end
 
 function volume.raise()
-  awful.spawn("pamixer --increase 5 --set-limit 150")
+  awful.spawn("pamixer --increase 5 --allow-boost")
 end
 
 function volume.lower()
-  awful.spawn("pamixer -d 5")
+  awful.spawn("pamixer --decrease 5")
 end
 
 local function switch_keyboard_layout()
