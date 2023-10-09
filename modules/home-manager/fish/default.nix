@@ -10,7 +10,6 @@
       fish_user_key_bindings = ''
         # To find out what sequence a key combination sends, you can use fish_key_reader
         bind \el accept-autosuggestion  # alt+l
-        bind \eh 'dm-hub -f'
         bind \ek up-or-search # alt+k
         bind \ej down-or-search # alt+j
         bind \ce 'fish_commandline_prepend $EDITOR'
