@@ -137,7 +137,7 @@ end
 
 local volume = {
   LIMIT = 150,
-  CHANGE_FACTOR = 1,
+  CHANGE_FACTOR = 5,
 }
 
 function volume.mute()
