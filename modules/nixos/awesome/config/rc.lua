@@ -142,7 +142,7 @@ function volume.mute()
 end
 
 function volume.raise()
-  awful.spawn("pamixer --increase 5 --set-limit 100")
+  awful.spawn("pamixer --increase 5 --set-limit 150")
 end
 
 function volume.lower()
