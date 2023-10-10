@@ -2,6 +2,7 @@
   cli = with pkgs; [
     aichat
     carapace
+    typst
     duden
     go
     todoist
