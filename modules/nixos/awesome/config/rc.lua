@@ -12,9 +12,11 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
-local hotkeys_popup = require("awful.hotkeys_popup")
+-- local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
+
+local volume = require("volume")
 require("awful.hotkeys_popup.keys")
 
 -- {{{ Error handling
@@ -135,29 +137,6 @@ function brightness.down()
   awful.spawn("brightnessctl set 5%-")
 end
 
-local volume = {
-  LIMIT = 150,
-  CHANGE_FACTOR = 5,
-}
-
-function volume.mute()
-  awful.spawn("pamixer --toggle-mute")
-end
-
-function volume.raise()
-  awful.spawn.easy_async("pamixer --get-volume", function(stdout, _, _, _)
-    local current_volume = tonumber(stdout)
-    if current_volume + volume.CHANGE_FACTOR >= volume.LIMIT then
-      awful.spawn(string.format("pamixer --allow-boost --set-volume %s", volume.LIMIT))
-    else
-      awful.spawn(string.format("pamixer --increase %s --allow-boost", volume.CHANGE_FACTOR))
-    end
-  end)
-end
-
-function volume.lower()
-  awful.spawn(string.format("pamixer --allow-boost --decrease %s", volume.CHANGE_FACTOR))
-end
 
 local function switch_keyboard_layout()
   awful.spawn("rofi_switch_keyboard_layout")

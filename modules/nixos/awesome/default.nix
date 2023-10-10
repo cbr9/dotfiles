@@ -59,6 +59,10 @@ in {
             wallpaper = config.stylix.image;
           };
         };
+        "awesome/volume.lua" = {
+          enable = cfg.enable;
+          source = ./config/volume.lua;
+        };
       };
     };
   };
