@@ -960,11 +960,11 @@
         "nixpkgs": "nixpkgs_9"
       },
       "locked": {
-        "lastModified": 1695992648,
-        "narHash": "sha256-DMcXuvJF170iLGyptDYXQBhKWMAAwQAfwkGhhj9Jeoc=",
+        "lastModified": 1696935039,
+        "narHash": "sha256-HEvmhPCkCrphOMvX7U/9MdWFRkGMwKbcYZl4KdXojZM=",
         "owner": "typst",
         "repo": "typst",
-        "rev": "62f37ad4abf09b52b3062b96ab078f33f2e40b93",
+        "rev": "d1a702f3fda49f7180ccde4f336fa725861be17f",
         "type": "github"
       },
       "original": {
