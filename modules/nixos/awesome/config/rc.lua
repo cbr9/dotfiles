@@ -287,7 +287,7 @@ local global_keys = gears.table.join(
     is_following_mouse = not is_following_mouse
   end),
 
-  awful.key({}, "XF86AudioMute", volume.mute),
+  awful.key({}, "XF86AudioMute", volume.toggle),
   awful.key({}, "XF86AudioLowerVolume", volume.lower),
   awful.key({}, "XF86AudioRaiseVolume", volume.raise),
   awful.key({ super }, "F9", function() awful.spawn("pavucontrol") end),

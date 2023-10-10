@@ -5,7 +5,7 @@ local volume = {
   STEP = 5,
 }
 
-function volume.mute()
+function volume.toggle()
   awful.spawn("pamixer --toggle-mute")
 end
 
