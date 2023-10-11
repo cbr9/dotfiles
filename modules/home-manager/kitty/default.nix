@@ -12,7 +12,7 @@
 in
   with lib; {
     stylix = {
-      opacity.terminal = 0.6;
+      opacity.terminal = 0.85;
       fonts.sizes.terminal = 15;
       polarity = "dark";
       targets.kitty.variant256Colors = true;
