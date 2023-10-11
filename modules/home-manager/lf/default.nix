@@ -76,7 +76,7 @@ in {
 
   home.packages = with pkgs;
     lib.mkIf cfg.enable [
-      libreoffice
+      libreoffice-qt
       ctpv
       unzip
       atool # for archive files
