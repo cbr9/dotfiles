@@ -10,6 +10,11 @@
       keyword = "coursera";
     }
     {
+      name = "Fastmail";
+      url = "app.fastmail.com";
+      keyword = "mail";
+    }
+    {
       name = "Leetcode";
       url = "https://leetcode.com/";
       keyword = "leetcode";
