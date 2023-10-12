@@ -329,6 +329,7 @@ local global_keys = gears.table.join(
   awful.key({ super, alt }, "l", function() awful.spawn("betterlockscreen -l dim &") end),
   awful.key({ super, "Shift" }, "b", function() awful.spawn("rofi-bluetooth") end),
   awful.key({ super }, "b", function() awful.spawn("firefox") end),
+  awful.key({ super }, "p", function() awful.spawn("1password") end),
   awful.key({ super }, "m", function() awful.spawn("mailspring") end),
   awful.key({ super }, "w", function() awful.spawn("obsidian") end),
   awful.key({ super, "Shift" }, "h", function() awful.spawn("dm-hub -r") end),
