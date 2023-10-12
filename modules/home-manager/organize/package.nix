@@ -6,7 +6,7 @@
 }:
 with lib; let
   cfg = config.programs.organize;
-  tomlFormat = pkgs.formats.toml {};
+  json = pkgs.formats.json {};
 in {
   options = {
     programs.organize = {
@@ -22,7 +22,7 @@ in {
       };
 
       config = mkOption {
-        type = tomlFormat.type;
+        type = json.type;
         default = {};
         example = literalExpression ''
           {
@@ -45,7 +45,7 @@ in {
     home.packages = [cfg.package];
     xdg.configFile."organize/config.toml" = {
       enable = cfg.enable && cfg.config != {};
-      source = tomlFormat.generate "config.toml" cfg.config;
+      source = json.generate "config.toml" cfg.config;
     };
   };
 
