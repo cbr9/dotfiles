@@ -33,6 +33,7 @@
     mpv
     obsidian
     qalculate-gtk
+    pcloud
     todoist-electron
     vlc
     ytfzf

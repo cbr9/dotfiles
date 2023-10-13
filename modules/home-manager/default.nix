@@ -18,7 +18,6 @@
     ./lf
     ./lsd
     ./man
-    ./nextcloud-client
     ./nix
     ./nushell
     ./nuscripts

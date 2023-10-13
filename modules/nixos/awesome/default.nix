@@ -48,7 +48,6 @@ in {
         "autostart/autostart.sh".source = pkgs.writeShellScript "autostart.sh" ''
           ${lib.optionalString config.programs._1password-gui.enable "1password --silent &"}
           ${lib.optionalString config.home-manager.users.cabero.services.betterlockscreen.enable "betterlockscreen -u ${config.stylix.image} &"}
-          ${lib.optionalString config.home-manager.users.cabero.services.nextcloud-client.enable "nextcloud --background &"}
           ${lib.optionalString config.programs.kdeconnect.enable "kdeconnect-cli --refresh &"}
         '';
 
