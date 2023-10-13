@@ -33,6 +33,7 @@
         [inputs.helix.overlays.default]
         ++ [
           (final: prev: {
+            filen = prev.callPackage ./pkgs/filen.nix {};
             typst = inputs.typst.packages.${system}.default;
             awesome = inputs.nixpkgs-f2k.packages.${system}.awesome-luajit-git;
             organize = inputs.organize.defaultPackage.${system};

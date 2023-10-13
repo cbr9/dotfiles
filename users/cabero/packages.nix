@@ -26,6 +26,7 @@
     feh
     gnome.file-roller
     google-chrome
+    appimage-run
     insync
     mailspring
     meld
@@ -35,6 +36,7 @@
     todoist-electron
     vlc
     ytfzf
+    filen
     zathura
     zotero
   ];
