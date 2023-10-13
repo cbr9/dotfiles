@@ -8,6 +8,7 @@ local awful = require("awful")
 require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
+local ruled = require("ruled")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
@@ -136,7 +137,6 @@ end
 function brightness.down()
   awful.spawn("brightnessctl set 5%-")
 end
-
 
 local function switch_keyboard_layout()
   awful.spawn("rofi_switch_keyboard_layout")
@@ -483,6 +483,10 @@ awful.rules.rules = {
 }
 -- }}}
 
+ruled.client.append_rule {
+  rule_any = { instance = {"filen-desktop"}, name = {"Filen"}, class = {"filen-desktop"} },
+  properties = { placement = awful.placement.top_right_corner }
+}
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
