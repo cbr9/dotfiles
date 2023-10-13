@@ -46,6 +46,7 @@ with lib; {
       commit.gpgsign = true;
       user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOe0bugU6xBMHw8bIMlvEr9TnZ3S185UkTzRJUcmcW6v";
       push.autoSetupRemote = true;
+      merge.tool = "meld";
     };
   };
 }
