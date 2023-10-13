@@ -27,7 +27,6 @@
     gnome.file-roller
     google-chrome
     appimage-run
-    insync
     mailspring
     meld
     mpv
@@ -38,7 +37,6 @@
     vlc
     ytfzf
     filen
-    zathura
     zotero
   ];
 in {
