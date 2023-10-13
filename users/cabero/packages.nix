@@ -1,42 +1,42 @@
 {pkgs, ...}: let
   cli = with pkgs; [
     aichat
-    carapace
-    typst
-    duden
-    go
-    todoist
-    just
-    watchexec
-    dysk
-    poppler_utils
-    nodePackages.webtorrent-cli
-    ripgrep
-    xclip
-    fd
-    sox
-    ouch
     du-dust
+    duden
+    dysk
+    fd
+    go
+    just
+    nodePackages.webtorrent-cli
+    ouch
+    poppler_utils
+    ripgrep
     sd
+    sox
+    todoist
+    typst
+    watchexec
+    xclip
   ];
 
   gui = with pkgs; [
-    evince
-    qalculate-gtk
-    mpv
-    mailspring
-    insync
-    obsidian
-    google-chrome
     anki
+    discord
+    evince
     feh
-    zotero
+    gnome.file-roller
+    google-chrome
+    insync
+    mailspring
+    meld
+    mpv
+    obsidian
+    qalculate-gtk
     todoist-electron
     vlc
     ytfzf
-    gnome.file-roller
-    discord
     zathura
+    zotero
   ];
 in {
   home.packages = cli ++ gui;
