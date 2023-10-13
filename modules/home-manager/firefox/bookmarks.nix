@@ -98,6 +98,11 @@
           url = "https://mail.google.com";
           keyword = "gmail";
         }
+        {
+          name = "YouTube";
+          url = "https://www.youtube.com/";
+          keyword = "yt";
+        }
       ];
     }
     {
