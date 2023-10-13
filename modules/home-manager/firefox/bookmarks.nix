@@ -10,6 +10,11 @@
       keyword = "coursera";
     }
     {
+      name = "Privacy Tools";
+      url = "https://www.privacytools.io";
+      keyword = "privacy";
+    }
+    {
       name = "Fastmail";
       url = "app.fastmail.com";
       keyword = "mail";
