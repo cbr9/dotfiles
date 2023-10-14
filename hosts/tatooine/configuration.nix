@@ -15,6 +15,17 @@
       };
     };
 
+    services.hardware.openrgb = let
+      red = "ff0000";
+    in {
+      enable = true;
+      motherboard = "amd";
+      extraArgs = [
+        "--mode static"
+        "--color ${red}"
+      ];
+    };
+
     services.thermald.enable = true;
     services.tlp.enable = true;
   };
