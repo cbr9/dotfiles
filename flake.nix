@@ -26,16 +26,17 @@
       nixpkgs.lib.extend
       (final: prev: (import ./lib final));
     lib = mkLib inputs.nixpkgs;
+    pkgs = inputs.nixpkgs.legacyPackages.${system};
   in {
     nixosConfigurations = lib.mkHosts ["naboo" "tatooine"] system inputs;
 
-    # devShells.${system}.default = pkgs.mkShell {
-    #   nativeBuildInputs = with pkgs; [
-    #     git-crypt
-    #     git-lfs
-    #     git
-    #     nix-prefetch-github
-    #   ];
-    # };
+    devShells.${system}.default = pkgs.mkShell {
+      nativeBuildInputs = with pkgs; [
+        git-crypt
+        git-lfs
+        git
+        nix-prefetch-github
+      ];
+    };
   };
 }

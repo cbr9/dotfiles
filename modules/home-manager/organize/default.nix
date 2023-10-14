@@ -1,8 +1,6 @@
 {config, ...}: let
   downloads = config.xdg.userDirs.download;
-  pictures = config.xdg.userDirs.pictures;
   documents = config.xdg.userDirs.documents;
-  music = config.xdg.userDirs.music;
 in {
   imports = [./package.nix];
   programs.organize = {
