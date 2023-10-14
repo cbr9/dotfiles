@@ -1,8 +1,27 @@
-{...}: {
-  config = {
-    nixpkgs.config = {
+{
+  inputs,
+  system,
+  ...
+}: {
+  nixpkgs.pkgs = import inputs.nixpkgs {
+    inherit system;
+    overlays =
+      [
+        (final: prev: {
+          filen = prev.callPackage ./pkgs/filen.nix {};
+          sph2pipe = import ./pkgs/sph2pipe.nix {pkgs = prev;};
+          typst = inputs.typst.packages.${system}.default;
+          awesome = inputs.nixpkgs-f2k.packages.${system}.awesome-luajit-git;
+          organize = inputs.organize.defaultPackage.${system};
+
+          # stable = inputs.nixpkgs-stable.legacyPackages.${system};
+          # master = inputs.nixpkgs-master.legacyPackages.${system};
+        })
+      ]
+      ++ [inputs.helix.overlays.default];
+
+    config = {
       allowUnfree = true;
-      allowBroken = true;
       permittedInsecurePackages = ["electron-21.4.0"];
     };
   };

@@ -22,50 +22,20 @@
 
   outputs = {...} @ inputs: let
     system = "x86_64-linux";
-
     mkLib = nixpkgs:
       nixpkgs.lib.extend
       (final: prev: (import ./lib final));
-
-    pkgs = import inputs.nixpkgs {
-      inherit system;
-      overlays = (
-        [inputs.helix.overlays.default]
-        ++ [
-          (final: prev: {
-            filen = prev.callPackage ./pkgs/filen.nix {};
-            typst = inputs.typst.packages.${system}.default;
-            awesome = inputs.nixpkgs-f2k.packages.${system}.awesome-luajit-git;
-            organize = inputs.organize.defaultPackage.${system};
-            sph2pipe = import ./pkgs/sph2pipe.nix {pkgs = prev;};
-            stable = import inputs.nixpkgs-stable {
-              inherit (final) system;
-              config = final.config;
-            };
-            master = import inputs.nixpkgs-master {
-              inherit (final) system;
-              config = final.config;
-            };
-            lib = mkLib inputs.nixpkgs;
-          })
-        ]
-      );
-      config = {
-        allowUnfree = true;
-        permittedInsecurePackages = ["electron-21.4.0"];
-      };
-    };
-    lib = pkgs.lib;
+    lib = mkLib inputs.nixpkgs;
   in {
-    nixosConfigurations = lib.mkHosts ["naboo" "tatooine"] inputs pkgs;
+    nixosConfigurations = lib.mkHosts ["naboo" "tatooine"] system inputs;
 
-    devShells.${system}.default = pkgs.mkShell {
-      nativeBuildInputs = with pkgs; [
-        git-crypt
-        git-lfs
-        git
-        nix-prefetch-github
-      ];
-    };
+    # devShells.${system}.default = pkgs.mkShell {
+    #   nativeBuildInputs = with pkgs; [
+    #     git-crypt
+    #     git-lfs
+    #     git
+    #     nix-prefetch-github
+    #   ];
+    # };
   };
 }

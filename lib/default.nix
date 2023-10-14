@@ -19,15 +19,14 @@ in {
     then "true"
     else "false";
 
-  mkHosts = hosts: inputs: pkgs:
+  mkHosts = hosts: system: inputs:
     lib.genAttrs hosts (host:
       lib.mkHost {
-        inherit pkgs inputs;
+        inherit inputs system;
         hostName = host;
       });
 
   mkHost = {
-    pkgs,
     inputs,
     hostName,
     system ? "x86_64-linux",
@@ -36,8 +35,9 @@ in {
     with builtins;
       lib.nixosSystem
       {
-        inherit system pkgs lib;
-        specialArgs = {inherit inputs;};
+        inherit system lib;
+        specialArgs = {inherit inputs system;};
+
         modules = [
           disko.nixosModules.disko
           agenix.nixosModules.default
@@ -47,6 +47,7 @@ in {
           ({
             modulesPath,
             config,
+            pkgs,
             ...
           }: {
             imports = [
@@ -68,7 +69,6 @@ in {
                 };
               };
 
-              nixpkgs.pkgs = pkgs;
               boot.kernelPackages = pkgs.linuxPackages_latest;
               boot.kernelModules = ["i2c-dev"];
               system.stateVersion = stateVersion;
