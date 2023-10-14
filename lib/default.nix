@@ -57,7 +57,6 @@ in {
               ../hosts/${hostName}/configuration.nix
               ../hosts/${hostName}/disks.nix
               ../users
-              ../pkgs
               ../modules/nixos
             ];
 

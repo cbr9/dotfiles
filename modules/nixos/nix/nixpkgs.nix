@@ -6,6 +6,7 @@
   nixpkgs.pkgs = import inputs.nixpkgs {
     inherit system;
     overlays = [
+      (import ../../../pkgs) # custom packages
       (final: prev: {
         typst = inputs.typst.packages.${system}.default;
         awesome = inputs.nixpkgs-f2k.packages.${system}.awesome-luajit-git;
@@ -13,7 +14,8 @@
         stable = inputs.nixpkgs-stable.legacyPackages.${system};
         master = inputs.nixpkgs-master.legacyPackages.${system};
       })
-     ] ++ [inputs.helix.overlays.default];
+      inputs.helix.overlays.default
+    ];
 
     config = {
       allowUnfree = true;
