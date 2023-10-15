@@ -109,8 +109,7 @@ in {
       incsearch = true;
     };
     commands = {
-      drag-and-drop = mkLfCmd "${pkgs.xdragon}/bin/dragon --on-top \"$fx\"";
-      drag-all-and-drop = mkLfCmd "${pkgs.xdragon}/bin/dragon --all --and-exit --on-top \"$fx\"";
+      drag-and-drop = mkLfCmd "${pkgs.xdragon}/bin/dragon --all --and-exit --on-top $fx";
 
       toggle-preview = (
         mkLfCmd
@@ -329,7 +328,7 @@ in {
 
       gl = "follow-link";
 
-      "<c-d>" = "drag-all-and-drop";
+      "<c-d>" = "drag-and-drop";
 
       # unmap the default rename keybinding
       r = "";
