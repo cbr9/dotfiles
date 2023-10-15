@@ -25,6 +25,11 @@
       keyword = "leetcode";
     }
     {
+      name = "Kaggle";
+      url = "https://kaggle.com/";
+      keyword = "kaggle";
+    }
+    {
       name = "Hackerrank";
       url = "https://hackerrank.com/";
       keyword = "hackerrank";
