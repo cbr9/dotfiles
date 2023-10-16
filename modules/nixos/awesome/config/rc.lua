@@ -355,7 +355,7 @@ local global_keys = gears.table.join(
 local client_keys = gears.table.join(
   awful.key({ super, }, "f", toggle_fullscreen),
   awful.key({ super, }, "n", minimize),
-  awful.key({ super }, "m", maximize),
+  awful.key({ super, "Shift" }, "m", maximize),
   awful.key({ super, }, "q", function(c) c:kill() end),
   awful.key({ super, "Control" }, "space", awful.client.floating.toggle),
   awful.key({ super, }, "o", function(c) c:move_to_screen() end),
