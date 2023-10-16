@@ -19,6 +19,7 @@
       true-color = true;
       auto-save = true;
       cursorline = true;
+      cursorcolumn = true;
       gutters = ["diff" "line-numbers" "spacer" "diagnostics"];
       color-modes = true;
       bufferline = "always";
