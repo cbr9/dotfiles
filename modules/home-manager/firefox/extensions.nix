@@ -18,9 +18,9 @@
       i-dont-care-about-cookies
       (
         buildFirefoxXpiAddon rec {
-          pname = "simple-translate";
+          pname = "simple_translate";
           version = "2.8.1";
-          url = "https://addons.mozilla.org/firefox/downloads/file/4072586/simple_translate-${version}.xpi";
+          url = "https://addons.mozilla.org/firefox/downloads/file/4072586/${pname}-${version}.xpi";
           sha256 = "sha256-I/GVPViNXZlDq0OEVAe4SlG7zBgkuMAQ7VbKoRlxGic=";
           addonId = "simple-translate@sienori";
           meta = {};
@@ -28,9 +28,19 @@
       )
       (
         buildFirefoxXpiAddon rec {
-          pname = "toucan";
+          pname = "downthemall";
+          version = "4.11.1";
+          url = "https://addons.mozilla.org/firefox/downloads/file/4157731/${pname}-${version}.xpi";
+          sha256 = "09qsf4cs3jjnxl8c1f14336bnlaap03m9123md1rjpcdb0yrbw93";
+          addonId = "{DDC359D1-844A-42a7-9AA1-88A850A938A8}";
+          meta = {};
+        }
+      )
+      (
+        buildFirefoxXpiAddon rec {
+          pname = "toucan_language_learning";
           version = "2.15.3";
-          url = "https://addons.mozilla.org/firefox/downloads/file/3964416/toucan_language_learning-${version}.xpi";
+          url = "https://addons.mozilla.org/firefox/downloads/file/3964416/${pname}-${version}.xpi";
           sha256 = "sha256-fiL9jsCpQhlqTh/ouxsjm+wjljTm+ygTdnNTxYgDtns=";
           addonId = "{fe50e88d-a084-4ff2-9d58-eeac466f937e}";
           meta = {};
@@ -38,9 +48,9 @@
       )
       (
         buildFirefoxXpiAddon rec {
-          pname = "popup-blocker";
+          pname = "popup_blocker";
           version = "0.6.8";
-          url = "https://addons.mozilla.org/firefox/downloads/file/3821195/popup_blocker-${version}.xpi";
+          url = "https://addons.mozilla.org/firefox/downloads/file/3821195/${pname}-${version}.xpi";
           sha256 = "sha256-qXJlA/9UzXEF3sHJdTfG0N3spYXhZt5MgjOXETdT5sw=";
           addonId = "{de22fd49-c9ab-4359-b722-b3febdc3a0b0}";
           meta = {};

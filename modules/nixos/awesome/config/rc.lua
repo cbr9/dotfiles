@@ -459,6 +459,7 @@ awful.rules.rules = {
       -- and the name shown there might not match defined rules here.
       name = {
         "Event Tester", -- xev.
+        "dragon",
       },
       role = {
         "AlarmWindow",   -- Thunderbird's calendar.
@@ -466,27 +467,24 @@ awful.rules.rules = {
         "pop-up",        -- e.g. Google Chrome's (detached) Developer Tools.
       }
     },
-    properties = { floating = true }
-  },
-
-  -- Add titlebars to normal clients and dialogs
-  {
-    rule_any = { type = { "normal", "dialog" }
-    },
-    properties = { titlebars_enabled = false }
+    properties = {
+      floating = true,
+      placement = awful.placement.under_mouse,
+      ontop = true,
+    }
   },
 
   {
-    rule = { class = "Firefox" },
-    properties = { screen = 1, tag = tag_names[2] }
+    rule_any = { class = { "filen-desktop", "nextcloud" } },
+    except_any = { name = { "Nextcloud Settings" }, },
+    properties = {
+      placement = awful.placement.top_right,
+      ontop = true,
+    }
   },
 }
 -- }}}
 
-ruled.client.append_rule {
-  rule_any = { instance = {"filen-desktop"}, name = {"Filen"}, class = {"filen-desktop"} },
-  properties = { placement = awful.placement.top_right_corner }
-}
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
