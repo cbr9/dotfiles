@@ -31,7 +31,7 @@
           pname = "downthemall";
           version = "4.11.1";
           url = "https://addons.mozilla.org/firefox/downloads/file/4157731/${pname}-${version}.xpi";
-          sha256 = "09qsf4cs3jjnxl8c1f14336bnlaap03m9123md1rjpcdb0yrbw93";
+          sha256 = "sha256-j00lwXnoMk1PiteFpdyS1UcAOXT9NgmgbiUPgmJwKRs=";
           addonId = "{DDC359D1-844A-42a7-9AA1-88A850A938A8}";
           meta = {};
         }
