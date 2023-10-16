@@ -267,7 +267,7 @@ local function xprop()
     if file ~= nil then
       file:write(output)
       file:close()
-      awful.spawn(terminal .. " -e hx " ..path)
+      awful.spawn(terminal .. " -e hx " .. path)
     end
   end)
 end
