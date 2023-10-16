@@ -260,6 +260,18 @@ local function __follow_mouse_wrapped(c)
   c:activate { context = "mouse_enter", raise = true }
 end
 
+local function xprop()
+  awful.spawn.easy_async("xprop", function(output, _, _, _)
+    local path = "/tmp/xprop.log"
+    local file = io.open(path, "w")
+    if file ~= nil then
+      file:write(output)
+      file:close()
+      awful.spawn(terminal .. " -e hx " ..path)
+    end
+  end)
+end
+
 
 local is_following_mouse = true
 
@@ -334,6 +346,7 @@ local global_keys = gears.table.join(
   awful.key({ super }, "w", function() awful.spawn("obsidian") end),
   awful.key({ super, "Shift" }, "h", function() awful.spawn("dm-hub -r") end),
   awful.key({ super, "Shift" }, "p", function() awful.spawn("dm-logout -r") end),
+  awful.key({ super, "Shift" }, "x", xprop),
   awful.key({ super }, "space", switch_keyboard_layout),
   awful.key({ super }, "v", function() awful.spawn("clipmenu") end),
   awful.key({ super }, "z", function() awful.spawn("zotero") end)
