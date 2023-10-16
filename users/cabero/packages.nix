@@ -24,6 +24,7 @@
     discord
     evince
     feh
+    arandr
     gnome.file-roller
     google-chrome
     appimage-run
