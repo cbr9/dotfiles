@@ -342,7 +342,7 @@ local global_keys = gears.table.join(
   awful.key({ super, "Shift" }, "b", function() awful.spawn("rofi-bluetooth") end),
   awful.key({ super }, "b", function() awful.spawn("firefox") end),
   awful.key({ super }, "p", function() awful.spawn("1password") end),
-  awful.key({ super }, "m", function() awful.spawn("mailspring") end),
+  -- awful.key({ super }, "m", function() awful.spawn("mailspring") end),
   awful.key({ super }, "w", function() awful.spawn("obsidian") end),
   awful.key({ super, "Shift" }, "h", function() awful.spawn("dm-hub -r") end),
   awful.key({ super, "Shift" }, "p", function() awful.spawn("dm-logout -r") end),
@@ -355,7 +355,7 @@ local global_keys = gears.table.join(
 local client_keys = gears.table.join(
   awful.key({ super, }, "f", toggle_fullscreen),
   awful.key({ super, }, "n", minimize),
-  awful.key({ super, "Shift" }, "m", maximize),
+  awful.key({ super, }, "m", maximize),
   awful.key({ super, }, "q", function(c) c:kill() end),
   awful.key({ super, "Control" }, "space", awful.client.floating.toggle),
   awful.key({ super, }, "o", function(c) c:move_to_screen() end),
