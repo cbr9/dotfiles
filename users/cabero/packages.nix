@@ -23,6 +23,7 @@
     anki
     discord
     evince
+    spotify
     feh
     arandr
     gnome.file-roller
