@@ -10,6 +10,11 @@
       keyword = "coursera";
     }
     {
+      name = "Splitwise";
+      url = "https://secure.splitwise.com/#/dashboard";
+      keyword = "splitwise";
+    }
+    {
       name = "Privacy Tools";
       url = "https://www.privacytools.io";
       keyword = "privacy";
