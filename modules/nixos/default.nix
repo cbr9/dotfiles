@@ -19,7 +19,6 @@
     ./picom
     ./qt
     ./sshfs
-    ./spotify
     ./tailscale
   ];
 }

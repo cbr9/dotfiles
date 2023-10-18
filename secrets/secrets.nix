@@ -18,5 +18,4 @@ in {
   "cabero-15582531.age".publicKeys = publicKeys;
   "cabero-15582547.age".publicKeys = publicKeys;
   "tailscale.age".publicKeys = publicKeys;
-  "spotify.age".publicKeys = publicKeys;
 }
