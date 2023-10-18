@@ -9,7 +9,7 @@
       global = {
         username = "31vtbbqkijxmfhlidy4clznrf6a4";
         password_cmd = "op item get Spotify --fields password";
-        device_name = nixosConfig.networking.hostName;
+        device_name = "${nixosConfig.networking.hostName}-daemon";
         backend = "pulseaudio";
         bitrate = 320;
       };
