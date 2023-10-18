@@ -1,6 +1,5 @@
 {config, ...}: let
   downloads = config.xdg.userDirs.download;
-  documents = config.xdg.userDirs.documents;
 in {
   imports = [./package.nix];
   programs.organize = {
@@ -8,23 +7,20 @@ in {
     config = {
       rules = [
         {
-          folders = [downloads];
           actions = [
             {
-              type = "move";
-              to = documents;
-              if_exists = "rename";
+              type = "script";
+              exec = "python";
+              content = (
+                # python
+                ''
+                  import shutil
+                  new_path = "{path}".replace(" ", "-")
+                  shutil.move("{path}", new_path)
+                  print(new_path)
+                ''
+              );
             }
-          ];
-          filters = [
-            {
-              type = "extension";
-              extensions = ["pdf"];
-            }
-          ];
-        }
-        {
-          actions = [
             {
               type = "move";
               to = "${downloads}/{extension}";

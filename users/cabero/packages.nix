@@ -2,6 +2,7 @@
   cli = with pkgs; [
     aichat
     du-dust
+    python312
     duden
     dysk
     fd
