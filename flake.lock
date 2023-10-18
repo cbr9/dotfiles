@@ -852,11 +852,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1684233368,
-        "narHash": "sha256-tZQOpFwno11RfuyFOhIiSJOzlC/t34PtWo79BrCALmw=",
+        "lastModified": 1697648881,
+        "narHash": "sha256-kKqLcn0dp9D5cG8SzCx343u6iuR8XSv0MhXtOyYhwR4=",
         "owner": "cbr9",
         "repo": "organizer",
-        "rev": "dfad4ec600620791137e284fc6231f2c7572ed38",
+        "rev": "9c77acf727fdc115530db7acd2a040c94ad96aef",
         "type": "github"
       },
       "original": {
