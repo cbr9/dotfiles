@@ -37,6 +37,14 @@ in {
       authKeyFile = config.age.secrets.tailscale.path;
     };
 
+    home-manager.users.cabero = {
+      programs.fish.shellAbbrs = {
+        taildrop = "tailscale file";
+        tailsend = "tailscale file cp";
+        tailget = "tailscale file get";
+      };
+    };
+
     systemd.services.taildrop = lib.mkIf (cfg.enable && cfg.taildropDir != null) {
       description = "Run taildrop in a loop";
       after = ["tailscaled.service"];
