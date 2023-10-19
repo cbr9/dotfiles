@@ -90,6 +90,18 @@
       keyword = "english";
     }
     {
+      name = "Blogs";
+      toolbar = false;
+      bookmarks = [
+        {
+          name = "Chip Huyen";
+          url = "https://huyenchip.com/";
+          keyword = "chip";
+          tags = ["machine-learning"];
+        }
+      ];
+    }
+    {
       name = "Google";
       toolbar = false;
       bookmarks = [
