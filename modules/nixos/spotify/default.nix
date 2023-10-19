@@ -23,20 +23,9 @@
       };
     };
 
-    # xdg.desktopEntries.Spotify = {
-    #   name = "Spotify";
-    #   genericName = "Music Player";
-    #   icon = "spotify-client";
-    #   type = "Application";
-    #   exec = "${pkgs.spotify}/bin/spotify --uri=%U --disable-gpu";
-    #   terminal = false;
-    #   categories = ["Audio" "Music" "Player" "AudioVideo"];
-    #   mimeType = ["x-scheme-handler/spotify"];
-    # };
-
     home.packages = let
       spotify = pkgs.writeScriptBin "spotify" ''
-        ${pkgs.spotify}/bin/spotify --disable-gpu
+        ${pkgs.spotify}/bin/spotify --disable-gpu # fix font glitch
       '';
     in [pkgs.spotify-tui pkgs.spotify (lib.hiPrio spotify)];
   };
