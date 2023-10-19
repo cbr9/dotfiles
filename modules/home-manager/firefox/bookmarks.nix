@@ -99,6 +99,11 @@
           keyword = "chip";
           tags = ["machine-learning"];
         }
+        {
+          name = "ML Interviews Book";
+          url = "https://huyenchip.com/ml-interviews-book/";
+          keyword = "mlinterview";
+        }
       ];
     }
     {
