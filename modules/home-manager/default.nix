@@ -28,7 +28,6 @@
     ./rofi
     ./ssh
     ./starship
-    ./spotify
     ./texlive
     ./vscode
     ./xdg
