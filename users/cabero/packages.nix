@@ -37,7 +37,7 @@
     todoist-electron
     vlc
     ytfzf
-    filen
+    filen-desktop
     zotero
   ];
 in {
