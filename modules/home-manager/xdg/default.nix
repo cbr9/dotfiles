@@ -24,9 +24,9 @@ in {
         ++ lib.lists.forEach ["http" "https" "about" "unknown"]
         (x: "x-scheme-handler/" + x)
       );
-      videoMimeTypes = ["video/*" "audio/*"];
+      videoMimeTypes = ["video/x-matroska" "video/mp4"];
       documentTypes = ["application/pdf"];
-      textTypes = ["application/json" "text/*" "text/markdown"];
+      textTypes = ["application/json" "text/plain" "text/markdown"];
       folderTypes = ["inode/directory"];
     in {
       enable = true;
@@ -37,12 +37,6 @@ in {
         (lib.attrsets.genAttrs textTypes (name: defaultApplications.textEditor))
         (lib.attrsets.genAttrs folderTypes (name: defaultApplications.fileManager))
       ];
-      associations = {
-        removed = {
-          "text/*" = "firefox.desktop";
-          "application/json" = "firefox.desktop";
-        };
-      };
     };
   };
 }
