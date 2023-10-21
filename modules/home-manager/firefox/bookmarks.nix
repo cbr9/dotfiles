@@ -55,6 +55,11 @@
       keyword = "ilias";
     }
     {
+      name = "Campus";
+      url = "https://campus.uni-stuttgart.de";
+      keyword = "campus";
+    }
+    {
       name = "University Email";
       url = "https://mail.uni-stuttgart.de/";
       keyword = "unimail";
