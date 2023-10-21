@@ -104,6 +104,11 @@
           url = "https://huyenchip.com/ml-interviews-book/";
           keyword = "mlinterview";
         }
+        {
+          name = "Awni Hannun";
+          url = "https://awnihannun.com/index.html";
+          keyword = "awni";
+        }
       ];
     }
     {
