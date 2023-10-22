@@ -7,6 +7,7 @@
     allowUnfree = true;
     permittedInsecurePackages = [
       "electron-21.4.0"
+      "electron-19.1.9"
       "mailspring-1.11.0"
     ];
   };

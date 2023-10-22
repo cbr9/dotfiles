@@ -2,7 +2,6 @@
   cli = with pkgs; [
     aichat
     du-dust
-    python312
     duden
     dysk
     fd
@@ -11,6 +10,7 @@
     nodePackages.webtorrent-cli
     ouch
     poppler_utils
+    python312
     ripgrep
     sd
     sox
@@ -22,13 +22,16 @@
 
   gui = with pkgs; [
     anki
+    appimage-run
+    arandr
     discord
+    etcher
     evince
     feh
-    arandr
+    filen-desktop
     gnome.file-roller
     google-chrome
-    appimage-run
+    gparted
     mailspring
     meld
     mpv
@@ -37,7 +40,7 @@
     todoist-electron
     vlc
     ytfzf
-    filen-desktop
+    ventoy-full
     zotero
   ];
 in {
