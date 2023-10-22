@@ -25,6 +25,11 @@
       keyword = "mail";
     }
     {
+      name = "Microsoft 365";
+      url = "https://www.office.com";
+      keyword = "office";
+    }
+    {
       name = "Leetcode";
       url = "https://leetcode.com/";
       keyword = "leetcode";
