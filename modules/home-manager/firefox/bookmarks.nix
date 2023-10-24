@@ -100,6 +100,11 @@
       keyword = "english";
     }
     {
+      name = "ML Interviews Book";
+      url = "https://huyenchip.com/ml-interviews-book/";
+      keyword = "mlinterview";
+    }
+    {
       name = "Blogs";
       toolbar = false;
       bookmarks = [
@@ -107,7 +112,6 @@
           name = "Chip Huyen";
           url = "https://huyenchip.com/";
           keyword = "chip";
-          tags = ["machine-learning"];
         }
         {
           name = "Ivaylo Durmonski";
@@ -115,14 +119,14 @@
           keyword = "durmonski";
         }
         {
-          name = "ML Interviews Book";
-          url = "https://huyenchip.com/ml-interviews-book/";
-          keyword = "mlinterview";
-        }
-        {
           name = "Awni Hannun";
           url = "https://awnihannun.com/index.html";
           keyword = "awni";
+        }
+        {
+          name = "Jonathan Boigne";
+          url = "https://jonathanbgn.com";
+          keyword = "bgn";
         }
       ];
     }
