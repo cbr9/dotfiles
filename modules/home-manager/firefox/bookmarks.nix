@@ -110,6 +110,11 @@
           tags = ["machine-learning"];
         }
         {
+          name = "Ivaylo Durmonski";
+          url = "https://durmonski.com";
+          keyword = "durmonski";
+        }
+        {
           name = "ML Interviews Book";
           url = "https://huyenchip.com/ml-interviews-book/";
           keyword = "mlinterview";
