@@ -114,6 +114,11 @@
           keyword = "chip";
         }
         {
+          name = "Jay Alammar";
+          url = "https://jalammar.github.io/";
+          keyword = "alammar";
+        }
+        {
           name = "Ivaylo Durmonski";
           url = "https://durmonski.com";
           keyword = "durmonski";
