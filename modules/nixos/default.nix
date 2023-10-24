@@ -16,7 +16,6 @@
     ./nix
     ./nix-index
     ./nushell
-    ./onedrive
     ./picom
     ./qt
     ./sshfs
