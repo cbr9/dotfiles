@@ -1,6 +1,7 @@
 {pkgs, ...}: let
   cli = with pkgs; [
     aichat
+    detox
     du-dust
     duden
     dysk
