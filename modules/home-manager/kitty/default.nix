@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  nixosConfig,
   pkgs,
   ...
 }: let
@@ -26,10 +25,6 @@ in
 
     programs.kitty = {
       enable = true;
-      package =
-        if nixosConfig != {}
-        then pkgs.master.kitty
-        else pkgs.kitty;
       settings = {
         confirm_os_window_close = 0;
         editor = "${config.home.sessionVariables.EDITOR}";
