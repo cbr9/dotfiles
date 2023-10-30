@@ -11,7 +11,6 @@
       clearurls
       tridactyl
       decentraleyes
-      simplelogin
       plasma-integration
       youtube-shorts-block
       youtube-recommended-videos # unhook
