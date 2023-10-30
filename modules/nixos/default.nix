@@ -16,6 +16,7 @@
     ./nix
     ./nix-index
     ./nushell
+    ./openrgb
     ./picom
     ./qt
     ./sshfs

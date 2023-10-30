@@ -17,7 +17,6 @@
     ./disk.nix
     ./bluetooth.nix
     ./net.nix
-    ./openrgb.nix
   ];
 
   config = {
