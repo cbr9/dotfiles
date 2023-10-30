@@ -97,7 +97,7 @@ in {
 
               networking = {
                 inherit hostName;
-                iproute2.enable = true;
+                # iproute2.enable = true;
                 enableIPv6 = true;
                 dhcpcd.enable = true;
               };
