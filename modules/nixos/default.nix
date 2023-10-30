@@ -20,6 +20,7 @@
     ./picom
     ./qt
     ./sshfs
+    ./stylix
     ./spotify
     ./tailscale
   ];
