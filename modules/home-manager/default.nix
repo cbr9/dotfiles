@@ -23,7 +23,6 @@
     ./nushell
     ./nuscripts
     ./organize
-    ./pueue
     ./redshift
     ./rofi
     ./ssh
