@@ -19,12 +19,11 @@
   programs.firefox = {
     enable = nixosConfig != {};
     package = pkgs.firefox.override {
-      cfg = {
-        speechSynthesisSupport = true;
-        enablePlasmaBrowserIntegration = true;
-        enableGnomeExtensions = nixosConfig.services.xserver.desktopManager.gnome.enable;
-        enableTridactylNative = builtins.elem nixosConfig.nur.repos.rycee.firefox-addons.tridactyl config.programs.firefox.profiles.default.extensions;
-      };
+      nativeMessagingHosts = (
+        [pkgs.plasma-browser-integration]
+        ++ (lib.optional (builtins.elem nixosConfig.nur.repos.rycee.firefox-addons.tridactyl config.programs.firefox.profiles.default.extensions) pkgs.tridactyl-native)
+        ++ (lib.optional (nixosConfig.services.xserver.desktopManager.gnome.enable) pkgs.gnome-browser-connector)
+      );
       extraPolicies = import ./policies.nix {inherit config;};
     };
     profiles.default = {
