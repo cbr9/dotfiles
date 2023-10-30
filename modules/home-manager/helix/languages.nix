@@ -20,7 +20,7 @@ with pkgs; {
     nodePackages.vscode-json-languageserver
     typst-lsp
     clippy
-    python310Packages.ruff-lsp
+    ruff-lsp
     python311Packages.python-lsp-server
     alejandra
     black
@@ -29,7 +29,7 @@ with pkgs; {
   programs.helix.languages = rec {
     language-server = {
       pyright = {
-        command = "${pkgs.nodePackages.pyright}/bin/pyright-langserver";
+        command = "pyright-langserver";
         args = ["--stdio"];
         config = {}; # <- this is the important line
       };
@@ -50,7 +50,7 @@ with pkgs; {
         check.features = "all";
       };
       ruff = {
-        command = "${pkgs.ruff-lsp}/bin/ruff-lsp";
+        command = "ruff-lsp";
       };
       lua-language-server = let
         ifAwesome = list: lib.optionals (nixosConfig != {} && nixosConfig.services.xserver.windowManager.awesome.enable) list;
