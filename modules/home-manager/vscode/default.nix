@@ -7,7 +7,7 @@
 with lib; {
   stylix.targets.vscode.enable = false;
   programs.vscode = {
-    enable = true;
+    enable = false;
     mutableExtensionsDir = nixosConfig == {};
     extensions = with pkgs.vscode-extensions; [
       arrterian.nix-env-selector
