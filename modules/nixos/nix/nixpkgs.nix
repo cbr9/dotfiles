@@ -8,7 +8,9 @@
     permittedInsecurePackages = [
       "electron-21.4.0"
       "electron-19.1.9"
+      "electron-24.8.6"
       "mailspring-1.11.0"
+      "zotero-6.0.27"
     ];
   };
 in {
