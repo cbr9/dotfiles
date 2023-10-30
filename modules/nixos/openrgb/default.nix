@@ -19,7 +19,11 @@ in
     config = lib.mkIf config.services.hardware.openrgb.enable {
       environment.systemPackages = [pkgs.i2c-tools];
       systemd.services.openrgb = {
-        serviceConfig.ExecStart = lib.mkForce "${cfg.package}/bin/openrgb --server --server-port ${toString cfg.server.port} ${lib.concatStringsSep " " cfg.extraArgs}";
+        wantedBy = ["suspend.target" "hibernate.target" "hybrid-sleep.target" "suspend-then-hibernate.target"];
+        after = ["suspend.target" "hibernate.target" "hybrid-sleep.target" "suspend-then-hibernate.target"];
+        serviceConfig = {
+          ExecStart = lib.mkForce "${cfg.package}/bin/openrgb --server --server-port ${toString cfg.server.port} ${lib.concatStringsSep " " cfg.extraArgs}";
+        };
       };
     };
   }
