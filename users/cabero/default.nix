@@ -36,6 +36,7 @@ with builtins; {
       stylix.targets = config.home-manager.users.cabero.stylix.targets;
       home.stateVersion = config.home-manager.users.cabero.home.stateVersion;
       programs.helix = config.home-manager.users.cabero.programs.helix;
+      programs.home-manager.enable = true;
     };
 
     home-manager.users.cabero = mkMerge (mkHome {
@@ -43,6 +44,7 @@ with builtins; {
         home.sessionPath = [
           "${config.home-manager.users.cabero.home.homeDirectory}/.cargo/bin"
         ];
+        programs.home-manager.enable = true;
         imports = [./packages.nix];
 
         home.sessionVariables = {
