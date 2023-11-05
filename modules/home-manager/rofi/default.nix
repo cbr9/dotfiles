@@ -13,6 +13,9 @@ with pkgs; let
   };
 in {
   stylix.targets.rofi.enable = false;
+  home.packages = lib.mkIf cfg.enable [
+    rofi-power-menu
+  ];
 
   programs.rofi = {
     enable = true;
