@@ -5,7 +5,7 @@
 }: let
   cfg = config.services.xserver.windowManager.awesome;
   hm = config.home-manager.users.cabero;
-  rofi = "${hm.programs.rofi.package}/bin/rofi";
+  rofi = "${hm.programs.rofi.finalPackage}/bin/rofi";
   keyboard_layout_selector = pkgs.writeScriptBin "switch_keyboard_layout" ''
     ROFI_CMD="${rofi} -dmenu"
     KEYMAP_CACHE="${hm.xdg.cacheHome}/keyboard-layout"
