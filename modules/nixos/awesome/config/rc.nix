@@ -6,7 +6,7 @@
   cfg = config.services.xserver.windowManager.awesome;
   hm = config.home-manager.users.cabero;
   rofi = "${hm.programs.rofi.package}/bin/rofi";
-  keyboard_layout_selector = pkgs.writeScriptBin "rofi_switch_keyboard_layout" ''
+  keyboard_layout_selector = pkgs.writeScriptBin "switch_keyboard_layout" ''
     ROFI_CMD="${rofi} -dmenu"
     KEYMAP_CACHE="${hm.xdg.cacheHome}/keyboard-layout"
     LAYOUT_FILE="${hm.xdg.configHome}/keyboard_layouts"
@@ -177,7 +177,7 @@ in {
         end
 
         local function switch_keyboard_layout()
-          awful.spawn("${keyboard_layout_selector}")
+          awful.spawn("${keyboard_layout_selector}/bin/switch_keyboard_layout")
         end
 
         -- These are example rubato tables. You can use one for just y, just x, or both.
