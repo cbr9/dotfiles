@@ -118,6 +118,11 @@
           url = "https://www.duolingo.com/";
           keyword = "duolingo";
         }
+        {
+          name = "Forvo";
+          url = "https://forvo.com/";
+          keyword = "forvo";
+        }
       ];
     }
     {
