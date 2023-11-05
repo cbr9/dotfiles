@@ -105,6 +105,22 @@
       keyword = "mlinterview";
     }
     {
+      name = "Language Learning";
+      toolbar = false;
+      bookmarks = [
+        {
+          name = "Memrise";
+          url = "https://app.memrise.com/dashboard";
+          keyword = "memrise";
+        }
+        {
+          name = "Duolingo";
+          url = "https://www.duolingo.com/";
+          keyword = "duolingo";
+        }
+      ];
+    }
+    {
       name = "Blogs";
       toolbar = false;
       bookmarks = [
