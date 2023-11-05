@@ -5,6 +5,7 @@
   ...
 }:
 with pkgs; let
+  cfg = config.programs.rofi;
   extra-themes = pkgs.fetchFromGitHub {
     owner = "newmanls";
     repo = "rofi-themes-collection";
