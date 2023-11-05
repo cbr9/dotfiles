@@ -36,7 +36,6 @@
       pkg-config
       xclip
       pavucontrol
-      (agenix.packages.x86_64-linux.default.override {ageBin = "${pkgs.age}/bin/age";})
     ];
   };
 }
