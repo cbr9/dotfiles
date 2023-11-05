@@ -5,7 +5,6 @@
   ...
 }:
 with pkgs; let
-  cfg = config.programs.rofi;
   extra-themes = pkgs.fetchFromGitHub {
     owner = "newmanls";
     repo = "rofi-themes-collection";
@@ -14,11 +13,6 @@ with pkgs; let
   };
 in {
   stylix.targets.rofi.enable = false;
-  home.packages = lib.mkIf cfg.enable [
-    keyboard_layout_selector
-    rofi-bluetooth
-    rofi-power-menu
-  ];
 
   programs.rofi = {
     enable = true;
