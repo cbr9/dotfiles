@@ -28,15 +28,12 @@ in {
 
     environment.systemPackages = with pkgs; [
       dmenu
-      todoist-electron
       maim
       pamixer
       brightnessctl
     ];
 
     environment.variables = {
-      WALLPAPER = config.stylix.image;
-      # Fix issue with java applications and tiling window managers.
       _JAVA_AWT_WM_NONREPARENTING = "1";
     };
 
@@ -51,11 +48,6 @@ in {
           ${lib.optionalString config.programs.kdeconnect.enable "kdeconnect-cli --refresh &"}
           ${pkgs.filen-desktop}/bin/filen-desktop &
         '';
-
-        "awesome/volume.lua" = {
-          enable = cfg.enable;
-          source = ./config/volume.lua;
-        };
       };
     };
   };

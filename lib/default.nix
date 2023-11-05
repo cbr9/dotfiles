@@ -68,21 +68,9 @@ in {
               powerManagement.enable = true;
 
               environment = {
-                systemPackages = with pkgs; [
-                  killall
-                  git
-                  wget
-                  autorandr
-                  openssl
-                  libnotify
-                  pkg-config
-                  xclip
-                  pavucontrol
-                  (agenix.packages.x86_64-linux.default.override {ageBin = "${pkgs.age}/bin/age";})
-                ];
-
                 pathsToLink = ["/libexec"]; # links /libexec from derivations to /run/current-system/sw
               };
+
               hardware = {
                 i2c.enable = true;
               };
