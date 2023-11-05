@@ -52,13 +52,6 @@ in {
           ${pkgs.filen-desktop}/bin/filen-desktop &
         '';
 
-        "awesome/rc.lua" = {
-          enable = cfg.enable;
-          source = pkgs.substituteAll {
-            src = ./config/rc.lua;
-            wallpaper = config.stylix.image;
-          };
-        };
         "awesome/volume.lua" = {
           enable = cfg.enable;
           source = ./config/volume.lua;
