@@ -20,6 +20,7 @@ in {
       (import ../../../pkgs) # custom packages
       (final: prev: {
         typst = inputs.typst.packages.${system}.default;
+        awesome = inputs.nixpkgs-f2k.packages.${system}.awesome-luajit-git;
         organize = inputs.organize.defaultPackage.${system};
         stable = import inputs.nixpkgs-stable {inherit system config;};
         master = import inputs.nixpkgs-master {inherit system config;};

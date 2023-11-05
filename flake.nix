@@ -3,6 +3,7 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-master.url = "nixpkgs/master";
     nixpkgs-stable.url = "nixpkgs/nixos-23.05";
+    nixpkgs-f2k.url = "github:moni-dz/nixpkgs-f2k";
     nur.url = "github:nix-community/NUR";
     home-manager = {
       url = "github:nix-community/home-manager/master";

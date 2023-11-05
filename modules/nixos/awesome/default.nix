@@ -7,6 +7,7 @@
 with lib; let
   cfg = config.services.xserver.windowManager.awesome;
 in {
+  imports = [./config];
   config = {
     services.xserver = {
       exportConfiguration = true;

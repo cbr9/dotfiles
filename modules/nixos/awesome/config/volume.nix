@@ -1,7 +1,7 @@
 {config, ...}: let
   cfg = config.services.xserver.windowManager.awesome;
 in {
-  home-manager.users.cabero.xdg.configFile."awesome/rc.lua" = {
+  home-manager.users.cabero.xdg.configFile."awesome/volume.lua" = {
     enable = cfg.enable;
     text =
       # lua
