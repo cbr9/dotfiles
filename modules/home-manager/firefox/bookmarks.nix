@@ -10,6 +10,11 @@
       keyword = "coursera";
     }
     {
+      name = "Whatsapp Web";
+      url = "https://web.whatsapp.com/";
+      keyword = "wp";
+    }
+    {
       name = "Splitwise";
       url = "https://secure.splitwise.com/#/dashboard";
       keyword = "splitwise";
