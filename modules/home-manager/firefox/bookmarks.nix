@@ -12,7 +12,7 @@
     {
       name = "Whatsapp Web";
       url = "https://web.whatsapp.com/";
-      keyword = "wp";
+      keyword = "ww";
     }
     {
       name = "Splitwise";
