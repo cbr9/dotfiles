@@ -227,7 +227,7 @@
         {
           name = "Dotfiles";
           url = "https://www.github.com/cbr9/dotfiles";
-          keyword = "dotfiles";
+          keyword = "dots";
         }
         {
           name = "Kitty";
