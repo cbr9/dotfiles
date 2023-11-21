@@ -26,8 +26,8 @@
     }
     {
       name = "Fastmail";
-      url = "app.fastmail.com";
-      keyword = "mail";
+      url = "https://app.fastmail.com/mail/Inbox";
+      keyword = "fast";
     }
     {
       name = "Microsoft 365";
