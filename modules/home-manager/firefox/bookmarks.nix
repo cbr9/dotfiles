@@ -100,6 +100,11 @@
       keyword = "german";
     }
     {
+      name = "WordReference";
+      url = "https://www.wordreference.com/";
+      keyword = "word";
+    }
+    {
       name = "Cambridge English Dictionary";
       url = "https://dictionary.cambridge.org/dictionary/english/";
       keyword = "english";
