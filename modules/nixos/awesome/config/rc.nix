@@ -305,7 +305,7 @@ in {
             if file ~= nil then
               file:write(output)
               file:close()
-              awful.spawn(terminal .. " -e ${hm.programs.helix.package}/bin/hx" .. path)
+              awful.spawn(terminal .. " -e ${hm.programs.helix.package}/bin/hx " .. path)
             end
           end)
         end
@@ -484,6 +484,14 @@ in {
               screen = awful.screen.preferred,
               placement = awful.placement.no_overlap + awful.placement.no_offscreen
             }
+          },
+          -- Add title bars to normal clients and dialogs
+          {
+            rule_any = {
+              class = { "spotify" },
+              type = { "dialog" }
+            },
+            properties = { titlebars_enabled = true }
           },
 
           -- Floating clients.
