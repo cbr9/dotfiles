@@ -10,6 +10,16 @@
       keyword = "coursera";
     }
     {
+      name = "Notion";
+      url = "https://www.notion.so/";
+      keyword = "notion";
+    }
+    {
+      name = "Dropbox";
+      url = "https://www.dropbox.com/home";
+      keyword = "dpb";
+    }
+    {
       name = "Whatsapp Web";
       url = "https://web.whatsapp.com/";
       keyword = "ww";

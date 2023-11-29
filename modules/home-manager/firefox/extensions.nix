@@ -48,9 +48,9 @@
       (
         buildFirefoxXpiAddon rec {
           pname = "popup_blocker";
-          version = "0.6.8";
-          url = "https://addons.mozilla.org/firefox/downloads/file/3821195/${pname}-${version}.xpi";
-          sha256 = "sha256-qXJlA/9UzXEF3sHJdTfG0N3spYXhZt5MgjOXETdT5sw=";
+          version = "0.6.9.1";
+          url = "https://addons.mozilla.org/firefox/downloads/file/4192604/${pname}-${version}.xpi";
+          sha256 = "sha256-lff3uH/eMIKdGF6+tzW2purFvzo4nkc8v6kTjCV9LBY=";
           addonId = "{de22fd49-c9ab-4359-b722-b3febdc3a0b0}";
           meta = {};
         }

@@ -26,6 +26,7 @@
     appimage-run
     arandr
     discord
+    dropbox
     etcher
     evince
     feh
