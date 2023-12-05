@@ -19,6 +19,7 @@
   ];
 
   gui = with pkgs; [
+    anki
     appimage-run
     arandr
     discord
