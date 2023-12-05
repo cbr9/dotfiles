@@ -11,6 +11,10 @@
       };
     };
 
+    services.xserver.desktopManager.gnome = {
+      enable = true;
+    };
+
     services.hardware.openrgb = let
       red = "ff0000";
     in {
