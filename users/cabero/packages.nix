@@ -6,6 +6,7 @@
     go
     just
     nodePackages.webtorrent-cli
+    ookla-speedtest
     ouch
     poppler_utils
     python312
