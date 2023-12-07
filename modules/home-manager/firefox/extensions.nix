@@ -12,6 +12,7 @@
       tridactyl
       decentraleyes
       plasma-integration
+      leechblock-ng
       youtube-shorts-block
       youtube-recommended-videos # unhook
       i-dont-care-about-cookies
