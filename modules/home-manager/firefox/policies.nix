@@ -7,7 +7,7 @@
   DisableMasterPasswordCreation = true;
   DisableFormHistory = true;
   DisableAppUpdate = true;
-  DisableFirefoxAccounts = true;
+  DisableFirefoxAccounts = false;
   OfferToSaveLogins = false;
   DisplayBookmarksToolbar = "never";
   ShowHomeButton = true;
