@@ -10,6 +10,9 @@
         bluetooth = true;
       };
     };
+    services.xserver.desktopManager.gnome = {
+      enable = true;
+    };
 
     services.hardware.openrgb = let
       red = "ff0000";
@@ -23,6 +26,5 @@
     };
 
     services.thermald.enable = true;
-    services.tlp.enable = true;
   };
 }
