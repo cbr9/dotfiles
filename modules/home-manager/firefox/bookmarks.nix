@@ -10,6 +10,11 @@
       keyword = "coursera";
     }
     {
+      name = "Gapminder";
+      url = "https://www.gapminder.org";
+      keyword = "gap";
+    }
+    {
       name = "Notion";
       url = "https://www.notion.so/";
       keyword = "notion";
