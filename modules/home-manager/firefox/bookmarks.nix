@@ -10,6 +10,11 @@
       keyword = "coursera";
     }
     {
+      name = "Brilliant";
+      url = "https://www.brilliant.org/";
+      keyword = "brilliant";
+    }
+    {
       name = "Gapminder";
       url = "https://www.gapminder.org";
       keyword = "gap";
