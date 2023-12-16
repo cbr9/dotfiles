@@ -120,6 +120,11 @@
       keyword = "word";
     }
     {
+      name = "Merriam-Webster Dictionary";
+      url = "https://www.merriam-webster.com/";
+      keyword = "merriam";
+    }
+    {
       name = "Cambridge English Dictionary";
       url = "https://dictionary.cambridge.org/dictionary/english/";
       keyword = "english";
