@@ -26,7 +26,6 @@
     dropbox
     evince
     feh
-    filen-desktop
     gnome.file-roller
     google-chrome
     gparted

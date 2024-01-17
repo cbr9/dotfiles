@@ -6,9 +6,7 @@
   config = {
     allowUnfree = true;
     permittedInsecurePackages = [
-      "electron-21.4.0"
-      "electron-19.1.9"
-      "electron-24.8.6"
+      "electron-25.9.0"
       "mailspring-1.12.0"
       "zotero-6.0.27"
     ];
@@ -17,7 +15,6 @@ in {
   nixpkgs.pkgs = import inputs.nixpkgs {
     inherit system config;
     overlays = [
-      (import ../../../pkgs) # custom packages
       (final: prev: {
         typst = inputs.typst.packages.${system}.default;
         awesome = inputs.nixpkgs-f2k.packages.${system}.awesome-luajit-git;
