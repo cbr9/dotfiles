@@ -28,7 +28,7 @@
     lib = mkLib inputs.nixpkgs;
     pkgs = inputs.nixpkgs.legacyPackages.${system};
   in {
-    nixosConfigurations = lib.mkHosts ["naboo" "tatooine"] system inputs;
+    nixosConfigurations = lib.mkHosts ["naboo"] system inputs;
 
     devShells.${system}.default = pkgs.mkShell {
       nativeBuildInputs = with pkgs; [

@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
     ./1password
-    ./asus-touchpad
     ./awesome
     ./base
     ./bash
