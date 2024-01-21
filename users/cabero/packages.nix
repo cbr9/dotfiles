@@ -20,6 +20,7 @@
 
   gui = with pkgs; [
     anki
+    insync
     appimage-run
     arandr
     discord
