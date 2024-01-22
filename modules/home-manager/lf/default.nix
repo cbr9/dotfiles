@@ -48,14 +48,14 @@ in {
       enable = config.programs.fish.enable && cfg.enable;
       source = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/lfcd.fish";
-        sha256 = "sha256-wn9YEPtMqSHq7Ahr3KmG1YogiJQvKBOAO61pdPH6Pf0=";
+        sha256 = "sha256-egV5tTQLPMZreVRfrqxScBStlxAkIg2v1NMqBJisSbU=";
       };
     };
     "fish/completions/lf.fish" = {
       enable = config.programs.fish.enable && cfg.enable;
       source = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/lf.fish";
-        sha256 = "sha256-jbcVK/MnthW08MM3bN0D439SZJdBvzRgf1TUGcgYDxE=";
+        sha256 = "sha256-uIRwTpg+9o6cZoA+gNZ15ariHEBlUxL9sW/oQWM4S7Y=";
       };
     };
     "lf/icons" = {

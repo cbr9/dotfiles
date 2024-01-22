@@ -1,5 +1,6 @@
 {pkgs, ...}: let
   cli = with pkgs; [
+    agenix
     du-dust
     dysk
     fd

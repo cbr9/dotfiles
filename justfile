@@ -9,5 +9,3 @@ rekey:
 	op read "op://Personal/ymqirvvpvyvjwq4v6i5j5xmjrq/private key" --out-file ~/.ssh/id_ed25519
 	cd secrets && agenix -r
 	rm ~/.ssh/id_ed25519*
-
-	

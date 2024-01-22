@@ -11,6 +11,8 @@
       };
     };
 
+    services.logrotate.checkConfig = false;
+
     services.xserver.desktopManager.gnome = {
       enable = true;
     };

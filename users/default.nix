@@ -1,4 +1,8 @@
-{lib, ...}:
+{
+  lib,
+  config,
+  ...
+}:
 with lib; {
   imports = [
     ./cabero
@@ -10,9 +14,6 @@ with lib; {
   };
 
   config = {
-    users.mutableUsers = false;
-    users.users.root = {
-      hashedPassword = "!";
-    };
+    users.mutableUsers = true;
   };
 }

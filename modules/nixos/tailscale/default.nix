@@ -32,7 +32,7 @@ in {
           "--exit-node=de-fra-wg-403.mullvad.ts.net"
           "--exit-node-allow-lan-access=true"
         ]
-        ++ lib.optional (cfg.operator != null) "--operator=${cfg.operator}"
+        ++ (lib.optional (cfg.operator != null) "--operator=${cfg.operator}")
       );
       authKeyFile = config.age.secrets.tailscale.path;
     };

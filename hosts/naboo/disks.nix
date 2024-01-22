@@ -3,6 +3,7 @@
     enable = lib.mkForce true;
     efiSupport = lib.mkForce true;
     efiInstallAsRemovable = lib.mkForce true;
+    useOSProber = true;
     device = lib.mkForce "nodev";
   };
 
@@ -15,23 +16,6 @@
           type = "gpt";
           partitions = {
             other = {
-              size = "100%";
-              content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/data";
-              };
-            };
-          };
-        };
-      };
-      sdb = {
-        device = "/dev/sdb";
-        type = "disk";
-        content = {
-          type = "gpt";
-          partitions = {
-            home = {
               type = "8302";
               size = "100%";
               content = {

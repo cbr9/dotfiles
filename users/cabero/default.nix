@@ -12,21 +12,22 @@ with builtins; {
       createHome = true;
       isNormalUser = true;
       extraGroups = ["wheel" "fuse" "docker" "networkmanager"];
-      hashedPasswordFile = config.age.secrets.cabero.path;
       shell = pkgs.fish;
     };
 
     age.secrets = {
-      cabero-15582531.file = ../../secrets/cabero-15582531.age; # keychain
+      # cabero-15582531.file = ../../secrets/cabero-15582531.age; # keychain
       cabero-15582547.file = ../../secrets/cabero-15582547.age; # loose
-      cabero.file = ../../secrets/cabero.age;
     };
 
     security.pam.yubico = {
       enable = true;
       debug = false;
       mode = "challenge-response";
-      id = ["15582547" "15582531"];
+      id = [
+        "15582547"
+        # "15582531"
+      ];
       challengeResponsePath = "/run/agenix";
     };
 
