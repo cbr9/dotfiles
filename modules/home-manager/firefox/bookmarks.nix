@@ -30,6 +30,11 @@
       keyword = "dpb";
     }
     {
+      name = "Healthline";
+      url = "https://www.healthline.com";
+      keyword = "health";
+    }
+    {
       name = "Whatsapp Web";
       url = "https://web.whatsapp.com/";
       keyword = "ww";

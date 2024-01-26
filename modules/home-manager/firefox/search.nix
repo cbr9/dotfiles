@@ -54,6 +54,11 @@
         definedAliases = ["@eng"];
       };
 
+      "Healthline" = {
+        urls = [{template = "https://www.healthline.com/search?q1={searchTerms}";}];
+        definedAliases = ["@hl"];
+      };
+
       "YouTube" = {
         urls = [
           {
