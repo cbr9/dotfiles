@@ -109,7 +109,14 @@ in {
       incsearch = true;
     };
     commands = {
-      drag-and-drop = mkLfCmd "${pkgs.xdragon}/bin/dragon --all --and-exit --on-top $fx";
+      drag-and-drop =
+        mkLfCmd
+        # bash
+        ''
+          printf "%s\n" "$fx" > /tmp/fx.tmp
+          ${pkgs.xdragon}/bin/dragon --all --and-exit --on-top --stdin < /tmp/fx.tmp
+          rm /tmp/fx.tmp
+        '';
 
       toggle-preview = (
         mkLfCmd
