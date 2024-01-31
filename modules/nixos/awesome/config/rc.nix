@@ -15,9 +15,7 @@
     layouts[us]=🇺🇸
     layouts[de]=🇩🇪
     layouts[es]=🇪🇸
-    layouts[it]=🇮🇹
     layouts[gr]=🇬🇷
-    layouts[ara]=🇦🇪
 
     current=$(${pkgs.xorg.setxkbmap}/bin/setxkbmap -query | grep layout | cut -d':' -f2 | sed 's/ //g')
     flag=''${layouts[$current]}
