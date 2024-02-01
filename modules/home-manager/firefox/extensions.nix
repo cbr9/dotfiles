@@ -12,7 +12,6 @@
       tridactyl
       decentraleyes
       plasma-integration
-      leechblock-ng
       youtube-shorts-block
       youtube-recommended-videos # unhook
       i-dont-care-about-cookies
@@ -23,26 +22,6 @@
           url = "https://addons.mozilla.org/firefox/downloads/file/4072586/${pname}-${version}.xpi";
           sha256 = "sha256-I/GVPViNXZlDq0OEVAe4SlG7zBgkuMAQ7VbKoRlxGic=";
           addonId = "simple-translate@sienori";
-          meta = {};
-        }
-      )
-      (
-        buildFirefoxXpiAddon rec {
-          pname = "downthemall";
-          version = "4.11.1";
-          url = "https://addons.mozilla.org/firefox/downloads/file/4157731/${pname}-${version}.xpi";
-          sha256 = "sha256-j00lwXnoMk1PiteFpdyS1UcAOXT9NgmgbiUPgmJwKRs=";
-          addonId = "{DDC359D1-844A-42a7-9AA1-88A850A938A8}";
-          meta = {};
-        }
-      )
-      (
-        buildFirefoxXpiAddon rec {
-          pname = "toucan_language_learning";
-          version = "2.15.3";
-          url = "https://addons.mozilla.org/firefox/downloads/file/3964416/${pname}-${version}.xpi";
-          sha256 = "sha256-fiL9jsCpQhlqTh/ouxsjm+wjljTm+ygTdnNTxYgDtns=";
-          addonId = "{fe50e88d-a084-4ff2-9d58-eeac466f937e}";
           meta = {};
         }
       )
