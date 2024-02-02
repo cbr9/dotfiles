@@ -297,6 +297,63 @@ in {
         ''
       );
 
+      newfold = (
+        mkLfCmd
+        # bash
+        ''
+          # create a new folder with the selected files
+          printf "New Directory: "
+          read newd
+          mkdir -- "$newd"
+
+          while read -r file; do
+            # works with spaces in filepaths
+            # for loop does not
+            mv "$file" "$newd"
+          done <<< "$fx"
+        ''
+      );
+
+      yank-dirname = (
+        mkShellCmd
+        # bash
+        ''
+          dirname -- "$f" | head -c-1 | xclip -i -selection clipboard
+        ''
+      );
+
+      yank-filestem = (
+        mkShellCmd
+        # bash
+        ''
+          echo "$fx" |
+            xargs -r -d '\n' basename -a |
+            awk -e '{
+              for (i=length($0); i > 0; i--) {
+                if (substr($0, i, 1) == ".") {
+                  if (i == 1) print $0
+                  else print substr($0, 0, i-1)
+
+                  break
+                }
+              }
+
+              if (i == 0)
+                print $0
+            }' |
+            if [ -n "$fs" ]; then cat; else tr -d '\n'; fi |
+            xclip -i -selection clipboard
+        ''
+      );
+
+      yank-basename = (
+        mkShellCmd
+        # bash
+        ''
+          basename -a -- $fx | head -c-1 | xclip -i -selection clipboard
+        ''
+      );
+
       yank-path = (
         mkShellCmd
         # bash
@@ -346,6 +403,11 @@ in {
       y = "";
       yy = "copy";
       yp = "yank-path";
+      yb = "yank-basename";
+      ys = "yank-filestem";
+      yd = "yank-dirname";
+
+      an = "newfold";
 
       # toggles
       zp = "toggle-preview";
