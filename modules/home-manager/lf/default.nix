@@ -235,13 +235,9 @@ in {
         mkLfCmd
         # bash
         ''
-          if [ $# -eq 0  ]; then
-            printf "Directory Name: "
-            read ans
-            mkdir $ans
-          else
-            mkdir "$@"
-          fi
+          IFS=" "
+          mkdir -p -- "$*"
+          lf -remote "send $id select \"$*\""
         ''
       );
 
