@@ -21,7 +21,6 @@
 
   gui = with pkgs; [
     anki
-    insync
     appimage-run
     arandr
     discord
@@ -31,9 +30,11 @@
     gnome.file-roller
     google-chrome
     gparted
+    insync
     mailspring
     meld
     mpv
+    nautilus
     obsidian
     qalculate-gtk
     slack
