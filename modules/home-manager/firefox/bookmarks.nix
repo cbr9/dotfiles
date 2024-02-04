@@ -10,6 +10,11 @@
       keyword = "coursera";
     }
     {
+      name = "Dropbox";
+      url = "https://www.dropbox.com/";
+      keyword = "dropbox";
+    }
+    {
       name = "Brilliant";
       url = "https://www.brilliant.org/";
       keyword = "brilliant";
