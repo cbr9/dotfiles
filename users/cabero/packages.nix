@@ -34,7 +34,7 @@
     mailspring
     meld
     mpv
-    nautilus
+    gnome.nautilus
     obsidian
     qalculate-gtk
     slack
