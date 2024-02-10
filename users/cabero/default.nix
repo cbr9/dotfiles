@@ -16,7 +16,7 @@ with builtins; {
     };
 
     age.secrets = {
-      # cabero-15582531.file = ../../secrets/cabero-15582531.age; # keychain
+      cabero-15582531.file = ../../secrets/cabero-15582531.age; # keychain
       cabero-15582547.file = ../../secrets/cabero-15582547.age; # loose
     };
 
@@ -26,7 +26,7 @@ with builtins; {
       mode = "challenge-response";
       id = [
         "15582547"
-        # "15582531"
+        "15582531"
       ];
       challengeResponsePath = "/run/agenix";
     };
