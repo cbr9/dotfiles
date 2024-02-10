@@ -372,6 +372,7 @@ in {
           awful.key({ super }, "r", function() awful.spawn("${rofi} -show run") end),
           awful.key({ super }, "c", function() awful.spawn("${rofi} -show calc") end),
           awful.key({ super }, "e", function() awful.spawn("${rofi} -show emoji") end),
+          awful.key({  }, "XF86_Tools", function() awful.spawn("${rofi} -show emoji") end),
           awful.key({ super }, "s", function() awful.spawn("${rofi} -show ssh") end),
           awful.key({ super, alt }, "l", function() awful.spawn("${hm.services.betterlockscreen.package}/bin/betterlockscreen -l dim &") end),
           awful.key({ super, "Shift" }, "b", function() awful.spawn("${pkgs.rofi-bluetooth}/bin/rofi-bluetooth") end),
