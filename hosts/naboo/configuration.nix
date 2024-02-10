@@ -11,6 +11,11 @@
       };
     };
 
+    hardware.logitech.wireless = {
+      enable = true;
+      enableGraphical = true;
+    };
+
     home-manager.users.cabero = {
       services.autorandr.enable = true;
       programs.autorandr = {
