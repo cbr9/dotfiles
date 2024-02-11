@@ -20,17 +20,10 @@ in {
       description = "The timezone of the machine";
       default = "Europe/Berlin";
     };
-
-    keyboardLayout = mkOption {
-      type = types.str;
-      description = "Keyboard layout";
-      default = "us";
-    };
   };
 
-  config = with builtins; {
+  config = {
     i18n.defaultLocale = cfg.locale;
     time.timeZone = cfg.timeZone;
-    services.xserver.layout = mkIf (elem "xorg" config.sys.graphics.desktopProtocols) cfg.keyboardLayout;
   };
 }
