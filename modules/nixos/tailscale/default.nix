@@ -12,7 +12,7 @@ in {
         default = null;
       };
       operator = mkOption {
-        type = types.nullOr types.str;
+        type = types.str;
         default = null;
       };
     };
@@ -27,13 +27,11 @@ in {
       useRoutingFeatures = "both";
       taildropDir = "${config.home-manager.users.cabero.home.homeDirectory}/Downloads";
       operator = "cabero";
-      extraUpFlags = (
-        [
-          "--exit-node=de-fra-wg-403.mullvad.ts.net"
-          "--exit-node-allow-lan-access=true"
-        ]
-        ++ (lib.optional (cfg.operator != null) "--operator=${cfg.operator}")
-      );
+      extraUpFlags = [
+        "--operator=${cfg.operator}"
+        "--exit-node=de-fra-wg-403.mullvad.ts.net"
+        "--exit-node-allow-lan-access=true"
+      ];
       authKeyFile = config.age.secrets.tailscale.path;
     };
 
