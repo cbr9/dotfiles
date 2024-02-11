@@ -51,6 +51,10 @@ in {
           then
             ${pkgs.dropbox}/bin/dropbox &
           fi
+          if ! pgrep -x mailspring > /dev/null
+          then
+            ${pkgs.mailspring}/bin/mailspring --background --password-store="gnome-libsecret" &
+          fi
         '';
       };
     };
