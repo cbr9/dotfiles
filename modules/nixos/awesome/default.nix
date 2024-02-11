@@ -47,10 +47,12 @@ in {
           ${lib.optionalString config.programs._1password-gui.enable "1password --silent &"}
           ${lib.optionalString config.home-manager.users.cabero.services.betterlockscreen.enable "betterlockscreen -u ${config.stylix.image} &"}
           ${lib.optionalString config.programs.kdeconnect.enable "kdeconnect-cli --refresh &"}
+
           if ! pgrep -x dropbox > /dev/null
           then
             ${pkgs.dropbox}/bin/dropbox &
           fi
+
           if ! pgrep -x mailspring > /dev/null
           then
             ${pkgs.mailspring}/bin/mailspring --background --password-store="gnome-libsecret" &
