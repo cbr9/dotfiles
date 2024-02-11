@@ -104,7 +104,7 @@ in {
     enable = true;
     settings = {
       icons = true;
-      hidden = true;
+      hidden = false;
       ignorecase = true;
       incsearch = true;
     };
