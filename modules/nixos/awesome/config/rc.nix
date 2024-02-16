@@ -380,7 +380,6 @@ in {
           awful.key({ super }, "p", function() awful.spawn("${config.programs._1password-gui.package}/bin/1password") end),
           -- awful.key({ super }, "m", function() awful.spawn("mailspring") end),
           awful.key({ super }, "w", function() awful.spawn("${pkgs.obsidian}/bin/obsidian") end),
-          awful.key({ super, "Shift" }, "h", function() awful.spawn("dm-hub -r") end),
           awful.key({ super, "Shift" }, "x", xprop),
           awful.key({ super }, "space", switch_keyboard_layout),
           awful.key({ super }, "v", function() awful.spawn("${config.services.clipmenu.package}/bin/clipmenu") end),
