@@ -11,8 +11,8 @@
     ./firefox
     ./fish
     ./fzf
-    ./git
     ./gh
+    ./git
     ./helix
     ./kitty
     ./lazygit
@@ -20,9 +20,10 @@
     ./lsd
     ./man
     ./nix
-    ./nushell
     ./nuscripts
+    ./nushell
     ./organize
+    ./pueue
     ./redshift
     ./rofi
     ./ssh
