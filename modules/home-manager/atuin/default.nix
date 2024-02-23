@@ -1,6 +1,5 @@
-{pkgs, ...}: {
+{...}: {
   programs.atuin = {
-    package = pkgs.master.atuin;
     enable = true;
     flags = [
       "--disable-up-arrow"
