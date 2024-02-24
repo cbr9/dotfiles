@@ -12,7 +12,7 @@ with builtins; {
       createHome = true;
       isNormalUser = true;
       extraGroups = ["wheel" "fuse" "docker" "networkmanager"];
-      shell = pkgs.fish;
+      shell = pkgs.nushellFull;
     };
 
     age.secrets = {

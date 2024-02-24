@@ -4,7 +4,7 @@ def --env --wrapped lfcd [...args: string] {
 }
 
 let zoxide = {|spans|
-    zoxide query --score --list ($spans | skip 1).0 | detect columns --no-headers | rename score path | into float score | sort-by score | reverse | get path | where {|x| $x != $env.PWD}
+    $spans | skip 1 | zoxide query --score --list ...$in | detect columns --no-headers | rename score path | into float score | sort-by score | reverse | get path
 }
 
 let fish = {|spans|
