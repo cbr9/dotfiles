@@ -35,13 +35,13 @@
               HDMI-0 = {
                 enable = true;
                 mode = "1920x1080";
-                position = "0x360";
+                position = "2560x360";
                 rotate = "normal";
               };
               DP-0 = {
                 enable = true;
                 mode = "2560x1440";
-                position = "1920x0";
+                position = "0x0";
                 rotate = "normal";
                 primary = true;
               };
