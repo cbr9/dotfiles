@@ -3,6 +3,7 @@
     enable = true;
     options = [
       "--hook pwd"
+      "--cmd cd"
     ];
   };
 }
