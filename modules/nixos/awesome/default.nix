@@ -22,7 +22,7 @@ in {
       windowManager.awesome = {
         enable = true;
         luaModules = lib.attrValues {
-          inherit (pkgs.luajitPackages) lgi ldbus luadbi-mysql luaposix;
+          inherit (pkgs.luajitPackages) lgi ldbus luaposix;
         };
       };
     };
