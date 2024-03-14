@@ -29,7 +29,6 @@
     ./starship
     ./texlive
     ./vscode
-    ./wezterm
     ./xdg
     ./zellij
     ./zoxide
