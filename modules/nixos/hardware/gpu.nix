@@ -105,7 +105,7 @@ with builtins; {
       (mkIf config.sys.graphics.v4l2loopback kernelPackage.v4l2loopback)
       (mkIf config.sys.graphics.v4l2loopback libv4l)
       (mkIf config.sys.graphics.v4l2loopback xawtv)
-      (mkIf desktopMode dfeet)
+      (mkIf desktopMode d-spy)
     ];
 
     services.autorandr.enable = xorg;
