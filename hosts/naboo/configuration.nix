@@ -51,14 +51,11 @@
       };
     };
 
-    services.hardware.openrgb = let
-      red = "ff0000";
-    in {
+    services.hardware.openrgb = {
       enable = true;
       motherboard = "amd";
       extraArgs = [
-        "--mode static"
-        "--color ${red}"
+        "--mode off"
       ];
     };
   };
