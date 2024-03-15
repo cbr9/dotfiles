@@ -29,13 +29,13 @@
     evince
     feh
     gnome.file-roller
+    gnome.nautilus
     google-chrome
     gparted
     insync
     mailspring
     meld
     mpv
-    gnome.nautilus
     obsidian
     qalculate-gtk
     slack
