@@ -5,6 +5,7 @@
     dysk
     fd
     go
+    jc
     just
     nodePackages.webtorrent-cli
     ookla-speedtest
