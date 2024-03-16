@@ -337,7 +337,8 @@ in {
           awful.key({}, "XF86AudioMute", volume.toggle),
           awful.key({}, "XF86AudioLowerVolume", volume.lower),
           awful.key({}, "XF86AudioRaiseVolume", volume.raise),
-          awful.key({ super }, "F9", function() awful.spawn("${pkgs.pavucontrol}/bin/pavucontrol") end),
+          awful.key({ super }, "XF86AudioMute", function() awful.spawn("${pkgs.pavucontrol}/bin/pavucontrol") end),
+          awful.key({ super }, "F12", function() awful.spawn("${pkgs.pavucontrol}/bin/pavucontrol") end),
           awful.key({}, "F12", function()
             awful.spawn("${rofi} -show power-menu -modi power-menu:rofi-power-menu")
           end),
