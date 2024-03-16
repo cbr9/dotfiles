@@ -19,6 +19,7 @@
         global = {
           username = "31vtbbqkijxmfhlidy4clznrf6a4";
           password_cmd = "sudo cat /run/agenix/spotify";
+          device_type = "computer";
           device_name = "${config.networking.hostName}-daemon";
           backend = "pulseaudio";
           bitrate = 320;

@@ -8,7 +8,7 @@ in {
   options = with lib; {
     services.tailscale = {
       taildropDir = mkOption {
-        type = types.nullOr types.path;
+        type = types.path;
         default = null;
       };
       operator = mkOption {
@@ -17,7 +17,8 @@ in {
       };
     };
   };
-  config = lib.mkIf (builtins.elem "tailscale" config.networking.vpn) {
+
+  config = {
     age.secrets = {
       tailscale.file = ../../../secrets/tailscale.age;
     };
@@ -43,7 +44,7 @@ in {
       };
     };
 
-    systemd.services.taildrop = lib.mkIf (cfg.enable && cfg.taildropDir != null) {
+    systemd.services.taildrop = {
       description = "Run taildrop in a loop";
       after = ["tailscaled.service"];
       wants = ["tailscaled.service"];

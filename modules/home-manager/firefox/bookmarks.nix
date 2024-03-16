@@ -228,22 +228,6 @@
       ];
     }
     {
-      name = "NixOS";
-      toolbar = false;
-      bookmarks = [
-        {
-          name = "Home Manager Options";
-          url = "https://rycee.gitlab.io/home-manager/options.html";
-          keyword = "hm";
-        }
-        {
-          name = "NixOS Options";
-          url = "https://search.nixos.org/options";
-          keyword = "nop";
-        }
-      ];
-    }
-    {
       name = "GitHub Projects";
       toolbar = false;
       bookmarks = [

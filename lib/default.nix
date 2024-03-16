@@ -53,9 +53,7 @@ in {
             imports = [
               (modulesPath + "/installer/scan/not-detected.nix")
               (modulesPath + "/profiles/qemu-guest.nix")
-              ../hosts/${hostName}/hardware-configuration.nix
-              ../hosts/${hostName}/configuration.nix
-              ../hosts/${hostName}/disks.nix
+              ../hosts/${hostName}
               ../users
               ../modules/nixos
             ];
@@ -99,15 +97,4 @@ in {
           }
         ];
       };
-
-  mkHome = {configuration ? {}, ...}: [
-    configuration
-    {
-      imports = [../modules/home-manager];
-      home = {
-        homeDirectory = "/home/${configuration.home.username}";
-        stateVersion = "23.05";
-      };
-    }
-  ];
 }

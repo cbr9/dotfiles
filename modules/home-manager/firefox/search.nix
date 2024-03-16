@@ -43,6 +43,10 @@
         icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
         definedAliases = ["@opt"];
       };
+      "Home Manager Options" = {
+        urls = [{template = "https://home-manager-options.extranix.com/?query={searchTerms}";}];
+        definedAliases = ["@hm"];
+      };
 
       "Cambridge German-English Dictionary" = {
         urls = [{template = "https://dictionary.cambridge.org/dictionary/german-english/{searchTerms}";}];
