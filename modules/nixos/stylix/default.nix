@@ -6,8 +6,8 @@
   stylix = {
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
     image = pkgs.fetchurl {
-      url = "https://unsplash.com/photos/PdDBTrkGYLo/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8OTB8fGxpYnJhcnl8ZW58MHx8fHwxNzA2MDY1NDc1fDA&force=true";
-      sha256 = "sha256-9th/+uhzySmVHY9pPLHd3B4R/ts5/iiTz6hCTskJFAw=";
+      url = "https://unsplash.com/photos/AXLn5gBQeck/download?ixid=M3wxMjA3fDB8MXxhbGx8MXx8fHx8fDJ8fDE3MTA1ODgzODF8&force=true";
+      sha256 = "sha256-WMj2hLrOpVjXkqHfLpFG5GxBESS0bmg2XljJcTKch4U=";
     };
   };
   environment.variables = {
