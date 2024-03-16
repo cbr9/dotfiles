@@ -13,7 +13,7 @@
     services = {
       betterlockscreen = {
         enable = true;
-        inactiveInterval = 10;
+        inactiveInterval = 5;
       };
     };
 
@@ -25,9 +25,7 @@
     xdg.configFile = {
       "betterlockscreen/betterlockscreenrc" = {
         enable = config.home-manager.users.cabero.services.betterlockscreen.enable && config.programs.i3lock.u2fSupport;
-        text = ''
-          i3lockcolor_bin="/run/wrappers/bin/i3lock"
-        '';
+        source = ./betterlockscreenrc;
       };
     };
   };
