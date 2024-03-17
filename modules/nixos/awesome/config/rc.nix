@@ -6,29 +6,21 @@
   cfg = config.services.xserver.windowManager.awesome;
   hm = config.home-manager.users.cabero;
   rofi = "${hm.programs.rofi.finalPackage}/bin/rofi";
+
   keyboard_layout_selector = pkgs.writeScriptBin "switch_keyboard_layout" ''
-    ROFI_CMD="${rofi} -dmenu"
-    KEYMAP_CACHE="${hm.xdg.cacheHome}/keyboard-layout"
-    LAYOUT_FILE="${hm.xdg.configHome}/keyboard_layouts"
+    #!/usr/bin/env nu
+    let current_layout = setxkbmap -query | detect columns --no-headers | update column0 {|it| $it.column0 | str replace \':\' \'\'} | transpose | reject column0 | headers  | str trim | get layout
 
-    declare -Ag layouts
-    layouts[us]=🇺🇸
-    layouts[de]=🇩🇪
-    layouts[es]=🇪🇸
-    layouts[gr]=🇬🇷
+    let layouts = {
+        us: "🇺🇸",
+        de: "🇩🇪",
+        es: "🇪🇸",
+        gr: "🇬🇷",
+    }
 
-    current=$(${pkgs.xorg.setxkbmap}/bin/setxkbmap -query | grep layout | cut -d':' -f2 | sed 's/ //g')
-    flag=''${layouts[$current]}
-
-    msg="Current Layout: $flag"
-
-    selected=$(echo "''${!layouts[@]}" | xargs | tr " " "\n" | $ROFI_CMD -p "Keyboard Layout" -mesg "$msg" | awk '{print $1;}')
-
-
-    if [ -n "$selected" ]; then
-        ${pkgs.xorg.setxkbmap}/bin/setxkbmap "$selected"
-        echo "$selected" > "$KEYMAP_CACHE"
-    fi
+    let keys = $layouts | columns | to text
+    let flag = $layouts | get $current_layout.0
+    setxkbmap ($keys | rofi -dmenu -p "Keyboard Layout" -mesg $'Current layout: ($flag)')
   '';
 in {
   home-manager.users.cabero.xdg.configFile."awesome/rc.lua" = {
@@ -55,6 +47,21 @@ in {
 
         local volume = require("volume")
         require("awful.hotkeys_popup.keys")
+
+        function exists(file)
+           local ok, err, code = os.rename(file, file)
+           if not ok then
+              if code == 13 then
+                 -- Permission denied, but it exists
+                 return true
+              end
+           end
+           return ok, err
+        end
+
+        local screenlayout = "/home/cabero/.screenlayout.sh"
+        awful.spawn(screenlayout)
+
 
         -- {{{ Error handling
         -- Check if awesome encountered an error during startup and fell back to

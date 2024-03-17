@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ./disks.nix
-    ./autorandr.nix
+    ./openrgb.nix
+    ./logitech.nix
   ];
 }
