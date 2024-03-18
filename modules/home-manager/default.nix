@@ -30,6 +30,7 @@
     ./texlive
     ./vscode
     ./xdg
+    ./yazi
     ./zellij
     ./zoxide
   ];
