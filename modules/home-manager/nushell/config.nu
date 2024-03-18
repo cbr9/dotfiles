@@ -66,13 +66,13 @@ $env.config = {
     ],
       keybindings: [
     {
-      name: lfcd
+      name: ya
       modifier: Control
       keycode: Char_w
       mode: [emacs, vi_normal, vi_insert]
       event: {
         send: ExecuteHostCommand
-        cmd: "lfcd"
+        cmd: "ya"
       }
     },
     {
