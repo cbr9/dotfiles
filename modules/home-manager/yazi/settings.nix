@@ -25,6 +25,10 @@
           mime = "application/json";
           use = "text";
         }
+        {
+          mime = "inode/x-empty";
+          use = "text";
+        }
       ];
     };
   };
