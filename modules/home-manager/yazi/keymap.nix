@@ -35,7 +35,18 @@ in {
         }
         {
           on = ["<C-d>" "o"];
-          run = "shell --confirm '${pkgs.xdragon}/bin/dragon --on-top ''$@'";
+          run = mkShellCmd {
+            confirm = true;
+            block = false;
+            script = (
+              # bash
+              ''
+                printf "%s\n" "$@" > /tmp/fx.tmp;
+                ${pkgs.xdragon}/bin/dragon --on-top --stdin < /tmp/fx.tmp
+                rm /tmp/fx.tmp
+              ''
+            );
+          };
           desc = "Drag-and-drop one file at a time";
         }
       ];
