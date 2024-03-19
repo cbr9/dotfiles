@@ -22,7 +22,7 @@
           use = "image";
         }
         {
-          name = "*.json";
+          mime = "application/json";
           use = "text";
         }
       ];
