@@ -9,7 +9,7 @@
 
   keyboard_layout_selector = pkgs.writeScriptBin "switch_keyboard_layout" ''
     #!/usr/bin/env nu
-    let current_layout = setxkbmap -query | detect columns --no-headers | update column0 {|it| $it.column0 | str replace \':\' \'\'} | transpose | reject column0 | headers  | str trim | get layout.0
+    let current_layout = ${pkgs.xorg.setxkbmap}/bin/setxkbmap -query | detect columns --no-headers | update column0 {|it| $it.column0 | str replace ":" ""} | transpose | reject column0 | headers | str trim | get layout.0
 
     let layouts = {
         us: "🇺🇸",
@@ -20,7 +20,11 @@
 
     let keys = $layouts | columns | to text
     let flag = $layouts | get $current_layout
-    setxkbmap ($keys | rofi -dmenu -p "Keyboard Layout" -mesg $'Current layout: ($flag)')
+    let selection = ($keys | rofi -dmenu -p "Keyboard Layout" -mesg $'Current layout: ($flag)')
+    if ($selection | is-empty) {
+      return
+    }
+    ${pkgs.xorg.setxkbmap}/bin/setxkbmap $selection
   '';
 in {
   home-manager.users.cabero.xdg.configFile."awesome/rc.lua" = {
