@@ -15,6 +15,7 @@
     ./git
     ./helix
     ./kitty
+    ./lazygit
     ./lsd
     ./man
     ./nix
