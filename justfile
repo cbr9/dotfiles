@@ -3,6 +3,7 @@ switch:
 	-rm ~/.config/mimeapps.list
 	-rm ~/.local/share/mimeapps.list
 	sudo nixos-rebuild switch --flake .
+	awesome-client "awesome.restart()"
 
 rekey:
 	op read "op://Personal/ymqirvvpvyvjwq4v6i5j5xmjrq/public key" --out-file ~/.ssh/id_ed25519.pub
