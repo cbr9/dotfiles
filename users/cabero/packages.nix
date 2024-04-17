@@ -41,6 +41,7 @@
     slack
     todoist-electron
     vlc
+    zoom-us
     zotero
   ];
 in {
