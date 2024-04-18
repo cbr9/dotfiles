@@ -1,8 +1,3 @@
-# For nushell version >= 0.87.0
-def --env --wrapped lfcd [...args: string] { 
-  cd (lf -print-last-dir ...$args)
-}
-
 let zoxide = {|spans|
     $spans | skip 1 | zoxide query --score --list ...$in | detect columns --no-headers | rename score path | into float score | sort-by score | reverse | get path
 }
