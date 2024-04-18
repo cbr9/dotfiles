@@ -57,7 +57,7 @@ in {
         RMENU="rofi -dmenu -p"
 
         PDF_VIEWER=evince
-        DMBROWSER="firefox"
+        DMBROWSER="google-chrome-stable"
         DMTERM="kitty -e"
         DMEDITOR="kitty hx"
 

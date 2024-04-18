@@ -388,7 +388,7 @@ in {
           awful.key({ super }, "s", function() awful.spawn("${rofi} -show ssh") end),
           awful.key({ super, alt }, "l", function() awful.spawn("${hm.services.screen-locker.lockCmd}") end),
           awful.key({ super, "Shift" }, "b", function() awful.spawn("${pkgs.rofi-bluetooth}/bin/rofi-bluetooth") end),
-          awful.key({ super }, "b", function() awful.spawn("${hm.programs.firefox.package}/bin/firefox") end),
+          awful.key({ super }, "b", function() awful.spawn("${pkgs.google-chrome}/bin/google-chrome-stable") end),
           awful.key({ super }, "p", function() awful.spawn("${config.programs._1password-gui.package}/bin/1password") end),
           awful.key({ super }, "t", function() awful.spawn("${pkgs.todoist-electron}/bin/todoist-electron") end),
           -- awful.key({ super }, "m", function() awful.spawn("mailspring") end),
