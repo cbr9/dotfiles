@@ -16,11 +16,21 @@ in {
       backend = "xrender";
       vSync = true;
       wintypes = {
-        popup_menu = {opacity = cfg.menuOpacity;};
-        dropdown_menu = {opacity = cfg.menuOpacity;};
-        normal = {
-          full-shadow = true;
+        tooltip = {
+          fade = true;
+          shadow = true;
+          opacity = 0.75;
+          focus = true;
+          full-shadow = false;
         };
+        dock = {
+          shadow = false;
+          clip-shadow-above = true;
+        };
+        dnd = {shadow = false;};
+        menu = {shadow = false;};
+        popup_menu = {opacity = 0.8;};
+        dropdown_menu = {opacity = 0.8;};
       };
     };
   };
