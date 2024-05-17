@@ -391,7 +391,6 @@ in {
           awful.key({ super }, "b", function() awful.spawn("${pkgs.google-chrome}/bin/google-chrome-stable") end),
           awful.key({ super }, "p", function() awful.spawn("${config.programs._1password-gui.package}/bin/1password") end),
           awful.key({ super }, "t", function() awful.spawn("${pkgs.todoist-electron}/bin/todoist-electron") end),
-          -- awful.key({ super }, "m", function() awful.spawn("mailspring") end),
           awful.key({ super }, "w", function() awful.spawn("${pkgs.obsidian}/bin/obsidian") end),
           awful.key({ super, "Shift" }, "x", xprop),
           awful.key({ super }, "space", switch_keyboard_layout),

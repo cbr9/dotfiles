@@ -53,11 +53,6 @@ in {
             ${pkgs.dropbox}/bin/dropbox &
           fi
 
-          if ! pgrep -x mailspring > /dev/null
-          then
-            ${pkgs.mailspring}/bin/mailspring --background --password-store="gnome-libsecret" &
-          fi
-
           if ! pgrep -x todoist > /dev/null
           then
             ${pkgs.todoist-electron}/bin/todoist-electron &

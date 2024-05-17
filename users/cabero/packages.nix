@@ -33,7 +33,6 @@
     google-chrome
     gparted
     insync
-    mailspring
     meld
     mpv
     obsidian

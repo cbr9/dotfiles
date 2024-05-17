@@ -7,7 +7,6 @@
     allowUnfree = true;
     permittedInsecurePackages = [
       "electron-25.9.0"
-      "mailspring-1.12.0"
       "zotero-6.0.27"
     ];
   };
