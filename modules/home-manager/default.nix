@@ -16,6 +16,7 @@
     ./helix
     ./kitty
     ./lazygit
+    ./lf
     ./lsd
     ./man
     ./nix
@@ -30,7 +31,6 @@
     ./texlive
     ./vscode
     ./xdg
-    ./yazi
     ./zellij
     ./zoxide
   ];

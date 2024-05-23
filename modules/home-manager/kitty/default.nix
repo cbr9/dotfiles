@@ -68,7 +68,7 @@ in
 
           protocol file
           mime inode/directory
-          action launch --type=overlay yazi ''${FILE_PATH}
+          action launch --type=overlay lf ''${FILE_PATH}
 
           protocol file
           mime image/*
