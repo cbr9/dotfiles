@@ -24,7 +24,7 @@ in {
         ++ lib.lists.forEach ["http" "https" "about" "unknown"]
         (x: "x-scheme-handler/" + x)
       );
-      videoMimeTypes = ["video/x-matroska" "video/mp4"];
+      videoMimeTypes = ["video/x-matroska" "video/mp4" "video/webm" "video/*"];
       documentTypes = ["application/pdf"];
       textTypes = ["application/json" "text/plain" "text/markdown"];
       folderTypes = ["inode/directory"];
