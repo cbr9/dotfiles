@@ -7,7 +7,7 @@
 with pkgs; {
   # keep this for the future
   home.packages = with pkgs; [
-    nodePackages.pyright
+    pyright
     nodePackages.bash-language-server
     marksman
     nil
