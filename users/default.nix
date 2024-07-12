@@ -3,7 +3,5 @@
     ./cabero
   ];
 
-  config = {
-    users.mutableUsers = true;
-  };
+  config.users.mutableUsers = false;
 }
