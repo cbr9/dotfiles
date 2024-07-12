@@ -4,20 +4,18 @@
     du-dust
     dysk
     fd
-    go
     jc
     just
-    nodePackages.webtorrent-cli
-    ookla-speedtest
+    kalker
     ouch
     poppler_utils
     python312
     ripgrep
     sd
     sox
-    typst
     watchexec
     xclip
+    yazi
   ];
 
   gui = with pkgs; [
@@ -25,6 +23,7 @@
     appimage-run
     arandr
     discord
+    spotify
     dropbox
     evince
     feh
@@ -32,13 +31,8 @@
     gnome.nautilus
     google-chrome
     gparted
-    insync
     meld
-    mpv
-    obsidian
     qalculate-gtk
-    slack
-    todoist-electron
     vlc
     zoom-us
     zotero
