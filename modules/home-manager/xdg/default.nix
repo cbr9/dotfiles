@@ -9,7 +9,7 @@ with lib; let
     videoPlayer = "vlc.desktop";
     documentViewer = "org.gnome.Evince.desktop";
     textEditor = "Helix.desktop";
-    fileManager = "lf.desktop";
+    fileManager = "yazi.desktop";
   };
 in {
   home.packages = with pkgs; [vlc evince];
