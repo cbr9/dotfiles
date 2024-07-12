@@ -83,7 +83,22 @@ in {
               services = {
                 upower.enable = true;
                 # Enable CUPS to print documents.
-                printing.enable = true;
+                printing = {
+                  enable = true;
+                  browsing = true;
+                  browsedConf = ''
+                    BrowseDNSSDSubTypes _cups,_print
+                    BrowseLocalProtocols all
+                    BrowseRemoteProtocols all
+                    CreateIPPPrinterQueues All
+                    BrowseProtocols all
+                  '';
+                };
+                avahi = {
+                  enable = true;
+                  nssmdns = true;
+                  openFirewall = true;
+                };
               };
             };
           })
