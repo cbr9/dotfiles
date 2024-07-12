@@ -14,6 +14,14 @@
         bind \ej down-or-search # alt+j
         bind \ce 'fish_commandline_prepend $EDITOR'
       '';
+      yy = ''
+        set tmp (mktemp -t "yazi-cwd.XXXXXX")
+        yazi $argv --cwd-file="$tmp"
+        if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+        	cd -- "$cwd"
+        end
+        rm -f -- "$tmp"
+      '';
     };
 
     shellInit = let
