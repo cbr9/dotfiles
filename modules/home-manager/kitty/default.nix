@@ -1,17 +1,13 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }: let
   cfg = config.programs.kitty;
-  emojiPicker = pkgs.writeScriptBin "emoji" ''
-    kitten unicode_input | xargs echo -n | kitten clipboard
-  '';
 in
   with lib; {
     stylix = {
-      opacity.terminal = 0.85;
+      opacity.terminal = 0.90;
       fonts.sizes.terminal = 15;
       polarity = "dark";
       targets.kitty.variant256Colors = true;
@@ -20,8 +16,6 @@ in
     home.sessionVariables = mkIf cfg.enable {
       TERMINAL = "${cfg.package}/bin/kitty";
     };
-
-    home.packages = mkIf cfg.enable [emojiPicker];
 
     programs.kitty = {
       enable = true;
