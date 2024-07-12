@@ -15,13 +15,30 @@
         content = {
           type = "gpt";
           partitions = {
-            other = {
+            main = {
               type = "8302";
               size = "100%";
               content = {
                 type = "filesystem";
                 format = "ext4";
                 mountpoint = "/home";
+              };
+            };
+          };
+        };
+      };
+      sdb = {
+        device = "/dev/sdb";
+        type = "disk";
+        content = {
+          type = "gpt";
+          partitions = {
+            main = {
+              size = "100%";
+              content = {
+                type = "filesystem";
+                format = "ext4";
+                mountpoint = "/backup";
               };
             };
           };
