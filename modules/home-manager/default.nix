@@ -7,8 +7,6 @@
     ./caffeine
     ./direnv
     ./dmscripts
-    ./email
-    ./firefox
     ./fish
     ./fzf
     ./gh
@@ -16,11 +14,9 @@
     ./helix
     ./kitty
     ./lazygit
-    ./lf
     ./lsd
     ./man
     ./nix
-    ./nuscripts
     ./nushell
     ./organize
     ./pueue
@@ -28,10 +24,8 @@
     ./rofi
     ./ssh
     ./starship
-    ./texlive
     ./vscode
     ./xdg
-    ./zellij
     ./zoxide
   ];
 }
