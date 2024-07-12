@@ -7,7 +7,6 @@
 with lib; let
   cfg = config.services.xserver.windowManager.awesome;
 in {
-  imports = [./config];
   config = {
     services.displayManager.defaultSession = "none+awesome";
     services.xserver = {
@@ -54,6 +53,10 @@ in {
             ${pkgs.dropbox}/bin/dropbox &
           fi
         '';
+        awesome = {
+          enable = cfg.enable;
+          source = ./config;
+        };
       };
     };
   };
