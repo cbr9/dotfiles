@@ -8,19 +8,13 @@
     ./clipmenu
     ./fish
     ./fonts
-    ./gtk
     ./hardware
     ./kdeconnect
-    ./mysql
     ./nix
-    ./nix-index
     ./nushell
     ./openrgb
     ./picom
-    ./qt
-    ./sshfs
     ./stylix
-    ./spotify
   ];
 
   environment = {
@@ -36,7 +30,4 @@
       pavucontrol
     ];
   };
-
-  services.mullvad-vpn.enable = true;
-  services.mullvad-vpn.package = pkgs.mullvad-vpn;
 }
