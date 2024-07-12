@@ -1,10 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
-  cfg = config.services.picom;
-in {
+{pkgs, ...}: {
   config = {
     environment.systemPackages = with pkgs; [picom];
 
