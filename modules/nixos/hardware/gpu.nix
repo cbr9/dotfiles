@@ -3,8 +3,9 @@
     enable = true;
     videoDrivers = ["nvidia"];
     dpi = 125;
-    libinput.enable = true;
   };
+
+  services.libinput.enable = true;
 
   hardware = {
     nvidia = {
@@ -12,10 +13,8 @@
       forceFullCompositionPipeline = true;
       powerManagement.enable = true;
     };
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
       extraPackages = [
         pkgs.libva
       ];
