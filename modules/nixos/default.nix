@@ -2,6 +2,7 @@
   imports = [
     ./1password
     ./awesome
+    ./spotify
     ./base
     ./bash
     ./betterlockscreen
