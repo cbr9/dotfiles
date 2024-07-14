@@ -8,9 +8,11 @@
     isNormalUser = true;
     extraGroups = ["wheel" "fuse" "docker" "networkmanager"];
     shell = pkgs.fish;
+    hashedPasswordFile = "/run/agenix/cabero";
   };
 
   age.secrets = {
+    cabero.file = ../../secrets/cabero.age;
     cabero-15582531.file = ../../secrets/cabero-15582531.age; # keychain
     cabero-15582547.file = ../../secrets/cabero-15582547.age; # loose
   };
