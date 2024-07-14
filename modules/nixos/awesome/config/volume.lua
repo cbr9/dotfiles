@@ -6,11 +6,11 @@ awful.spawn("pamixer --unmute")
 local volume = {
   LIMIT = 150,
   STEP = 5,
-  CURRENT = 0,
+  CURRENT = 50,
   MUTED = false,
   WIDGET = wibox.widget {
-    max_value = 1,
-    value = 0,
+    max_value = 150,
+    value = 50,
     forced_width = 100,
     ticks = true,
     ticks_size = 2,
@@ -27,11 +27,6 @@ local volume = {
   }
 }
 
-awful.spawn.easy_async("pamixer --get-volume", function(stdout, _, _, _)
-  volume.CURRENT = tonumber(stdout)
-  volume.WIDGET.max_value = volume.LIMIT
-  volume.WIDGET.value = volume.CURRENT
-end)
 
 function volume:toggle()
   awful.spawn("pamixer --toggle-mute")
@@ -78,6 +73,19 @@ function volume:lower()
     end
     self.WIDGET.value = self.CURRENT
   end)
+end
+
+function volume:set(level)
+    if level <= 0 then
+      self.CURRENT = 0
+    elseif level >= self.LIMIT then
+      self.CURRENT = self.LIMIT
+    else
+      self.CURRENT = level
+    end
+
+    awful.spawn(string.format("pamixer --allow-boost --set %s", self.CURRENT))
+    self.WIDGET.value = self.CURRENT
 end
 
 return volume

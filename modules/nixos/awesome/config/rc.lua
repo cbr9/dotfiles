@@ -325,7 +325,7 @@ local global_keys = gears.table.join(
   end),
   awful.key({}, "XF86MonBrightnessDown", brightness.down),
   awful.key({}, "XF86MonBrightnessUp", brightness.up),
-  awful.key({}, "Print", screenshot),
+  awful.key({}, "F8", screenshot),
 
   -- Directionional client focus
   awful.key({ super }, "j", function() focus_bydirection("down") end),
@@ -538,5 +538,6 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
+volume:set(volume.CURRENT)
 awful.spawn("/home/cabero/.config/autostart/autostart.sh")
 

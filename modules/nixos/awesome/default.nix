@@ -46,13 +46,13 @@ in {
           ${lib.optionalString config.programs._1password-gui.enable "1password --silent &"}
           ${lib.optionalString config.home-manager.users.cabero.services.betterlockscreen.enable "betterlockscreen -u ${config.stylix.image} &"}
           ${lib.optionalString config.programs.kdeconnect.enable "kdeconnect-cli --refresh &"}
-          bluetoothctl connect 20:1F:3B:C5:8E:62
 
           if ! pgrep -x dropbox > /dev/null
           then
             ${pkgs.dropbox}/bin/dropbox &
           fi
         '';
+
         awesome = {
           enable = cfg.enable;
           source = ./config;
