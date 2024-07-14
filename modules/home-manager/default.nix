@@ -25,6 +25,7 @@
     ./ssh
     ./starship
     ./vscode
+    ./dmscripts
     ./xdg
     ./zoxide
   ];
