@@ -1,5 +1,6 @@
 local awful = require("awful")
 local wibox = require("wibox")
+local gears = require("gears")
 
 awful.spawn("pamixer --unmute")
 
@@ -59,6 +60,13 @@ function volume:raise()
   end)
 end
 
+function volume:update()
+  awful.spawn.easy_async("pamixer --get-volume", function(stdout, _, _, _)
+    self.CURRENT = tonumber(stdout)
+    self.WIDGET.value = self.CURRENT
+  end)
+end
+
 function volume:lower()
   awful.spawn.easy_async("pamixer --get-volume", function(stdout, _, _, _)
     self.CURRENT = tonumber(stdout)
@@ -87,6 +95,11 @@ function volume:set(level)
     awful.spawn(string.format("pamixer --allow-boost --set %s", self.CURRENT))
     self.WIDGET.value = self.CURRENT
 end
+
+gears.timer.start_new(0.5, function()
+  volume:update()
+  return true
+end)
 
 return volume
 
