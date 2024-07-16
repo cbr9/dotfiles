@@ -13,6 +13,7 @@
         bind \ek up-or-search # alt+k
         bind \ej down-or-search # alt+j
         bind \ce 'fish_commandline_prepend $EDITOR'
+        bind \cw 'yy'
       '';
       yy = ''
         set tmp (mktemp -t "yazi-cwd.XXXXXX")
