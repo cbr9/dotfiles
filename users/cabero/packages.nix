@@ -39,7 +39,6 @@
     sox
     watchexec
     xclip
-    yazi
   ];
 
   gui = with pkgs; [
