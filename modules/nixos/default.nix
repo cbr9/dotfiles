@@ -2,6 +2,7 @@
   imports = [
     ./1password
     ./awesome
+    ./transmission
     ./spotify
     ./base
     ./bash

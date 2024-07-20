@@ -30,6 +30,7 @@
     fd
     jc
     just
+    transmission
     kalker
     ouch
     poppler_utils
