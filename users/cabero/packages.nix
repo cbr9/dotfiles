@@ -47,6 +47,7 @@
     arandr
     discord
     spotify
+    dropbox
     evince
     feh
     gnome.file-roller

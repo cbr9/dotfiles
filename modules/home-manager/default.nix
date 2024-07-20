@@ -3,7 +3,6 @@
     ./atuin
     ./bash
     ./bat
-    ./dropbox
     ./bottom
     ./caffeine
     ./direnv
