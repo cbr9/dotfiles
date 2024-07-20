@@ -27,6 +27,7 @@
     ./vscode
     ./dmscripts
     ./xdg
+    ./yazi
     ./zoxide
   ];
 }

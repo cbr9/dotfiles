@@ -2,21 +2,20 @@
   programs.yazi.keymap = {
     manager.prepend_keymap = [
       {
-        on = [ "e" ];
+        on = ["e"];
         run = "open";
         desc = "Open the selected files";
-      }      
+      }
       {
-        on = [ "p" ];
+        on = ["p"];
         run = "plugin --sync smart-paste";
         desc = "Paste into the hovered directory or CWD";
-      }      
+      }
       {
-        on = "F";
+        on = ["F"];
         run = "plugin smart-filter";
         desc = "Smart filter";
-      }      
+      }
     ];
   };
-
 }

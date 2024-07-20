@@ -8,5 +8,6 @@
   programs.yazi = {
     enable = true;
     shellWrapperName = "yy";
+    initLua = ./init.lua;
   };
 }
