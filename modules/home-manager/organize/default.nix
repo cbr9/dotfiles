@@ -61,8 +61,8 @@ in {
           ];
           filters = [
             {
-              type = "extension";
-              extensions = ["mkv" "mp4"];
+              type = "mime";
+              types = ["video/*"];
             }
           ];
         }
