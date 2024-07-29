@@ -34,7 +34,7 @@ in {
               to = "${downloads}/{extension}";
             }
           ];
-          folders = [downloads];
+          folders = [{path = downloads;}];
           filters = [
             {
               type = "regex";
@@ -82,7 +82,7 @@ in {
               ];
             }
           ];
-          folders = [downloads];
+          folders = [{path = downloads;}];
         }
       ];
     };
