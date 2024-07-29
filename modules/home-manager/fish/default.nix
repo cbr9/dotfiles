@@ -13,15 +13,7 @@
         bind \ek up-or-search # alt+k
         bind \ej down-or-search # alt+j
         bind \ce 'fish_commandline_prepend $EDITOR'
-        bind \cw 'yy'
-      '';
-      yy = ''
-        set tmp (mktemp -t "yazi-cwd.XXXXXX")
-        yazi $argv --cwd-file="$tmp"
-        if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-        	cd -- "$cwd"
-        end
-        rm -f -- "$tmp"
+        bind \cw 'set old_tty (stty -g); stty sane; yy; stty $old_tty; commandline -f repaint'
       '';
     };
 
