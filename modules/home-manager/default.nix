@@ -7,6 +7,7 @@
     ./caffeine
     ./direnv
     ./dmscripts
+    ./dmscripts
     ./firefox
     ./fish
     ./fzf
@@ -26,7 +27,6 @@
     ./ssh
     ./starship
     ./vscode
-    ./dmscripts
     ./xdg
     ./yazi
     ./zoxide
