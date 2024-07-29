@@ -8,7 +8,7 @@
           desc = "Helix";
         }
       ];
-      video = [
+      play = [
         {
           run = "${pkgs.vlc}/bin/vlc \"$@\"";
           orphan = true;
