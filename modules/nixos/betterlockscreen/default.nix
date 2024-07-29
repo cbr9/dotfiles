@@ -17,11 +17,6 @@
       };
     };
 
-    gtk.iconTheme = {
-      package = pkgs.gnome.adwaita-icon-theme;
-      name = "Adwaita";
-    };
-
     xdg.configFile = {
       "betterlockscreen/betterlockscreenrc" = {
         enable = config.home-manager.users.cabero.services.betterlockscreen.enable && config.programs.i3lock.u2fSupport;
