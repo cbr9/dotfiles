@@ -23,6 +23,7 @@ in {
         stable = import inputs.nixpkgs-stable {inherit system config;};
         master = import inputs.nixpkgs-master {inherit system config;};
         agenix = inputs.agenix.packages.x86_64-linux.default.override {ageBin = "${prev.age}/bin/age";};
+        typst = inputs.typst.packages.x86_64-linux.default;
       })
     ];
   };

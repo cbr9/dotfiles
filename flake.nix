@@ -18,6 +18,7 @@
     agenix.url = "github:ryantm/agenix";
     stylix.url = "github:danth/stylix";
     yazi.url = "github:sxyazi/yazi";
+    typst.url = "github:typst/typst";
   };
 
   outputs = {...} @ inputs: let

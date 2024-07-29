@@ -29,6 +29,7 @@
     dysk
     fd
     jc
+    typst
     just
     transmission
     kalker
