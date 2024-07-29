@@ -52,8 +52,6 @@
     dropbox
     evince
     feh
-    gnome.file-roller
-    gnome.nautilus
     gparted
     meld
     qalculate-gtk
