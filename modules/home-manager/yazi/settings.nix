@@ -5,18 +5,14 @@
         {
           run = "${pkgs.helix}/bin/hx \"$@\"";
           block = true;
-        }
-      ];
-      open = [
-        {
-          run = "xdg-open \"$@\"";
-          orphan = true;
+          desc = "Helix";
         }
       ];
       video = [
         {
           run = "${pkgs.vlc}/bin/vlc \"$@\"";
           orphan = true;
+          desc = "VLC";
         }
       ];
       ouch_no = [
@@ -30,59 +26,27 @@
         {
           run = "${pkgs.ouch}/bin/ouch d --yes \"$@\"";
           orphan = true;
-          desc = "Decompress without overwriting";
+          desc = "Decompress and overwrite";
         }
       ];
     };
 
     open = {
-      rules = [
+      prepend_rules = [
         {
           mime = "text/*";
           use = "edit";
         }
         {
-          mime = "*/xml";
+          mime = "application/x-subrip";
           use = "edit";
-        }
-        {
-          mime = "text/x-toml";
-          use = "edit";
-        }
-        {
-          mime = "application/pdf";
-          use = "open";
-        }
-        {
-          mime = "image/*";
-          use = "image";
-        }
-        {
-          mime = "video/*";
-          use = "media";
-        }
-        {
-          mime = "audio/*";
-          use = "media";
         }
         {
           name = "*.zip";
           use = ["ouch_no" "ouch_yes"];
         }
         {
-          name = "*.srt";
-          use = "edit";
-        }
-        {
-          name = "*.isi";
-          use = "edit";
-        }
-        {
           mime = "application/json";
-          use = "edit";
-        }
-        {
-          name = "*.toml";
           use = "edit";
         }
 
@@ -91,9 +55,15 @@
           name = "*.html";
           use = ["browser" "edit"];
         }
+      ];
+      append_rules = [
         {
-          mime = "inode/x-empty";
-          use = "edit";
+          mime = "video/*";
+          use = "media";
+        }
+        {
+          mime = "audio/*";
+          use = "media";
         }
       ];
     };

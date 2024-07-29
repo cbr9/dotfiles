@@ -7,7 +7,8 @@
   };
 in {
   programs.yazi.plugins = {
-    smart-paste = ./smart-paste.yazi;
     smart-filter = "${plugins-repo}/smart-filter.yazi";
+    parent-arrow = ./parent-arrow.yazi;
+    chmod = "${plugins-repo}/chmod.yazi";
   };
 }
