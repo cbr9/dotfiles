@@ -20,6 +20,7 @@
   ];
 
   config = {
+    hardware.enableAllFirmware = true;
     programs.light.enable = config.sys.hardware.isLaptop;
     services.logind = {
       lidSwitch = "suspend";
