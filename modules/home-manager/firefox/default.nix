@@ -17,7 +17,7 @@
   };
   home.packages = lib.mkIf config.programs.firefox.enable [pkgs.speechd];
   programs.firefox = {
-    enable = false;
+    enable = true;
     package = pkgs.firefox.override {
       nativeMessagingHosts = (
         [pkgs.plasma-browser-integration]

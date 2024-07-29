@@ -48,21 +48,6 @@
         definedAliases = ["@hm"];
       };
 
-      "Cambridge German-English Dictionary" = {
-        urls = [{template = "https://dictionary.cambridge.org/dictionary/german-english/{searchTerms}";}];
-        definedAliases = ["@ger"];
-      };
-
-      "Cambridge English Dictionary" = {
-        urls = [{template = "https://dictionary.cambridge.org/dictionary/english/{searchTerms}";}];
-        definedAliases = ["@eng"];
-      };
-
-      "Healthline" = {
-        urls = [{template = "https://www.healthline.com/search?q1={searchTerms}";}];
-        definedAliases = ["@hl"];
-      };
-
       "YouTube" = {
         urls = [
           {
@@ -78,34 +63,9 @@
         definedAliases = ["@you"];
       };
 
-      "HuggingFace Datasets" = {
-        urls = [
-          {
-            template = "https://huggingface.co/datasets";
-            params = [
-              {
-                name = "search";
-                value = "{searchTerms}";
-              }
-            ];
-          }
-        ];
-        definedAliases = ["@hugd"];
-      };
-
-      "HuggingFace Models" = {
-        urls = [
-          {
-            template = "https://huggingface.co/models";
-            params = [
-              {
-                name = "search";
-                value = "{searchTerms}";
-              }
-            ];
-          }
-        ];
-        definedAliases = ["@hugm"];
+      Amazon = {
+        urls = [{template = "https://amazon.de/s?k={searchTerms}";}];
+        definedAliases = ["@am"];
       };
 
       "DuckDuckGo".metaData.alias = "@d";

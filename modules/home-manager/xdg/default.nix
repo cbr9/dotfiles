@@ -5,7 +5,7 @@
 }:
 with lib; let
   defaultApplications = {
-    browser = "google-chrome.desktop";
+    browser = "firefox.desktop";
     videoPlayer = "vlc.desktop";
     documentViewer = "org.gnome.Evince.desktop";
     textEditor = "Helix.desktop";

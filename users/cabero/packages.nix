@@ -53,7 +53,6 @@
     feh
     gnome.file-roller
     gnome.nautilus
-    google-chrome
     gparted
     meld
     qalculate-gtk

@@ -10,11 +10,6 @@
       keyword = "coursera";
     }
     {
-      name = "Dropbox";
-      url = "https://www.dropbox.com/";
-      keyword = "dropbox";
-    }
-    {
       name = "Brilliant";
       url = "https://www.brilliant.org/";
       keyword = "brilliant";
@@ -32,7 +27,7 @@
     {
       name = "Dropbox";
       url = "https://www.dropbox.com/home";
-      keyword = "dpb";
+      keyword = "dropbox";
     }
     {
       name = "Healthline";
@@ -42,17 +37,7 @@
     {
       name = "Whatsapp Web";
       url = "https://web.whatsapp.com/";
-      keyword = "ww";
-    }
-    {
-      name = "Splitwise";
-      url = "https://secure.splitwise.com/#/dashboard";
-      keyword = "splitwise";
-    }
-    {
-      name = "Privacy Tools";
-      url = "https://www.privacytools.io";
-      keyword = "privacy";
+      keyword = "wp";
     }
     {
       name = "Fastmail";
@@ -85,44 +70,14 @@
       keyword = "moonlander";
     }
     {
-      name = "BrainFM";
-      url = "https://my.brain.fm/focus";
-      keyword = "focus";
-    }
-    {
-      name = "Ilias";
-      url = "https://ilias3.uni-stuttgart.de";
-      keyword = "ilias";
-    }
-    {
-      name = "Campus";
-      url = "https://campus.uni-stuttgart.de";
-      keyword = "campus";
-    }
-    {
-      name = "University Email";
-      url = "https://mail.uni-stuttgart.de/";
-      keyword = "unimail";
-    }
-    {
       name = "Udemy";
       url = "https://www.udemy.com/";
       keyword = "udemy";
     }
     {
-      name = "Regex101";
-      url = "https://regex101.com";
-      keyword = "regex";
-    }
-    {
-      name = "Hydra";
-      url = "https://hydra.cc";
-      keyword = "hydra";
-    }
-    {
       name = "ChatGPT";
       url = "https://chat.openai.com/";
-      keyword = "chat";
+      keyword = "gpt";
     }
     {
       name = "Cambridge German-English Dictionary";
@@ -244,11 +199,6 @@
           keyword = "repos";
         }
         {
-          name = "Papis";
-          url = "https://www.github.com/papis/papis";
-          keyword = "papis";
-        }
-        {
           name = "Dotfiles";
           url = "https://www.github.com/cbr9/dotfiles";
           keyword = "dots";
@@ -292,6 +242,11 @@
           name = "Zellij";
           url = "https://github.com/zellij-org/zellij";
           keyword = "zellij";
+        }
+        {
+          name = "Yazi";
+          url = "https://github.com/sxyazi/yazi";
+          keyword = "yazi";
         }
       ];
     }
