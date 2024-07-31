@@ -1,9 +1,13 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   programs.yazi.keymap = {
     manager.prepend_keymap = [
       {
-        on = ["e"];
-        run = "open";
+        on = lib.strings.stringToCharacters "git";
+        run = "shell --block --confirm 'lazygit'";
         desc = "Open the selected files";
       }
       {
