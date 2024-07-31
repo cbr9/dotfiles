@@ -204,6 +204,11 @@
           keyword = "dots";
         }
         {
+          name = "Organizer";
+          url = "https://www.github.com/cbr9/organizer";
+          keyword = "org";
+        }
+        {
           name = "Kitty";
           url = "https://github.com/kovidgoyal/kitty";
           keyword = "kitty";
