@@ -14,8 +14,8 @@
       # python
       ''
         import shutil
-        new_path = "{path}".replace(" ", "-")
-        shutil.move("{path}", new_path)
+        new_path = "{{path}}".replace(" ", "-")
+        shutil.move("{{path}}", new_path)
         print(new_path)
       ''
     );
@@ -28,17 +28,21 @@ in {
       rules = [
         {
           actions = [
-            replace_spaces
             {
               type = "move";
-              to = "${downloads}/{extension}";
+              to = "${downloads}/{{extension}}/";
             }
           ];
           folders = [{path = downloads;}];
           filters = [
             {
-              type = "regex";
-              patterns = [".*"];
+              type = "group";
+              filters = [
+                {
+                  type = "regex";
+                  patterns = [".*"];
+                }
+              ];
             }
           ];
         }
@@ -54,9 +58,7 @@ in {
           folders = [
             {
               path = downloads;
-              options = {
-                recursive = 0;
-              };
+              max_depth = 0;
             }
           ];
           filters = [
@@ -71,7 +73,7 @@ in {
             replace_spaces
             {
               type = "move";
-              to = "${pictures}/Wallpapers/";
+              to = "${pictures}/Unsplash/";
             }
           ];
           filters = [

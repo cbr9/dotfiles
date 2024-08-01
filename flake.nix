@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     helix.url = "github:helix-editor/helix";
-    organize.url = "github:cbr9/organizer";
+    organize.url = "git+ssh://git@github.com/cbr9/organizer";
     agenix.url = "github:ryantm/agenix";
     stylix.url = "github:danth/stylix";
     yazi.url = "github:sxyazi/yazi";

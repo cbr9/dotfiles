@@ -820,17 +820,17 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1722292995,
-        "narHash": "sha256-t94zLWABEFuoabKOnL0qBw4bgbAJ8UR/zkETDSok5sU=",
-        "owner": "cbr9",
-        "repo": "organizer",
-        "rev": "1d6988acee9e8a670d40a5f24dc6376eadc2da5a",
-        "type": "github"
+        "lastModified": 1722523094,
+        "narHash": "sha256-gi9DyGVdWIQr5hG/4SHyje6sbskAAcXcw70RyK8E7nM=",
+        "ref": "refs/heads/master",
+        "rev": "81afcbed84ee69f3586a8d772bb5962c724acb2f",
+        "revCount": 724,
+        "type": "git",
+        "url": "ssh://git@github.com/cbr9/organizer"
       },
       "original": {
-        "owner": "cbr9",
-        "repo": "organizer",
-        "type": "github"
+        "type": "git",
+        "url": "ssh://git@github.com/cbr9/organizer"
       }
     },
     "parts": {
