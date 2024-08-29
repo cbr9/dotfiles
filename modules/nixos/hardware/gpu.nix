@@ -12,6 +12,7 @@
       modesetting.enable = true;
       forceFullCompositionPipeline = true;
       powerManagement.enable = true;
+      open = false;
     };
     graphics = {
       enable = true;
