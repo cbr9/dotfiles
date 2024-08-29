@@ -669,8 +669,8 @@
     "nixpkgs_6": {
       "locked": {
         "lastModified": 0,
-        "narHash": "sha256-8MUgifkJ7lkZs3u99UDZMB4kbOxvMEXQZ31FO3SopZ0=",
-        "path": "/nix/store/l6spwdi1xs20q24fqfi3xwxx0d2x9q2m-source",
+        "narHash": "sha256-GnR7/ibgIH1vhoy8cYdmXE6iyZqKqFxQSVkFgosBh6w=",
+        "path": "/nix/store/887hpp8a2i99n9jjwcvz6qkhhhqsvzkg-source",
         "type": "path"
       },
       "original": {
@@ -680,11 +680,11 @@
     },
     "nixpkgs_7": {
       "locked": {
-        "lastModified": 1721782431,
-        "narHash": "sha256-UNDpwjYxNXQet/g3mgRLsQ9zxrbm9j2JEvP4ijF3AWs=",
+        "lastModified": 1724748588,
+        "narHash": "sha256-NlpGA4+AIf1dKNq76ps90rxowlFXUsV9x7vK/mN37JM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "4f02464258baaf54992debfd010a7a3662a25536",
+        "rev": "a6292e34000dc93d43bccf78338770c1c5ec8a99",
         "type": "github"
       },
       "original": {
@@ -728,11 +728,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1724927048,
-        "narHash": "sha256-jzMKCu/J5Zf6NDkwcSoebEFXvkRsdKKUbD34fhrDJWA=",
+        "lastModified": 1724936582,
+        "narHash": "sha256-lZWNdSfNQqlhpmKxeP7BAlxaqqUaB1MiCSRmeSPdbVI=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "5aa133e42c0434d4a40df139ab2556b5f52ef7cd",
+        "rev": "d6c0211e29423b3477682743a988222614ef5eca",
         "type": "github"
       },
       "original": {
@@ -748,11 +748,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1724762891,
-        "narHash": "sha256-pxax6ld+X9yq43aS8XllSqWCMbLSKR9v/QIe37Qn0SA=",
+        "lastModified": 1724939657,
+        "narHash": "sha256-cLmU+X4fWFkYBgukuXl86ylAKTdrCDUWr5VXOd4bEQI=",
         "ref": "refs/heads/master",
-        "rev": "1ac65e21cb13a8614755cb50329ab241842f59a4",
-        "revCount": 827,
+        "rev": "098c82af6c6472efec19d91a0445bbb4a00f0546",
+        "revCount": 828,
         "type": "git",
         "url": "ssh://git@github.com/cbr9/organizer"
       },
