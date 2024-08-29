@@ -356,7 +356,7 @@ local global_keys = gears.table.join(
   awful.key({ super }, "s", function() awful.spawn("rofi -show ssh") end),
   awful.key({ super, alt }, "l", function() awful.spawn("betterlockscreen -l") end),
   awful.key({ super, "Shift" }, "b", function() awful.spawn("rofi-bluetooth") end),
-  awful.key({ super }, "b", function() awful.spawn("firefox") end),
+  awful.key({ super }, "b", function() awful.spawn("google-chrome-stable") end),
   awful.key({ super }, "p", function() awful.spawn("1password") end),
   awful.key({ super, "Shift" }, "x", xprop),
   awful.key({ super }, "space", switch_keyboard_layout),

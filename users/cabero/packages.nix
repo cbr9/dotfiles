@@ -57,6 +57,7 @@
     qalculate-gtk
     vlc
     zoom-us
+    google-chrome
     zotero
   ];
 in {

@@ -10,7 +10,7 @@
   disko.devices = {
     disk = {
       sda = {
-        device = "/dev/sda";
+        device = "/dev/disk/by-id/wwn-0x5000c500e4b220dc";
         type = "disk";
         content = {
           type = "gpt";
@@ -27,25 +27,8 @@
           };
         };
       };
-      sdb = {
-        device = "/dev/sdb";
-        type = "disk";
-        content = {
-          type = "gpt";
-          partitions = {
-            main = {
-              size = "100%";
-              content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/backup";
-              };
-            };
-          };
-        };
-      };
       nvme0n1 = {
-        device = "/dev/nvme0n1";
+        device = "/dev/disk/by-id/nvme-eui.0025385901400dfa";
         type = "disk";
         content = {
           type = "gpt";

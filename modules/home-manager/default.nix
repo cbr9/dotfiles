@@ -7,8 +7,6 @@
     ./caffeine
     ./direnv
     ./dmscripts
-    ./dmscripts
-    ./firefox
     ./fish
     ./fzf
     ./gh
