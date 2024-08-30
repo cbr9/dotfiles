@@ -33,6 +33,7 @@
     just
     transmission
     kalker
+    fend
     ouch
     poppler_utils
     python312
