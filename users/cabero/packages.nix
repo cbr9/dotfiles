@@ -50,7 +50,6 @@
     dropbox
     evince
     feh
-    gnomecast
     google-chrome
     gparted
     meld
