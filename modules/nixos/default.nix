@@ -4,7 +4,6 @@
     ./awesome
     ./spotify
     ./base
-    ./bash
     ./betterlockscreen
     ./clipmenu
     ./fish

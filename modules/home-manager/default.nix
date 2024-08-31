@@ -1,15 +1,12 @@
 {...}: {
   imports = [
     ./atuin
-    ./bash
     ./bat
     ./bottom
     ./caffeine
     ./direnv
-    ./dmscripts
     ./fish
     ./fzf
-    ./gh
     ./git
     ./helix
     ./kitty
@@ -24,7 +21,6 @@
     ./rofi
     ./ssh
     ./starship
-    ./vscode
     ./xdg
     ./yazi
     ./zoxide
