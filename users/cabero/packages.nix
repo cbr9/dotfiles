@@ -24,22 +24,20 @@
     '';
   cli = with pkgs; [
     agenix
-    keyboard_layout_selector
     du-dust
     dysk
     fd
-    jc
-    typst
-    just
-    transmission
-    kalker
     fend
+    jc
+    just
+    kalker
+    keyboard_layout_selector
     ouch
     poppler_utils
-    python312
     ripgrep
     sd
     sox
+    typst
     watchexec
     xclip
   ];
@@ -49,16 +47,18 @@
     appimage-run
     arandr
     discord
-    spotify
     dropbox
     evince
     feh
+    gnomecast
+    google-chrome
     gparted
     meld
     qalculate-gtk
+    spotify
     vlc
+    webtorrent_desktop
     zoom-us
-    google-chrome
     zotero
   ];
 in {
