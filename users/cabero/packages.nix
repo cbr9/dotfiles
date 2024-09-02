@@ -57,6 +57,7 @@
     spotify
     vlc
     webtorrent_desktop
+    todoist-electron
     zoom-us
     zotero
   ];
