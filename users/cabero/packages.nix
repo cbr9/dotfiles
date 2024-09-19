@@ -47,7 +47,6 @@
     appimage-run
     arandr
     discord
-    dropbox
     evince
     feh
     google-chrome
