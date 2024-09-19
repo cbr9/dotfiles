@@ -58,7 +58,9 @@
     vlc
     webtorrent_desktop
     todoist-electron
+    masterpdfeditor
     zoom-us
+    insync
     zotero
   ];
 in {
