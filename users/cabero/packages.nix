@@ -61,6 +61,7 @@
     zoom-us
     insync
     zotero
+    obsidian
   ];
 in {
   home.packages = cli ++ gui;
