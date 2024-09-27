@@ -46,6 +46,7 @@ in {
           ${lib.optionalString config.programs._1password-gui.enable "1password --silent &"}
           ${lib.optionalString config.home-manager.users.cabero.services.betterlockscreen.enable "betterlockscreen -u ${config.stylix.image} &"}
           ${lib.optionalString config.programs.kdeconnect.enable "kdeconnect-cli --refresh &"}
+          ${pkgs.insync}/bin/insync &
         '';
 
         awesome = {
