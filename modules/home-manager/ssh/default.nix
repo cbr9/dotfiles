@@ -3,12 +3,17 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   _1passwordAgent = {
-    enable = nixosConfig != {} && nixosConfig.programs._1password-gui.enable && nixosConfig.programs._1password-gui.sshAgent;
+    enable =
+      nixosConfig != { }
+      && nixosConfig.programs._1password-gui.enable
+      && nixosConfig.programs._1password-gui.sshAgent;
     path = "${config.home.homeDirectory}/.1password/agent.sock";
   };
-in {
+in
+{
   programs.ssh = {
     enable = true;
     forwardAgent = _1passwordAgent.enable;

@@ -2,11 +2,17 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   users.users.cabero = {
     createHome = true;
     isNormalUser = true;
-    extraGroups = ["wheel" "fuse" "docker" "networkmanager"];
+    extraGroups = [
+      "wheel"
+      "fuse"
+      "docker"
+      "networkmanager"
+    ];
     shell = pkgs.fish;
   };
 
@@ -31,12 +37,15 @@
   home-manager.users.root = {
     programs.helix = config.home-manager.users.cabero.programs.helix;
     home.stateVersion = config.home-manager.users.cabero.home.stateVersion;
-    stylix.targets = config.home-manager.users.cabero.stylix.targets;
+    # stylix.targets = config.home-manager.users.cabero.stylix.targets;
     programs.home-manager.enable = true;
   };
 
   home-manager.users.cabero = rec {
-    imports = [../../modules/home-manager ./packages.nix];
+    imports = [
+      ../../modules/home-manager
+      ./packages.nix
+    ];
     home = {
       homeDirectory = "/home/${home.username}";
       stateVersion = "25.05";

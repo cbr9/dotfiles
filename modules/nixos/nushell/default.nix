@@ -1,5 +1,6 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   config = {
-    environment.shells = [pkgs.nushell];
+    environment.shells = [ pkgs.nushell ];
   };
 }

@@ -1,6 +1,7 @@
-{pkgs, ...}: {
+{ pkgs, lib, ... }:
+{
   fonts = {
     fontDir.enable = true;
-    packages = with pkgs; [nerdfonts];
+    packages = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
   };
 }

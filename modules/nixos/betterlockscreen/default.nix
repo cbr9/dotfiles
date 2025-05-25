@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   programs.i3lock = {
     enable = true;
     package = pkgs.i3lock-color;
@@ -19,7 +20,9 @@
 
     xdg.configFile = {
       "betterlockscreen/betterlockscreenrc" = {
-        enable = config.home-manager.users.cabero.services.betterlockscreen.enable && config.programs.i3lock.u2fSupport;
+        enable =
+          config.home-manager.users.cabero.services.betterlockscreen.enable
+          && config.programs.i3lock.u2fSupport;
         source = ./betterlockscreenrc;
       };
     };

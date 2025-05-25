@@ -1,6 +1,7 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   config = {
-    environment.systemPackages = with pkgs; [picom];
+    environment.systemPackages = with pkgs; [ picom ];
 
     services.picom = {
       enable = true;
@@ -21,10 +22,18 @@
           shadow = false;
           clip-shadow-above = true;
         };
-        dnd = {shadow = false;};
-        menu = {shadow = false;};
-        popup_menu = {opacity = 0.8;};
-        dropdown_menu = {opacity = 0.8;};
+        dnd = {
+          shadow = false;
+        };
+        menu = {
+          shadow = false;
+        };
+        popup_menu = {
+          opacity = 0.8;
+        };
+        dropdown_menu = {
+          opacity = 0.8;
+        };
       };
     };
   };

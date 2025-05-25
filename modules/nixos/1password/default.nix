@@ -3,9 +3,12 @@
   lib,
   ...
 }:
-with lib; {
+with lib;
+{
   options.programs._1password-gui = {
-    sshAgent = mkEnableOption "1Password SSH Agent" // {default = true;};
+    sshAgent = mkEnableOption "1Password SSH Agent" // {
+      default = true;
+    };
   };
   config = {
     programs = {
@@ -13,7 +16,7 @@ with lib; {
       _1password-gui = {
         package = pkgs._1password-gui;
         enable = true;
-        polkitPolicyOwners = ["cabero"];
+        polkitPolicyOwners = [ "cabero" ];
       };
     };
   };

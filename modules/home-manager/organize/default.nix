@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   downloads = config.xdg.userDirs.download;
   pictures = config.xdg.userDirs.pictures;
   videos = config.xdg.userDirs.videos;
@@ -17,11 +18,11 @@
         new_path = "{{path}}".replace(" ", "-")
         shutil.move("{{path}}", new_path)
         print(new_path)
-      ''
-    );
+      '');
   };
-in {
-  imports = [./package.nix];
+in
+{
+  imports = [ ./package.nix ];
   programs.organize = {
     enable = true;
     config = {
@@ -33,14 +34,14 @@ in {
               to = "${downloads}/{{extension}}/";
             }
           ];
-          folders = [{path = downloads;}];
+          folders = [ { path = downloads; } ];
           filters = [
             {
               type = "group";
               filters = [
                 {
                   type = "regex";
-                  patterns = [".*"];
+                  patterns = [ ".*" ];
                 }
               ];
             }
@@ -64,7 +65,7 @@ in {
           filters = [
             {
               type = "mime";
-              types = ["video/*"];
+              types = [ "video/*" ];
             }
           ];
         }
@@ -84,7 +85,7 @@ in {
               ];
             }
           ];
-          folders = [{path = downloads;}];
+          folders = [ { path = downloads; } ];
         }
       ];
     };

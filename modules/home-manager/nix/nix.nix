@@ -3,15 +3,19 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   nix = {
     enable = true;
     package = lib.mkDefault pkgs.nix;
     settings = rec {
       max-jobs = 20;
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
 
-      trusted-users = [config.home.username];
+      trusted-users = [ config.home.username ];
       # # Add community Cachix to binary cache
       builders-use-substitutes = true;
       trusted-substituters = substituters;

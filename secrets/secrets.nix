@@ -1,6 +1,6 @@
 let
   machines = {
-    naboo = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHnvnxZB0xPViWIYi6v4vBsnDeGAJtJiWjhSdPDU+4vG root@naboo";
+    naboo = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBrwZX5TvbhjvQu+Jqn119cLEMLrBz6Mtc65nHO6lx1M root@nixos";
   };
 
   users = {
@@ -11,7 +11,8 @@ let
     users.cabero
     machines.naboo
   ];
-in {
+in
+{
   "cabero-15582531.age".publicKeys = publicKeys;
   "cabero-15582547.age".publicKeys = publicKeys;
   "spotify.age".publicKeys = publicKeys;

@@ -4,10 +4,12 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.programs.organize;
-  toml = pkgs.formats.toml {};
-in {
+  toml = pkgs.formats.toml { };
+in
+{
   options = {
     programs.organize = {
       enable = mkEnableOption ''
@@ -23,7 +25,7 @@ in {
 
       config = mkOption {
         type = toml.type;
-        default = {};
+        default = { };
         example = literalExpression ''
           {
             actions = {
@@ -42,12 +44,12 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = [cfg.package];
+    home.packages = [ cfg.package ];
     xdg.configFile."organize/config.toml" = {
-      enable = cfg.enable && cfg.config != {};
+      enable = cfg.enable && cfg.config != { };
       source = toml.generate "config.toml" cfg.config;
     };
   };
 
-  meta.maintainers = [maintainers.cbr9];
+  meta.maintainers = [ maintainers.cbr9 ];
 }

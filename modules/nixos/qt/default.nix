@@ -1,5 +1,6 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   config = {
-    environment.systemPackages = with pkgs; [breeze-qt5];
+    environment.systemPackages = with pkgs; [ breeze-qt5 ];
   };
 }

@@ -2,7 +2,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   nix = {
     package = lib.mkDefault pkgs.nix;
     gc = {
@@ -11,8 +12,14 @@
     };
     settings = rec {
       max-jobs = 20;
-      experimental-features = ["nix-command" "flakes"];
-      trusted-users = ["root" "@wheel"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
 
       # # Add community Cachix to binary cache
       builders-use-substitutes = true;

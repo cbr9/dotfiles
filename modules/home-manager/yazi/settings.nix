@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.yazi.settings = {
     plugin = {
       prepend_fetchers = [
@@ -57,7 +58,10 @@
         }
         {
           name = "*.zip";
-          use = ["ouch_no" "ouch_yes"];
+          use = [
+            "ouch_no"
+            "ouch_yes"
+          ];
         }
         {
           mime = "application/json";
@@ -67,7 +71,10 @@
         # Multiple editers for a single rule
         {
           name = "*.html";
-          use = ["browser" "edit"];
+          use = [
+            "browser"
+            "edit"
+          ];
         }
       ];
       append_rules = [

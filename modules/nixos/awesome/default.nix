@@ -4,9 +4,11 @@
   config,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.services.xserver.windowManager.awesome;
-in {
+in
+{
   config = {
     services.displayManager.defaultSession = "none+awesome";
     services.xserver = {
@@ -38,7 +40,7 @@ in {
     };
 
     home-manager.users.cabero = {
-      services.betterlockscreen.package = pkgs.betterlockscreen.override {withDunst = !cfg.enable;};
+      services.betterlockscreen.package = pkgs.betterlockscreen.override { withDunst = !cfg.enable; };
       services.dunst.enable = lib.mkForce (!cfg.enable);
 
       xdg.configFile = {

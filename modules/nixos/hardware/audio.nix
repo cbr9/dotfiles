@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   environment.systemPackages = [
     # Need pulseaudio cli tools for pipewire.
     pkgs.pulseaudio

@@ -1,7 +1,8 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   networking.firewall = {
-    allowedUDPPorts = [5353];
-    allowedTCPPorts = [57621];
+    allowedUDPPorts = [ 5353 ];
+    allowedTCPPorts = [ 57621 ];
   };
 
   age.secrets.spotify.file = ../../../secrets/spotify.age;
@@ -9,7 +10,7 @@
   home-manager.users.cabero = {
     services.spotifyd = {
       enable = true;
-      package = pkgs.stable.spotifyd;
+      package = pkgs.spotifyd;
       settings = {
         global = {
           username = "31vtbbqkijxmfhlidy4clznrf6a4";
@@ -22,6 +23,6 @@
       };
     };
 
-    home.packages = [pkgs.spotify];
+    home.packages = [ pkgs.spotify ];
   };
 }

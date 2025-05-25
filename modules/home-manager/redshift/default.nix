@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   services.redshift = {
     enable = true;
     settings.redshift = {

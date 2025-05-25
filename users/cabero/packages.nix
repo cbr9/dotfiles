@@ -1,4 +1,5 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   cli = with pkgs; [
     agenix
     du-dust
@@ -8,6 +9,7 @@
     jc
     just
     ouch
+    uv
     poppler_utils
     ripgrep
     sd
@@ -22,8 +24,8 @@
     arandr
     evince
     feh
-    google-chrome
     gparted
+    google-chrome
     meld
     qalculate-gtk
     spotify
@@ -33,6 +35,7 @@
     insync
     obsidian
   ];
-in {
+in
+{
   home.packages = cli ++ gui;
 }

@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options.sys.hardware = with lib; {
     isLaptop = lib.mkOption {
       type = types.bool;

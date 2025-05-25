@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   boot.loader.grub = {
     enable = lib.mkForce true;
     efiSupport = lib.mkForce true;

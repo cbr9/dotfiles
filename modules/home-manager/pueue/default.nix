@@ -1,6 +1,7 @@
-{...}: {
+{ ... }:
+{
   services.pueue = {
     enable = true;
-    settings = {};
+    settings = { };
   };
 }

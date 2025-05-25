@@ -1,6 +1,4 @@
 switch:
-	-rm ~/.config/mimeapps.list
-	-rm ~/.local/share/mimeapps.list
 	sudo nixos-rebuild switch --flake .
 
 update:

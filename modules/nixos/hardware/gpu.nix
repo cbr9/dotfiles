@@ -1,14 +1,12 @@
-{pkgs, ...}: {
-  services.xserver = {
-    enable = true;
-    videoDrivers = ["nvidia"];
-    dpi = 125;
-  };
+{ pkgs, config, ... }:
+{
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   services.libinput.enable = true;
 
   hardware = {
     nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
       modesetting.enable = true;
       forceFullCompositionPipeline = true;
       powerManagement.enable = true;

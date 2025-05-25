@@ -13,26 +13,27 @@
     };
     organize.url = "github:cbr9/organizer";
     agenix.url = "github:ryantm/agenix";
-    stylix.url = "github:danth/stylix";
+    # stylix.url = "github:danth/stylix";
   };
 
-  outputs = {...} @ inputs: let
-    system = "x86_64-linux";
-    mkLib = nixpkgs:
-      nixpkgs.lib.extend
-      (final: prev: (import ./lib final));
-    lib = mkLib inputs.nixpkgs;
-    pkgs = inputs.nixpkgs.legacyPackages.${system};
-  in {
-    nixosConfigurations = lib.mkHosts ["naboo"] system inputs;
+  outputs =
+    { ... }@inputs:
+    let
+      system = "x86_64-linux";
+      mkLib = nixpkgs: nixpkgs.lib.extend (final: prev: (import ./lib final));
+      lib = mkLib inputs.nixpkgs;
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
+    in
+    {
+      nixosConfigurations = lib.mkHosts [ "nixos" ] system inputs;
 
-    devShells.${system}.default = pkgs.mkShell {
-      nativeBuildInputs = with pkgs; [
-        git-crypt
-        git-lfs
-        git
-        nix-prefetch-github
-      ];
+      devShells.${system}.default = pkgs.mkShell {
+        nativeBuildInputs = with pkgs; [
+          git-crypt
+          git-lfs
+          git
+          nix-prefetch-github
+        ];
+      };
     };
-  };
 }

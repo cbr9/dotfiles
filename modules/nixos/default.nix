@@ -1,7 +1,8 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./1password
-    ./awesome
+    # ./awesome
     ./spotify
     ./base
     ./betterlockscreen
@@ -14,7 +15,7 @@
     ./nushell
     ./openrgb
     ./picom
-    ./stylix
+    # ./stylix
   ];
 
   environment = {

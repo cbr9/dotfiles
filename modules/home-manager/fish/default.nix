@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   programs.fish = {
     enable = true;
 
@@ -17,19 +18,21 @@
       '';
     };
 
-    shellInit = let
-      HOME = "${config.home.homeDirectory}";
-    in ''
-      set -g fish_greeting ""
+    shellInit =
+      let
+        HOME = "${config.home.homeDirectory}";
+      in
+      ''
+        set -g fish_greeting ""
 
-      if test -f ${HOME}/.nix-profile/etc/profile.d/nix.fish
-        source ${HOME}/.nix-profile/etc/profile.d/nix.fish
-      end
+        if test -f ${HOME}/.nix-profile/etc/profile.d/nix.fish
+          source ${HOME}/.nix-profile/etc/profile.d/nix.fish
+        end
 
-      if test -f ${HOME}/.config/op/plugins
-        source ${HOME}/.config/op/plugins.sh
-      end
-    '';
+        if test -f ${HOME}/.config/op/plugins
+          source ${HOME}/.config/op/plugins.sh
+        end
+      '';
 
     plugins = with pkgs; [
       {
