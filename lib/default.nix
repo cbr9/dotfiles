@@ -1,5 +1,5 @@
 lib: let
-  stateVersion = "23.05";
+  stateVersion = "25.05";
 in {
   indexOf = element: list: let
     helper = list: index:

@@ -1,22 +1,19 @@
 {
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-25.05";
     nur.url = "github:nix-community/NUR";
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs-f2k.url = "github:moni-dz/nixpkgs-f2k";
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    helix.url = "github:helix-editor/helix";
-    organize.url = "git+ssh://git@github.com/cbr9/organizer";
+    organize.url = "github:cbr9/organizer";
     agenix.url = "github:ryantm/agenix";
     stylix.url = "github:danth/stylix";
-    yazi.url = "github:sxyazi/yazi";
   };
 
   outputs = {...} @ inputs: let

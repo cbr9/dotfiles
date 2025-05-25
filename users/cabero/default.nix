@@ -39,7 +39,7 @@
     imports = [../../modules/home-manager ./packages.nix];
     home = {
       homeDirectory = "/home/${home.username}";
-      stateVersion = "24.05";
+      stateVersion = "25.05";
     };
     programs.home-manager.enable = true;
     home.username = "cabero";

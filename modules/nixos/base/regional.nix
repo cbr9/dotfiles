@@ -8,22 +8,20 @@ with pkgs;
 with lib; let
   cfg = config.sys;
 in {
-  options.sys = {
-    locale = mkOption {
-      type = types.str;
-      description = "The locale for the machine";
-      default = "en_US.UTF-8";
-    };
+    time.timeZone = "Europe/Berlin";
 
-    timeZone = mkOption {
-      type = types.str;
-      description = "The timezone of the machine";
-      default = "Europe/Berlin";
-    };
-  };
+    # Select internationalisation properties.
+    i18n.defaultLocale = "en_US.UTF-8";
 
-  config = {
-    i18n.defaultLocale = cfg.locale;
-    time.timeZone = cfg.timeZone;
-  };
+    i18n.extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+    };
 }

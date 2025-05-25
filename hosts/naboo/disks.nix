@@ -10,7 +10,7 @@
   disko.devices = {
     disk = {
       sda = {
-        device = "/dev/disk/by-id/wwn-0x5000c500e4b220dc";
+        device = "/dev/disk/by-uuid/FC78F29978F251BE";
         type = "disk";
         content = {
           type = "gpt";

@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 with lib; let
@@ -47,17 +48,13 @@ in {
     ./settings.nix
   ];
 
-  nix.settings = lib.mkIf config.programs.helix.enable rec {
-    substituters = trusted-substituters;
-    trusted-substituters = [
-      "https://helix.cachix.org"
-    ];
-    trusted-public-keys = [
-      "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
-    ];
-  };
-
   programs.helix = {
     enable = true;
+    defaultEditor = true;
+    extraPackages = [
+      pkgs.ruff
+      pkgs.nil
+      pkgs.nixfmt-rfc-style
+    ];
   };
 }
